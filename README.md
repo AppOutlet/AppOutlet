@@ -1,5 +1,5 @@
 # App Outlet
-An Universal linux app store
+An Universal linux app store based on [LinuxAppStore](https://github.com/linuxappstore/linuxappstore)(Discontinued)
 
 ## Third part licences
 ### Icon
