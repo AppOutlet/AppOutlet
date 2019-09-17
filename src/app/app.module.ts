@@ -7,31 +7,27 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
-import { IonicModule } from '@ionic/angular'
+import { IonicModule } from '@ionic/angular';
 import { AppRoutingModule } from './app-routing.module';
-
-// NG Translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
-import { HomeModule } from './home/home.module';
-
 import { AppComponent } from './app.component';
+import { MainModule } from './presentation/main/main.module';
+import { AppDetailComponent } from './presentation/app-detail/app-detail.component';
 
-// AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, AppDetailComponent],
     imports: [
         BrowserModule,
         FormsModule,
         HttpClientModule,
         CoreModule,
         SharedModule,
-        HomeModule,
+        MainModule,
         IonicModule.forRoot({
             mode: 'ios'
         }),
