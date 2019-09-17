@@ -22,7 +22,7 @@
                         <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
                     </ion-list-header>
 
-                    <ion-item detail="false" *ngFor="let category of categories" routerLink="search">
+                    <ion-item detail="false" *ngFor="let category of categories" (click)="categoryClicked(category)">
                         <ion-label>
                             {{ category.name | translate }}
                         </ion-label>

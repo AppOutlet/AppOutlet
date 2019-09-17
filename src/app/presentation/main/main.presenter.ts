@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { MainRouter } from './main.router'
 import { MainComponent } from './main.component'
 import { CategoryService } from '../../core/services/category/category.service'
+import { Category } from '../../core/model/category.model'
 
 @Injectable()
 export class MainPresenter {
@@ -27,5 +28,9 @@ export class MainPresenter {
         }, () => {
             this.view.loading = false
         })
+    }
+
+    categoryClicked(category: Category){
+        this.categoryService.selectCategory(category)
     }
 }
