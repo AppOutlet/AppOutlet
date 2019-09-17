@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, from } from 'rxjs';
-import { map, bufferCount, flatMap } from 'rxjs/operators';
-import { AppConfig } from '../../../../environments/environment';
+import { Injectable } from '@angular/core'
+import { HttpClient } from '@angular/common/http'
+import { Observable, from } from 'rxjs'
+import { map, bufferCount, flatMap } from 'rxjs/operators'
+import { AppConfig } from '../../../../environments/environment'
 
 
 @Injectable({ providedIn: 'root' })
@@ -19,7 +19,6 @@ export class CategoryRepository {
     }
 
     private convertToCategory(rawCategory: any): Category {
-        debugger
         return {
             name: rawCategory._id
         }

@@ -4,7 +4,8 @@
             "TITLE": "Home"
         },
         "MAIN": {
-            "TITLE": "Main"
+            "TITLE": "Main",
+            "CATEGORIES": "Categories"
         }
     }
 }
