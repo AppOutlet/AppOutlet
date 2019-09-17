@@ -1,7 +1,11 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "App works !"
-      }
-  }
+    "PAGES": {
+        "HOME": {
+            "TITLE": "Home"
+        },
+        "MAIN": {
+            "TITLE": "Main",
+            "CATEGORIES": "Categories"
+        }
+    }
 }
