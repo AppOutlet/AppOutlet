@@ -7,11 +7,15 @@ import { SharedModule } from '../../shared/shared.module'
 import { HomeComponent } from '../home/home.component'
 import { MainPresenter } from './main.presenter'
 import { MainRouter } from './main.router'
+import { SearchResultComponent } from '../search-result/search-result.component'
+import { AppDetailComponent } from '../app-detail/app-detail.component'
 
 @NgModule({
     declarations: [
         MainComponent,
-        HomeComponent
+        HomeComponent,
+        SearchResultComponent,
+        AppDetailComponent
     ],
     imports: [
         CommonModule,
