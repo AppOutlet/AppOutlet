@@ -1,18 +1,21 @@
 {
-  "name": "angular-electron",
-  "version": "6.1.0",
-  "description": "Angular 8 with Electron (Typescript + SASS + Hot Reload)",
-  "homepage": "https://github.com/maximegris/angular-electron",
+  "name": "app-outlet",
+  "version": "1.0.0",
+  "description": "An Universal linux app store ",
+  "homepage": "https://github.com/app-outlet/app-outlet",
   "author": {
-    "name": "Maxime GRIS",
-    "email": "maxime.gris@gmail.com"
+    "name": "Messias Junior",
+    "email": "messiaslima.03@gmail.com"
   },
   "keywords": [
     "angular",
     "angular 8",
     "electron",
     "typescript",
-    "sass"
+    "sass",
+    "snap",
+    "flatpak",
+    "appimage"
   ],
   "main": "main.js",
   "private": true,
