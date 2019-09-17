@@ -86,5 +86,8 @@
   },
   "engines": {
     "node": ">=10.9.0"
+  },
+  "dependencies": {
+    "@ionic/angular": "^4.9.1"
   }
 }
