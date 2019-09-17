@@ -1,0 +1,3 @@
+interface Category {
+    name: string;
+}
