@@ -38,4 +38,9 @@ export class MainPresenter {
         this.eventBusService.triggerEvent('categorySelected', category)
         this.router.goToSearchResult(SearchType.CATEGORY)
     }
+
+    search(query){
+        this.eventBusService.triggerEvent('queryTyped', query)
+        this.router.goToSearchResult(SearchType.NAME, query)
+    }
 }

@@ -16,4 +16,12 @@ export class AppRepository {
             }
         })
     }
+
+    findByName(query: string){
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/search`, {
+            params: {
+                name: query
+            }
+        })
+    }
 }

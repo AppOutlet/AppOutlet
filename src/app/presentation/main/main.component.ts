@@ -26,6 +26,6 @@ export class MainComponent implements OnInit {
     }
 
     search(query) {
-        console.log(query)
+        this.presenter.search(query)
     }
 }

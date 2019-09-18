@@ -21,6 +21,11 @@
 
     <ion-grid fixed>
 
+        <ion-card-title class="search-title">
+            {{ title }}
+        </ion-card-title>
+
+
         <ion-row>
             <ion-col *ngFor="let app of apps" size="6">
                 <app-card [app]="app"></app-card>

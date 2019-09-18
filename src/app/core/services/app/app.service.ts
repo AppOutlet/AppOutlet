@@ -14,4 +14,8 @@ export class AppService {
     findByCategory(category: Category) {
         return this.appRepository.findByCategory(category)
     }
+
+    findByName(query: string) {
+        return this.appRepository.findByName(query)
+    }
 }

@@ -13,7 +13,8 @@
                 "SNAP": "Snap",
                 "FLATPAK": "Flatpak",
                 "APPIMAGE": "AppImage"
-            }
+            },
+            "QUERY_TITLE": "Results for '{{query}}'"
         }
     }
 }

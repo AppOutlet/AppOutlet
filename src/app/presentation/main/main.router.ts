@@ -9,7 +9,11 @@ export class MainRouter {
         private router: Router
     ) { }
 
-    goToSearchResult(searchType: SearchType) {
-        this.router.navigate([`search/${searchType}`])
+    goToSearchResult(searchType: SearchType, query: String = null) {
+        if (query) {
+            this.router.navigate([`search/${searchType}`], { queryParams: { query: query } })
+        } else {
+            this.router.navigate([`search/${searchType}`])
+        }
     }
 }

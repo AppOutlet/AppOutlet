@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core'
+import { Component, OnInit, OnDestroy } from '@angular/core'
 import { App } from '../../core/model/app.model'
 import { ActivatedRoute } from '@angular/router'
 import { SearchResultPresenter } from './search-result.presenter'
@@ -8,7 +8,7 @@ import { SearchResultPresenter } from './search-result.presenter'
     templateUrl: './search-result.component.html',
     styleUrls: ['./search-result.component.scss']
 })
-export class SearchResultComponent implements OnInit {
+export class SearchResultComponent {
 
     type = 'alltypes'
     title = ''
@@ -20,9 +20,14 @@ export class SearchResultComponent implements OnInit {
         private presenter: SearchResultPresenter
     ) { }
 
-    ngOnInit() {
+    ionViewDidLeave(){
+        this.presenter.destroy()
+    }
+
+    ionViewDidEnter() {
         const searchType = this.activatedRoute.snapshot.params['type']
-        this.presenter.init(this, searchType)
+        const query = this.activatedRoute.snapshot.queryParams.query
+        this.presenter.init(this, searchType, query)
     }
 
     segmentChanged(event) {
