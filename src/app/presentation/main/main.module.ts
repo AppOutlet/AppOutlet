@@ -12,6 +12,7 @@ import { AppDetailComponent } from '../app-detail/app-detail.component'
 import { FormsModule } from '@angular/forms'
 import { SearchResultPresenter } from '../search-result/search-result.presenter'
 import { SearchResultRouter } from '../search-result/search-result.router'
+import { EventBusService } from 'ngx-eventbus'
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { SearchResultRouter } from '../search-result/search-result.router'
         MainPresenter,
         MainRouter,
         SearchResultPresenter,
-        SearchResultRouter
+        SearchResultRouter,
+        EventBusService,
     ]
 })
 export class MainModule { }

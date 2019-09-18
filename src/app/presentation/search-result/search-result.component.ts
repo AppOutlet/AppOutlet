@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core'
 import { App } from '../../core/model/app.model'
 import { ActivatedRoute } from '@angular/router'
 import { SearchResultPresenter } from './search-result.presenter'
-import { app } from 'electron'
 
 @Component({
     selector: 'app-search-result',
