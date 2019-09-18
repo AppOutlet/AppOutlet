@@ -4,7 +4,7 @@
 
             <ion-header>
                 <ion-toolbar>
-                    <ion-searchbar></ion-searchbar>
+                    <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)"></ion-searchbar>
                 </ion-toolbar>
             </ion-header>
 

@@ -21,7 +21,11 @@ export class MainComponent implements OnInit {
         this.presenter.init(this)
     }
 
-    categoryClicked(category: Category){
+    categoryClicked(category: Category) {
         this.presenter.categoryClicked(category)
+    }
+
+    search(query) {
+        console.log(query)
     }
 }
