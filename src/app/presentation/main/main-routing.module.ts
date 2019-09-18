@@ -20,7 +20,7 @@ const routes: Routes = [
             path: 'app',
             component: AppDetailComponent
         }, {
-            path: 'search',
+            path: 'search/:type',
             component: SearchResultComponent
         }]
     }

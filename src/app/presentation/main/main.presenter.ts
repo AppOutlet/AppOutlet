@@ -3,6 +3,7 @@ import { MainRouter } from './main.router'
 import { MainComponent } from './main.component'
 import { CategoryService } from '../../core/services/category/category.service'
 import { Category } from '../../core/model/category.model'
+import { SearchType } from '../../core/model/search-type'
 
 @Injectable()
 export class MainPresenter {
@@ -30,7 +31,8 @@ export class MainPresenter {
         })
     }
 
-    categoryClicked(category: Category){
-        this.categoryService.selectCategory(category)
+    categoryClicked(category: Category) {
+        this.categoryService.setSelectedCategory(category)
+        this.router.goToSearchResult(SearchType.CATEGORY)
     }
 }

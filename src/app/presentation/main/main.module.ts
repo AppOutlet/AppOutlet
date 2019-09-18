@@ -9,6 +9,9 @@ import { MainPresenter } from './main.presenter'
 import { MainRouter } from './main.router'
 import { SearchResultComponent } from '../search-result/search-result.component'
 import { AppDetailComponent } from '../app-detail/app-detail.component'
+import { FormsModule } from '@angular/forms'
+import { SearchResultPresenter } from '../search-result/search-result.presenter'
+import { SearchResultRouter } from '../search-result/search-result.router'
 
 @NgModule({
     declarations: [
@@ -21,11 +24,14 @@ import { AppDetailComponent } from '../app-detail/app-detail.component'
         CommonModule,
         SharedModule,
         MainRoutingModule,
-        IonicModule
+        IonicModule,
+        FormsModule
     ],
     providers: [
         MainPresenter,
-        MainRouter
+        MainRouter,
+        SearchResultPresenter,
+        SearchResultRouter
     ]
 })
 export class MainModule { }

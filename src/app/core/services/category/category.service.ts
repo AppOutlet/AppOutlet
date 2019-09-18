@@ -18,7 +18,11 @@ export class CategoryService {
         return this.categoryRepository.getAll()
     }
 
-    selectCategory(category: Category) {
+    setSelectedCategory(category: Category) {
         this.selectedCategory = category
+    }
+
+    getSelectedCategory(): Category {
+        return this.selectedCategory
     }
 }

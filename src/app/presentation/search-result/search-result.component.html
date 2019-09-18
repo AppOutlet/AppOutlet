@@ -1,4 +1,32 @@
-<ion-content>
-    <app-card [app]="mockApp"></app-card>
-</ion-content>
+<ion-header>
+    <ion-toolbar>
+        <ion-segment [(ngModel)]="type">
+            <ion-segment-button value="alltypes">
+                {{ 'PAGES.SEARCH.SEGMENT.ALL_TYPES' | translate }}
+            </ion-segment-button>
+            <ion-segment-button value="snap">
+                {{ 'PAGES.SEARCH.SEGMENT.SNAP' | translate }}
+            </ion-segment-button>
+            <ion-segment-button value="flatpak">
+                {{ 'PAGES.SEARCH.SEGMENT.FLATPAK' | translate }}
+            </ion-segment-button>
+            <ion-segment-button value="appimage">
+                {{ 'PAGES.SEARCH.SEGMENT.APPIMAGE' | translate }}
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
 
+<ion-content>
+
+    <ion-grid fixed>
+
+        <ion-row>
+            <ion-col *ngFor="let app of apps" size="6">
+                <app-card [app]="app"></app-card>
+            </ion-col>
+        </ion-row>
+
+    </ion-grid>
+
+</ion-content>
