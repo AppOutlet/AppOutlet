@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-        <ion-segment [(ngModel)]="type">
+        <ion-segment [(ngModel)]="type" (ionChange)="segmentChanged($event)">
             <ion-segment-button value="alltypes">
                 {{ 'PAGES.SEARCH.SEGMENT.ALL_TYPES' | translate }}
             </ion-segment-button>

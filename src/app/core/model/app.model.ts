@@ -18,4 +18,5 @@ export interface App {
     shortDescription: string
     store: string
     version: string
+    type: string
 }

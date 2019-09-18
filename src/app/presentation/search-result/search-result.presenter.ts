@@ -37,6 +37,7 @@ export class SearchResultPresenter {
         const selectedCategory = this.categoryService.getSelectedCategory()
         this.appService.findByCategory(selectedCategory).subscribe(apps => {
             this.view.apps = apps
+            this.view.allApps = apps
         }, err => {
             console.log(err)
         }, () => {
