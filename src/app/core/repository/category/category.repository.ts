@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable, from } from 'rxjs'
 import { map, bufferCount, flatMap } from 'rxjs/operators'
 import { AppConfig } from '../../../../environments/environment'
+import { Category } from '../../model/category.model'
 
 
 @Injectable({ providedIn: 'root' })

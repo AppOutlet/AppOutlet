@@ -6,6 +6,15 @@
         "MAIN": {
             "TITLE": "Main",
             "CATEGORIES": "Categories"
+        },
+        "SEARCH": {
+            "SEGMENT": {
+                "ALL_TYPES": "All types",
+                "SNAP": "Snap",
+                "FLATPAK": "Flatpak",
+                "APPIMAGE": "AppImage"
+            },
+            "QUERY_TITLE": "Results for '{{query}}'"
         }
     }
 }

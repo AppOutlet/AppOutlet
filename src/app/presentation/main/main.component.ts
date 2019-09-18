@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { MainPresenter } from './main.presenter'
 import { Observable } from 'rxjs'
+import { Category } from '../../core/model/category.model'
 
 @Component({
     selector: 'app-main',
@@ -20,4 +21,11 @@ export class MainComponent implements OnInit {
         this.presenter.init(this)
     }
 
+    categoryClicked(category: Category) {
+        this.presenter.categoryClicked(category)
+    }
+
+    search(query) {
+        this.presenter.search(query)
+    }
 }
