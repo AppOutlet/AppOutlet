@@ -6,12 +6,19 @@ import { Section } from '../../../core/model/section.model'
     templateUrl: './section.component.html',
     styleUrls: ['./section.component.scss']
 })
-export class SectionComponent implements OnInit {
+export class SectionComponent {
 
     @Input() section: Section
+
+    private CARD_WIDTH = 350
+
     constructor() { }
 
-    ngOnInit() {
+    scrollBack(element) {
+        element.scrollLeft -= 3 * this.CARD_WIDTH
     }
 
+    scrollFoward(element) {
+        element.scrollLeft += 3 * this.CARD_WIDTH
+    }
 }
