@@ -8,7 +8,8 @@ ion-card-header{
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1; /* number of lines to show */
+    -webkit-line-clamp: 1;
+    white-space: normal;
  }
 
  .two-lines {
@@ -16,5 +17,6 @@ ion-card-header{
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2; /* number of lines to show */
+    -webkit-line-clamp: 2;
+    white-space: normal;
  }

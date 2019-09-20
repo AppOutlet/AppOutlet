@@ -13,10 +13,10 @@ export class HomeComponent implements OnInit {
         apps: [
 
             {
-                name: 'Some App',
+                name: 'Some App Large name',
                 type: 'Flatpak',
                 icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
+                shortDescription: 'Some short desctiption here. Not do short description'
             },
             {
                 name: 'Some App',
