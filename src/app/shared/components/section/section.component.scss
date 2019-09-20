@@ -12,4 +12,19 @@
 .app-list__item{
     width: 350px;
     display: inline-block;
+    white-space: normal;
+}
+
+.fab {
+
+    position: fixed;
+    margin-top: 142px;
+
+    &--start {
+        margin-left: -15px
+    }
+
+    &--end{
+        margin-left: -15px
+    }
 }
