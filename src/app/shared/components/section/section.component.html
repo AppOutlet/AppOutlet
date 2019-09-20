@@ -1,23 +1,8 @@
-<ion-content>
-    <ion-card-title class="section-title">
-        {{ section?.title }}
-    </ion-card-title>
-    <div class="app-list" *ngIf="section.apps">
-        <div class="app-list__item" *ngFor="let app of section.apps">
-            <app-card [app]="app"></app-card>
-        </div>
+<ion-card-title class="section-title">
+    {{ section?.title }}
+</ion-card-title>
+<div class="app-list" *ngIf="section.apps">
+    <div class="app-list__item" *ngFor="let app of section.apps">
+        <app-card [app]="app"></app-card>
     </div>
-
-    <ion-fab class="fab fab--start" horizontal="start" slot="fixed">
-        <ion-fab-button size="small" color="light">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-
-    <ion-fab class="fab fab--end" horizontal="end" slot="fixed">
-        <ion-fab-button size="small" color="light">
-            <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-    </ion-fab>
-
-</ion-content>
+</div>
