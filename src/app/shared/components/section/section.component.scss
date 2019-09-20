@@ -5,11 +5,25 @@
 }
 
 .app-list {
-    overflow: auto;
+    overflow: hidden;
     white-space: nowrap;
+    scroll-behavior: smooth;
 }
 
 .app-list__item{
     width: 350px;
     display: inline-block;
+}
+
+.fab{
+
+    margin-top: 77px;
+
+    &--start{
+        left: -5px;
+    }
+
+    &--end{
+        right: -5px;
+    }
 }
