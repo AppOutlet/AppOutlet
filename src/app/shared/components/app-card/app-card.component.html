@@ -2,17 +2,17 @@
 
     <ion-row>
         <ion-col>
-            <img [src]="app.icon" />
+            <img [src]="app?.icon" />
         </ion-col>
 
         <ion-col size="8">
             <ion-card-header>
-                <ion-card-subtitle class="single-line">{{ app.type }}</ion-card-subtitle>
-                <ion-card-title class="single-line">{{ app.name }}</ion-card-title>
+                <ion-card-subtitle class="single-line">{{ app?.type }}</ion-card-subtitle>
+                <ion-card-title class="single-line">{{ app?.name }}</ion-card-title>
             </ion-card-header>
 
             <ion-card-content>
-                <p class="two-lines">{{ app.shortDescription }}</p>
+                <p class="two-lines">{{ app?.shortDescription }}</p>
             </ion-card-content>
         </ion-col>
 

@@ -10,10 +10,57 @@ export class HomeComponent implements OnInit {
 
     section: Section = {
         title: 'Custom Section',
-        apps: [{
-            name: 'Some App',
-            type: 'Flatpak',
-        }]
+        apps: [
+
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+            {
+                name: 'Some App',
+                type: 'Flatpak',
+                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
+                shortDescription: 'Some short desctiption here'
+            },
+        ]
     }
 
     constructor() { }

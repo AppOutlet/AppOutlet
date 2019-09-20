@@ -1,3 +1,8 @@
 <ion-card-title class="section-title">
     {{ section?.title }}
 </ion-card-title>
+<div class="app-list" *ngIf="section.apps">
+    <div class="app-list__item" *ngFor="let app of section.apps">
+        <app-card [app]="app"></app-card>
+    </div>
+</div>

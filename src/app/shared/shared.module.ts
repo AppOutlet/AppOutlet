@@ -24,6 +24,9 @@ import { SectionComponent } from './components/section/section.component'
         WebviewDirective,
         AppCardComponent,
         SectionComponent
+    ],
+    entryComponents: [
+        AppCardComponent
     ]
 })
 export class SharedModule { }
