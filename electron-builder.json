@@ -36,7 +36,6 @@
     "category": "Utility",
     "target": [
       "AppImage",
-      "snap",
       "deb"
     ]
   }
