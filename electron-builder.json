@@ -1,8 +1,8 @@
 {
-  "productName": "App Outlet",
-  "directories": {
-    "output": "release/"
-  },
+    "productName": "App Outlet",
+    "directories": {
+        "output": "release/"
+    },
     "files": [
         "**/*",
         "!**/*.ts",
@@ -19,24 +19,25 @@
         "!tsconfig.json",
         "!tslint.json"
     ],
-  "win": {
-    "icon": "dist",
-    "target": [
-      "portable"
-    ]
-  },
-  "mac": {
-    "icon": "dist",
-    "target": [
-      "dmg"
-    ]
-  },
-  "linux": {
-    "icon": "dist",
-    "category": "Utility",
-    "target": [
-      "AppImage",
-      "deb"
-    ]
-  }
+    "win": {
+        "icon": "dist",
+        "target": [
+            "portable"
+        ]
+    },
+    "mac": {
+        "icon": "dist",
+        "target": [
+            "dmg"
+        ]
+    },
+    "linux": {
+        "icon": "dist",
+        "category": "Utility",
+        "target": [
+            "AppImage",
+            "deb",
+            "snap"
+        ]
+    }
 }

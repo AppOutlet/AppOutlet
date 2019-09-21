@@ -17,12 +17,18 @@ install:
 script:
   - npm run electron:linux
 deploy:
-  provider: releases
-  api_key: $GITHUB_KEY
-  file_glob: true
-  file:
-    - "release/App Outlet-*.AppImage"
-    - "release/app-outlet_*_amd64.deb"
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: releases
+    api_key: $GITHUB_KEY
+    file_glob: true
+    file:
+      - "release/App Outlet-*.AppImage"
+      - "release/app-outlet_*_amd64.deb"
+      - "release/app-outlet_*_amd64.snap"
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: snap
+    snap: release/app-outlet_*_amd64.snap
+    channel: edge
+    skip_cleanup: true
