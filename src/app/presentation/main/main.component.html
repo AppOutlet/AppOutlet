@@ -4,6 +4,7 @@
 
             <ion-header>
                 <ion-toolbar>
+                    <img src="assets/icon.png" class="app-icon" slot="start">
                     <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)"></ion-searchbar>
                 </ion-toolbar>
             </ion-header>
@@ -28,6 +29,18 @@
                         </ion-label>
                     </ion-item>
 
+                    <ion-grid>
+                        <ion-row [hidden]="!loading" class="ion-align-items-center ion-justify-content-center"
+                            style="margin-top: auto">
+                            <ion-spinner></ion-spinner>
+                        </ion-row>
+                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                            {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                        </ion-row>
+                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                            <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}</ion-button>
+                        </ion-row>
+                    </ion-grid>
                 </ion-list>
             </ion-content>
         </ion-menu>

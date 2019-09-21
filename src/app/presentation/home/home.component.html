@@ -1,5 +1,5 @@
 <ion-content>
-    <app-section [section]="popularSection"></app-section>
-    <app-section [section]="recentlyUpdatedSection"></app-section>
-    <app-section [section]="newSection"></app-section>
+    <app-section [section]="popularSection" (reload)="reloadPopular()"></app-section>
+    <app-section [section]="recentlyUpdatedSection" (reload)="reloadRecentlyUpdated()"></app-section>
+    <app-section [section]="newSection" (reload)="reloadNew()"></app-section>
 </ion-content>

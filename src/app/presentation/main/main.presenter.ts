@@ -23,11 +23,13 @@ export class MainPresenter {
     }
 
     getAllCategories() {
+        this.view.error = false
         this.view.loading = true
         this.categoryService.getAll().subscribe(categories => {
             this.view.categories = categories
         }, error => {
-            console.log(error)
+            this.view.error = true
+            this.view.loading = false
         }, () => {
             this.view.loading = false
         })
