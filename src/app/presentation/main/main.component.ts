@@ -12,6 +12,7 @@ export class MainComponent implements OnInit {
 
     categories: Category[]
     loading = false
+    error = false
 
     constructor(
         private presenter: MainPresenter
@@ -27,5 +28,9 @@ export class MainComponent implements OnInit {
 
     search(query) {
         this.presenter.search(query)
+    }
+
+    reloadCategories(){
+        this.presenter.getAllCategories()
     }
 }
