@@ -36,7 +36,7 @@ function createWindow() {
     }
 
     if(!serve){
-        win.setMenuBarVisibility(false)
+       // win.setMenuBarVisibility(false)
     }
 
     // Emitted when the window is closed.
