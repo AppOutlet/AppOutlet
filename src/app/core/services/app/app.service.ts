@@ -18,4 +18,16 @@ export class AppService {
     findByName(query: string) {
         return this.appRepository.findByName(query)
     }
+
+    findRecentlyUpdated(){
+        return this.appRepository.findRecentlyUpdated()
+    }
+
+    findNew(){
+        return this.appRepository.findNew()
+    }
+
+    findPopular(){
+        return this.appRepository.findPopular()
+    }
 }

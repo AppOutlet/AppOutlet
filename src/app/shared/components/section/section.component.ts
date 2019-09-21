@@ -15,10 +15,10 @@ export class SectionComponent {
     constructor() { }
 
     scrollBack(element) {
-        element.scrollLeft -= 3 * this.CARD_WIDTH
+        element.scrollLeft -= this.CARD_WIDTH
     }
 
     scrollFoward(element) {
-        element.scrollLeft += 3 * this.CARD_WIDTH
+        element.scrollLeft += this.CARD_WIDTH
     }
 }

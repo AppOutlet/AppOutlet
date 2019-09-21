@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms'
 import { SearchResultPresenter } from '../search-result/search-result.presenter'
 import { SearchResultRouter } from '../search-result/search-result.router'
 import { EventBusService } from 'ngx-eventbus'
+import { HomePresenter } from '../home/home.presenter'
 
 @NgModule({
     declarations: [
@@ -34,6 +35,7 @@ import { EventBusService } from 'ngx-eventbus'
         SearchResultPresenter,
         SearchResultRouter,
         EventBusService,
+        HomePresenter
     ]
 })
 export class MainModule { }

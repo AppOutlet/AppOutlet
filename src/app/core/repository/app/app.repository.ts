@@ -24,4 +24,16 @@ export class AppRepository {
             }
         })
     }
+
+    findRecentlyUpdated(){
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/recent`)
+    }
+
+    findNew(){
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/new`)
+    }
+
+    findPopular(){
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/popular`)
+    }
 }

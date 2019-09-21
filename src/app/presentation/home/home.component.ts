@@ -1,71 +1,40 @@
 import { Component, OnInit } from '@angular/core'
-import { Section } from '../../core/model/section.model'
+import { Section, SectionState } from '../../core/model/section.model'
+import { HomePresenter } from './home.presenter'
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
 
-    section: Section = {
-        title: 'Custom Section',
-        apps: [
+    loading = false
 
-            {
-                name: 'Some App Large name',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here. Not do short description'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-            {
-                name: 'Some App',
-                type: 'Flatpak',
-                icon: 'http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png',
-                shortDescription: 'Some short desctiption here'
-            },
-        ]
+    recentlyUpdatedSection: Section = {
+        title: 'Recently updated',
+        apps: [],
+        state: SectionState.LOADED
     }
 
-    constructor() { }
+    newSection: Section = {
+        title: 'New releases',
+        apps: [],
+        state: SectionState.LOADED
+    }
 
-    ngOnInit() {
+    popularSection: Section = {
+        title: 'Popular apps',
+        apps: [],
+        state: SectionState.LOADED
+    }
+
+    constructor(
+        private presenter: HomePresenter
+    ) { }
+
+    ionViewDidEnter() {
+        this.presenter.init(this)
     }
 
 }
