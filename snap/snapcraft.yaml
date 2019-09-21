@@ -1,6 +1,6 @@
 name: app-outlet
 title: App Outlet
-version: '1.0.4'
+version: '1.0.5'
 summary: An univeral linux app store. Find Snaps, Flatpaks and AppImages
 description: |
   App Outlet is the better and easier way to find your linux apps on the web. Here you can find more than 3000 apps!
@@ -13,5 +13,5 @@ architectures:
   - build-on: amd64
     run-on: amd64
 parts:
-  my-part:
-    plugin: nil
+  app-outlet:
+    plugin: nodejs
