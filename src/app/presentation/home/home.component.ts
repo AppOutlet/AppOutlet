@@ -37,4 +37,15 @@ export class HomeComponent {
         this.presenter.init(this)
     }
 
+    reloadRecentlyUpdated() {
+        this.presenter.findRecentlyUpdated()
+    }
+
+    reloadPopular() {
+        this.presenter.findPopular()
+    }
+
+    reloadNew() {
+        this.presenter.findNew()
+    }
 }

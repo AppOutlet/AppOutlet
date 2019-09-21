@@ -16,5 +16,10 @@
             },
             "QUERY_TITLE": "Results for '{{query}}'"
         }
+    },
+    "GENERAL":{
+        "LOADING": "Loading",
+        "ERROR_MESSAGE": "Ocurred an error",
+        "TRY_AGAIN": "Try again"
     }
 }

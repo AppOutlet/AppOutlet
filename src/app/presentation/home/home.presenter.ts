@@ -21,20 +21,20 @@ export class HomePresenter {
     }
 
     private loadAllData() {
-        if(this.view.popularSection.apps.length == 0){
+        if (this.view.popularSection.apps.length == 0) {
             this.findPopular()
         }
 
-        if(this.view.recentlyUpdatedSection.apps.length == 0){
+        if (this.view.recentlyUpdatedSection.apps.length == 0) {
             this.findRecentlyUpdated()
         }
 
-        if(this.view.newSection.apps.length == 0){
+        if (this.view.newSection.apps.length == 0) {
             this.findNew()
         }
     }
 
-    private findRecentlyUpdated() {
+    findRecentlyUpdated() {
         this.view.recentlyUpdatedSection.state = SectionState.LOADING
         this.appService.findRecentlyUpdated().subscribe(apps => {
             this.view.recentlyUpdatedSection.apps = apps
@@ -43,7 +43,8 @@ export class HomePresenter {
             this.view.recentlyUpdatedSection.state = SectionState.ERROR
         })
     }
-    private findNew() {
+
+    findNew() {
         this.view.newSection.state = SectionState.LOADING
         this.appService.findNew().subscribe(apps => {
             this.view.newSection.apps = apps
@@ -53,7 +54,7 @@ export class HomePresenter {
         })
     }
 
-    private findPopular() {
+    findPopular() {
         this.view.popularSection.state = SectionState.LOADING
         this.appService.findPopular().subscribe(apps => {
             this.view.popularSection.apps = apps
