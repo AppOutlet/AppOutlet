@@ -23,6 +23,7 @@ deploy:
   file:
     - "release/App Outlet-*.AppImage"
     - "release/app-outlet_*_amd64.deb"
+    - "release/app-outlet_*_amd64.snap"
   skip_cleanup: true
   on:
     tags: true
