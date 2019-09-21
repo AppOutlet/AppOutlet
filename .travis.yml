@@ -14,7 +14,6 @@ before_script:
 install:
   - npm set progress=false
   - npm install
-  - sudo snap install snapcraft --classic
 script:
   - npm run electron:linux
 deploy:
@@ -24,12 +23,6 @@ deploy:
     file:
       - "release/App Outlet-*.AppImage"
       - "release/app-outlet_*_amd64.deb"
-      - "release/app-outlet_*_amd64.snap"
     skip_cleanup: true
     on:
       tags: true
-
-  - provider: snap
-    snap: release/app-outlet_*_amd64.snap
-    channel: edge
-    skip_cleanup: true
