@@ -13,14 +13,14 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { MainModule } from './presentation/main/main.module';
-import { AppDetailComponent } from './presentation/app-detail/app-detail.component';
+
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-    declarations: [AppComponent, AppDetailComponent],
+    declarations: [AppComponent],
     imports: [
         BrowserModule,
         FormsModule,

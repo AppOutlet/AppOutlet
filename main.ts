@@ -16,6 +16,7 @@ function createWindow() {
         width: 1024,
         height: 768,
         minWidth: 992,
+        icon: path.join(__dirname, 'dist/assets/icon.png'),
         webPreferences: {
             nodeIntegration: true,
         },
@@ -34,7 +35,9 @@ function createWindow() {
         }));
     }
 
-    win.setMenuBarVisibility(false)
+    if(!serve){
+        win.setMenuBarVisibility(false)
+    }
 
     // Emitted when the window is closed.
     win.on('closed', () => {

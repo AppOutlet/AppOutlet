@@ -1,0 +1,26 @@
+ion-card-header{
+    padding-bottom: 0px;
+    text-overflow: ellipsis;
+}
+
+.single-line {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    white-space: normal;
+ }
+
+ .two-lines {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+ }
+
+ .app-card{
+    height: 180px;
+ }

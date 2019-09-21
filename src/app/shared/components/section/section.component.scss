@@ -1,0 +1,37 @@
+.section-title {
+    font-size: 2em;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+
+.app-list {
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+}
+
+.app-list__item{
+    width: 350px;
+    display: inline-block;
+}
+
+.fab{
+
+    margin-top: 77px;
+
+    &--start{
+        left: -5px;
+    }
+
+    &--end{
+        right: -5px;
+    }
+}
+
+.loading{
+    height: 180px;
+ }
+
+.error{
+    height: 180px;
+ }

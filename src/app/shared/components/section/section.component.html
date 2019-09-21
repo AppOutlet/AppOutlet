@@ -1,0 +1,52 @@
+<ion-card-title class="section-title">
+    {{ section?.title }}
+</ion-card-title>
+
+<div [ngSwitch]="section.state">
+
+
+    <div [hidden]="section.state != 'loading'">
+        <ion-grid class="loading ion-padding-top">
+            <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                <ion-spinner></ion-spinner>
+            </ion-row>
+        </ion-grid>
+    </div>
+
+    <div [hidden]="section.state != 'error'">
+        <div class="error">
+            <ion-grid class="loading ion-padding-top">
+                <ion-row class="ion-align-items-center ion-justify-content-center">
+                    {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                </ion-row>
+                <ion-row class="ion-align-items-center ion-justify-content-center">
+                    <ion-button (click)="doReload()">{{ 'GENERAL.TRY_AGAIN' | translate}}</ion-button>
+                </ion-row>
+            </ion-grid>
+        </div>
+    </div>
+
+
+    <div #scrollableList class="app-list" [hidden]="section.state != 'loaded'">
+
+        <div class="app-list__item" *ngFor="let app of section.apps">
+            <app-card [app]="app" (click)="onAppClicked(app)"></app-card>
+        </div>
+
+        <ion-fab class="fab fab--start" horizontal="start" slot="fixed">
+            <ion-fab-button size="small" color="light" (click)="scrollBack(scrollableList)">
+                <ion-icon name="arrow-back"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+        <ion-fab class="fab fab--end" horizontal="end" slot="fixed">
+            <ion-fab-button size="small" color="light" (click)="scrollFoward(scrollableList)">
+                <ion-icon name="arrow-forward"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+    </div>
+
+
+
+</div>

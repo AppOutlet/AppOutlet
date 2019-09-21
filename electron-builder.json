@@ -33,8 +33,11 @@
   },
   "linux": {
     "icon": "dist",
+    "category": "Utility",
     "target": [
-      "AppImage"
+      "AppImage",
+      "snap",
+      "deb"
     ]
   }
 }

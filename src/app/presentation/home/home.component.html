@@ -1,8 +1,5 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Home</ion-title>
-    </ion-toolbar>
-</ion-header>
 <ion-content>
-    <a routerLink="app">ir</a>
+    <app-section [section]="popularSection" (reload)="reloadPopular()"></app-section>
+    <app-section [section]="recentlyUpdatedSection" (reload)="reloadRecentlyUpdated()"></app-section>
+    <app-section [section]="newSection" (reload)="reloadNew()"></app-section>
 </ion-content>

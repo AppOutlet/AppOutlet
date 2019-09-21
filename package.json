@@ -88,6 +88,7 @@
     "node": ">=10.9.0"
   },
   "dependencies": {
-    "@ionic/angular": "^4.9.1"
+    "@ionic/angular": "^4.9.1",
+    "ngx-eventbus": "^1.0.5"
   }
 }

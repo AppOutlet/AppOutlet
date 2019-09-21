@@ -1,24 +1,51 @@
 <ion-app>
     <ion-split-pane>
         <ion-menu type="overlay">
+
             <ion-header>
                 <ion-toolbar>
-                    <ion-title>Menu</ion-title>
+                    <img src="assets/icon.png" class="app-icon" slot="start">
+                    <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)"></ion-searchbar>
                 </ion-toolbar>
             </ion-header>
+
             <ion-content>
                 <ion-list>
-                    <ion-menu-toggle auto-hide="false">
-                        <ion-item routerLink="">
-                            <ion-icon slot="start" name="person"></ion-icon>
-                            <ion-label>
-                                voltar
-                            </ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
+
+                    <ion-item routerDirection="back" routerLink="/">
+                        <ion-icon slot="start" name="home"></ion-icon>
+                        <ion-label>
+                            {{ 'PAGES.HOME.TITLE' | translate }}
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-list-header>
+                        <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
+                    </ion-list-header>
+
+                    <ion-item *ngFor="let category of categories" button (click)="categoryClicked(category)">
+                        <ion-label>
+                            {{ category.name | translate }}
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-grid>
+                        <ion-row [hidden]="!loading" class="ion-align-items-center ion-justify-content-center"
+                            style="margin-top: auto">
+                            <ion-spinner></ion-spinner>
+                        </ion-row>
+                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                            {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                        </ion-row>
+                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                            <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}</ion-button>
+                        </ion-row>
+                    </ion-grid>
                 </ion-list>
             </ion-content>
         </ion-menu>
+
         <ion-router-outlet main></ion-router-outlet>
+
     </ion-split-pane>
 </ion-app>

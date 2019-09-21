@@ -1,7 +1,25 @@
 {
-  "PAGES": {
-      "HOME": {
-          "TITLE": "App works !"
-      }
-  }
+    "PAGES": {
+        "HOME": {
+            "TITLE": "Home"
+        },
+        "MAIN": {
+            "TITLE": "Main",
+            "CATEGORIES": "Categories"
+        },
+        "SEARCH": {
+            "SEGMENT": {
+                "ALL_TYPES": "All types",
+                "SNAP": "Snap",
+                "FLATPAK": "Flatpak",
+                "APPIMAGE": "AppImage"
+            },
+            "QUERY_TITLE": "Results for '{{query}}'"
+        }
+    },
+    "GENERAL":{
+        "LOADING": "Loading",
+        "ERROR_MESSAGE": "Ocurred an error",
+        "TRY_AGAIN": "Try again"
+    }
 }

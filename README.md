@@ -1,9 +1,9 @@
 # App Outlet
 An Universal linux app store based on [LinuxAppStore](https://github.com/linuxappstore/linuxappstore)(Discontinued)
 
-## Third part licences
-### Icon
-Icon made by [Flatart](https://www.iconfinder.com/Flatart) from [iconfinder.com](https://www.iconfinder.com)
+## Third part stuff
+- Icon made by [martz90](https://www.deviantart.com/martz90) from [deviantart.com](https://www.deviantart.com/martz90/art/Light-Icons-Pack-379943080)
+- Initial project started using [angular-electron boilerplate](https://github.com/maximegris/angular-electron)
 
 ## License
 MIT License
