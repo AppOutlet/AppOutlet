@@ -19,8 +19,7 @@ export class AppCardComponent {
 
     cardClicked() {
         if (this.app.storeUrl || this.app.homepage) {
-            window.open()
-            this.electronService.shell.openExternal(this.app.storeUrl)
+            this.electronService.shell.openExternal(this.app.storeUrl || this.app.homepage)
         } else {
             this.presentNOUrlAlert()
         }

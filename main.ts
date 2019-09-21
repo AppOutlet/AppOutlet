@@ -20,6 +20,7 @@ function createWindow() {
         webPreferences: {
             nodeIntegration: true,
         },
+        title: 'App Outlet'
     });
 
     if (serve) {
@@ -36,7 +37,7 @@ function createWindow() {
     }
 
     if(!serve){
-       // win.setMenuBarVisibility(false)
+       win.setMenuBarVisibility(false)
     }
 
     // Emitted when the window is closed.
