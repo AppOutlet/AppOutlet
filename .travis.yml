@@ -19,9 +19,9 @@ script:
 deploy:
   provider: releases
   api_key: $GITHUB_KEY
+  file_glob: true
   file:
     - "release/App Outlet-*.AppImage"
-    - "release/app-outlet_*.deb"
     - "release/app-outlet_*.snap"
   skip_cleanup: true
   on:
