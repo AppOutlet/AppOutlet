@@ -1,10 +1,7 @@
 os:
   - linux
-  - osx
 language: node_js
 node_js:
-  - '12'
-  - '11'
   - '10'
 dist: xenial
 sudo: required
@@ -18,7 +15,14 @@ install:
   - npm set progress=false
   - npm install
 script:
-  - ng lint
-  - npm run test
-  - npm run e2e
-  - npm run build
+  - npm run electron:linux
+deploy:
+  provider: releases
+  api_key: $GITHUB_KEY
+  file:
+    - "release/App Outlet-*.AppImage"
+    - "release/app-outlet_*.deb"
+    - "release/app-outlet_*.snap"
+  skip_cleanup: true
+  on:
+    tags: true
