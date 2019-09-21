@@ -1,0 +1,15 @@
+
+  # After registering a name on build.snapcraft.io, commit an uncommented line:
+  name: app-outlet
+  version: '1.0.3'
+  summary: An univeral linux app store. Find Snaps, Flatpaks and AppImages
+  description: |
+    App Outlet is the better and easier way to find your linux apps on the web. Here you can find more than 3000 apps!
+
+  grade: stable # must be 'stable' to release into candidate/stable channels
+  confinement: strict # use 'strict' once you have the right plugs and slots
+
+  parts:
+    my-part:
+      plugin: nil
+  
