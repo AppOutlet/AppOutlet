@@ -19,4 +19,5 @@ export interface App {
     store?: string
     version?: string
     type?: string
+    storeUrl?: string
 }
