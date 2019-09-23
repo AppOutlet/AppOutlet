@@ -4,7 +4,9 @@
 
             <ion-header>
                 <ion-toolbar>
-                    <img src="assets/icon.png" class="app-icon" slot="start">
+                    <a routerDirection="back" slot="start" routerLink="/">
+                        <img src="assets/icon.png" class="app-icon">
+                    </a>
                     <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)"></ion-searchbar>
                 </ion-toolbar>
             </ion-header>
