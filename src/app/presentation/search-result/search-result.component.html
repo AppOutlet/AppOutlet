@@ -33,11 +33,20 @@
             </ion-grid>
         </div>
 
+        <!-- <div [hidden]="apps.lenght > 0">
+            <ion-grid class="ion-padding-top">
+                <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                    {{ 'PAGES.SEARCH.NO_RESULTS_FOUND' | translate }}
+                </ion-row>
+            </ion-grid>
+        </div> -->
+
         <ion-row [hidden]="state != 'loaded'">
             <ion-col *ngFor="let app of apps" size="6">
                 <app-card [app]="app"></app-card>
             </ion-col>
         </ion-row>
+
 
     </ion-grid>
 

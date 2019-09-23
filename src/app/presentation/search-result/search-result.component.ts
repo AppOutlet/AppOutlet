@@ -33,6 +33,7 @@ export class SearchResultComponent {
     }
 
     segmentChanged(event) {
+        this.state = SectionState.LOADING
         switch (event.detail.value) {
             case 'alltypes':
                 this.apps = this.allApps
@@ -47,5 +48,6 @@ export class SearchResultComponent {
                 this.apps = this.allApps.filter(item => item.type === 'AppImage')
                 break
         }
+        this.state = SectionState.LOADED
     }
 }
