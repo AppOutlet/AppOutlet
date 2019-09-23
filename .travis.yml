@@ -2,7 +2,7 @@ os:
   - linux
 language: node_js
 node_js:
-  - '10'
+  - "10"
 dist: xenial
 sudo: required
 services:
@@ -23,6 +23,13 @@ deploy:
     file:
       - "release/App Outlet-*.AppImage"
       - "release/app-outlet_*_amd64.deb"
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: snap
+    snap: app-outlet_*_amd64.snap
+    channel: stable
     skip_cleanup: true
     on:
       tags: true

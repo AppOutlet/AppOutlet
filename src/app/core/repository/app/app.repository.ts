@@ -17,7 +17,7 @@ export class AppRepository {
         })
     }
 
-    findByName(query: string){
+    findByName(query: string) {
         return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/search`, {
             params: {
                 name: query
@@ -25,15 +25,19 @@ export class AppRepository {
         })
     }
 
-    findRecentlyUpdated(){
+    findRecentlyUpdated() {
         return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/recent`)
     }
 
-    findNew(){
+    findNew() {
         return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/new`)
     }
 
-    findPopular(){
+    findPopular() {
         return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/popular`)
+    }
+
+    notifyAppView(_id: string) {
+        return this.httpClient.post(`${AppConfig.baseUrl}/app/view`, { id: _id }).subscribe()
     }
 }
