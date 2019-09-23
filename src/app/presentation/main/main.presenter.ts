@@ -41,8 +41,14 @@ export class MainPresenter {
         this.router.goToSearchResult(SearchType.CATEGORY)
     }
 
-    search(query){
-        this.eventBusService.triggerEvent('queryTyped', query)
-        this.router.goToSearchResult(SearchType.NAME, query)
+    search(query: string) {
+        if (this.isQueryValid(query)) {
+            this.eventBusService.triggerEvent('queryTyped', query)
+            this.router.goToSearchResult(SearchType.NAME, query)
+        }
+    }
+
+    private isQueryValid(query: string): boolean {
+        return query != null && query.length > 2
     }
 }
