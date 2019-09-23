@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core'
 import { Section } from '../../../core/model/section.model'
-import { App } from '../../../core/model/app.model';
+import { App } from '../../../core/model/app.model'
 
 @Component({
     selector: 'app-section',
@@ -11,8 +11,8 @@ export class SectionComponent {
 
     @Input() section: Section
 
-    @Output() reload: EventEmitter<any> = new EventEmitter();
-    @Output() appClicked: EventEmitter<App> = new EventEmitter();
+    @Output() reload: EventEmitter<any> = new EventEmitter()
+    @Output() appClicked: EventEmitter<App> = new EventEmitter()
 
     private CARD_WIDTH = 350
 

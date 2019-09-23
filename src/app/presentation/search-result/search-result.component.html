@@ -25,12 +25,40 @@
             {{ title }}
         </ion-card-title>
 
+        <div [hidden]="state != 'loading'">
+            <ion-grid class="ion-padding-top">
+                <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                    <ion-spinner></ion-spinner>
+                </ion-row>
+            </ion-grid>
+        </div>
 
-        <ion-row>
+        <div *ngIf="apps.length == 0 && state == 'loaded'">
+            <ion-grid class="ion-padding-top">
+                <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                    {{ 'PAGES.SEARCH.NO_RESULTS_FOUND' | translate }}
+                </ion-row>
+            </ion-grid>
+        </div>
+
+        <ion-row [hidden]="state != 'loaded'">
             <ion-col *ngFor="let app of apps" size="6">
                 <app-card [app]="app"></app-card>
             </ion-col>
         </ion-row>
+
+        <div [hidden]="state != 'error'">
+            <div class="error">
+                <ion-grid class="loading ion-padding-top">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-button (click)="doReload()">{{ 'GENERAL.TRY_AGAIN' | translate}}</ion-button>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
 
     </ion-grid>
 

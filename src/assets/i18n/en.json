@@ -14,10 +14,11 @@
                 "FLATPAK": "Flatpak",
                 "APPIMAGE": "AppImage"
             },
-            "QUERY_TITLE": "Results for '{{query}}'"
+            "QUERY_TITLE": "Results for '{{query}}'",
+            "NO_RESULTS_FOUND": "No results found"
         }
     },
-    "GENERAL":{
+    "GENERAL": {
         "LOADING": "Loading",
         "ERROR_MESSAGE": "Ocurred an error",
         "TRY_AGAIN": "Try again"
