@@ -47,6 +47,18 @@
             </ion-col>
         </ion-row>
 
+        <div [hidden]="state != 'error'">
+            <div class="error">
+                <ion-grid class="loading ion-padding-top">
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                    </ion-row>
+                    <ion-row class="ion-align-items-center ion-justify-content-center">
+                        <ion-button (click)="doReload()">{{ 'GENERAL.TRY_AGAIN' | translate}}</ion-button>
+                    </ion-row>
+                </ion-grid>
+            </div>
+        </div>
 
     </ion-grid>
 

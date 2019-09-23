@@ -51,4 +51,8 @@ export class SearchResultComponent {
         }
         this.state = SectionState.LOADED
     }
+
+    doReload() {
+        this.presenter.findApps()
+    }
 }

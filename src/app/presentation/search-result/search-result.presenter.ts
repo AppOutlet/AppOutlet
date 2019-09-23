@@ -16,6 +16,7 @@ export class SearchResultPresenter {
     private selectedCategory: Category
     private categoryEvent: any
     private queryEvent: any
+    private currentQuery: string
 
     constructor(
         private appService: AppService,
@@ -29,6 +30,7 @@ export class SearchResultPresenter {
         this.view = view
         this.searchType = searchType
         this.selectedCategory = this.categoryService.getSelectedCategory()
+        this.currentQuery = query
 
         this.findApps(query)
 
@@ -47,7 +49,7 @@ export class SearchResultPresenter {
         })
     }
 
-    findApps(query: string) {
+    findApps(query: string = this.currentQuery) {
         switch (this.searchType) {
             case SearchType.CATEGORY:
                 this.findByCategory(this.selectedCategory)
