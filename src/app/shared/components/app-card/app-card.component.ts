@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { App } from '../../../core/model/app.model';
 import { AlertController } from '@ionic/angular';
-import * as electron from 'electron'
+import { ElectronService } from '../../../core/services';
 
 @Component({
     selector: 'app-card',
@@ -13,12 +13,13 @@ export class AppCardComponent {
     @Input() app: App
 
     constructor(
-        private alertController: AlertController
+        private alertController: AlertController,
+        private electronService: ElectronService
     ) { }
 
     cardClicked() {
         if (this.app.storeUrl || this.app.homepage) {
-            electron.shell.openExternal(this.app.storeUrl)
+            this.electronService.shell.openExternal(this.app.storeUrl || this.app.homepage)
         } else {
             this.presentNOUrlAlert()
         }

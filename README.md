@@ -1,3 +1,5 @@
+[![Snap Status](https://build.snapcraft.io/badge/app-outlet/app-outlet.svg)](https://build.snapcraft.io/user/app-outlet/app-outlet)
+[![Build Status](https://travis-ci.org/app-outlet/app-outlet.svg?branch=master)](https://travis-ci.org/app-outlet/app-outlet)
 # App Outlet
 An Universal linux app store based on [LinuxAppStore](https://github.com/linuxappstore/linuxappstore)(Discontinued)
 
