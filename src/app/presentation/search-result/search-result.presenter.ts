@@ -6,6 +6,7 @@ import { CategoryService } from '../../core/services/category/category.service'
 import { EventBusService } from 'ngx-eventbus'
 import { Category } from '../../core/model/category.model'
 import { TranslateService } from '@ngx-translate/core'
+import { SectionState } from '../../core/model/section.model'
 
 @Injectable()
 export class SearchResultPresenter {
@@ -40,8 +41,8 @@ export class SearchResultPresenter {
 
         this.queryEvent = this.eventBusService.addEventListener({
             name: 'queryTyped',
-            callback: (query: string) => {
-                this.findByName(query)
+            callback: (queryTyped: string) => {
+                this.findByName(queryTyped)
             }
         })
     }
@@ -59,28 +60,34 @@ export class SearchResultPresenter {
     }
 
     private findByCategory(category) {
+        this.view.state = SectionState.LOADING
         this.appService.findByCategory(category).subscribe(apps => {
             this.view.apps = apps
             this.view.allApps = apps
             this.view.type = 'alltypes'
             this.view.title = category.name
+            this.view.state = SectionState.LOADED
         }, err => {
             console.log(err)
+            this.view.state = SectionState.ERROR
         }, () => {
-
+            this.view.state = SectionState.LOADED
         })
     }
 
     private findByName(query: string) {
+        this.view.state = SectionState.LOADING
         this.appService.findByName(query).subscribe(apps => {
             this.view.apps = apps
             this.view.allApps = apps
             this.view.type = 'alltypes'
             this.updateTitleByQuery(query)
+            this.view.state = SectionState.LOADED
         }, err => {
             console.log(err)
+            this.view.state = SectionState.ERROR
         }, () => {
-
+            this.view.state = SectionState.LOADED
         })
     }
 

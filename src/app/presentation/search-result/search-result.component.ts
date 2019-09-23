@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { App } from '../../core/model/app.model'
 import { ActivatedRoute } from '@angular/router'
 import { SearchResultPresenter } from './search-result.presenter'
+import { SectionState } from '../../core/model/section.model'
 
 @Component({
     selector: 'app-search-result',
@@ -14,13 +15,14 @@ export class SearchResultComponent {
     title = ''
     apps: App[] = []
     allApps: App[] = []
+    state = SectionState.LOADED
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private presenter: SearchResultPresenter
     ) { }
 
-    ionViewDidLeave(){
+    ionViewDidLeave() {
         this.presenter.destroy()
     }
 

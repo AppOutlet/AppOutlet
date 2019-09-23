@@ -25,8 +25,15 @@
             {{ title }}
         </ion-card-title>
 
+        <div [hidden]="state != 'loading'">
+            <ion-grid class="ion-padding-top">
+                <ion-row class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                    <ion-spinner></ion-spinner>
+                </ion-row>
+            </ion-grid>
+        </div>
 
-        <ion-row>
+        <ion-row [hidden]="state != 'loaded'">
             <ion-col *ngFor="let app of apps" size="6">
                 <app-card [app]="app"></app-card>
             </ion-col>
