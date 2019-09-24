@@ -33,7 +33,7 @@
         "electron:serve-tsc": "tsc -p tsconfig-serve.json",
         "electron:serve": "wait-on http-get://localhost:4200/ && npm run electron:serve-tsc && electron . --serve",
         "electron:local": "npm run build:prod && electron .",
-        "electron:linux": "npm run build:prod && electron-builder build --linux",
+        "electron:linux": "npm run build:prod && electron-builder build --linux --publish never",
         "electron:windows": "npm run build:prod && electron-builder build --windows",
         "electron:mac": "npm run build:prod && electron-builder build --mac",
         "test": "npm run postinstall:web && ng test",
