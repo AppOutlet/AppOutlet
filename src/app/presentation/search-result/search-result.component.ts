@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core'
 import { App } from '../../core/model/app.model'
 import { ActivatedRoute } from '@angular/router'
 import { SearchResultPresenter } from './search-result.presenter'
+import { SectionState } from '../../core/model/section.model'
+import { app } from 'electron'
 
 @Component({
     selector: 'app-search-result',
@@ -14,13 +16,14 @@ export class SearchResultComponent {
     title = ''
     apps: App[] = []
     allApps: App[] = []
+    state = ''
 
     constructor(
         private activatedRoute: ActivatedRoute,
         private presenter: SearchResultPresenter
     ) { }
 
-    ionViewDidLeave(){
+    ionViewDidLeave() {
         this.presenter.destroy()
     }
 
@@ -31,6 +34,7 @@ export class SearchResultComponent {
     }
 
     segmentChanged(event) {
+        this.state = SectionState.LOADING
         switch (event.detail.value) {
             case 'alltypes':
                 this.apps = this.allApps
@@ -45,5 +49,10 @@ export class SearchResultComponent {
                 this.apps = this.allApps.filter(item => item.type === 'AppImage')
                 break
         }
+        this.state = SectionState.LOADED
+    }
+
+    doReload() {
+        this.presenter.findApps()
     }
 }

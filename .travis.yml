@@ -1,11 +1,8 @@
 os:
   - linux
-  - osx
 language: node_js
 node_js:
-  - '12'
-  - '11'
-  - '10'
+  - "10"
 dist: xenial
 sudo: required
 services:
@@ -18,7 +15,21 @@ install:
   - npm set progress=false
   - npm install
 script:
-  - ng lint
-  - npm run test
-  - npm run e2e
-  - npm run build
+  - npm run electron:linux
+deploy:
+  - provider: releases
+    api_key: $GITHUB_KEY
+    file_glob: true
+    file:
+      - "release/App Outlet-*.AppImage"
+      - "release/app-outlet_*_amd64.deb"
+    skip_cleanup: true
+    on:
+      tags: true
+
+  - provider: snap
+    snap: app-outlet_*_amd64.snap
+    channel: stable
+    skip_cleanup: true
+    on:
+      tags: true

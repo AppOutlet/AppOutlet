@@ -1,7 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { App } from '../../../core/model/app.model';
-import { AlertController } from '@ionic/angular';
-import * as electron from 'electron'
+import { Component, OnInit, Input } from '@angular/core'
+import { App } from '../../../core/model/app.model'
+import { AlertController } from '@ionic/angular'
+import { ElectronService } from '../../../core/services'
+import { AppService } from '../../../core/services/app/app.service'
 
 @Component({
     selector: 'app-card',
@@ -13,12 +14,15 @@ export class AppCardComponent {
     @Input() app: App
 
     constructor(
-        private alertController: AlertController
+        private alertController: AlertController,
+        private electronService: ElectronService,
+        private appService: AppService
     ) { }
 
     cardClicked() {
         if (this.app.storeUrl || this.app.homepage) {
-            electron.shell.openExternal(this.app.storeUrl)
+            this.electronService.shell.openExternal(this.app.storeUrl || this.app.homepage)
+            this.appService.notifyAppClicked(this.app)
         } else {
             this.presentNOUrlAlert()
         }
@@ -32,8 +36,8 @@ export class AppCardComponent {
             buttons: [{
                 text: 'Okay'
             }]
-        });
+        })
 
-        await alert.present();
+        await alert.present()
     }
 }

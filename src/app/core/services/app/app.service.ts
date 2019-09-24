@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core'
 import { AppRepository } from '../../repository/app/app.repository'
 import { Category } from '../../model/category.model'
+import { App } from '../../model/app.model'
 
 @Injectable({
     providedIn: 'root'
@@ -19,15 +20,19 @@ export class AppService {
         return this.appRepository.findByName(query)
     }
 
-    findRecentlyUpdated(){
+    findRecentlyUpdated() {
         return this.appRepository.findRecentlyUpdated()
     }
 
-    findNew(){
+    findNew() {
         return this.appRepository.findNew()
     }
 
-    findPopular(){
+    findPopular() {
         return this.appRepository.findPopular()
+    }
+
+    notifyAppClicked(app: App) {
+        return this.appRepository.notifyAppView(app._id)
     }
 }
