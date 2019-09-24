@@ -1,0 +1,25 @@
+{
+    "PAGES": {
+        "HOME": {
+            "TITLE": "Página Principal"
+        },
+        "MAIN": {
+            "TITLE": "Principal",
+            "CATEGORIES": "Categorias"
+        },
+        "SEARCH": {
+            "SEGMENT": {
+                "ALL_TYPES": "Todos os tipos",
+                "SNAP": "Snap",
+                "FLATPAK": "Flatpak",
+                "APPIMAGE": "AppImage"
+            },
+            "QUERY_TITLE": "Resultados para '{{query}}'"
+        }
+    },
+    "GENERAL":{
+        "LOADING": "Carregando",
+        "ERROR_MESSAGE": "Ocorreu um erro",
+        "TRY_AGAIN": "Tente novamente"
+    }
+}
