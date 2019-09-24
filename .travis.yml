@@ -16,6 +16,8 @@ install:
   - npm install
 script:
   - npm run electron:linux
+  - bash export-version.sh
+  - tar -zcvf release/app-outlet_${PACKAGE_VERSION}_amd64.tar.gz release/linux-unpacked
 deploy:
   - provider: releases
     api_key: $GITHUB_KEY
@@ -23,8 +25,10 @@ deploy:
     file:
       - "release/App Outlet-*.AppImage"
       - "release/app-outlet_*_amd64.deb"
+      - "release/app-outlet_*_amd64.tar.gz"
     skip_cleanup: true
     on:
+      branch: master
       tags: true
 
   - provider: snap
