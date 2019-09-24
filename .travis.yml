@@ -28,9 +28,13 @@ deploy:
       - "release/app-outlet_*_amd64.tar.gz"
     skip_cleanup: true
     on:
+      branch: master
       tags: true
 
   - provider: snap
     snap: "release/*.snap"
     channel: stable
     skip_cleanup: true
+    on:
+      branch: master
+      tags: true
