@@ -16,7 +16,6 @@ install:
   - npm install
 script:
   - npm run electron:linux
-after_script:
   - bash export-version.sh
   - tar -zcvf release/app-outlet_${PACKAGE_VERSION}_amd64.tar.gz release/linux-unpacked
 deploy:
