@@ -32,5 +32,5 @@ deploy:
     channel: stable
     skip_cleanup: true
     on:
-      branch: deploy
+      branch: master
       tags: true
