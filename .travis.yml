@@ -14,7 +14,6 @@ before_script:
 install:
   - npm set progress=false
   - npm install
-  - sudo snap install snapcraft --classic
 script:
   - npm run electron:linux
 deploy:
@@ -33,4 +32,4 @@ deploy:
     channel: stable
     skip_cleanup: true
     on:
-      tags: false
+      tags: true
