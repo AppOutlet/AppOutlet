@@ -29,7 +29,7 @@ deploy:
       tags: true
 
   - provider: snap
-    snap: app-outlet_*_amd64.snap
+    snap: release/app-outlet_*_amd64.snap
     channel: stable
     skip_cleanup: true
     on:
