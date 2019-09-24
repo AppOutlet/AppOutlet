@@ -13,7 +13,9 @@ export class AppComponent {
         public electronService: ElectronService,
         private translate: TranslateService
     ) {
+
         translate.setDefaultLang('en');
+        translate.use(window.navigator.language)
 
         console.log('AppConfig', AppConfig);
 
