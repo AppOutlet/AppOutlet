@@ -14,8 +14,8 @@ You can run or build App Outlet by yourself. You can build in Linux, Windows or 
 ### Setting up the project
 #### Step 1: Installing system dependencies
 You will need the following tools:
-- [Git](https://git-scm.com/)
-- [NodeJS](https://nodejs.org/)
+- [Git](https://git-scm.com/) (Version: 2.23.0 or above)
+- [NodeJS](https://nodejs.org/) (Version: 10.16.3 or above)
 
 #### Step 2: Clone the repository
 ```
