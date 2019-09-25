@@ -1,7 +1,4 @@
-
-<h1 align="center">
-  <img src="src/assets/banner.png" alt="Banner">
-</h1>
+![alt text](src/assets/banner.png "Banner")
     
 ## What is?  | [![Build Status](https://travis-ci.org/app-outlet/app-outlet.svg?branch=master)](https://travis-ci.org/app-outlet/app-outlet)
 
@@ -9,9 +6,7 @@ App Outlet is a Universal application store based on the Linux App Store online 
 
 ### Look how it looks:
 
-<h1 align="center">
-  <img src="screenshot.png" alt="PhotoGIMP">
-</h1>
+![alt text](./src/assets/screenshot.png "App Outlet Screenshot")
 
 ## Third part stuff:
 - Icon made by [martz90](https://www.deviantart.com/martz90) from [deviantart.com](https://www.deviantart.com/martz90/art/Light-Icons-Pack-379943080)
