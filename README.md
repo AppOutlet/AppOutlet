@@ -4,11 +4,11 @@
 
 App Outlet is a Universal application store inspired on the Linux App Store online service. It easily allows you to search and download [W.I.P] applications that runs on most Linux distributions. It currently works with AppImages, Flatpaks and Snaps.
 
-### Download
-
 ![alt text](./src/assets/screenshot.png "App Outlet Screenshot")
 
-You can get App Outlet on the following options:
+### Download
+
+You can get App Outlet by clicking on the following options:
 
 [![Debian package](./src/assets/deb.png)](https://appoutlet.herokuapp.com/download/deb)
 [![AppImage](./src/assets/appimage.png)](https://appoutlet.herokuapp.com/download/appimage)
