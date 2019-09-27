@@ -1,7 +1,10 @@
 {
     "PAGES": {
         "HOME": {
-            "TITLE": "Home"
+            "TITLE": "Home",
+            "POPULAR": "Popular apps",
+            "RECENTLY_UPDATED": "Recently updated",
+            "NEW_RELEASES": "New releases"
         },
         "MAIN": {
             "TITLE": "Main",
