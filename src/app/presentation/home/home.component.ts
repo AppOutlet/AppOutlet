@@ -12,19 +12,19 @@ export class HomeComponent {
     loading = false
 
     recentlyUpdatedSection: Section = {
-        title: 'Recently updated',
+        title: 'PAGES.HOME.RECENTLY_UPDATED',
         apps: [],
         state: SectionState.LOADED
     }
 
     newSection: Section = {
-        title: 'New releases',
+        title: 'PAGES.HOME.NEW_RELEASES',
         apps: [],
         state: SectionState.LOADED
     }
 
     popularSection: Section = {
-        title: 'Popular apps',
+        title: 'PAGES.HOME.POPULAR',
         apps: [],
         state: SectionState.LOADED
     }
