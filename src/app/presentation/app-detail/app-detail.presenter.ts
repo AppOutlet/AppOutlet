@@ -13,5 +13,6 @@ export class AppDetailPresenter {
 
     onInit(view: AppDetailComponent) {
         this.view = view
+        this.view.app = this.appService.getSelectedApp()
     }
 }

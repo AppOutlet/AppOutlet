@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppDetailPresenter } from './app-detail.presenter';
+import { App } from '../../core/model/app.model';
 
 @Component({
     selector: 'app-app-detail',
@@ -7,6 +8,8 @@ import { AppDetailPresenter } from './app-detail.presenter';
     styleUrls: ['./app-detail.component.scss']
 })
 export class AppDetailComponent {
+
+    app: App;
 
     constructor(
         private presenter: AppDetailPresenter

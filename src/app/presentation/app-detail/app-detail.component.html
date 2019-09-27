@@ -5,10 +5,6 @@
         </ion-buttons>
         <ion-buttons slot="end">
             <ion-button>
-                <ion-icon slot="icon-only" name="globe"></ion-icon>
-                {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
-            </ion-button>
-            <ion-button>
                 <ion-icon slot="icon-only" mode="md" name="download"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}
             </ion-button>
@@ -16,6 +12,52 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+
+    <ion-grid fixed>
+        <ion-row>
+            <div size="3" class="ion-padding-end">
+                <img class="app__icon" [src]="app?.icon" alt="" srcset="">
+            </div>
+            <div class="ion-padding-start">
+                <ion-card-subtitle>
+                    {{ app?.type }}
+                </ion-card-subtitle>
+                <ion-card-title class="app__name">
+                    {{ app?.name }}
+                </ion-card-title>
+
+                <p class="app__short-description">{{ app?.shortDescription }}</p>
+
+                <div *ngIf="app?.categories">
+                    <ion-chip *ngFor="let category of app?.categories" color="primary">
+                        <ion-icon name="pricetag"></ion-icon>
+                        <ion-label>{{ category }}</ion-label>
+                    </ion-chip>
+                </div>
+
+            </div>
+        </ion-row>
+
+        <ion-row class="ion-padding">
+
+        </ion-row>
+
+        <ion-card>
+            <ion-card-content>
+
+                {{ app?.fullDescription }}
+
+                <div class="ion-padding-top">
+                    <ion-button fill="outline" mode="md">
+                        <ion-icon name="globe" slot="start"> </ion-icon>Store page
+                    </ion-button>
+                </div>
+
+            </ion-card-content>
+        </ion-card>
+    </ion-grid>
+
+
 
 </ion-content>

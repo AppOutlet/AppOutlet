@@ -22,6 +22,7 @@ export class AppCardComponent {
     ) { }
 
     cardClicked() {
+        this.appService.selectApp(this.app)
         this.router.navigate(['app'])
     }
 
