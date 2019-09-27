@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { AppDetailPresenter } from './app-detail.presenter';
 
 @Component({
-  selector: 'app-app-detail',
-  templateUrl: './app-detail.component.html',
-  styleUrls: ['./app-detail.component.scss']
+    selector: 'app-app-detail',
+    templateUrl: './app-detail.component.html',
+    styleUrls: ['./app-detail.component.scss']
 })
-export class AppDetailComponent implements OnInit {
+export class AppDetailComponent {
 
-  constructor() { }
+    constructor(
+        private presenter: AppDetailPresenter
+    ) { }
 
-  ngOnInit() {
-  }
-
+    ionViewDidEnter() {
+        this.presenter.onInit(this)
+    }
 }

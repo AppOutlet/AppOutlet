@@ -18,11 +18,16 @@
                 "APPIMAGE": "AppImage"
             },
             "QUERY_TITLE": "Resultados para '{{query}}'"
+        },
+        "APP_DETAIL": {
+            "INSTALL": "Instalar",
+            "STORE_PAGE": "Página da {{store}}"
         }
     },
     "GENERAL": {
         "LOADING": "Carregando",
         "ERROR_MESSAGE": "Ocorreu um erro",
-        "TRY_AGAIN": "Tente novamente"
+        "TRY_AGAIN": "Tente novamente",
+        "BACK": "Voltar"
     }
 }
