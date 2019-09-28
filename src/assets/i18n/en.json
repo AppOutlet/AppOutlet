@@ -22,7 +22,11 @@
         },
         "APP_DETAIL": {
             "INSTALL": "Install",
-            "STORE_PAGE": "{{store}} page"
+            "STORE_PAGE": "Store page",
+            "REPORT_ISSUE": "Report issue",
+            "DONATE": "Donate",
+            "PROJECT_HOMEPAGE": "Project homepage",
+            "ACTIONS": "Actions"
         }
     },
     "GENERAL": {

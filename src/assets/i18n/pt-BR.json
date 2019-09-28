@@ -21,7 +21,10 @@
         },
         "APP_DETAIL": {
             "INSTALL": "Instalar",
-            "STORE_PAGE": "Página da {{store}}"
+            "STORE_PAGE": "Página da loja",
+            "REPORT_ISSUE": "Reportar bug",
+            "DONATE": "Faça uma doação",
+            "PROJECT_HOMEPAGE": "Página inicial do projeto"
         }
     },
     "GENERAL": {

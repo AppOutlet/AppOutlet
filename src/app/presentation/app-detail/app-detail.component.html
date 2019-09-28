@@ -4,7 +4,7 @@
             <ion-back-button text="{{ 'GENERAL.BACK' | translate }}" defaultHref=""></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button>
+            <ion-button fill="solid" mode="md">
                 <ion-icon slot="icon-only" mode="md" name="download"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}
             </ion-button>
@@ -15,31 +15,41 @@
 <ion-content class="ion-padding">
 
     <ion-grid fixed>
-        <ion-row>
+        <ion-row justify-content-center>
 
-            <div class="ion-padding-end">
-                <img class="app__icon" [src]="app?.icon || 'assets/app-icon-placeholder.png'" alt="" srcset="">
-            </div>
-
-            <div class="ion-padding-start">
-
-                <ion-card-subtitle>
-                    {{ app?.type }}
-                </ion-card-subtitle>
-                <ion-card-title class="app__name">
-                    {{ app?.name }}
-                </ion-card-title>
-
-                <p class="app__short-description">{{ app?.shortDescription }}</p>
-
-                <div *ngIf="app?.categories">
-                    <ion-chip *ngFor="let category of app?.categories" color="primary">
-                        <ion-icon name="pricetag"></ion-icon>
-                        <ion-label>{{ category }}</ion-label>
-                    </ion-chip>
+            <ion-col size="3" style="align-self: auto">
+                <div>
+                    <img class="app__icon " [src]="app?.icon || 'assets/app-icon-placeholder.png'" alt="" srcset="">
                 </div>
+            </ion-col>
 
-            </div>
+            <ion-col>
+
+                <div class="ion-padding-start">
+
+                    <ion-card-subtitle>
+                        {{ app?.type }}
+                    </ion-card-subtitle>
+                    <ion-card-title class="app__name">
+                        {{ app?.name }}
+                    </ion-card-title>
+
+                    <h4 *ngIf="app?.developer">
+                        <ion-icon name="person"></ion-icon>
+                        {{ app?.developer }}
+                    </h4>
+
+                    <p class="app__short-description">{{ app?.shortDescription }}</p>
+
+                    <div *ngIf="app?.categories">
+                        <ion-chip *ngFor="let category of app?.categories" color="primary">
+                            <ion-icon name="pricetag"></ion-icon>
+                            <ion-label>{{ category }}</ion-label>
+                        </ion-chip>
+                    </div>
+
+                </div>
+            </ion-col>
         </ion-row>
 
 
@@ -54,13 +64,36 @@
         <ion-card>
             <ion-card-content>
 
-                <div #fullDescriptionContainer class="app__full-description"></div>
+                <ion-grid>
+                    <ion-row>
+                        <ion-col sizeSm="9">
+                            <div #fullDescriptionContainer class="app__full-description"></div>
+                        </ion-col>
+                        <ion-col>
 
-                <div class="ion-padding-top">
-                    <ion-button fill="outline" mode="md">
-                        <ion-icon name="globe" slot="start"> </ion-icon>Store page
-                    </ion-button>
-                </div>
+                            <ion-button *ngIf="app?.bugtrackerUrl" color="light" expand="block">
+                                <ion-icon slot="start" name="globe"></ion-icon>
+                                {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
+                            </ion-button>
+
+                            <ion-button *ngIf="app?.storeUrl" color="light" expand="block">
+                                <ion-icon slot="start" name="basket"></ion-icon>
+                                {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
+                            </ion-button>
+
+                            <ion-button *ngIf="app?.bugtrackerUrl" color="light" expand="block">
+                                <ion-icon slot="start" name="bug"></ion-icon>
+                                {{ 'PAGES.APP_DETAIL.REPORT_ISSUE' | translate }}
+                            </ion-button>
+
+                            <ion-button *ngIf="app?.donationUrl" color="light" expand="block">
+                                <ion-icon slot="start" name="cash"></ion-icon>
+                                {{ 'PAGES.APP_DETAIL.DONATE' | translate }}
+                            </ion-button>
+
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
 
             </ion-card-content>
         </ion-card>
