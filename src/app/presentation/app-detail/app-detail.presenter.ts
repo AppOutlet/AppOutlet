@@ -5,6 +5,7 @@ import { AppService } from '../../core/services/app/app.service';
 @Injectable()
 export class AppDetailPresenter {
 
+
     private view: AppDetailComponent
 
     constructor(
@@ -13,6 +14,6 @@ export class AppDetailPresenter {
 
     onInit(view: AppDetailComponent) {
         this.view = view
-        this.view.app = this.appService.getSelectedApp()
+        this.view.setApp(this.appService.getSelectedApp())
     }
 }

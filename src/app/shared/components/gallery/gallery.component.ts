@@ -12,11 +12,12 @@ export class GalleryComponent {
     @Input() screenshots: string[]
 
     slideOpts = {
+        loop: true,
+        autoplay: { delay :5000},
         hashNavigation: {
             watchState: true,
         },
         pagination: {
-            loop: true,
             el: '.my-pagination',
             clickable: true,
             renderBullet: function (index, className) {

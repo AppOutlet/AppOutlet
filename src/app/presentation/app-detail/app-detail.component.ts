@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { AppDetailPresenter } from './app-detail.presenter';
 import { App } from '../../core/model/app.model';
 
@@ -9,6 +9,8 @@ import { App } from '../../core/model/app.model';
 })
 export class AppDetailComponent {
 
+    @ViewChild('fullDescriptionContainer', { static: false })
+    fullDescriptionContainer: ElementRef;
     app: App;
 
     constructor(
@@ -17,5 +19,10 @@ export class AppDetailComponent {
 
     ionViewDidEnter() {
         this.presenter.onInit(this)
+    }
+
+    setApp(app: App) {
+        this.app = app
+        this.fullDescriptionContainer.nativeElement.innerHTML = app.fullDescription
     }
 }
