@@ -19,11 +19,20 @@
             },
             "QUERY_TITLE": "Results for '{{query}}'",
             "NO_RESULTS_FOUND": "No results found"
+        },
+        "APP_DETAIL": {
+            "INSTALL": "Install",
+            "STORE_PAGE": "Store page",
+            "REPORT_ISSUE": "Report issue",
+            "DONATE": "Donate",
+            "PROJECT_HOMEPAGE": "Project homepage",
+            "ACTIONS": "Actions"
         }
     },
     "GENERAL": {
         "LOADING": "Loading",
         "ERROR_MESSAGE": "Ocurred an error",
-        "TRY_AGAIN": "Try again"
+        "TRY_AGAIN": "Try again",
+        "BACK": "Go back"
     }
 }

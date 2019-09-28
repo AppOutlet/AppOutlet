@@ -3,6 +3,7 @@ import { App } from '../../../core/model/app.model'
 import { AlertController } from '@ionic/angular'
 import { ElectronService } from '../../../core/services'
 import { AppService } from '../../../core/services/app/app.service'
+import { Router } from '@angular/router'
 
 @Component({
     selector: 'app-card',
@@ -16,16 +17,13 @@ export class AppCardComponent {
     constructor(
         private alertController: AlertController,
         private electronService: ElectronService,
-        private appService: AppService
+        private appService: AppService,
+        private router: Router
     ) { }
 
     cardClicked() {
-        if (this.app.storeUrl || this.app.homepage) {
-            this.electronService.shell.openExternal(this.app.storeUrl || this.app.homepage)
-            this.appService.notifyAppClicked(this.app)
-        } else {
-            this.presentNOUrlAlert()
-        }
+        this.appService.selectApp(this.app)
+        this.router.navigate(['app'])
     }
 
     async presentNOUrlAlert() {

@@ -35,4 +35,12 @@ export class AppService {
     notifyAppClicked(app: App) {
         return this.appRepository.notifyAppView(app._id)
     }
+
+    selectApp(app: App) {
+        localStorage.setItem('selectedApp', JSON.stringify(app))
+    }
+
+    getSelectedApp() : App{
+        return JSON.parse(localStorage.getItem('selectedApp'))
+    }
 }

@@ -1,15 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { AppDetailPresenter } from './app-detail.presenter';
+import { App } from '../../core/model/app.model';
 
 @Component({
-  selector: 'app-app-detail',
-  templateUrl: './app-detail.component.html',
-  styleUrls: ['./app-detail.component.scss']
+    selector: 'app-app-detail',
+    templateUrl: './app-detail.component.html',
+    styleUrls: ['./app-detail.component.scss']
 })
-export class AppDetailComponent implements OnInit {
+export class AppDetailComponent {
 
-  constructor() { }
+    @ViewChild('fullDescriptionContainer', { static: false })
+    fullDescriptionContainer: ElementRef;
+    app: App;
 
-  ngOnInit() {
-  }
+    constructor(
+        private presenter: AppDetailPresenter
+    ) { }
 
+    ionViewDidEnter() {
+        this.presenter.onInit(this)
+    }
+
+    setApp(app: App) {
+        this.app = app
+        this.fullDescriptionContainer.nativeElement.innerHTML = app.fullDescription
+    }
+
+    goToLink(url: string) {
+        this.presenter.goToLink(url)
+    }
 }
