@@ -12,8 +12,11 @@ export class GalleryComponent {
     @Input() screenshots: string[]
 
     slideOpts = {
-        loop: true,
-        autoplay: { delay :5000},
+        loop: false,
+        autoplay: {
+            delay :5000,
+            stopOnLastSlide: true
+        },
         hashNavigation: {
             watchState: true,
         },
