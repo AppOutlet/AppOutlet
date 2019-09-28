@@ -29,9 +29,20 @@ export class ElectronService {
             this.webFrame = window.require('electron').webFrame;
             this.remote = window.require('electron').remote;
             this.shell = window.require('electron').shell
-
             this.childProcess = window.require('child_process');
             this.fs = window.require('fs');
         }
+    }
+
+    execCommand(command: string) {
+        return new Promise((resolve, reject) => {
+            childProcess.exec(command, (error, stdout, stderr)=>{
+                if(error || stderr){
+                    reject(error || stderr)
+                } else {
+                    resolve(stdout)
+                }
+            })
+        })
     }
 }

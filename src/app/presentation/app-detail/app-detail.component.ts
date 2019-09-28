@@ -29,4 +29,8 @@ export class AppDetailComponent {
     goToLink(url: string) {
         this.presenter.goToLink(url)
     }
+
+    install() {
+        this.presenter.installButtonClicked(this.app)
+    }
 }

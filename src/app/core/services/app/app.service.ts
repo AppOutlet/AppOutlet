@@ -43,4 +43,8 @@ export class AppService {
     getSelectedApp() : App{
         return JSON.parse(localStorage.getItem('selectedApp'))
     }
+
+    install(app: App) {
+
+    }
 }

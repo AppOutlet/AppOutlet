@@ -4,7 +4,7 @@
             <ion-back-button text="{{ 'GENERAL.BACK' | translate }}" defaultHref=""></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
-            <ion-button fill="solid" mode="md">
+            <ion-button fill="solid" mode="md" (click)="install()">
                 <ion-icon slot="icon-only" mode="md" name="download"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}
             </ion-button>
