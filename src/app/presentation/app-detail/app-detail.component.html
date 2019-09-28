@@ -17,7 +17,7 @@
     <ion-grid fixed>
         <ion-row>
             <div size="3" class="ion-padding-end">
-                <img class="app__icon" [src]="app?.icon" alt="" srcset="">
+                <img class="app__icon" [src]="app?.icon || 'assets/app-icon-placeholder.png'" alt="" srcset="">
             </div>
             <div class="ion-padding-start">
                 <ion-card-subtitle>
@@ -39,9 +39,18 @@
             </div>
         </ion-row>
 
-        <ion-row class="ion-padding">
 
-        </ion-row>
+    </ion-grid>
+
+    <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor="let screenshot of app?.screenshots">
+            <ion-card >
+                <img [src]="screenshot">
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-grid fixed>
 
         <ion-card>
             <ion-card-content>
