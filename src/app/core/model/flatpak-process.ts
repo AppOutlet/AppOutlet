@@ -4,6 +4,7 @@ import { ElectronService } from "../services";
 import { on } from "cluster";
 import { from } from "rxjs";
 import { flatMap } from 'rxjs/operators'
+import { ChildProcessWithoutNullStreams } from "child_process";
 
 export class FlatpakProcess implements Proccess {
 
@@ -11,6 +12,9 @@ export class FlatpakProcess implements Proccess {
     app: App
     processType: ProcessType
     electronService: ElectronService
+    stdout: string[] = []
+    stderr: string[] = []
+    spawn: ChildProcessWithoutNullStreams
 
     constructor(
         onProcessFinishedCallback: Function,
@@ -25,21 +29,26 @@ export class FlatpakProcess implements Proccess {
     }
 
     startInstall() {
-        from(this.verifyFlatpakSupport()).pipe(
-            flatMap(this.installPackage.bind(this))
-        ).subscribe(data => {
-            console.log(data)
-        }, err => {
-            console.error(err)
-        })
-    }
+        this.spawn = this.electronService.childProcess.spawn('flatpak', ['install', 'flathub', this.app.flatpakAppId, '-y'])
 
-    private installPackage() {
-        return this.electronService.execCommand(`flatpak install flathub ${this.app.flatpakAppId} -y`)
-    }
+        this.spawn.stdout.on('data', (data) => {
+            const output = data.toString()
+            console.log(output)
+            this.stdout.push(output)
+        });
 
-    verifyFlatpakSupport() {
-        return this.electronService.execCommand('flatpak --help')
+        this.spawn.stderr.on('data', (data) => {
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
+        });
+
+        this.spawn.on('close', (code) => {
+            if (code !== 0) {
+                console.log(`ps process exited with code ${code}`);
+            } else {
+                this.onProcessFinishedCallback()
+            }
+        });
     }
 
     startRemove() {
