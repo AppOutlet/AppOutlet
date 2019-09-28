@@ -25,4 +25,8 @@ export class AppDetailComponent {
         this.app = app
         this.fullDescriptionContainer.nativeElement.innerHTML = app.fullDescription
     }
+
+    goToLink(url: string) {
+        this.presenter.goToLink(url)
+    }
 }

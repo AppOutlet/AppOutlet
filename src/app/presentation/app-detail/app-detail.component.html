@@ -31,7 +31,7 @@
                         {{ app?.type }}
                     </ion-card-subtitle>
                     <ion-card-title class="app__name">
-                        {{ app?.name }}
+                        {{ app?.name }}<sup class="app__name__version"> {{ app?.version }}</sup>
                     </ion-card-title>
 
                     <h4 *ngIf="app?.developer">
@@ -59,43 +59,49 @@
         <app-gallery [screenshots]="app?.screenshots"></app-gallery>
     </div>
 
+    <ion-row>
+        <ion-col></ion-col>
+    </ion-row>
+
     <ion-grid fixed>
 
         <ion-card>
             <ion-card-content>
-
-                <ion-grid>
-                    <ion-row>
-                        <ion-col sizeSm="9">
-                            <div #fullDescriptionContainer class="app__full-description"></div>
-                        </ion-col>
-                        <ion-col>
-
-                            <ion-button *ngIf="app?.bugtrackerUrl" color="light" expand="block">
-                                <ion-icon slot="start" name="globe"></ion-icon>
-                                {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
-                            </ion-button>
-
-                            <ion-button *ngIf="app?.storeUrl" color="light" expand="block">
-                                <ion-icon slot="start" name="basket"></ion-icon>
-                                {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
-                            </ion-button>
-
-                            <ion-button *ngIf="app?.bugtrackerUrl" color="light" expand="block">
-                                <ion-icon slot="start" name="bug"></ion-icon>
-                                {{ 'PAGES.APP_DETAIL.REPORT_ISSUE' | translate }}
-                            </ion-button>
-
-                            <ion-button *ngIf="app?.donationUrl" color="light" expand="block">
-                                <ion-icon slot="start" name="cash"></ion-icon>
-                                {{ 'PAGES.APP_DETAIL.DONATE' | translate }}
-                            </ion-button>
-
-                        </ion-col>
-                    </ion-row>
-                </ion-grid>
-
+                <div #fullDescriptionContainer class="app__full-description"></div>
             </ion-card-content>
+
+
+            <ion-row>
+
+                <ion-col *ngIf="app?.homepage">
+                    <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.homepage)">
+                        <ion-icon slot="start" name="globe"></ion-icon>
+                        {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
+                    </ion-button>
+                </ion-col>
+
+                <ion-col *ngIf="app?.storeUrl">
+                    <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.storeUrl)">
+                        <ion-icon slot="start" name="basket"></ion-icon>
+                        {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
+                    </ion-button>
+                </ion-col>
+
+                <ion-col *ngIf="app?.bugtrackerUrl">
+                    <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.bugtrackerUrl)">
+                        <ion-icon slot="start" name="bug"></ion-icon>
+                        {{ 'PAGES.APP_DETAIL.REPORT_ISSUE' | translate }}
+                    </ion-button>
+                </ion-col>
+
+                <ion-col *ngIf="app?.donationUrl">
+                    <ion-button fill="clear" text-wrap expand="block" (click)="goToLink(app?.donationUrl)">
+                        <ion-icon slot="start" name="cash"></ion-icon>
+                        {{ 'PAGES.APP_DETAIL.DONATE' | translate }}
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+
         </ion-card>
     </ion-grid>
 
