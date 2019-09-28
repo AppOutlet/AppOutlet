@@ -11,20 +11,6 @@ export class AppDetailComponent {
 
     app: App;
 
-    slideOpts = {
-        hashNavigation: {
-            watchState: true,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        }
-    };
-
     constructor(
         private presenter: AppDetailPresenter
     ) { }

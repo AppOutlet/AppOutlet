@@ -16,10 +16,13 @@
 
     <ion-grid fixed>
         <ion-row>
+
             <div class="ion-padding-end">
                 <img class="app__icon" [src]="app?.icon || 'assets/app-icon-placeholder.png'" alt="" srcset="">
             </div>
+
             <div class="ion-padding-start">
+
                 <ion-card-subtitle>
                     {{ app?.type }}
                 </ion-card-subtitle>
@@ -42,13 +45,9 @@
 
     </ion-grid>
 
-    <ion-slides [options]="slideOpts">
-        <ion-slide *ngFor="let screenshot of app?.screenshots">
-            <ion-card >
-                <img [src]="screenshot">
-            </ion-card>
-        </ion-slide>
-    </ion-slides>
+    <div *ngIf="app?.screenshots">
+        <app-gallery [screenshots]="app?.screenshots"></app-gallery>
+    </div>
 
     <ion-grid fixed>
 
