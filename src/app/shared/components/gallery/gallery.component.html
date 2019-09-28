@@ -6,7 +6,7 @@
     </ion-slide>
 </ion-slides>
 
-<ion-grid fixed>
+<ion-grid [hidden]="screenshots.length == 0" fixed>
     <ion-row align-items-center justify-content-center>
         <ion-fab-button (click)="gallery.slidePrev()" size="small" color="light">
             <ion-icon name="arrow-back"></ion-icon>
