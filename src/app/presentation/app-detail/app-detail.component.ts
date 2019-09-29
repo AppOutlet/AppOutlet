@@ -12,10 +12,16 @@ export class AppDetailComponent {
     @ViewChild('fullDescriptionContainer', { static: false })
     fullDescriptionContainer: ElementRef;
     app: App;
+    loading = true
+    shouldShowInstallButton = false
 
     constructor(
         private presenter: AppDetailPresenter
-    ) { }
+    ) {}
+
+    ionViewWillEnter(){
+        this.loading = true
+    }
 
     ionViewDidEnter() {
         this.presenter.onInit(this)
@@ -24,6 +30,7 @@ export class AppDetailComponent {
     setApp(app: App) {
         this.app = app
         this.fullDescriptionContainer.nativeElement.innerHTML = app.fullDescription
+        this.loading = false
     }
 
     goToLink(url: string) {
@@ -32,5 +39,9 @@ export class AppDetailComponent {
 
     install() {
         this.presenter.installButtonClicked(this.app)
+    }
+
+    ionViewDidLeave(){
+        this.app = null
     }
 }
