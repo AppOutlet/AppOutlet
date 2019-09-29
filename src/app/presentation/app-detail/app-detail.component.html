@@ -3,7 +3,10 @@
         <ion-buttons slot="start">
             <ion-back-button text="{{ 'GENERAL.BACK' | translate }}" defaultHref=""></ion-back-button>
         </ion-buttons>
+
         <ion-buttons slot="end">
+            {{ statusText | translate}}
+            <ion-spinner [hidden]="!shouldShowLoading"></ion-spinner>
             <ion-button [hidden]="!shouldShowRunButton" (click)="install()">
                 <ion-icon slot="icon-only" name="play"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.RUN' | translate }}

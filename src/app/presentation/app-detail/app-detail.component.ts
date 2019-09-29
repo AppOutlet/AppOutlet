@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { AppDetailPresenter } from './app-detail.presenter';
 import { App } from '../../core/model/app.model';
 
@@ -16,6 +16,8 @@ export class AppDetailComponent {
     shouldShowInstallButton = false
     shouldShowRunButton = false
     shouldShowUninstallButton = false
+    statusText = ''
+    shouldShowLoading = false
 
     constructor(
         private presenter: AppDetailPresenter

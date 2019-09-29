@@ -38,6 +38,7 @@ export class AppDetailPresenter {
             this.view.shouldShowInstallButton = state == AppState.NOT_INSTALLED
             this.view.shouldShowRunButton = state == AppState.INSTALLED
             this.view.shouldShowUninstallButton = state == AppState.INSTALLED
+            this.view.shouldShowLoading = state == AppState.INSTALLING || state == AppState.REMOVING
         })
     }
 }
