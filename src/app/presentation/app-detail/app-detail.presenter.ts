@@ -62,4 +62,11 @@ export class AppDetailPresenter {
     private unregisterEventListener() {
         this.eventBusService.removeEventListener(this.updateListener)
     }
+
+    uninstall(app: App) {
+    }
+
+    run(app: App) {
+        this.appService.run(app)
+    }
 }

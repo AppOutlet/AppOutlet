@@ -7,7 +7,7 @@
         <ion-buttons slot="end">
             {{ statusText | translate}}
             <ion-spinner [hidden]="!shouldShowLoading"></ion-spinner>
-            <ion-button [hidden]="!shouldShowRunButton">
+            <ion-button [hidden]="!shouldShowRunButton" (click)="run()">
                 <ion-icon slot="icon-only" name="play"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.RUN' | translate }}
             </ion-button>

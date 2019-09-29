@@ -81,7 +81,7 @@ export class AppService {
     private verifyIfFlatpakIsInstalled(app: App) {
         return this.electronService.execCommand(`flatpak list | grep ${app.flatpakAppId}`).then((output: string) => {
             return output.length > 0
-        }).catch( err => {
+        }).catch(err => {
             return false
         })
     }
@@ -97,5 +97,18 @@ export class AppService {
         } else {
             return null
         }
+    }
+
+    run(app: App) {
+        switch (app.type) {
+            case 'Flatpak':
+                return this.runFlatpak(app)
+            default:
+                return Promise.reject(`${app.type} not supported yet`)
+        }
+    }
+
+    runFlatpak(app: App) {
+        this.electronService.childProcess.spawn('flatpak', ['run', app._id], { detached: true })
     }
 }

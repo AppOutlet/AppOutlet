@@ -50,4 +50,12 @@ export class AppDetailComponent {
         this.app = null
         this.presenter.onDestroy()
     }
+
+    run(){
+        this.presenter.run(this.app)
+    }
+
+    uninstall(){
+        this.presenter.uninstall(this.app)
+    }
 }

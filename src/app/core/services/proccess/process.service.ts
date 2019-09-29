@@ -11,6 +11,7 @@ import { EventBusService } from 'ngx-eventbus';
 export class ProcessService {
 
     processQueue: Proccess[] = []
+    processQueueErrors: Proccess[] = []
     processServiceState = ProcessServiceState.IDLE
 
     constructor(
@@ -54,8 +55,11 @@ export class ProcessService {
         this.processQueue.push(process)
     }
 
-    onProcessFinished(app: App) {
-        this.processQueue.shift()
+    onProcessFinished(app: App, success: boolean) {
+        const finishedProccess = this.processQueue.shift()
+        if(!success){
+            this.processQueueErrors.push(finishedProccess)
+        }
         this.onQueueModified()
         this.eventBusService.triggerEvent(app._id, app)
     }

@@ -45,9 +45,8 @@ export class FlatpakProcess implements Proccess {
         this.spawn.on('close', (code) => {
             if (code !== 0) {
                 console.log(`ps process exited with code ${code}`);
-            } else {
-                this.onProcessFinishedCallback(this.app)
             }
+            this.onProcessFinishedCallback(this.app, code == 0)
         });
     }
 
