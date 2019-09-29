@@ -26,14 +26,14 @@
 <ion-content class="ion-padding">
 
     <div [hidden]="!loading" class="main-loader">
-        <ion-row justify-content-center>
+        <ion-row class="ion-justify-content-center">
             <ion-spinner></ion-spinner>
         </ion-row>
     </div>
 
     <div [hidden]="loading">
         <ion-grid fixed>
-            <ion-row justify-content-center>
+            <ion-row class="ion-justify-content-center">
 
                 <ion-col size="3" style="align-self: auto">
                     <div>
@@ -88,28 +88,28 @@
                 <ion-row>
 
                     <ion-col *ngIf="app?.homepage">
-                        <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.homepage)">
+                        <ion-button class="ion-text-wrap" fill="clear" expand="block" (click)="goToLink(app?.homepage)">
                             <ion-icon slot="start" name="globe"></ion-icon>
                             {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
                         </ion-button>
                     </ion-col>
 
                     <ion-col *ngIf="app?.storeUrl">
-                        <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.storeUrl)">
+                        <ion-button class="ion-text-wrap" fill="clear" expand="block" (click)="goToLink(app?.storeUrl)">
                             <ion-icon slot="start" name="basket"></ion-icon>
                             {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
                         </ion-button>
                     </ion-col>
 
                     <ion-col *ngIf="app?.bugtrackerUrl">
-                        <ion-button text-wrap fill="clear" expand="block" (click)="goToLink(app?.bugtrackerUrl)">
+                        <ion-button class="ion-text-wrap" fill="clear" expand="block" (click)="goToLink(app?.bugtrackerUrl)">
                             <ion-icon slot="start" name="bug"></ion-icon>
                             {{ 'PAGES.APP_DETAIL.REPORT_ISSUE' | translate }}
                         </ion-button>
                     </ion-col>
 
                     <ion-col *ngIf="app?.donationUrl">
-                        <ion-button fill="clear" text-wrap expand="block" (click)="goToLink(app?.donationUrl)">
+                        <ion-button fill="clear" class="ion-text-wrap" expand="block" (click)="goToLink(app?.donationUrl)">
                             <ion-icon slot="start" name="cash"></ion-icon>
                             {{ 'PAGES.APP_DETAIL.DONATE' | translate }}
                         </ion-button>
