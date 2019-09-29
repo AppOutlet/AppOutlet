@@ -29,13 +29,17 @@ export class ProcessService {
                 console.log(`This app cannot install ${app.type} yet`)
         }
 
-        this.onQueueModified()
+        if (this.processServiceState == ProcessServiceState.IDLE) {
+            this.onQueueModified()
+        }
     }
 
     private onQueueModified() {
         if (this.processQueue.length > 0) {
+            this.processServiceState = ProcessServiceState.BUSY
             this.processQueue[0].start()
         } else {
+            this.processServiceState = ProcessServiceState.IDLE
             console.log('Empty queue')
         }
     }
