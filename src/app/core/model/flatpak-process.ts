@@ -51,7 +51,25 @@ export class FlatpakProcess implements Proccess {
     }
 
     startRemove() {
-        throw new Error("Method not implemented.");
+        this.spawn = this.electronService.childProcess.spawn('flatpak', ['uninstall', this.app.flatpakAppId, '-y'])
+
+        this.spawn.stdout.on('data', (data) => {
+            const output = data.toString()
+            console.log(output)
+            this.stdout.push(output)
+        });
+
+        this.spawn.stderr.on('data', (data) => {
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
+        });
+
+        this.spawn.on('close', (code) => {
+            if (code !== 0) {
+                console.log(`ps process exited with code ${code}`);
+            }
+            this.onProcessFinishedCallback(this.app, code == 0)
+        });
     }
 
     start() {

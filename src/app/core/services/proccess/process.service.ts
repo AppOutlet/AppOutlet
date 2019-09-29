@@ -63,6 +63,22 @@ export class ProcessService {
         this.onQueueModified()
         this.eventBusService.triggerEvent(app._id, app)
     }
+
+    uninstall(app: App) {
+        if (!this.electronService.isElectron) return
+
+        switch (app.type) {
+            case 'Flatpak':
+                this.addFlatpakProcessToQueue(app, ProcessType.REMOVE)
+                break
+            default:
+                console.log(`This app cannot install ${app.type} yet`)
+        }
+
+        if (this.processServiceState == ProcessServiceState.IDLE) {
+            this.onQueueModified()
+        }
+    }
 }
 
 enum ProcessServiceState {

@@ -64,6 +64,8 @@ export class AppDetailPresenter {
     }
 
     uninstall(app: App) {
+        this.appService.uninstall(app)
+        this.getAppState(app)
     }
 
     run(app: App) {

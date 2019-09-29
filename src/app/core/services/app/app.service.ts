@@ -111,4 +111,8 @@ export class AppService {
     runFlatpak(app: App) {
         this.electronService.childProcess.spawn('flatpak', ['run', app._id], { detached: true })
     }
+
+    uninstall(app: App) {
+        this.processService.uninstall(app)
+    }
 }
