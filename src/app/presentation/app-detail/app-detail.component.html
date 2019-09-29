@@ -4,6 +4,14 @@
             <ion-back-button text="{{ 'GENERAL.BACK' | translate }}" defaultHref=""></ion-back-button>
         </ion-buttons>
         <ion-buttons slot="end">
+            <ion-button [hidden]="!shouldShowRunButton" (click)="install()">
+                <ion-icon slot="icon-only" name="play"></ion-icon>
+                {{ 'PAGES.APP_DETAIL.RUN' | translate }}
+            </ion-button>
+            <ion-button [hidden]="!shouldShowUninstallButton" color="danger" (click)="install()">
+                <ion-icon slot="icon-only" name="trash"></ion-icon>
+                {{ 'PAGES.APP_DETAIL.UNINSTALL' | translate }}
+            </ion-button>
             <ion-button [hidden]="!shouldShowInstallButton" fill="solid" (click)="install()">
                 <ion-icon slot="icon-only" mode="md" name="download"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}

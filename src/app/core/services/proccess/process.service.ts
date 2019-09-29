@@ -9,8 +9,8 @@ import { FlatpakProcess } from '../../model/flatpak-process';
 })
 export class ProcessService {
 
-    private processQueue: Proccess[] = []
-    private processServiceState = ProcessServiceState.IDLE
+    processQueue: Proccess[] = []
+    processServiceState = ProcessServiceState.IDLE
 
     constructor(
         private electronService: ElectronService

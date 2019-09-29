@@ -24,7 +24,9 @@
             "STORE_PAGE": "Página da loja",
             "REPORT_ISSUE": "Reportar bug",
             "DONATE": "Faça uma doação",
-            "PROJECT_HOMEPAGE": "Página inicial do projeto"
+            "PROJECT_HOMEPAGE": "Página inicial do projeto",
+            "RUN": "Executar",
+            "UNINSTALL": "Desisntalar"
         }
     },
     "GENERAL": {

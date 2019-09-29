@@ -21,6 +21,7 @@ export class AppDetailPresenter {
     onInit(view: AppDetailComponent) {
         this.view = view
         this.view.setApp(this.appService.getSelectedApp())
+        this.getAppState(this.view.app)
     }
 
     goToLink(url: string) {
@@ -28,6 +29,15 @@ export class AppDetailPresenter {
     }
 
     installButtonClicked(app: App) {
-        this.processService.install(app)
+        this.appService.install(app)
+    }
+
+    getAppState(app:App){
+        this.appService.getAppState(app).then((state: AppState)=>{
+            this.state = state
+            this.view.shouldShowInstallButton = state == AppState.NOT_INSTALLED
+            this.view.shouldShowRunButton = state == AppState.INSTALLED
+            this.view.shouldShowUninstallButton = state == AppState.INSTALLED
+        })
     }
 }

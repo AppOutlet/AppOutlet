@@ -14,6 +14,8 @@ export class AppDetailComponent {
     app: App;
     loading = true
     shouldShowInstallButton = false
+    shouldShowRunButton = false
+    shouldShowUninstallButton = false
 
     constructor(
         private presenter: AppDetailPresenter
