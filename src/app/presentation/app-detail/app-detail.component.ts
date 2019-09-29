@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { AppDetailPresenter } from './app-detail.presenter';
 import { App } from '../../core/model/app.model';
 
@@ -20,7 +20,8 @@ export class AppDetailComponent {
     shouldShowLoading = false
 
     constructor(
-        private presenter: AppDetailPresenter
+        private presenter: AppDetailPresenter,
+        public changesDetector: ChangeDetectorRef
     ) {}
 
     ionViewWillEnter(){
@@ -47,5 +48,6 @@ export class AppDetailComponent {
 
     ionViewDidLeave(){
         this.app = null
+        this.presenter.onDestroy()
     }
 }

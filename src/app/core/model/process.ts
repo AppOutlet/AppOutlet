@@ -6,8 +6,7 @@ export interface Proccess {
     processType: ProcessType
     onProcessFinishedCallback: Function
     electronService: ElectronService
-    startInstall()
-    startRemove()
+    start()
 }
 
 export enum ProcessType{

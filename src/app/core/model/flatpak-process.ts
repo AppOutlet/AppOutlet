@@ -46,12 +46,26 @@ export class FlatpakProcess implements Proccess {
             if (code !== 0) {
                 console.log(`ps process exited with code ${code}`);
             } else {
-                this.onProcessFinishedCallback()
+                this.onProcessFinishedCallback(this.app)
             }
         });
     }
 
     startRemove() {
         throw new Error("Method not implemented.");
+    }
+
+    start() {
+        switch (this.processType) {
+            case ProcessType.INSTALL:
+                this.startInstall()
+                break
+            case ProcessType.REMOVE:
+                this.startRemove()
+                break
+            default:
+                console.log('Invalid process type')
+                this.onProcessFinishedCallback()
+        }
     }
 }

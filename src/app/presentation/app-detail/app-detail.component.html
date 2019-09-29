@@ -7,11 +7,11 @@
         <ion-buttons slot="end">
             {{ statusText | translate}}
             <ion-spinner [hidden]="!shouldShowLoading"></ion-spinner>
-            <ion-button [hidden]="!shouldShowRunButton" (click)="install()">
+            <ion-button [hidden]="!shouldShowRunButton">
                 <ion-icon slot="icon-only" name="play"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.RUN' | translate }}
             </ion-button>
-            <ion-button [hidden]="!shouldShowUninstallButton" color="danger" (click)="install()">
+            <ion-button [hidden]="!shouldShowUninstallButton" color="danger">
                 <ion-icon slot="icon-only" name="trash"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.UNINSTALL' | translate }}
             </ion-button>
