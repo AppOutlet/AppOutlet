@@ -26,13 +26,18 @@
             "REPORT_ISSUE": "Report issue",
             "DONATE": "Donate",
             "PROJECT_HOMEPAGE": "Project homepage",
-            "ACTIONS": "Actions"
+            "ACTIONS": "Actions",
+            "RUN": "Run",
+            "UNINSTALL": "Uninstall",
+            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+            "HOW_TO_SETUP": "How to setup?"
         }
     },
     "GENERAL": {
         "LOADING": "Loading",
         "ERROR_MESSAGE": "Ocurred an error",
         "TRY_AGAIN": "Try again",
-        "BACK": "Go back"
+        "BACK": "Go back",
+        "DISMISS": "Dismiss"
     }
 }
