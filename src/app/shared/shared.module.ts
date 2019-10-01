@@ -5,14 +5,16 @@ import { PageNotFoundComponent } from './components/'
 import { WebviewDirective } from './directives/'
 import { AppCardComponent } from './components/app-card/app-card.component'
 import { IonicModule } from '@ionic/angular'
-import { SectionComponent } from './components/section/section.component'
+import { SectionComponent } from './components/section/section.component';
+import { GalleryComponent } from './components/gallery/gallery.component'
 
 @NgModule({
     declarations: [
         PageNotFoundComponent,
         WebviewDirective,
         AppCardComponent,
-        SectionComponent
+        SectionComponent,
+        GalleryComponent
     ],
     imports: [
         IonicModule,
@@ -23,7 +25,8 @@ import { SectionComponent } from './components/section/section.component'
         TranslateModule,
         WebviewDirective,
         AppCardComponent,
-        SectionComponent
+        SectionComponent,
+        GalleryComponent
     ],
     entryComponents: [
         AppCardComponent

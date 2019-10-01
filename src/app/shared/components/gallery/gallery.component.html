@@ -1,0 +1,19 @@
+<ion-slides #gallery pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let screenshot of screenshots">
+        <ion-card>
+            <img class="slider__item" [src]="screenshot">
+        </ion-card>
+    </ion-slide>
+</ion-slides>
+
+<ion-grid [hidden]="screenshots.length == 0" fixed>
+    <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-fab-button (click)="gallery.slidePrev()" size="small" color="light">
+            <ion-icon name="arrow-back"></ion-icon>
+        </ion-fab-button>
+        <span class="my-pagination"></span>
+        <ion-fab-button (click)="gallery.slideNext()" size="small" color="light">
+            <ion-icon name="arrow-forward"></ion-icon>
+        </ion-fab-button>
+    </ion-row>
+</ion-grid>

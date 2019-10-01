@@ -1,7 +1,10 @@
 {
     "PAGES": {
         "HOME": {
-            "TITLE": "Home"
+            "TITLE": "Home",
+            "POPULAR": "Popular apps",
+            "RECENTLY_UPDATED": "Recently updated",
+            "NEW_RELEASES": "New releases"
         },
         "MAIN": {
             "TITLE": "Main",
@@ -16,11 +19,25 @@
             },
             "QUERY_TITLE": "Results for '{{query}}'",
             "NO_RESULTS_FOUND": "No results found"
+        },
+        "APP_DETAIL": {
+            "INSTALL": "Install",
+            "STORE_PAGE": "Store page",
+            "REPORT_ISSUE": "Report issue",
+            "DONATE": "Donate",
+            "PROJECT_HOMEPAGE": "Project homepage",
+            "ACTIONS": "Actions",
+            "RUN": "Run",
+            "UNINSTALL": "Uninstall",
+            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+            "HOW_TO_SETUP": "How to setup?"
         }
     },
     "GENERAL": {
         "LOADING": "Loading",
         "ERROR_MESSAGE": "Ocurred an error",
-        "TRY_AGAIN": "Try again"
+        "TRY_AGAIN": "Try again",
+        "BACK": "Go back",
+        "DISMISS": "Dismiss"
     }
 }

@@ -14,6 +14,7 @@ import { SearchResultPresenter } from '../search-result/search-result.presenter'
 import { SearchResultRouter } from '../search-result/search-result.router'
 import { EventBusService } from 'ngx-eventbus'
 import { HomePresenter } from '../home/home.presenter'
+import { AppDetailPresenter } from '../app-detail/app-detail.presenter'
 
 @NgModule({
     declarations: [
@@ -35,7 +36,8 @@ import { HomePresenter } from '../home/home.presenter'
         SearchResultPresenter,
         SearchResultRouter,
         EventBusService,
-        HomePresenter
+        HomePresenter,
+        AppDetailPresenter
     ]
 })
 export class MainModule { }

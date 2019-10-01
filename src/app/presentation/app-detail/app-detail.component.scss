@@ -1,0 +1,36 @@
+.app__name{
+    font-size: 3em;
+}
+
+.app__short-description {
+    font-size: 1em;
+    font-style: oblique;
+}
+
+.app__full-description {
+    font-size: 1em;
+    color: black;
+    white-space: pre-wrap;
+}
+
+.app__icon{
+    max-width: 180px;
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.app__name__version{
+    margin-left: 5px;
+    font-size: .5em;
+}
+
+.main-loader{
+    margin-top: 200px;
+}
+
+ion-spinner {
+    margin-left: 10px;
+    margin-right: 10px;
+}
