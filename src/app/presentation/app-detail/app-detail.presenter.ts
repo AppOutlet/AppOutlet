@@ -5,13 +5,16 @@ import { ElectronService } from '../../core/services';
 import { App } from '../../core/model/app.model';
 import { AppState } from '../../core/model/app-state.model';
 import { EventBusService } from 'ngx-eventbus';
+import { ExitCode } from '../../core/model/exit-code.enum';
 
 @Injectable()
 export class AppDetailPresenter {
 
     private view: AppDetailComponent
     private state: AppState = AppState.UNKNOWN
-    private updateListener
+    private processEndListener
+    private processInfoListener
+    private supportedTypes = ['Flatpak']
 
     constructor(
         private appService: AppService,
@@ -38,19 +41,30 @@ export class AppDetailPresenter {
     getAppState(app: App) {
         this.appService.getAppState(app).then((state: AppState) => {
             this.state = state
-            this.view.shouldShowInstallButton = state == AppState.NOT_INSTALLED
-            this.view.shouldShowRunButton = state == AppState.INSTALLED
-            this.view.shouldShowUninstallButton = state == AppState.INSTALLED
-            this.view.shouldShowLoading = state == AppState.INSTALLING || state == AppState.REMOVING
+            let isAppSupported = this.supportedTypes.includes(app.type)
+            this.view.shouldShowInstallButton = state == AppState.NOT_INSTALLED && isAppSupported
+            this.view.shouldShowRunButton = state == AppState.INSTALLED && isAppSupported
+            this.view.shouldShowUninstallButton = state == AppState.INSTALLED && isAppSupported
+            this.view.shouldShowLoading = state == AppState.INSTALLING || state == AppState.REMOVING && isAppSupported
             this.view.changesDetector.detectChanges()
         })
     }
 
     private registerEventListener(app: App) {
-        this.updateListener = this.eventBusService.addEventListener({
+        this.processEndListener = this.eventBusService.addEventListener({
             name: app._id,
-            callback: () => {
+            callback: (processDetails) => {
+                this.view.statusText = ''
                 this.getAppState(app)
+                this.processExitCode(processDetails)
+            }
+        })
+
+        this.processInfoListener = this.eventBusService.addEventListener({
+            name: `info-${app._id}`,
+            callback: (info) => {
+                this.view.statusText = info
+                this.view.changesDetector.detectChanges()
             }
         })
     }
@@ -60,7 +74,8 @@ export class AppDetailPresenter {
     }
 
     private unregisterEventListener() {
-        this.eventBusService.removeEventListener(this.updateListener)
+        this.eventBusService.removeEventListener(this.processEndListener)
+        this.eventBusService.removeEventListener(this.processInfoListener)
     }
 
     uninstall(app: App) {
@@ -70,5 +85,26 @@ export class AppDetailPresenter {
 
     run(app: App) {
         this.appService.run(app)
+    }
+
+    processExitCode(processDetails) {
+        if (!processDetails.success) {
+            switch (processDetails.exitCode) {
+                case ExitCode.SUPPORT_ERROR:
+                    this.view.showSupportError(processDetails.app.type)
+                    break
+            }
+        }
+    }
+
+    goToSupportSetup() {
+        switch (this.view.app.type) {
+            case 'Flatpak':
+                this.goToLink('https://flatpak.org/setup/')
+                break
+            case 'Snap':
+                this.goToLink('https://snapcraft.io/docs/getting-started')
+                break
+        }
     }
 }

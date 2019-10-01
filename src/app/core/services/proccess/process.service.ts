@@ -48,6 +48,7 @@ export class ProcessService {
     addFlatpakProcessToQueue(app: App, processType: ProcessType) {
         const process = new FlatpakProcess(
             this.onProcessFinished.bind(this),
+            this.onProcessUpdated.bind(this),
             app,
             processType,
             this.electronService
@@ -55,13 +56,17 @@ export class ProcessService {
         this.processQueue.push(process)
     }
 
-    onProcessFinished(app: App, success: boolean) {
+    onProcessFinished(app: App, success: boolean, exitCode: number) {
         const finishedProccess = this.processQueue.shift()
-        if(!success){
+        if (!success) {
             this.processQueueErrors.push(finishedProccess)
         }
         this.onQueueModified()
-        this.eventBusService.triggerEvent(app._id, app)
+        this.eventBusService.triggerEvent(app._id, { app, success, exitCode })
+    }
+
+    onProcessUpdated(app: App, text: String) {
+        this.eventBusService.triggerEvent(`info-${app._id}`, text)
     }
 
     uninstall(app: App) {

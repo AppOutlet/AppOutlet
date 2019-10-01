@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild, ChangeDetectorRef } from '@angular/core';
 import { AppDetailPresenter } from './app-detail.presenter';
 import { App } from '../../core/model/app.model';
+import { AlertController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
     selector: 'app-app-detail',
@@ -21,10 +23,12 @@ export class AppDetailComponent {
 
     constructor(
         private presenter: AppDetailPresenter,
-        public changesDetector: ChangeDetectorRef
-    ) {}
+        public changesDetector: ChangeDetectorRef,
+        private alertController: AlertController,
+        private translateService: TranslateService
+    ) { }
 
-    ionViewWillEnter(){
+    ionViewWillEnter() {
         this.loading = true
     }
 
@@ -46,16 +50,41 @@ export class AppDetailComponent {
         this.presenter.installButtonClicked(this.app)
     }
 
-    ionViewDidLeave(){
+    ionViewDidLeave() {
         this.app = null
         this.presenter.onDestroy()
     }
 
-    run(){
+    run() {
         this.presenter.run(this.app)
     }
 
-    uninstall(){
+    uninstall() {
         this.presenter.uninstall(this.app)
     }
+
+    async showSupportError(type: String) {
+
+        let title: string = await this.translateService.get('GENERAL.ERROR_MESSAGE').toPromise()
+        let message: string = await this.translateService.get('PAGES.APP_DETAIL.NO_SUPPORT_ERROR_MESSAGE', { type }).toPromise()
+        let dismiss: string = await this.translateService.get('GENERAL.DISMISS').toPromise()
+        let howToSetup: string = await this.translateService.get('PAGES.APP_DETAIL.HOW_TO_SETUP').toPromise()
+
+        const alert = await this.alertController.create({
+            header: title,
+            message: message,
+            buttons: [{
+                text: dismiss,
+                role: 'cancel'
+            }, {
+                text: howToSetup,
+                handler: () => {
+                    this.presenter.goToSupportSetup()
+                }
+            }]
+        });
+
+        await alert.present();
+    }
+
 }
