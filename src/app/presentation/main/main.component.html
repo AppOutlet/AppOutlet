@@ -12,38 +12,61 @@
             </ion-header>
 
             <ion-content>
+
                 <ion-list>
 
-                    <ion-item routerDirection="back" routerLink="/">
-                        <ion-icon slot="start" name="home"></ion-icon>
-                        <ion-label>
-                            {{ 'PAGES.HOME.TITLE' | translate }}
-                        </ion-label>
-                    </ion-item>
 
-                    <ion-list-header>
-                        <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
-                    </ion-list-header>
+                    <div [hidden]="viewMode != 'main'">
 
-                    <ion-item *ngFor="let category of categories" button (click)="categoryClicked(category)">
-                        <ion-label>
-                            {{ category.name | translate }}
-                        </ion-label>
-                    </ion-item>
+                        <ion-item routerDirection="back" routerLink="/">
+                            <ion-icon slot="start" name="home"></ion-icon>
+                            <ion-label>
+                                {{ 'PAGES.HOME.TITLE' | translate }}
+                            </ion-label>
+                        </ion-item>
 
-                    <ion-grid>
-                        <ion-row [hidden]="!loading" class="ion-align-items-center ion-justify-content-center"
-                            style="margin-top: auto">
-                            <ion-spinner></ion-spinner>
-                        </ion-row>
-                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
-                            {{ 'GENERAL.ERROR_MESSAGE' | translate }}
-                        </ion-row>
-                        <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
-                            <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}</ion-button>
-                        </ion-row>
-                    </ion-grid>
+                        <ion-item routerDirection="back" (click)="goToTags()">
+                            <ion-icon slot="start" name="pricetags"></ion-icon>
+                            <ion-label>
+                                {{ 'PAGES.MAIN.CATEGORIES' | translate }}
+                            </ion-label>
+                        </ion-item>
+
+                        <ion-item routerDirection="back" (click)="goToTags()">
+                            <ion-icon slot="start" name="settings"></ion-icon>
+                            <ion-label>
+                                settings
+                            </ion-label>
+                        </ion-item>
+
+                    </div>
+
+                    <div [hidden]="viewMode != 'tags'">
+                        <ion-list-header>
+                            <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
+                            <ion-button size="small" fill="clear" (click)="goToMainMenu()">Back to menu</ion-button>
+                        </ion-list-header>
+                        <ion-item *ngFor="let category of categories" button (click)="categoryClicked(category)">
+                            <ion-icon slot="start" name="pricetag"></ion-icon>
+                            <ion-label>
+                                {{ category.name | translate }}
+                            </ion-label>
+                        </ion-item>
+
+                        <ion-grid>
+                            <ion-row [hidden]="!loading" class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                                <ion-spinner></ion-spinner>
+                            </ion-row>
+                            <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                                {{ 'GENERAL.ERROR_MESSAGE' | translate }}
+                            </ion-row>
+                            <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                                <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}</ion-button>
+                            </ion-row>
+                        </ion-grid>
+                    </div>
                 </ion-list>
+
             </ion-content>
         </ion-menu>
 
