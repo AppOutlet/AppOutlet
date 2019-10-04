@@ -25,17 +25,17 @@
                             </ion-label>
                         </ion-item>
 
-                        <ion-item routerDirection="back" (click)="goToTags()">
+                        <ion-item button="true" (click)="goToTags()">
                             <ion-icon slot="start" name="pricetags"></ion-icon>
                             <ion-label>
                                 {{ 'PAGES.MAIN.CATEGORIES' | translate }}
                             </ion-label>
                         </ion-item>
 
-                        <ion-item routerDirection="back" (click)="goToTags()">
+                        <ion-item routerLink="/settings/appearance">
                             <ion-icon slot="start" name="settings"></ion-icon>
                             <ion-label>
-                                settings
+                                {{ 'PAGES.SETTINGS.TITLE' | translate }}
                             </ion-label>
                         </ion-item>
 

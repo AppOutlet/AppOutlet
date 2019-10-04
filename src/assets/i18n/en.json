@@ -31,6 +31,9 @@
             "UNINSTALL": "Uninstall",
             "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
             "HOW_TO_SETUP": "How to setup?"
+        },
+        "SETTINGS": {
+            "TITLE": "Settings"
         }
     },
     "GENERAL": {

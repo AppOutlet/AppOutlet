@@ -15,13 +15,17 @@ import { SearchResultRouter } from '../search-result/search-result.router'
 import { EventBusService } from 'ngx-eventbus'
 import { HomePresenter } from '../home/home.presenter'
 import { AppDetailPresenter } from '../app-detail/app-detail.presenter'
+import { SettingsComponent } from '../settings/settings.component'
+import { AppearanceComponent } from '../settings/appearance/appearance.component'
 
 @NgModule({
     declarations: [
         MainComponent,
         HomeComponent,
         SearchResultComponent,
-        AppDetailComponent
+        AppDetailComponent,
+        SettingsComponent,
+        AppearanceComponent
     ],
     imports: [
         CommonModule,
