@@ -27,6 +27,7 @@ export class AppDetailPresenter {
         this.view.setApp(this.appService.getSelectedApp())
         this.getAppState(this.view.app)
         this.registerEventListener(this.view.app)
+        this.appService.notifyAppClicked(view.app)
     }
 
     goToLink(url: string) {
