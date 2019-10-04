@@ -1,1 +1,25 @@
-<p>appearance works!</p>
+<ion-content class="ion-padding">
+    <ion-grid fixed class="settings-container">
+        <ion-list>
+
+            <ion-item>
+                <ion-icon name="switch" slot="start"></ion-icon>
+                <ion-label>UI mode</ion-label>
+                <ion-select interface="popover" placeholder="Select One">
+                    <ion-select-option value="f">Pear</ion-select-option>
+                    <ion-select-option value="m">MD</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="contrast" slot="start"></ion-icon>
+                <ion-label>Theme</ion-label>
+                <ion-select interface="popover" placeholder="Select One">
+                    <ion-select-option value="f">Light</ion-select-option>
+                    <ion-select-option value="m">Dark</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+    </ion-grid>
+</ion-content>
