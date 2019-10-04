@@ -7,7 +7,7 @@
                     <a routerDirection="back" slot="start" routerLink="/">
                         <img src="assets/icon.png" class="app-icon">
                     </a>
-                    <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)"></ion-searchbar>
+                    <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)" placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"></ion-searchbar>
                 </ion-toolbar>
             </ion-header>
 
@@ -44,7 +44,7 @@
                     <div [hidden]="viewMode != 'tags'">
                         <ion-list-header>
                             <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
-                            <ion-button size="small" fill="clear" (click)="goToMainMenu()">Back to menu</ion-button>
+                            <ion-button size="small" fill="clear" (click)="goToMainMenu()">{{ 'PAGES.MAIN.BACK_TO_MENU' | translate }}</ion-button>
                         </ion-list-header>
                         <ion-item *ngFor="let category of categories" button (click)="categoryClicked(category)">
                             <ion-icon slot="start" name="pricetag"></ion-icon>
