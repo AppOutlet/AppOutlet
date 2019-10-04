@@ -6,6 +6,7 @@ import { ProcessService } from '../proccess/process.service'
 import { AppState } from '../../model/app-state.model'
 import { ProcessType } from '../../model/process'
 import { ElectronService } from '../electron/electron.service'
+import { AlertController } from '@ionic/angular'
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,8 @@ export class AppService {
     constructor(
         private appRepository: AppRepository,
         private processService: ProcessService,
-        private electronService: ElectronService
+        private electronService: ElectronService,
+        private alertController: AlertController
     ) { }
 
     findByCategory(category: Category) {
@@ -73,6 +75,8 @@ export class AppService {
         switch (app.type) {
             case 'Flatpak':
                 return this.verifyIfFlatpakIsInstalled(app)
+            case 'Snap':
+                return this.verifyIfSnapIsInstalled(app)
             default:
                 return Promise.resolve(false)
         }
@@ -80,6 +84,14 @@ export class AppService {
 
     private verifyIfFlatpakIsInstalled(app: App) {
         return this.electronService.execCommand(`flatpak list | grep ${app.flatpakAppId}`).then((output: string) => {
+            return output.length > 0
+        }).catch(err => {
+            return false
+        })
+    }
+    private verifyIfSnapIsInstalled(app: App) {
+        return this.electronService.execCommand(`snap list | grep ${app.packageName}`).then((output: string) => {
+            
             return output.length > 0
         }).catch(err => {
             return false
@@ -103,16 +115,37 @@ export class AppService {
         switch (app.type) {
             case 'Flatpak':
                 return this.runFlatpak(app)
+            case 'Snap':
+                return this.runSnap(app)
             default:
-                return Promise.reject(`${app.type} not supported yet`)
+                return Promise.reject(`${app.type} ainda não suportado`)
         }
     }
 
     runFlatpak(app: App) {
         this.electronService.childProcess.spawn('flatpak', ['run', app._id], { detached: true })
     }
-
+    runSnap(app: App) {
+        this.presentNOUrlAlert(`snap run ${app.packageName}`)//teste
+        this.electronService.childProcess.spawn('snap', ['run', app.packageName], { detached: true })
+        this.electronService.execCommand(`snap run ${app.packageName}`).then((output: string) => {
+            this.presentNOUrlAlert(output)//teste
+        })
+    }
+    
     uninstall(app: App) {
         this.processService.uninstall(app)
+    }
+    async presentNOUrlAlert(output: string) {
+
+        const alert = await this.alertController.create({
+            header: '...',
+            message: `${output}`,
+            buttons: [{
+                text: 'OK'
+            }]
+        })
+
+        await alert.present()
     }
 }

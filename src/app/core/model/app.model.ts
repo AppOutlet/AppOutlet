@@ -14,6 +14,7 @@ export interface App {
     lastUpdateDate?: Date
     license?: string
     name?: string
+    packageName?: string
     releaseDate?: Date
     shortDescription?: string
     store?: string

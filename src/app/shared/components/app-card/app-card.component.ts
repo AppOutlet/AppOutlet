@@ -29,10 +29,10 @@ export class AppCardComponent {
     async presentNOUrlAlert() {
 
         const alert = await this.alertController.create({
-            header: 'Houston, we have a problem',
-            message: `Seems that ${this.app.name} hasn't a url on store`,
+            header: 'Houston, nós temos um problema',
+            message: `Parece que ${this.app.name}  não possui um URL na loja`,
             buttons: [{
-                text: 'Okay'
+                text: 'OK'
             }]
         })
 

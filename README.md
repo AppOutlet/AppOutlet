@@ -1,22 +1,22 @@
-![Banner](https://github.com/app-outlet/app-outlet/raw/master/src/assets/banner.png)
+![alt text](src/assets/banner.png "Banner")
     
 ## App Outlet  | [![Build Status](https://travis-ci.org/app-outlet/app-outlet.svg?branch=master)](https://travis-ci.org/app-outlet/app-outlet)
 
 App Outlet is a Universal application store inspired on the Linux App Store online service. It easily allows you to search and download [W.I.P] applications that runs on most Linux distributions. It currently works with AppImages, Flatpaks and Snaps.
 
-![Screenshot](https://github.com/app-outlet/app-outlet/raw/master/src/assets/screenshot.png)
+![alt text](./src/assets/screenshot.png "App Outlet Screenshot")
 
 ### Download
 
 You can get App Outlet by clicking on the following options:
 
-[![Debian package](https://github.com/app-outlet/app-outlet/raw/master/src/assets/deb.png)](https://appoutlet.herokuapp.com/download/deb)
-[![AppImage](https://github.com/app-outlet/app-outlet/raw/master/src/assets/appimage.png)](https://appoutlet.herokuapp.com/download/appimage)
-[![Get it from the Snap Store](https://github.com/app-outlet/app-outlet/raw/master/src/assets/snap.png)](https://snapcraft.io/app-outlet)
+[![Debian package](./src/assets/deb.png)](https://appoutlet.herokuapp.com/download/deb)
+[![AppImage](./src/assets/appimage.png)](https://appoutlet.herokuapp.com/download/appimage)
+[![Get it from the Snap Store](./src/assets/snap.png)](https://snapcraft.io/app-outlet)
 
 You can also get the unpacked version here:
 
-[![Get unpacked version](https://github.com/app-outlet/app-outlet/raw/master/src/assets/unpacked.png)](https://appoutlet.herokuapp.com/download/unpacked)
+[![Get unpacked version](./src/assets/unpacked.png)](https://appoutlet.herokuapp.com/download/unpacked)
 
 If your distro doesn't support the available packages you can dowload and compile the source code following the instructions below. 
 

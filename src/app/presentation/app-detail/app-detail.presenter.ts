@@ -6,6 +6,7 @@ import { App } from '../../core/model/app.model';
 import { AppState } from '../../core/model/app-state.model';
 import { EventBusService } from 'ngx-eventbus';
 import { ExitCode } from '../../core/model/exit-code.enum';
+import { AlertController } from '@ionic/angular'
 
 @Injectable()
 export class AppDetailPresenter {
@@ -14,9 +15,10 @@ export class AppDetailPresenter {
     private state: AppState = AppState.UNKNOWN
     private processEndListener
     private processInfoListener
-    private supportedTypes = ['Flatpak']
+    private supportedTypes = ['Flatpak','Snap']
 
     constructor(
+        private alertController: AlertController,
         private appService: AppService,
         private electronService: ElectronService,
         private eventBusService: EventBusService
