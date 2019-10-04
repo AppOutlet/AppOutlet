@@ -17,6 +17,8 @@ import { HomePresenter } from '../home/home.presenter'
 import { AppDetailPresenter } from '../app-detail/app-detail.presenter'
 import { SettingsComponent } from '../settings/settings.component'
 import { AppearanceComponent } from '../settings/appearance/appearance.component'
+import { AccountComponent } from '../settings/account/account.component'
+import { AboutComponent } from '../settings/about/about.component'
 
 @NgModule({
     declarations: [
@@ -25,7 +27,9 @@ import { AppearanceComponent } from '../settings/appearance/appearance.component
         SearchResultComponent,
         AppDetailComponent,
         SettingsComponent,
-        AppearanceComponent
+        AppearanceComponent,
+        AccountComponent,
+        AboutComponent
     ],
     imports: [
         CommonModule,
