@@ -1,47 +1,47 @@
 {
-    "PAGES": {
-        "HOME": {
-            "TITLE": "Home",
-            "POPULAR": "Popular apps",
-            "RECENTLY_UPDATED": "Recently updated",
-            "NEW_RELEASES": "New releases"
-        },
-        "MAIN": {
-            "TITLE": "Main",
-            "CATEGORIES": "Categories",
-            "TAGS": "Tags"
-        },
-        "SEARCH": {
-            "SEGMENT": {
-                "ALL_TYPES": "All types",
-                "SNAP": "Snap",
-                "FLATPAK": "Flatpak",
-                "APPIMAGE": "AppImage"
-            },
-            "QUERY_TITLE": "Results for '{{query}}'",
-            "NO_RESULTS_FOUND": "No results found"
-        },
-        "APP_DETAIL": {
-            "INSTALL": "Install",
-            "STORE_PAGE": "Store page",
-            "REPORT_ISSUE": "Report issue",
-            "DONATE": "Donate",
-            "PROJECT_HOMEPAGE": "Project homepage",
-            "ACTIONS": "Actions",
-            "RUN": "Run",
-            "UNINSTALL": "Uninstall",
-            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
-            "HOW_TO_SETUP": "How to setup?"
-        },
-        "SETTINGS": {
-            "TITLE": "Settings"
-        }
-    },
-    "GENERAL": {
-        "LOADING": "Loading",
-        "ERROR_MESSAGE": "Ocurred an error",
-        "TRY_AGAIN": "Try again",
-        "BACK": "Go back",
-        "DISMISS": "Dismiss"
-    }
+	"GENERAL": {
+		"BACK": "Go back",
+		"DISMISS": "Dismiss",
+		"ERROR_MESSAGE": "Ocurred an error",
+		"LOADING": "Loading",
+		"TRY_AGAIN": "Try again"
+	},
+	"PAGES": {
+		"APP_DETAIL": {
+			"ACTIONS": "Actions",
+			"DONATE": "Donate",
+			"HOW_TO_SETUP": "How to setup?",
+			"INSTALL": "Install",
+			"NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+			"PROJECT_HOMEPAGE": "Project homepage",
+			"REPORT_ISSUE": "Report issue",
+			"RUN": "Run",
+			"STORE_PAGE": "Store page",
+			"UNINSTALL": "Uninstall"
+		},
+		"HOME": {
+			"NEW_RELEASES": "New releases",
+			"POPULAR": "Popular apps",
+			"RECENTLY_UPDATED": "Recently updated",
+			"TITLE": "Home"
+		},
+		"MAIN": {
+			"CATEGORIES": "Categories",
+			"TAGS": "Tags",
+			"TITLE": "Main"
+		},
+		"SEARCH": {
+			"NO_RESULTS_FOUND": "No results found",
+			"QUERY_TITLE": "Results for '{{query}}'",
+			"SEGMENT": {
+				"ALL_TYPES": "All types",
+				"APPIMAGE": "AppImage",
+				"FLATPAK": "Flatpak",
+				"SNAP": "Snap"
+			}
+		},
+		"SETTINGS": {
+			"TITLE": "Settings"
+		}
+	}
 }
