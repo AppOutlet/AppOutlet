@@ -4,7 +4,7 @@ import '../polyfills';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { IonicModule } from '@ionic/angular';
@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { MainModule } from './presentation/main/main.module';
 import { StoreSetupComponent } from './presentation/settings/store-setup/store-setup.component';
 import { Mode } from '@ionic/core';
+import { CacheInterceptor } from './interceptor/cache.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -41,7 +42,11 @@ export function HttpLoaderFactory(http: HttpClient) {
             }
         })
     ],
-    providers: [],
+    providers: [{
+        provide: HTTP_INTERCEPTORS,
+        useClass: CacheInterceptor,
+        multi: true,
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

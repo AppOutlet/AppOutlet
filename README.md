@@ -24,6 +24,7 @@ If your distro doesn't support the available packages you can dowload and compil
 - [Diolinux (in portuguese)](https://www.diolinux.com.br/2019/10/app-outlet-o-sucessor-do-linux-app-store-loja-snap-appimage-flatpak.html)
 - [OMGUbuntu (in english)](https://www.omgubuntu.co.uk/2019/10/app-outlet-universal-linux-app-store)
 - [edivaldobrito (in portuguese)](https://www.edivaldobrito.com.br/como-instalar-a-linux-app-store-app-outlet-no-linux/)
+- [funkyspacemonkey (in english)](https://www.funkyspacemonkey.com/app-outlet-a-universal-linux-app-store)
 
 
 ## Runing and building the app
