@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from '../../../core/services';
-import { Config } from '@ionic/angular';
 
 @Component({
     selector: 'app-appearance',
