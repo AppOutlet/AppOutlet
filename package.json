@@ -1,15 +1,21 @@
 {
     "name": "app-outlet",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "description": "An Universal linux app store ",
     "homepage": "https://github.com/app-outlet/app-outlet",
-    "authors": [{
+    "author": {
         "name": "Messias Junior",
         "email": "messiaslima.03@gmail.com"
-    }, {
-        "name": "Fagner Candido",
-        "email": "fsouzacandido@gmail.com"
-    }],
+    },
+    "authors": [{
+            "name": "Messias Junior",
+            "email": "messiaslima.03@gmail.com"
+        },
+        {
+            "name": "Fagner Candido",
+            "email": "fsouzacandido@gmail.com"
+        }
+    ],
     "keywords": [
         "angular",
         "angular 8",

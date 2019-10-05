@@ -14,10 +14,9 @@ before_script:
 install:
   - npm set progress=false
   - npm install
+  - sudo apt install rpm
 script:
   - npm run electron:linux
-  - bash export-version.sh
-  - tar -zcvf release/app-outlet_${PACKAGE_VERSION}_amd64.tar.gz release/linux-unpacked
 deploy:
   - provider: releases
     api_key: $GITHUB_KEY
@@ -25,7 +24,8 @@ deploy:
     file:
       - "release/App Outlet-*.AppImage"
       - "release/app-outlet_*_amd64.deb"
-      - "release/app-outlet_*_amd64.tar.gz"
+      - "release/app-outlet-*.rpm"
+      - "release/app-outlet-*.tar.gz"
     skip_cleanup: true
     on:
       branch: master
