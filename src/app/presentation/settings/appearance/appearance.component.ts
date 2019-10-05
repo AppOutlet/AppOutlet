@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ElectronService } from '../../../core/services';
+import { Config } from '@ionic/angular';
 
 @Component({
     selector: 'app-appearance',
@@ -7,25 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppearanceComponent implements OnInit {
 
-    mode: string
     theme: string
-    changed = false
 
     constructor() { }
 
     ngOnInit() {
-        this.mode = window.localStorage.getItem('mode') || 'ios'
         this.theme = window.localStorage.getItem('theme') || 'light'
-    }
-
-    changeUIMode(event: CustomEvent) {
-        this.changed = true
-        window.localStorage.setItem('mode', event.detail.value)
     }
 
     changeTheme(event) {
         let theme = event.detail.value
-        if(theme == 'dark') {
+        if (theme == 'dark') {
             document.body.classList.add('dark')
         } else {
             document.body.classList.remove('dark')
@@ -33,7 +27,4 @@ export class AppearanceComponent implements OnInit {
         window.localStorage.setItem('theme', theme)
     }
 
-    reload(){
-        window.location.reload()
-    }
 }

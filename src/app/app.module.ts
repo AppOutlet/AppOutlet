@@ -14,7 +14,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { MainModule } from './presentation/main/main.module';
 import { StoreSetupComponent } from './presentation/settings/store-setup/store-setup.component';
-import { Mode } from '@ionic/core';
 import { CacheInterceptor } from './interceptor/cache.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -31,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SharedModule,
         MainModule,
         IonicModule.forRoot({
-            mode: window.localStorage.getItem('mode') as Mode || 'ios'
+            mode: 'ios'
         }),
         AppRoutingModule,
         TranslateModule.forRoot({
