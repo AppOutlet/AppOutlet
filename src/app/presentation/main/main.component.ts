@@ -13,6 +13,7 @@ export class MainComponent implements OnInit {
     categories: Category[]
     loading = false
     error = false
+    viewMode = 'main'
 
     constructor(
         private presenter: MainPresenter
@@ -30,7 +31,15 @@ export class MainComponent implements OnInit {
         this.presenter.search(query)
     }
 
-    reloadCategories(){
+    reloadCategories() {
         this.presenter.getAllCategories()
+    }
+
+    goToTags() {
+        this.viewMode = 'tags'
+    }
+
+    goToMainMenu() {
+        this.viewMode = 'main'
     }
 }

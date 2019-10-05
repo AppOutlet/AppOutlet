@@ -1,0 +1,37 @@
+<ion-content class="ion-padding">
+    <ion-grid fixed class="settings-container">
+        <ion-list>
+
+            <ion-item>
+                <ion-icon name="switch" slot="start"></ion-icon>
+                <ion-label>UI mode</ion-label>
+                <ion-select [(ngModel)]="mode" interface="popover" placeholder="Select One" (ionChange)="changeUIMode($event)">
+                    <ion-select-option value="ios">Human</ion-select-option>
+                    <ion-select-option value="md">Material</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="contrast" slot="start"></ion-icon>
+                <ion-label>Theme</ion-label>
+                <ion-select [(ngModel)]="theme" interface="popover" placeholder="Select One" (ionChange)="changeTheme($event)">
+                    <ion-select-option value="light">Light</ion-select-option>
+                    <ion-select-option value="dark">Dark</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+        </ion-list>
+
+        <div [hidden]="!changed">
+            <p>
+                Changes on interface needs a reload to be applied
+                <ion-button fill="clear" color="warning" (click)="reload()">
+                    Click here to reload the app
+                </ion-button>
+            </p>
+
+        </div>
+    </ion-grid>
+
+
+</ion-content>

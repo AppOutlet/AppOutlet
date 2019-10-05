@@ -1,38 +1,47 @@
 {
-    "PAGES": {
-        "HOME": {
-            "TITLE": "Página Principal",
-            "POPULAR": "Aplicações populares",
-            "RECENTLY_UPDATED": "Atualizados recentemente",
-            "NEW_RELEASES": "Novos lançamentos"
-        },
-        "MAIN": {
-            "TITLE": "Principal",
-            "CATEGORIES": "Categorias"
-        },
-        "SEARCH": {
-            "SEGMENT": {
-                "ALL_TYPES": "Todos os tipos",
-                "SNAP": "Snap",
-                "FLATPAK": "Flatpak",
-                "APPIMAGE": "AppImage"
-            },
-            "QUERY_TITLE": "Resultados para '{{query}}'"
-        },
-        "APP_DETAIL": {
-            "INSTALL": "Instalar",
-            "STORE_PAGE": "Página da loja",
-            "REPORT_ISSUE": "Reportar bug",
-            "DONATE": "Faça uma doação",
-            "PROJECT_HOMEPAGE": "Página inicial do projeto",
-            "RUN": "Executar",
-            "UNINSTALL": "Desisntalar"
-        }
-    },
-    "GENERAL": {
-        "LOADING": "Carregando",
-        "ERROR_MESSAGE": "Ocorreu um erro",
-        "TRY_AGAIN": "Tente novamente",
-        "BACK": "Voltar"
-    }
+	"GENERAL": {
+		"BACK": "Voltar",
+		"DISMISS": "Fechar",
+		"ERROR_MESSAGE": "Ocorreu um erro",
+		"LOADING": "Carregando",
+		"TRY_AGAIN": "Tente novamente"
+	},
+	"PAGES": {
+		"APP_DETAIL": {
+			"ACTIONS": "Ações",
+			"DONATE": "Faça uma doação",
+			"HOW_TO_SETUP": "Como configurar?",
+			"INSTALL": "Instalar",
+			"NO_SUPPORT_ERROR_MESSAGE": "Parece que você não configurou o supporte aos pacotes {{type}}. Por favor, verifique as suas configurações.",
+			"PROJECT_HOMEPAGE": "Página inicial do projeto",
+			"REPORT_ISSUE": "Reportar bug",
+			"RUN": "Executar",
+			"STORE_PAGE": "Página da loja",
+			"UNINSTALL": "Desisntalar"
+		},
+		"HOME": {
+			"NEW_RELEASES": "Novos lançamentos",
+			"POPULAR": "Aplicações populares",
+			"RECENTLY_UPDATED": "Atualizados recentemente",
+			"TITLE": "Página Principal"
+		},
+		"MAIN": {
+			"CATEGORIES": "Categorias",
+			"TAGS": "Etiquetas",
+			"TITLE": "Principal"
+		},
+		"SEARCH": {
+			"NO_RESULTS_FOUND": "Nenhum resultado encontrado",
+			"QUERY_TITLE": "Resultados para '{{query}}'",
+			"SEGMENT": {
+				"ALL_TYPES": "Todos os tipos",
+				"APPIMAGE": "AppImage",
+				"FLATPAK": "Flatpak",
+				"SNAP": "Snap"
+			}
+		},
+		"SETTINGS": {
+			"TITLE": "Configurações"
+		}
+	}
 }

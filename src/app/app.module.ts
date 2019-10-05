@@ -13,14 +13,15 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { AppComponent } from './app.component';
 import { MainModule } from './presentation/main/main.module';
-
+import { StoreSetupComponent } from './presentation/settings/store-setup/store-setup.component';
+import { Mode } from '@ionic/core';
 
 export function HttpLoaderFactory(http: HttpClient) {
     return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, StoreSetupComponent],
     imports: [
         BrowserModule,
         FormsModule,
@@ -29,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SharedModule,
         MainModule,
         IonicModule.forRoot({
-            mode: 'ios'
+            mode: window.localStorage.getItem('mode') as Mode || 'ios'
         }),
         AppRoutingModule,
         TranslateModule.forRoot({
