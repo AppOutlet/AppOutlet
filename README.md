@@ -20,6 +20,12 @@ You can also get the unpacked version here:
 
 If your distro doesn't support the available packages you can dowload and compile the source code following the instructions below. 
 
+## Who is talking about us?
+- [Diolinux (in portuguese)](https://www.diolinux.com.br/2019/10/app-outlet-o-sucessor-do-linux-app-store-loja-snap-appimage-flatpak.html)
+- [OMGUbuntu (in english)](https://www.omgubuntu.co.uk/2019/10/app-outlet-universal-linux-app-store)
+- [edivaldobrito (in portuguese)](https://www.edivaldobrito.com.br/como-instalar-a-linux-app-store-app-outlet-no-linux/)
+
+
 ## Runing and building the app
 You can run or build App Outlet by yourself. You can build in Linux, Windows or Mac OS but the software install features will work only in linux systems. 
 
