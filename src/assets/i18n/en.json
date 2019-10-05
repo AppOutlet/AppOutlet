@@ -4,7 +4,8 @@
         "DISMISS": "Dismiss",
         "ERROR_MESSAGE": "Ocurred an error",
         "LOADING": "Loading",
-        "TRY_AGAIN": "Try again"
+        "TRY_AGAIN": "Try again",
+        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!"
     },
     "PAGES": {
         "APP_DETAIL": {
@@ -44,6 +45,9 @@
         },
         "SETTINGS": {
             "TITLE": "Settings"
+        },
+        "ABOUT": {
+            "AUTHORS": "Authors"
         }
     }
 }
