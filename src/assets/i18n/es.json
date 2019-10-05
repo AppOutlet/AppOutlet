@@ -1,0 +1,47 @@
+{
+	"GENERAL": {
+		"BACK": "Volver",
+		"DISMISS": "Cerrar",
+		"ERROR_MESSAGE": "Ocorrio un error",
+		"LOADING": "Cargando",
+		"TRY_AGAIN": "Inténtalo de nuevo"
+	},
+	"PAGES": {
+		"APP_DETAIL": {
+			"ACTIONS": "Acciones",
+			"DONATE": "Hacer una donación",
+			"HOW_TO_SETUP": "¿Cómo configurarlo?",
+			"INSTALL": "Instalar",
+			"NO_SUPPORT_ERROR_MESSAGE": "Parece que no has configurado la compatibilidad de paquetes {{type}}. Por favor verifique su configuración.",
+			"PROJECT_HOMEPAGE": "Proyecto Inicio",
+			"REPORT_ISSUE": "Informar bug",
+			"RUN": "Correr",
+			"STORE_PAGE": "Página de tienda",
+			"UNINSTALL": "Desinstalar"
+		},
+        "HOME": {
+            "NEW_RELEASES": "Nuevos lanzamientos",
+            "POPULAR": "Aplicaciones populares",
+            "RECENTLY_UPDATED": "Actualizado recientemente",
+            "TITLE": "Página Principal"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categorias",
+            "TAGS": "Etiquetas",
+            "TITLE": "Principal"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "Ningún resultado encontrado",
+            "QUERY_TITLE": "Resultados para '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "Todos los tipos",
+                "APPIMAGE": "AppImage",
+                "FLATPAK": "Flatpak",
+                "SNAP": "Snap"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Ajustes"
+        }
+	}
+}
