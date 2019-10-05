@@ -8,15 +8,15 @@
             {{ statusText | translate}}
             <ion-spinner [hidden]="!shouldShowLoading"></ion-spinner>
             <ion-button [hidden]="!shouldShowRunButton" (click)="run()">
-                <ion-icon slot="icon-only" name="play"></ion-icon>
+                <ion-icon slot="start" name="play"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.RUN' | translate }}
             </ion-button>
             <ion-button [hidden]="!shouldShowUninstallButton" color="danger" (click)="uninstall()">
-                <ion-icon slot="icon-only" name="trash"></ion-icon>
+                <ion-icon slot="start" name="trash"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.UNINSTALL' | translate }}
             </ion-button>
             <ion-button [hidden]="!shouldShowInstallButton" fill="solid" (click)="install()">
-                <ion-icon slot="icon-only" mode="md" name="download"></ion-icon>
+                <ion-icon slot="start" mode="md" name="download"></ion-icon>
                 {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}
             </ion-button>
         </ion-buttons>

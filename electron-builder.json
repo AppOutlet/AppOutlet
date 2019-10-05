@@ -37,7 +37,12 @@
         "target": [
             "AppImage",
             "deb",
-            "snap"
+            "snap",
+            "rpm",
+            "tar.gz"
         ]
+    },
+    "snap": {
+        "confinement": "classic"
     }
 }

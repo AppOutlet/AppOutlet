@@ -5,6 +5,11 @@ import { MainComponent } from './main.component'
 import { HomeComponent } from '../home/home.component'
 import { AppDetailComponent } from '../app-detail/app-detail.component'
 import { SearchResultComponent } from '../search-result/search-result.component'
+import { SettingsComponent } from '../settings/settings.component'
+import { AppearanceComponent } from '../settings/appearance/appearance.component'
+import { StoreSetupComponent } from '../settings/store-setup/store-setup.component'
+import { AccountComponent } from '../settings/account/account.component'
+import { AboutComponent } from '../settings/about/about.component'
 
 const routes: Routes = [
     {
@@ -22,6 +27,15 @@ const routes: Routes = [
         }, {
             path: 'search/:type',
             component: SearchResultComponent
+        }, {
+            path: 'settings',
+            component: SettingsComponent,
+            children: [
+                { path: 'appearance', component: AppearanceComponent },
+                { path: 'store-setup', component: StoreSetupComponent },
+                { path: 'account', component: AccountComponent },
+                { path: 'about', component: AboutComponent }
+            ]
         }]
     }
 ]
