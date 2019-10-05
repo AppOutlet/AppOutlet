@@ -24,8 +24,13 @@ export class AppearanceComponent implements OnInit {
     }
 
     changeTheme(event) {
-        this.changed = true
-        window.localStorage.setItem('theme', event.detail.value)
+        let theme = event.detail.value
+        if(theme == 'dark') {
+            document.body.classList.add('dark')
+        } else {
+            document.body.classList.remove('dark')
+        }
+        window.localStorage.setItem('theme', theme)
     }
 
     reload(){

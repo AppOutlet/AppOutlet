@@ -27,5 +27,14 @@ export class AppComponent {
         } else {
             console.log('Mode web');
         }
+
+        this.setupTheme()
+    }
+
+    private setupTheme() {
+        let theme = window.localStorage.getItem('theme') || 'light'
+        if(theme == 'dark'){
+            document.body.classList.add('dark')
+        }
     }
 }
