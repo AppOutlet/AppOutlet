@@ -1,0 +1,53 @@
+{
+    "GENERAL": {
+        "BACK": "Go back",
+        "DISMISS": "Dismiss",
+        "ERROR_MESSAGE": "Ocurred an error",
+        "LOADING": "Loading",
+        "TRY_AGAIN": "Try again",
+        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!"
+    },
+    "PAGES": {
+        "APP_DETAIL": {
+            "ACTIONS": "Actions",
+            "DONATE": "Donate",
+            "HOW_TO_SETUP": "How to setup?",
+            "INSTALL": "Install",
+            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+            "PROJECT_HOMEPAGE": "Project homepage",
+            "REPORT_ISSUE": "Report issue",
+            "RUN": "Run",
+            "STORE_PAGE": "Store page",
+            "UNINSTALL": "Uninstall"
+        },
+        "HOME": {
+            "NEW_RELEASES": "New releases",
+            "POPULAR": "Popular apps",
+            "RECENTLY_UPDATED": "Recently updated",
+            "TITLE": "Home"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categories",
+            "TAGS": "Tags",
+            "TITLE": "Main",
+            "SEARCH": "Search",
+            "BACK_TO_MENU": "Back to menu"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "No results found",
+            "QUERY_TITLE": "Results for '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "All types",
+                "APPIMAGE": "AppImage",
+                "FLATPAK": "Flatpak",
+                "SNAP": "Snap"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Settings"
+        },
+        "ABOUT": {
+            "AUTHORS": "Authors"
+        }
+    }
+}
