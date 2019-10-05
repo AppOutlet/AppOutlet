@@ -11,6 +11,8 @@ addons:
   chrome: stable
 before_script:
   - export DISPLAY=:99.0
+before_install:
+  - sudo apt-get install -y rpm
 install:
   - npm set progress=false
   - npm install
