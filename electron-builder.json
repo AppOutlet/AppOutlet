@@ -44,5 +44,8 @@
     },
     "snap": {
         "confinement": "classic"
+    },
+    "rpm": {
+        "depends": ["libXtst6"]
     }
 }
