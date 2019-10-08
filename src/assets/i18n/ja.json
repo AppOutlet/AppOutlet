@@ -1,0 +1,53 @@
+{
+    "GENERAL": {
+        "BACK": "戻る",
+        "DISMISS": "閉じる",
+        "ERROR_MESSAGE": "エーラが発生しました",
+        "LOADING": "ロード中",
+        "TRY_AGAIN": "やり直して下さい",
+        "APP_SHORT_DESCRIPTION": "ユニバーサルなＬｉｎｕｘアプリストア。ＳｎａｐとＦｌａｔｐａｋとＡｐｐＩｍａｇｅを見つかります！"
+    },
+    "PAGES": {
+        "APP_DETAIL": {
+            "ACTIONS": "行動",
+            "DONATE": "寄付します",
+            "HOW_TO_SETUP": "セットアップ方法",
+            "INSTALL": "インストール",
+            "NO_SUPPORT_ERROR_MESSAGE": "{{type}}パケージがこのシステムでサポートされていません。どうか、確認して下さい。",
+            "PROJECT_HOMEPAGE": "ホームページ",
+            "REPORT_ISSUE": "報告",
+            "RUN": "開く",
+            "STORE_PAGE": "ストアページ",
+            "UNINSTALL": "アンインストール"
+        },
+        "HOME": {
+            "NEW_RELEASES": "新着",
+            "POPULAR": "人気",
+            "RECENTLY_UPDATED": "アップデート",
+            "TITLE": "ホーム"
+        },
+        "MAIN": {
+            "CATEGORIES": "カテゴリ",
+            "TAGS": "タグ",
+            "TITLE": "メイン",
+            "SEARCH": "検索",
+            "BACK_TO_MENU": "メニューへ戻る"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "結果は見つかりませんでした",
+            "QUERY_TITLE": "検索結果：　'{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "すべて",
+                "APPIMAGE": "ＡｐｐＩｍａｇｅ",
+                "FLATPAK": "Ｆｌａｔｐａｋ",
+                "SNAP": "Ｓｎａｐ"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "設定"
+        },
+        "ABOUT": {
+            "AUTHORS": "作者"
+        }
+    }
+}
