@@ -20,4 +20,7 @@ export interface App {
     version?: string
     type?: string
     storeUrl?: string
+    channel?: string
+    confinement?: string
+    packageName?: string
 }
