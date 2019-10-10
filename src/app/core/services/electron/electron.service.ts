@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { ipcRenderer, webFrame, remote, shell } from 'electron';
 import * as childProcess from 'child_process';
 import * as fs from 'fs';
+import Sudoer from 'electron-sudo';
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +18,7 @@ export class ElectronService {
     childProcess: typeof childProcess;
     fs: typeof fs;
     shell: typeof shell
+    sudoer: typeof Sudoer
 
     get isElectron() {
         return window && window.process && window.process.type;
@@ -31,6 +33,7 @@ export class ElectronService {
             this.shell = window.require('electron').shell
             this.childProcess = window.require('child_process');
             this.fs = window.require('fs');
+            this.sudoer = window.require('electron-sudo')
         }
     }
 

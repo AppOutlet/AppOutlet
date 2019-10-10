@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ElectronService } from '../electron/electron.service';
-import { Proccess, ProcessType } from '../../model/process';
+import { Process, ProcessType } from '../../model/process';
 import { App } from '../../model/app.model';
 import { FlatpakProcess } from '../../model/flatpak-process';
 import { EventBusService } from 'ngx-eventbus';
@@ -11,8 +11,8 @@ import { SnapProcess } from './snap-process';
 })
 export class ProcessService {
 
-    processQueue: Proccess[] = []
-    processQueueErrors: Proccess[] = []
+    processQueue: Process[] = []
+    processQueueErrors: Process[] = []
     processServiceState = ProcessServiceState.IDLE
 
     constructor(

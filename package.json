@@ -7,7 +7,8 @@
         "name": "Messias Junior",
         "email": "messiaslima.03@gmail.com"
     },
-    "authors": [{
+    "authors": [
+        {
             "name": "Messias Junior",
             "email": "messiaslima.03@gmail.com"
         },
@@ -98,6 +99,8 @@
     },
     "dependencies": {
         "@ionic/angular": "^4.9.1",
-        "ngx-eventbus": "^1.0.5"
+        "electron-sudo": "^4.0.12",
+        "ngx-eventbus": "^1.0.5",
+        "timers": "^0.1.1"
     }
 }

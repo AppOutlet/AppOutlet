@@ -1,8 +1,6 @@
 import { Process, ProcessType } from '../../model/process'
 import { App } from '../../model/app.model';
 import { ElectronService } from '../electron/electron.service';
-import { ChildProcessWithoutNullStreams } from 'child_process';
-import { CommaExpr } from '@angular/compiler';
 
 export class SnapProcess implements Process {
 
@@ -11,7 +9,6 @@ export class SnapProcess implements Process {
     onProcessFinishedCallback: Function;
     onProcessUpdatedCallback: Function;
     electronService: ElectronService;
-    spawn: ChildProcessWithoutNullStreams
     stdout: string[] = []
     stderr: string[] = []
 
@@ -41,24 +38,27 @@ export class SnapProcess implements Process {
 
         let commandArray: string[] = await this.getInstallCommandArray(this.app)
 
-        this.spawn = this.electronService.childProcess.spawn('pkexec', commandArray)
+        let options = {name: 'electron sudo application'}
+        let sudoer = new this.electronService.sudoer.default(options);
 
-        this.spawn.stdout.on('data', (data) => {
+        let spawn = await sudoer.spawn('snap', commandArray)
+
+        spawn.stdout.on('data', (data) => {
             const output = data.toString()
             this.processOutput(output)
             this.stdout.push(output)
         });
 
-        this.spawn.on('error', (data) => {
+        spawn.on('error', (data) => {
             this.processOutputError(data)
         });
 
-        this.spawn.stderr.on('data', (data) => {
+        spawn.stderr.on('data', (data) => {
             console.error(`ps stderr: ${data.toString()}`);
             this.stderr.push(data.toString())
         });
 
-        this.spawn.on('close', (code) => {
+        spawn.on('close', (code) => {
             if (code !== 0) {
                 console.log(`ps process exited with code ${code}`);
             }
@@ -67,7 +67,7 @@ export class SnapProcess implements Process {
     }
 
     private getInstallCommandArray(app: App) {
-        return Promise.resolve(['snap','install'])
+        return Promise.resolve(['install'])
             .then(command => this.addChannel(command, app))
             .then(command => this.addConfinement(command, app))
             .then(command => this.addPackageName(command, app))
