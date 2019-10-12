@@ -99,7 +99,6 @@
     },
     "dependencies": {
         "@ionic/angular": "^4.9.1",
-        "electron-sudo": "^4.0.12",
         "ngx-eventbus": "^1.0.5",
         "timers": "^0.1.1"
     }

@@ -1,6 +1,7 @@
 import { Process, ProcessType } from '../../model/process'
 import { App } from '../../model/app.model';
 import { ElectronService } from '../electron/electron.service';
+import { ChildProcessWithoutNullStreams } from 'child_process';
 
 export class SnapProcess implements Process {
 
@@ -11,6 +12,7 @@ export class SnapProcess implements Process {
     electronService: ElectronService;
     stdout: string[] = []
     stderr: string[] = []
+    spawn: ChildProcessWithoutNullStreams
 
     constructor(
         onProcessFinishedCallback: Function,
@@ -36,34 +38,28 @@ export class SnapProcess implements Process {
 
     private async install() {
 
-        let commandArray: string[] = await this.getInstallCommandArray(this.app)
+        // this.spawn = this.electronService.childProcess.spawn('flatpak', ['install', 'flathub', this.app.flatpakAppId, '-y'])
 
-        let options = {name: 'electron sudo application'}
-        let sudoer = new this.electronService.sudoer.default(options);
+        // this.spawn.stdout.on('data', (data) => {
+        //     const output = data.toString()
+        //     this.processOutput(output)
+        //     this.stdout.push(output)
+        // });
 
-        let spawn = await sudoer.spawn('snap', commandArray)
+        // this.spawn.on('error', (data) => {
+        // });
 
-        spawn.stdout.on('data', (data) => {
-            const output = data.toString()
-            this.processOutput(output)
-            this.stdout.push(output)
-        });
+        // this.spawn.stderr.on('data', (data) => {
+        //     console.error(`ps stderr: ${data.toString()}`);
+        //     this.stderr.push(data.toString())
+        // });
 
-        spawn.on('error', (data) => {
-            this.processOutputError(data)
-        });
-
-        spawn.stderr.on('data', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        spawn.on('close', (code) => {
-            if (code !== 0) {
-                console.log(`ps process exited with code ${code}`);
-            }
-            this.onProcessFinishedCallback(this.app, code == 0, code)
-        });
+        // this.spawn.on('close', (code) => {
+        //     if (code !== 0) {
+        //         console.log(`ps process exited with code ${code}`);
+        //     }
+        //     this.onProcessFinishedCallback(this.app, code == 0, code)
+        // });
     }
 
     private getInstallCommandArray(app: App) {
