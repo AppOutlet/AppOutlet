@@ -1,7 +1,6 @@
 import { Process, ProcessType } from '../../model/process'
 import { App } from '../../model/app.model';
 import { ElectronService } from '../electron/electron.service';
-import { ChildProcessWithoutNullStreams } from 'child_process';
 
 export class SnapProcess implements Process {
 
@@ -12,7 +11,6 @@ export class SnapProcess implements Process {
     electronService: ElectronService;
     stdout: string[] = []
     stderr: string[] = []
-    spawn: ChildProcessWithoutNullStreams
 
     constructor(
         onProcessFinishedCallback: Function,
@@ -38,32 +36,38 @@ export class SnapProcess implements Process {
 
     private async install() {
 
-        // this.spawn = this.electronService.childProcess.spawn('flatpak', ['install', 'flathub', this.app.flatpakAppId, '-y'])
+        let commands = await this.getInstallCommandArray(this.app)
 
-        // this.spawn.stdout.on('data', (data) => {
-        //     const output = data.toString()
-        //     this.processOutput(output)
-        //     this.stdout.push(output)
-        // });
+        let snap = this.electronService.childProcess.spawn('pkexec', commands)
 
-        // this.spawn.on('error', (data) => {
-        // });
+        snap.stdout.on('data', (data) => {
+            debugger
+            const output = data.toString()
+            this.processOutput(output)
+            this.stdout.push(output)
+        });
 
-        // this.spawn.stderr.on('data', (data) => {
-        //     console.error(`ps stderr: ${data.toString()}`);
-        //     this.stderr.push(data.toString())
-        // });
+        snap.on('error', (data) => {
+            debugger
+        });
 
-        // this.spawn.on('close', (code) => {
-        //     if (code !== 0) {
-        //         console.log(`ps process exited with code ${code}`);
-        //     }
-        //     this.onProcessFinishedCallback(this.app, code == 0, code)
-        // });
+        snap.stderr.on('data', (data) => {
+            debugger
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
+        });
+
+        snap.on('close', (code) => {
+            debugger
+            if (code !== 0) {
+                console.log(`ps process exited with code ${code}`);
+            }
+            this.onProcessFinishedCallback(this.app, code == 0, code)
+        });
     }
 
     private getInstallCommandArray(app: App) {
-        return Promise.resolve(['install'])
+        return Promise.resolve(['snap', 'install'])
             .then(command => this.addChannel(command, app))
             .then(command => this.addConfinement(command, app))
             .then(command => this.addPackageName(command, app))
