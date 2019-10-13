@@ -91,6 +91,9 @@ export class ProcessService {
             case 'Flatpak':
                 this.addFlatpakProcessToQueue(app, ProcessType.REMOVE)
                 break
+            case 'Snap':
+                this.addSnapProcessToQueue(app, ProcessType.REMOVE)
+                break
             default:
                 console.log(`This app cannot install ${app.type} yet`)
         }

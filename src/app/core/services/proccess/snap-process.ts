@@ -41,24 +41,22 @@ export class SnapProcess implements Process {
         let snap = this.electronService.childProcess.spawn('pkexec', commands)
 
         snap.stdout.on('data', (data) => {
-            debugger
             const output = data.toString()
             this.processOutput(output)
             this.stdout.push(output)
         });
 
         snap.on('error', (data) => {
-            debugger
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
         });
 
         snap.stderr.on('data', (data) => {
-            debugger
             console.error(`ps stderr: ${data.toString()}`);
             this.stderr.push(data.toString())
         });
 
         snap.on('close', (code) => {
-            debugger
             if (code !== 0) {
                 console.log(`ps process exited with code ${code}`);
             }
@@ -97,7 +95,33 @@ export class SnapProcess implements Process {
         return command
     }
 
-    private uninstall() { }
+    private uninstall() {
+
+        let snap = this.electronService.childProcess.spawn('pkexec', ['snap', 'remove', this.app.packageName])
+
+        snap.stdout.on('data', (data) => {
+            const output = data.toString()
+            this.processOutput(output)
+            this.stdout.push(output)
+        });
+
+        snap.on('error', (data) => {
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
+        });
+
+        snap.stderr.on('data', (data) => {
+            console.error(`ps stderr: ${data.toString()}`);
+            this.stderr.push(data.toString())
+        });
+
+        snap.on('close', (code) => {
+            if (code !== 0) {
+                console.log(`ps process exited with code ${code}`);
+            }
+            this.onProcessFinishedCallback(this.app, code == 0, code)
+        });
+    }
 
     private processOutput(output: string) {
         console.log(output)
