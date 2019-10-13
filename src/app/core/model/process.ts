@@ -1,7 +1,7 @@
 import { App } from "./app.model";
 import { ElectronService } from "../services";
 
-export interface Proccess {
+export interface Process {
     app: App
     processType: ProcessType
     onProcessFinishedCallback: Function

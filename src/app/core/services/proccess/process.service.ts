@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { ElectronService } from '../electron/electron.service';
-import { Proccess, ProcessType } from '../../model/process';
+import { Process, ProcessType } from '../../model/process';
 import { App } from '../../model/app.model';
 import { FlatpakProcess } from '../../model/flatpak-process';
 import { EventBusService } from 'ngx-eventbus';
+import { SnapProcess } from './snap-process';
 
 @Injectable({
     providedIn: "root"
 })
 export class ProcessService {
 
-    processQueue: Proccess[] = []
-    processQueueErrors: Proccess[] = []
+    processQueue: Process[] = []
+    processQueueErrors: Process[] = []
     processServiceState = ProcessServiceState.IDLE
 
     constructor(
@@ -25,6 +26,9 @@ export class ProcessService {
         switch (app.type) {
             case 'Flatpak':
                 this.addFlatpakProcessToQueue(app, ProcessType.INSTALL)
+                break
+            case 'Snap':
+                this.addSnapProcessToQueue(app, ProcessType.INSTALL)
                 break
             default:
                 console.log(`This app cannot install ${app.type} yet`)
@@ -43,6 +47,17 @@ export class ProcessService {
             this.processServiceState = ProcessServiceState.IDLE
             console.log('Empty queue')
         }
+    }
+
+    addSnapProcessToQueue(app: App, processType: ProcessType) {
+        const process = new SnapProcess(
+            this.onProcessFinished.bind(this),
+            this.onProcessUpdated.bind(this),
+            app,
+            processType,
+            this.electronService
+        )
+        this.processQueue.push(process)
     }
 
     addFlatpakProcessToQueue(app: App, processType: ProcessType) {
@@ -75,6 +90,9 @@ export class ProcessService {
         switch (app.type) {
             case 'Flatpak':
                 this.addFlatpakProcessToQueue(app, ProcessType.REMOVE)
+                break
+            case 'Snap':
+                this.addSnapProcessToQueue(app, ProcessType.REMOVE)
                 break
             default:
                 console.log(`This app cannot install ${app.type} yet`)
