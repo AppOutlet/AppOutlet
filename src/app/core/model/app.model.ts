@@ -23,4 +23,5 @@ export interface App {
     channel?: string
     confinement?: string
     packageName?: string
+    downloadLink?: string
 }

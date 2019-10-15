@@ -5,6 +5,8 @@ import { App } from '../../model/app.model';
 import { FlatpakProcess } from '../../model/flatpak-process';
 import { EventBusService } from 'ngx-eventbus';
 import { SnapProcess } from './snap-process';
+import { AppImageProcess } from './appimage-process';
+import { GithubRepository } from '../../repository/github/github.repository';
 
 @Injectable({
     providedIn: "root"
@@ -15,9 +17,11 @@ export class ProcessService {
     processQueueErrors: Process[] = []
     processServiceState = ProcessServiceState.IDLE
 
+
     constructor(
         private electronService: ElectronService,
-        private eventBusService: EventBusService
+        private eventBusService: EventBusService,
+        private githubRepository: GithubRepository
     ) { }
 
     install(app: App) {
@@ -30,6 +34,8 @@ export class ProcessService {
             case 'Snap':
                 this.addSnapProcessToQueue(app, ProcessType.INSTALL)
                 break
+            case 'AppImage':
+                this.addAppImageProcessToQueue(app, ProcessType.INSTALL)
             default:
                 console.log(`This app cannot install ${app.type} yet`)
         }
@@ -56,6 +62,18 @@ export class ProcessService {
             app,
             processType,
             this.electronService
+        )
+        this.processQueue.push(process)
+    }
+
+    addAppImageProcessToQueue(app: App, processType: ProcessType) {
+        const process = new AppImageProcess(
+            this.onProcessFinished.bind(this),
+            this.onProcessUpdated.bind(this),
+            app,
+            processType,
+            this.electronService,
+            this.githubRepository
         )
         this.processQueue.push(process)
     }
