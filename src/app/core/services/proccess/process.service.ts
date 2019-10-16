@@ -36,6 +36,7 @@ export class ProcessService {
                 break
             case 'AppImage':
                 this.addAppImageProcessToQueue(app, ProcessType.INSTALL)
+                break
             default:
                 console.log(`This app cannot install ${app.type} yet`)
         }

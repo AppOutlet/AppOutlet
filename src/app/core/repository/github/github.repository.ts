@@ -1,25 +1,25 @@
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { map, filter } from 'rxjs/operators'
-import { Observable } from 'rxjs'
+import { map, filter, flatMap } from 'rxjs/operators'
+import { from } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
 export class GithubRepository {
 
     constructor(private httpClient: HttpClient) { }
 
-    getLatestRelease(url: string) : Observable<any>{
-        let latestReleaseEndpoint = 'https://api.github.com/repos/'
-        latestReleaseEndpoint = latestReleaseEndpoint + url + '/releases'
+    getLatestRelease(url: string) : any{
+        const latestReleaseEndpoint = `https://api.github.com/repos/${url}/releases/latest`
         
         return this.httpClient.get(latestReleaseEndpoint)
             .pipe(
                 map(this.convertToAssets),
-                filter(item => item.browser_download_url.split('.').pop() === 'AppImage')
+                flatMap(from),
+                filter(item => item.find(link => link.browser_download_url.split('.').pop() === 'AppImage')),
             )
     }
 
-    private convertToAssets(releases: any): any {
+    private convertToAssets(releases: any) {
         return releases.assets
     }
 

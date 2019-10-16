@@ -67,7 +67,6 @@ export class AppImageProcess implements Process {
     }
 
     executeInstall(url: string) {
-        console.log(url)
         this.spawn = this.electronService.childProcess.spawn('echo', [this.app.downloadLink])
 
         this.spawn.stdout.on('data', (data) => {
