@@ -6,5 +6,5 @@
 export const AppConfig = {
     production: false,
     environment: 'DEV',
-    baseUrl: 'https://appoutlet-dev.herokuapp.com'
+    baseUrl: 'http://localhost:3001'
 }

@@ -7,7 +7,8 @@
         "name": "Messias Junior",
         "email": "messiaslima.03@gmail.com"
     },
-    "authors": [{
+    "authors": [
+        {
             "name": "Messias Junior",
             "email": "messiaslima.03@gmail.com"
         },
@@ -72,7 +73,7 @@
         "codelyzer": "5.1.0",
         "conventional-changelog-cli": "2.0.21",
         "core-js": "3.1.4",
-        "electron": "6.0.2",
+        "electron": "^6.0.12",
         "electron-builder": "21.2.0",
         "electron-reload": "1.5.0",
         "jasmine-core": "3.4.0",
@@ -98,6 +99,7 @@
     },
     "dependencies": {
         "@ionic/angular": "^4.9.1",
-        "ngx-eventbus": "^1.0.5"
+        "ngx-eventbus": "^1.0.5",
+        "timers": "^0.1.1"
     }
 }

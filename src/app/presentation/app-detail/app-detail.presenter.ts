@@ -14,7 +14,7 @@ export class AppDetailPresenter {
     private state: AppState = AppState.UNKNOWN
     private processEndListener
     private processInfoListener
-    private supportedTypes = ['Flatpak']
+    private supportedTypes = ['Flatpak', 'Snap']
 
     constructor(
         private appService: AppService,

@@ -1,11 +1,11 @@
-import { Proccess, ProcessType } from "./process";
+import { Process, ProcessType } from "./process";
 import { App } from "./app.model";
 import { ElectronService } from "../services";
 import { ChildProcessWithoutNullStreams } from "child_process";
 import { from } from "rxjs";
 import { filter, throwIfEmpty, map } from "rxjs/operators";
 
-export class FlatpakProcess implements Proccess {
+export class FlatpakProcess implements Process {
 
     onProcessFinishedCallback: Function
     onProcessUpdatedCallback: Function
