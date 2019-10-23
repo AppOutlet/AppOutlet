@@ -50,80 +50,18 @@ export class AppImageProcess implements Process {
     }
 
     executeInstall(url: string) {
+        this.electronService.execCommand('mkdir -p $HOME/.appoutlet')
+            .then(() => this.getFile(url))
+            .finally(() => this.setPermissionFile(url.substring(url.lastIndexOf('/')+1)))
+        this.onProcessFinishedCallback(this.app, true, 0)
+    }
 
-        this.spawn = this.electronService.childProcess.spawn('mkdir', ['-p', '~/.appoutlet'])
-        
-        this.spawn.stdout.on('data', (data) => {
-            const output = data.toString()
-            this.processOutput(output)
-            this.stdout.push(output)
-        });
+    setPermissionFile(url: string) {
+        this.electronService.execCommand(`chmod +x $HOME/.appoutlet/${url}`)
+    }
 
-        this.spawn.on('error', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.stderr.on('data', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.on('close', (code) => {
-            if (code !== 0) {
-                console.log(`ps process exited with code ${code}`);
-            }
-            this.onProcessFinishedCallback(this.app, code == 0, code)
-        });
-        this.spawn = this.electronService.childProcess.spawn('wget', ['-P', '~/.appoutlet', url])
-        
-        this.spawn.stdout.on('data', (data) => {
-            const output = data.toString()
-            this.processOutput(output)
-            this.stdout.push(output)
-        });
-
-        this.spawn.on('error', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.stderr.on('data', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.on('close', (code) => {
-            if (code !== 0) {
-                console.log(`ps process exited with code ${code}`);
-            }
-            this.onProcessFinishedCallback(this.app, code == 0, code)
-        });
-
-        this.spawn = this.electronService.childProcess.spawn('chmod', ['+x', url.substring(url.lastIndexOf('/')+1)])
-
-        this.spawn.stdout.on('data', (data) => {
-            const output = data.toString()
-            this.processOutput(output)
-            this.stdout.push(output)
-        });
-
-        this.spawn.on('error', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.stderr.on('data', (data) => {
-            console.error(`ps stderr: ${data.toString()}`);
-            this.stderr.push(data.toString())
-        });
-
-        this.spawn.on('close', (code) => {
-            if (code !== 0) {
-                console.log(`ps process exited with code ${code}`);
-            }
-            this.onProcessFinishedCallback(this.app, code == 0, code)
-        });
+    getFile(url: string) : any {
+        return this.electronService.execCommand(`wget -P $HOME/.appoutlet ${url}`)
     }
 
     getDownloadUrl(url: string) {
