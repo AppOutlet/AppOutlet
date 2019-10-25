@@ -73,9 +73,19 @@ export class AppService {
         switch (app.type) {
             case 'Flatpak':
                 return this.verifyIfFlatpakIsInstalled(app)
+            case 'Snap':
+                return this.verifyIfSnapIsInstalled(app)
             default:
                 return Promise.resolve(false)
         }
+    }
+
+    private verifyIfSnapIsInstalled(app: App) {
+        return this.electronService.execCommand(`snap list | grep ${app.packageName}`).then((output: string) => {
+            return output.length > 0
+        }).catch(err => {
+            return false
+        })
     }
 
     private verifyIfFlatpakIsInstalled(app: App) {
@@ -103,6 +113,8 @@ export class AppService {
         switch (app.type) {
             case 'Flatpak':
                 return this.runFlatpak(app)
+            case 'Snap':
+                return this.runSnap(app)
             default:
                 return Promise.reject(`${app.type} not supported yet`)
         }
@@ -110,6 +122,10 @@ export class AppService {
 
     runFlatpak(app: App) {
         this.electronService.childProcess.spawn('flatpak', ['run', app._id], { detached: true })
+    }
+
+    runSnap(app: App) {
+        this.electronService.childProcess.spawn(app.packageName, [], { detached: true })
     }
 
     uninstall(app: App) {
