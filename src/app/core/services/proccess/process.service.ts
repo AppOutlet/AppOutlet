@@ -113,6 +113,9 @@ export class ProcessService {
             case 'Snap':
                 this.addSnapProcessToQueue(app, ProcessType.REMOVE)
                 break
+            case 'AppImage':
+                this.addAppImageProcessToQueue(app, ProcessType.REMOVE)
+                break
             default:
                 console.log(`This app cannot install ${app.type} yet`)
         }

@@ -69,7 +69,7 @@ export class AppImageProcess implements Process {
     }
 
     private uninstall() {
-        this.electronService.execCommand(`rm $HOME/.appoutlet/${this.app._id}`).then()
+        this.electronService.execCommand(`rm $HOME/.appoutlet/${this.app._id}.AppImage`).then()
         this.onProcessFinishedCallback(this.app, true, 0)
     }
 
