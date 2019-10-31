@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { MainPresenter } from './main.presenter'
 import { Observable } from 'rxjs'
-import { Category } from '../../core/model/category.model'
+import { Tag } from '../../core/model/tag.model'
 
 @Component({
     selector: 'app-main',
@@ -10,7 +10,7 @@ import { Category } from '../../core/model/category.model'
 })
 export class MainComponent implements OnInit {
 
-    categories: Category[]
+    tags: Tag[]
     loading = false
     error = false
     viewMode = 'main'
@@ -23,8 +23,8 @@ export class MainComponent implements OnInit {
         this.presenter.init(this)
     }
 
-    categoryClicked(category: Category) {
-        this.presenter.categoryClicked(category)
+    tagClicked(tag: Tag) {
+        this.presenter.tagClicked(tag)
     }
 
     search(query) {

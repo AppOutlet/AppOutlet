@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core'
 import { CategoryRepository } from '../../repository/category/category.repository'
 import { Observable } from 'rxjs'
-import { Category } from '../../model/category.model'
+import { Tag } from '../../model/tag.model'
 
 @Injectable({
     providedIn: 'root'
 })
-export class CategoryService {
+export class TagService {
 
-    private selectedCategory: Category = null
+    private selectedTag: Tag = null
 
     constructor(
         private categoryRepository: CategoryRepository
     ) { }
 
-    getAll(): Observable<Category[]> {
+    getAll(): Observable<Tag[]> {
         return this.categoryRepository.getAll()
     }
 
-    setSelectedCategory(category: Category) {
-        this.selectedCategory = category
+    setSelectedTag(category: Tag) {
+        this.selectedTag = category
     }
 
-    getSelectedCategory(): Category {
-        return this.selectedCategory
+    getSelectedTag(): Tag {
+        return this.selectedTag
     }
 }

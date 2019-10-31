@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core'
 import { SearchType } from '../../core/model/search-type'
 import { SearchResultComponent } from './search-result.component'
 import { AppService } from '../../core/services/app/app.service'
-import { CategoryService } from '../../core/services/category/category.service'
+import { TagService } from '../../core/services/category/category.service'
 import { EventBusService } from 'ngx-eventbus'
-import { Category } from '../../core/model/category.model'
+import { Tag } from '../../core/model/tag.model'
 import { TranslateService } from '@ngx-translate/core'
 import { SectionState } from '../../core/model/section.model'
 
@@ -13,14 +13,14 @@ export class SearchResultPresenter {
 
     private view: SearchResultComponent
     private searchType: SearchType
-    private selectedCategory: Category
+    private selectedTag: Tag
     private categoryEvent: any
     private queryEvent: any
     private currentQuery: string
 
     constructor(
         private appService: AppService,
-        private categoryService: CategoryService,
+        private tagService: TagService,
         private eventBusService: EventBusService,
         private translateService: TranslateService
     ) { }
@@ -29,15 +29,15 @@ export class SearchResultPresenter {
 
         this.view = view
         this.searchType = searchType
-        this.selectedCategory = this.categoryService.getSelectedCategory()
+        this.selectedTag = this.tagService.getSelectedTag()
         this.currentQuery = query
 
         this.findApps(query)
 
         this.categoryEvent = this.eventBusService.addEventListener({
-            name: 'categorySelected',
-            callback: (category: Category) => {
-                this.findByCategory(category)
+            name: 'tagSelected',
+            callback: (tag: Tag) => {
+                this.findByTag(tag)
             }
         })
 
@@ -51,8 +51,13 @@ export class SearchResultPresenter {
 
     findApps(query: string = this.currentQuery) {
         switch (this.searchType) {
+
+            case SearchType.TAG:
+                this.findByTag(this.selectedTag)
+                break
+
             case SearchType.CATEGORY:
-                this.findByCategory(this.selectedCategory)
+                this.findByTag(this.selectedTag)
                 break
 
             case SearchType.NAME:
@@ -61,13 +66,13 @@ export class SearchResultPresenter {
         }
     }
 
-    private findByCategory(category) {
+    private findByTag(tag) {
         this.view.state = SectionState.LOADING
-        this.appService.findByCategory(category).subscribe(apps => {
+        this.appService.findByTag(tag).subscribe(apps => {
             this.view.apps = apps
             this.view.allApps = apps
             this.view.type = 'alltypes'
-            this.view.title = category.name
+            this.view.title = tag.name
             this.view.state = SectionState.LOADED
         }, err => {
             console.log(err)

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core'
 import { MainRouter } from './main.router'
 import { MainComponent } from './main.component'
-import { CategoryService } from '../../core/services/category/category.service'
-import { Category } from '../../core/model/category.model'
+import { TagService } from '../../core/services/category/category.service'
+import { Tag } from '../../core/model/tag.model'
 import { SearchType } from '../../core/model/search-type'
 import { EventBusService } from 'ngx-eventbus'
 
@@ -13,7 +13,7 @@ export class MainPresenter {
 
     constructor(
         private router: MainRouter,
-        private categoryService: CategoryService,
+        private tagService: TagService,
         private eventBusService: EventBusService
     ) { }
 
@@ -25,8 +25,8 @@ export class MainPresenter {
     getAllCategories() {
         this.view.error = false
         this.view.loading = true
-        this.categoryService.getAll().subscribe(categories => {
-            this.view.categories = categories
+        this.tagService.getAll().subscribe(categories => {
+            this.view.tags = categories
         }, error => {
             this.view.error = true
             this.view.loading = false
@@ -35,10 +35,10 @@ export class MainPresenter {
         })
     }
 
-    categoryClicked(category: Category) {
-        this.categoryService.setSelectedCategory(category)
-        this.eventBusService.triggerEvent('categorySelected', category)
-        this.router.goToSearchResult(SearchType.CATEGORY)
+    tagClicked(tag: Tag) {
+        this.tagService.setSelectedTag(tag)
+        this.eventBusService.triggerEvent('tagSelected', tag)
+        this.router.goToSearchResult(SearchType.TAG)
     }
 
     search(query: string) {

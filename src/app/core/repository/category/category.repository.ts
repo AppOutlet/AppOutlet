@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http'
 import { Observable, from } from 'rxjs'
 import { map, bufferCount, flatMap } from 'rxjs/operators'
 import { AppConfig } from '../../../../environments/environment'
-import { Category } from '../../model/category.model'
+import { Tag } from '../../model/tag.model'
 
 
 @Injectable({ providedIn: 'root' })
@@ -11,7 +11,7 @@ export class CategoryRepository {
 
     constructor(private httpClient: HttpClient) { }
 
-    getAll(): Observable<Category[]> {
+    getAll(): Observable<Tag[]> {
         return this.httpClient.get(`${AppConfig.baseUrl}/category`).pipe(
             flatMap((data: any) => from(data)),
             map(this.convertToCategory),
@@ -19,7 +19,7 @@ export class CategoryRepository {
         )
     }
 
-    private convertToCategory(rawCategory: any): Category {
+    private convertToCategory(rawCategory: any): Tag {
         return {
             name: rawCategory._id
         }

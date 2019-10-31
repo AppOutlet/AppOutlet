@@ -39,6 +39,10 @@
                             </ion-label>
                         </ion-item>
 
+                        <ion-list-header>
+                            <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
+                        </ion-list-header>
+
                     </div>
 
                     <div [hidden]="viewMode != 'tags'">
@@ -46,10 +50,10 @@
                             <ion-label>{{ 'PAGES.MAIN.TAGS' | translate }}</ion-label>
                             <ion-button size="small" fill="clear" (click)="goToMainMenu()">{{ 'PAGES.MAIN.BACK_TO_MENU' | translate }}</ion-button>
                         </ion-list-header>
-                        <ion-item *ngFor="let category of categories" button (click)="categoryClicked(category)">
+                        <ion-item *ngFor="let tag of tags" button (click)="tagClicked(tag)">
                             <ion-icon slot="start" name="pricetag"></ion-icon>
                             <ion-label>
-                                {{ category.name | translate }}
+                                {{ tag.name | translate }}
                             </ion-label>
                         </ion-item>
 
