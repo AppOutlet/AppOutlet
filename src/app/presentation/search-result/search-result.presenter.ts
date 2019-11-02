@@ -17,6 +17,7 @@ export class SearchResultPresenter {
     private searchType: SearchType
     private selectedTag: Tag
     private categoryEvent: any
+    private tagEvent: any
     private queryEvent: any
     private currentQuery: string
     private selectedCategory: Category
@@ -39,10 +40,17 @@ export class SearchResultPresenter {
 
         this.findApps(query)
 
-        this.categoryEvent = this.eventBusService.addEventListener({
+        this.tagEvent = this.eventBusService.addEventListener({
             name: 'tagSelected',
             callback: (tag: Tag) => {
                 this.findByTag(tag)
+            }
+        })
+
+        this.categoryEvent = this.eventBusService.addEventListener({
+            name: 'categorySelected',
+            callback: (category: Category) => {
+                this.findByCategory(category)
             }
         })
 
@@ -128,5 +136,6 @@ export class SearchResultPresenter {
     destroy() {
         this.eventBusService.removeEventListener(this.categoryEvent)
         this.eventBusService.removeEventListener(this.queryEvent)
+        this.eventBusService.removeEventListener(this.tagEvent)
     }
 }
