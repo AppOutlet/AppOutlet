@@ -1,3 +1,5 @@
-export interface Category {
-    name: string;
+export interface Category{
+    icon: string,
+    displayName: string,
+    name: string
 }

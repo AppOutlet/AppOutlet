@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core'
 import { MainRouter } from './main.router'
 import { MainComponent } from './main.component'
-import { CategoryService } from '../../core/services/category/category.service'
-import { Category } from '../../core/model/category.model'
+import { TagService } from '../../core/services/tag/tag.service'
+import { Tag } from '../../core/model/tag.model'
 import { SearchType } from '../../core/model/search-type'
 import { EventBusService } from 'ngx-eventbus'
+import { CategoryService } from '../../core/services/category/category.service'
+import { Category } from '../../core/model/category.model'
 
 @Injectable()
 export class MainPresenter {
@@ -13,26 +15,40 @@ export class MainPresenter {
 
     constructor(
         private router: MainRouter,
-        private categoryService: CategoryService,
-        private eventBusService: EventBusService
+        private tagService: TagService,
+        private eventBusService: EventBusService,
+        private categoryService: CategoryService
     ) { }
 
     init(view: MainComponent) {
         this.view = view
+        this.getAllTags()
         this.getAllCategories()
     }
 
-    getAllCategories() {
+    getAllCategories(){
+        this.categoryService.getAll().subscribe(categoryList => {
+            this.view.categoryList = categoryList
+        })
+    }
+
+    getAllTags() {
         this.view.error = false
         this.view.loading = true
-        this.categoryService.getAll().subscribe(categories => {
-            this.view.categories = categories
+        this.tagService.getAll().subscribe(categories => {
+            this.view.tags = categories
         }, error => {
             this.view.error = true
             this.view.loading = false
         }, () => {
             this.view.loading = false
         })
+    }
+
+    tagClicked(tag: Tag) {
+        this.tagService.setSelectedTag(tag)
+        this.eventBusService.triggerEvent('tagSelected', tag)
+        this.router.goToSearchResult(SearchType.TAG)
     }
 
     categoryClicked(category: Category) {
