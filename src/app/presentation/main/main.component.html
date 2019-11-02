@@ -4,36 +4,51 @@
 
             <ion-header>
                 <ion-toolbar>
-                    <a routerDirection="back" slot="start" routerLink="/">
-                        <img src="assets/icon.png" class="app-icon">
+
+                    <a routerDirection="back"
+                       slot="start"
+                       routerLink="/">
+
+                        <img
+                            src="assets/icon.png"
+                            class="app-icon">
                     </a>
-                    <ion-searchbar debounce="600" #searchBar (ionChange)="search(searchBar.value)" placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"></ion-searchbar>
+
+                    <ion-searchbar
+                        debounce="600"
+                        #searchBar
+                        (ionChange)="search(searchBar.value)"
+                        placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"></ion-searchbar>
+
                 </ion-toolbar>
             </ion-header>
 
             <ion-content>
-
                 <ion-list>
-
 
                     <div [hidden]="viewMode != 'main'">
 
-                        <ion-item routerDirection="back" routerLink="/">
-                            <ion-icon slot="start" name="home"></ion-icon>
+                        <ion-item routerDirection="back"
+                                  routerLink="/">
+                            <ion-icon slot="start"
+                                      name="home"></ion-icon>
                             <ion-label>
                                 {{ 'PAGES.HOME.TITLE' | translate }}
                             </ion-label>
                         </ion-item>
 
-                        <ion-item button="true" (click)="goToTags()">
-                            <ion-icon slot="start" name="pricetags"></ion-icon>
+                        <ion-item button="true"
+                                  (click)="goToTags()">
+                            <ion-icon slot="start"
+                                      name="pricetags"></ion-icon>
                             <ion-label>
                                 {{ 'PAGES.MAIN.TAGS' | translate }}
                             </ion-label>
                         </ion-item>
 
                         <ion-item routerLink="/settings/appearance">
-                            <ion-icon slot="start" name="settings"></ion-icon>
+                            <ion-icon slot="start"
+                                      name="settings"></ion-icon>
                             <ion-label>
                                 {{ 'PAGES.SETTINGS.TITLE' | translate }}
                             </ion-label>
@@ -43,8 +58,10 @@
                             <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
                         </ion-list-header>
 
-                        <ion-item *ngFor="let category of categoryList" button>
-                            <ion-icon slot="start" [name]="category.icon"></ion-icon>
+                        <ion-item *ngFor="let category of categoryList"
+                                  button>
+                            <ion-icon slot="start"
+                                      [name]="category.icon"></ion-icon>
                             <ion-label>
                                 {{ category.displayName | translate }}
                             </ion-label>
@@ -54,24 +71,36 @@
                     <div [hidden]="viewMode != 'tags'">
                         <ion-list-header>
                             <ion-label>{{ 'PAGES.MAIN.TAGS' | translate }}</ion-label>
-                            <ion-button size="small" fill="clear" (click)="goToMainMenu()">{{ 'PAGES.MAIN.BACK_TO_MENU' | translate }}</ion-button>
+                            <ion-button size="small"
+                                        fill="clear"
+                                        (click)="goToMainMenu()">
+                                {{ 'PAGES.MAIN.BACK_TO_MENU' | translate }}
+                            </ion-button>
                         </ion-list-header>
-                        <ion-item *ngFor="let tag of tags" button (click)="tagClicked(tag)">
-                            <ion-icon slot="start" name="pricetag"></ion-icon>
+                        <ion-item *ngFor="let tag of tags"
+                                  button
+                                  (click)="tagClicked(tag)">
+                            <ion-icon slot="start"
+                                      name="pricetag"></ion-icon>
                             <ion-label>
                                 {{ tag.name | translate }}
                             </ion-label>
                         </ion-item>
 
                         <ion-grid>
-                            <ion-row [hidden]="!loading" class="ion-align-items-center ion-justify-content-center" style="margin-top: auto">
+                            <ion-row [hidden]="!loading"
+                                     class="ion-align-items-center ion-justify-content-center"
+                                     style="margin-top: auto">
                                 <ion-spinner></ion-spinner>
                             </ion-row>
-                            <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
+                            <ion-row [hidden]="!error"
+                                     class="ion-align-items-center ion-justify-content-center">
                                 {{ 'GENERAL.ERROR_MESSAGE' | translate }}
                             </ion-row>
-                            <ion-row [hidden]="!error" class="ion-align-items-center ion-justify-content-center">
-                                <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}</ion-button>
+                            <ion-row [hidden]="!error"
+                                     class="ion-align-items-center ion-justify-content-center">
+                                <ion-button (click)="reloadCategories()">{{ 'GENERAL.TRY_AGAIN' | translate }}
+                                </ion-button>
                             </ion-row>
                         </ion-grid>
                     </div>
