@@ -6,6 +6,8 @@ import { ProcessService } from '../proccess/process.service'
 import { AppState } from '../../model/app-state.model'
 import { ProcessType } from '../../model/process'
 import { ElectronService } from '../electron/electron.service'
+import { Category } from '../../model/category.model'
+import { Observable } from 'rxjs'
 
 @Injectable({
     providedIn: 'root'
@@ -17,6 +19,10 @@ export class AppService {
         private processService: ProcessService,
         private electronService: ElectronService
     ) { }
+
+    findByCategory(category: Category): Observable<App[]> {
+        return this.appRepository.findByCategory(category)
+    }
 
     findByTag(tag: Tag) {
         return this.appRepository.findByTag(tag)

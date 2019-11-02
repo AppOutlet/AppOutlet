@@ -7,6 +7,8 @@ import { EventBusService } from 'ngx-eventbus'
 import { Tag } from '../../core/model/tag.model'
 import { TranslateService } from '@ngx-translate/core'
 import { SectionState } from '../../core/model/section.model'
+import { CategoryService } from '../../core/services/category/category.service'
+import { Category } from '../../core/model/category.model'
 
 @Injectable()
 export class SearchResultPresenter {
@@ -17,12 +19,14 @@ export class SearchResultPresenter {
     private categoryEvent: any
     private queryEvent: any
     private currentQuery: string
+    private selectedCategory: Category
 
     constructor(
         private appService: AppService,
         private tagService: TagService,
         private eventBusService: EventBusService,
-        private translateService: TranslateService
+        private translateService: TranslateService,
+        private categoryService: CategoryService
     ) { }
 
     init(view: SearchResultComponent, searchType: SearchType, query: string) {
@@ -30,6 +34,7 @@ export class SearchResultPresenter {
         this.view = view
         this.searchType = searchType
         this.selectedTag = this.tagService.getSelectedTag()
+        this.selectedCategory = this.categoryService.getSelectedCategory()
         this.currentQuery = query
 
         this.findApps(query)
@@ -57,13 +62,29 @@ export class SearchResultPresenter {
                 break
 
             case SearchType.CATEGORY:
-                this.findByTag(this.selectedTag)
+                this.findByCategory(this.selectedCategory)
                 break
 
             case SearchType.NAME:
                 this.findByName(query)
                 break
         }
+    }
+
+    findByCategory(category: Category) {
+        this.view.state = SectionState.LOADING
+        this.appService.findByCategory(category).subscribe(apps => {
+            this.view.apps = apps
+            this.view.allApps = apps
+            this.view.type = 'alltypes'
+            this.view.title = category.displayName
+            this.view.state = SectionState.LOADED
+        }, err => {
+            console.log(err)
+            this.view.state = SectionState.ERROR
+        }, () => {
+            this.view.state = SectionState.LOADED
+        })
     }
 
     private findByTag(tag) {

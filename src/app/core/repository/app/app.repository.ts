@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http'
 import { Tag } from '../../model/tag.model'
 import { AppConfig } from '../../../../environments/environment'
 import { App } from '../../model/app.model'
+import { Category } from '../../model/category.model'
+import { Observable } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
 export class AppRepository {
@@ -13,6 +15,14 @@ export class AppRepository {
         return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/v2/app/search`, {
             params: {
                 tags: tag.name
+            }
+        })
+    }
+
+    findByCategory(category: Category): Observable<App[]> {
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/v2/app/search`, {
+            params: {
+                category: category.name
             }
         })
     }
