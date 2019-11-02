@@ -29,6 +29,10 @@ export class MainComponent implements OnInit {
         this.presenter.tagClicked(tag)
     }
 
+    onCategoryClicked(category: Category) {
+        this.presenter.categoryClicked(category)
+    }
+
     search(query) {
         this.presenter.search(query)
     }

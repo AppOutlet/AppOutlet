@@ -7,6 +7,8 @@ import { Category } from '../../model/category.model';
 })
 export class CategoryService {
 
+    private selectedCategory: Category
+
     constructor() { }
 
     getAll(): Observable<Category[]> {
@@ -23,5 +25,13 @@ export class CategoryService {
             { icon: 'hammer', displayName: 'PAGES.MAIN.CATEGORY.UTILITY_PRODUCTIVITY', name: 'Utility and Productivity' },
             { icon: 'keypad', displayName: 'PAGES.MAIN.CATEGORY.MISCELLANEOUS', name: 'Miscellaneous' },
         ])
+    }
+
+    setSelectedCategory(category: Category) {
+        this.selectedCategory = category
+    }
+
+    getSelectedCategory(): Category {
+        return this.selectedCategory
     }
 }

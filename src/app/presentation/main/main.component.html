@@ -58,13 +58,18 @@
                             <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
                         </ion-list-header>
 
-                        <ion-item *ngFor="let category of categoryList"
-                                  button>
-                            <ion-icon slot="start"
-                                      [name]="category.icon"></ion-icon>
-                            <ion-label>
-                                {{ category.displayName | translate }}
-                            </ion-label>
+                        <ion-item
+                            *ngFor="let category of categoryList"
+                            button
+                            (click)="onCategoryClicked(category)">
+
+                            <ion-icon
+                                slot="start"
+                                [name]="category.icon"></ion-icon>
+
+                                <ion-label>
+                                    {{ category.displayName | translate }}
+                                </ion-label>
                         </ion-item>
                     </div>
 

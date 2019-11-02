@@ -6,6 +6,7 @@ import { Tag } from '../../core/model/tag.model'
 import { SearchType } from '../../core/model/search-type'
 import { EventBusService } from 'ngx-eventbus'
 import { CategoryService } from '../../core/services/category/category.service'
+import { Category } from '../../core/model/category.model'
 
 @Injectable()
 export class MainPresenter {
@@ -48,6 +49,12 @@ export class MainPresenter {
         this.tagService.setSelectedTag(tag)
         this.eventBusService.triggerEvent('tagSelected', tag)
         this.router.goToSearchResult(SearchType.TAG)
+    }
+
+    categoryClicked(category: Category) {
+        this.categoryService.setSelectedCategory(category)
+        this.eventBusService.triggerEvent('categorySelected', category)
+        this.router.goToSearchResult(SearchType.CATEGORY)
     }
 
     search(query: string) {
