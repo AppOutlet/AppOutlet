@@ -7,19 +7,19 @@ import { Tag } from '../../model/tag.model'
 
 
 @Injectable({ providedIn: 'root' })
-export class CategoryRepository {
+export class TagRepository {
 
     constructor(private httpClient: HttpClient) { }
 
     getAll(): Observable<Tag[]> {
         return this.httpClient.get(`${AppConfig.baseUrl}/category`).pipe(
             flatMap((data: any) => from(data)),
-            map(this.convertToCategory),
+            map(this.convertToTag),
             bufferCount(Number.MAX_VALUE)
         )
     }
 
-    private convertToCategory(rawCategory: any): Tag {
+    private convertToTag(rawCategory: any): Tag {
         return {
             name: rawCategory._id
         }

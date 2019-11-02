@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core'
 import { MainPresenter } from './main.presenter'
 import { Observable } from 'rxjs'
 import { Tag } from '../../core/model/tag.model'
+import { Category } from '../../core/model/category.model'
 
 @Component({
     selector: 'app-main',
@@ -14,6 +15,7 @@ export class MainComponent implements OnInit {
     loading = false
     error = false
     viewMode = 'main'
+    categoryList: Category[] = []
 
     constructor(
         private presenter: MainPresenter
@@ -32,7 +34,7 @@ export class MainComponent implements OnInit {
     }
 
     reloadCategories() {
-        this.presenter.getAllCategories()
+        this.presenter.getAllTags()
     }
 
     goToTags() {

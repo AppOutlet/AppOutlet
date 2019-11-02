@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core'
 import { MainRouter } from './main.router'
 import { MainComponent } from './main.component'
-import { TagService } from '../../core/services/category/category.service'
+import { TagService } from '../../core/services/tag/tag.service'
 import { Tag } from '../../core/model/tag.model'
 import { SearchType } from '../../core/model/search-type'
 import { EventBusService } from 'ngx-eventbus'
+import { CategoryService } from '../../core/services/category/category.service'
 
 @Injectable()
 export class MainPresenter {
@@ -14,15 +15,23 @@ export class MainPresenter {
     constructor(
         private router: MainRouter,
         private tagService: TagService,
-        private eventBusService: EventBusService
+        private eventBusService: EventBusService,
+        private categoryService: CategoryService
     ) { }
 
     init(view: MainComponent) {
         this.view = view
+        this.getAllTags()
         this.getAllCategories()
     }
 
-    getAllCategories() {
+    getAllCategories(){
+        this.categoryService.getAll().subscribe(categoryList => {
+            this.view.categoryList = categoryList
+        })
+    }
+
+    getAllTags() {
         this.view.error = false
         this.view.loading = true
         this.tagService.getAll().subscribe(categories => {
