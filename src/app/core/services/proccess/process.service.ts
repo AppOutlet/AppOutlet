@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ElectronService } from '../electron/electron.service';
 import { Process, ProcessType } from '../../model/process';
 import { App } from '../../model/app.model';
-import { FlatpakProcess } from '../../model/flatpak-process';
+import { FlatpakProcess } from './flatpak-process';
 import { EventBusService } from 'ngx-eventbus';
 import { SnapProcess } from './snap-process';
 import { AppImageProcess } from './appimage-process';

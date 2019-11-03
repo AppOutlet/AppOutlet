@@ -1,6 +1,6 @@
-import { Process, ProcessType } from "./process";
-import { App } from "./app.model";
-import { ElectronService } from "../services";
+import { Process, ProcessType } from "../../model/process";
+import { App } from "../../model/app.model";
+import { ElectronService } from "..";
 import { ChildProcessWithoutNullStreams } from "child_process";
 import { from } from "rxjs";
 import { filter, throwIfEmpty, map } from "rxjs/operators";
