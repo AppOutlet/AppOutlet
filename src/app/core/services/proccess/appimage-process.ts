@@ -41,26 +41,27 @@ export class AppImageProcess implements Process {
     }
 
     private async install() {
-        this.getDownloadUrl(this.app.downloadLink)
-            .subscribe(item => {
-                this.executeInstall(item.browser_download_url, this.app._id)
-            }, err => {
-                console.log('Error to get appimage')
-            })
+        this.getDownloadUrl(this.app.downloadLink).subscribe(item => {
+            this.executeInstall(item.browser_download_url, this.app._id)
+        }, err => {
+            console.log('Error to get appimage')
+        })
     }
 
     executeInstall(url: string, id: string) {
         this.electronService.execCommand('mkdir -p $HOME/.appoutlet')
             .then(() => this.getFile(url, id))
-            .finally(() => this.setPermissionFile(id))
-        this.onProcessFinishedCallback(this.app, true, 0)
+            .then(() => this.setPermissionFile(id))
+            .then(() =>{
+                this.onProcessFinishedCallback(this.app, true, 0)
+            })
     }
 
     setPermissionFile(id: string) {
         this.electronService.execCommand(`chmod +x $HOME/.appoutlet/${id}.AppImage`)
     }
 
-    getFile(url: string, id: string) : any {
+    getFile(url: string, id: string): any {
         return this.electronService.execCommand(`wget ${url} -O $HOME/.appoutlet/${id}.AppImage`)
     }
 
