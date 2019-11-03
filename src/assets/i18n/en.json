@@ -31,7 +31,20 @@
             "TAGS": "Tags",
             "TITLE": "Main",
             "SEARCH": "Search",
-            "BACK_TO_MENU": "Back to menu"
+            "BACK_TO_MENU": "Back to menu",
+            "CATEGORY": {
+                "OFFICE": "Office",
+                "AUDIO": "Audio",
+                "VIDEO": "Video",
+                "GAMES": "Games",
+                "DEVELOPMENT": "Development",
+                "FINANCE": "Finance",
+                "GRAPHICS": "Graphics",
+                "SCIENCE_EDUCATION": "Science and Education",
+                "INTERNET_COMMUNICATION": "Internet and Communication",
+                "UTILITY_PRODUCTIVITY": "Utility and Productivity",
+                "MISCELLANEOUS": "Miscellaneous"
+            }
         },
         "SEARCH": {
             "NO_RESULTS_FOUND": "No results found",

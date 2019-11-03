@@ -23,6 +23,7 @@ If your distro doesn't support the available packages you can dowload and compil
 ## Who is talking about us?
 - [Diolinux (in portuguese)](https://www.diolinux.com.br/2019/10/app-outlet-o-sucessor-do-linux-app-store-loja-snap-appimage-flatpak.html)
 - [OMGUbuntu (in english)](https://www.omgubuntu.co.uk/2019/10/app-outlet-universal-linux-app-store)
+- [Le store Linux App Outlet pour paquets universels (in french)](https://www.youtube.com/watch?v=0JGLPieBSN0)
 - [edivaldobrito (in portuguese)](https://www.edivaldobrito.com.br/como-instalar-a-linux-app-store-app-outlet-no-linux/)
 - [funkyspacemonkey (in english)](https://www.funkyspacemonkey.com/app-outlet-a-universal-linux-app-store)
 
