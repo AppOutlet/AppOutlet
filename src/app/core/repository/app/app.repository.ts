@@ -1,16 +1,26 @@
 import { Injectable } from '@angular/core'
 import { HttpClient } from '@angular/common/http'
-import { Category } from '../../model/category.model'
+import { Tag } from '../../model/tag.model'
 import { AppConfig } from '../../../../environments/environment'
 import { App } from '../../model/app.model'
+import { Category } from '../../model/category.model'
+import { Observable } from 'rxjs'
 
 @Injectable({ providedIn: 'root' })
 export class AppRepository {
 
     constructor(private httpClient: HttpClient) { }
 
-    findByCategory(category: Category) {
-        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/search`, {
+    findByTag(tag: Tag) {
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/v2/app/search`, {
+            params: {
+                tags: tag.name
+            }
+        })
+    }
+
+    findByCategory(category: Category): Observable<App[]> {
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/v2/app/search`, {
             params: {
                 category: category.name
             }
@@ -18,7 +28,7 @@ export class AppRepository {
     }
 
     findByName(query: string) {
-        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/app/search`, {
+        return this.httpClient.get<App[]>(`${AppConfig.baseUrl}/v2/app/search`, {
             params: {
                 name: query
             }
