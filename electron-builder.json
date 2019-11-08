@@ -42,9 +42,6 @@
             "tar.gz"
         ]
     },
-    "snap": {
-        "confinement": "classic"
-    },
     "rpm": {
         "depends": ["libXtst6"]
     }
