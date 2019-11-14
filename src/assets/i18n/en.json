@@ -57,7 +57,14 @@
             }
         },
         "SETTINGS": {
-            "TITLE": "Settings"
+            "TITLE": "Settings",
+            "APPEARANCE": {
+                "TITLE": "Appearance",
+                "THEME": "Theme",
+                "UI_MODE": "UI Mode",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "The UI Mode was changed",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "The application must be restarted to show the changes"
+            }
         },
         "ABOUT": {
             "AUTHORS": "Authors"
