@@ -4,16 +4,24 @@
 
             <ion-item>
                 <ion-icon name="contrast" slot="start"></ion-icon>
-                <ion-label>Theme</ion-label>
+                <ion-label>{{ 'PAGES.SETTINGS.APPEARANCE.THEME' | translate }}</ion-label>
                 <ion-select [(ngModel)]="theme" interface="popover" placeholder="Select One" (ionChange)="changeTheme($event)">
                     <ion-select-option value="light">Light</ion-select-option>
                     <ion-select-option value="dark">Dark</ion-select-option>
                 </ion-select>
             </ion-item>
 
+            <ion-item>
+                <ion-icon name="switch" slot="start"></ion-icon>
+                <ion-label>{{ 'PAGES.SETTINGS.APPEARANCE.UI_MODE' | translate }}</ion-label>
+                <ion-select [(ngModel)]="uiMode" interface="popover" placeholder="Select One" (ionChange)="changeUiMode($event)">
+                    <ion-select-option value="ios">Human</ion-select-option>
+                    <ion-select-option value="md">Material</ion-select-option>
+                </ion-select>
+            </ion-item>
+
         </ion-list>
 
     </ion-grid>
-
 
 </ion-content>

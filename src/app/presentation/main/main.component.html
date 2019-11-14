@@ -5,20 +5,11 @@
             <ion-header>
                 <ion-toolbar>
 
-                    <a routerDirection="back"
-                       slot="start"
-                       routerLink="/">
-
-                        <img
-                            src="assets/icon.png"
-                            class="app-icon">
-                    </a>
-
-                    <ion-searchbar
-                        debounce="600"
-                        #searchBar
-                        (ionChange)="search(searchBar.value)"
-                        placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"></ion-searchbar>
+                    <ion-searchbar debounce="600"
+                                   #searchBar
+                                   (ionChange)="search(searchBar.value)"
+                                   placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}">
+                    </ion-searchbar>
 
                 </ion-toolbar>
             </ion-header>
@@ -58,18 +49,16 @@
                             <ion-label>{{ 'PAGES.MAIN.CATEGORIES' | translate }}</ion-label>
                         </ion-list-header>
 
-                        <ion-item
-                            *ngFor="let category of categoryList"
-                            button
-                            (click)="onCategoryClicked(category)">
+                        <ion-item *ngFor="let category of categoryList"
+                                  button
+                                  (click)="onCategoryClicked(category)">
 
-                            <ion-icon
-                                slot="start"
-                                [name]="category.icon"></ion-icon>
+                            <ion-icon slot="start"
+                                      [name]="category.icon"></ion-icon>
 
-                                <ion-label>
-                                    {{ category.displayName | translate }}
-                                </ion-label>
+                            <ion-label>
+                                {{ category.displayName | translate }}
+                            </ion-label>
                         </ion-item>
                     </div>
 
