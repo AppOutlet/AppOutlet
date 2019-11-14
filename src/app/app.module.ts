@@ -30,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         SharedModule,
         MainModule,
         IonicModule.forRoot({
-            mode: 'ios'
+            mode: (window as any).uiMode || 'ios'
         }),
         AppRoutingModule,
         TranslateModule.forRoot({
