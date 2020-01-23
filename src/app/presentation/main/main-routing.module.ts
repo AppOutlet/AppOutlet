@@ -36,6 +36,9 @@ const routes: Routes = [
                 { path: 'account', component: AccountComponent },
                 { path: 'about', component: AboutComponent }
             ]
+        }, {
+            path: 'get-involved',
+            loadChildren: '../get-involved/get-involved.module#GetInvolvedModule'
         }]
     }
 ]
