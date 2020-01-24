@@ -12,7 +12,8 @@ You can get App Outlet by clicking on the following options:
 
 [![Debian package](https://github.com/app-outlet/app-outlet/raw/master/src/assets/deb.png)](https://appoutlet.herokuapp.com/download/deb)
 [![AppImage](https://github.com/app-outlet/app-outlet/raw/master/src/assets/appimage.png)](https://appoutlet.herokuapp.com/download/appimage)
-[![Get it from the Snap Store](https://github.com/app-outlet/app-outlet/raw/master/src/assets/snap.png)](https://snapcraft.io/app-outlet)
+
+***We removed App Outlet from Snap store. We are having some issues with the confinement. The App Outlet will be back when the issues are resolved***
 
 You can also get the unpacked version here:
 
