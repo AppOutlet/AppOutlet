@@ -3,6 +3,69 @@
         <ion-title>{{ 'PAGES.GET_INVOLVED.TITLE' | translate }}</ion-title>
     </ion-toolbar>
 </ion-header>
-<ion-content>
-    <h1></h1>
+<ion-content class="ion-padding">
+    <ion-grid fixed class="container">
+
+        <h1>{{ 'PAGES.GET_INVOLVED.TITLE' | translate }}</h1>
+
+        <p>
+            There are too many ways to get involved in App Outlet project and help us to build the software that you use and love.
+        </p>
+
+        <ion-card mode="ios">
+
+            <div class="bugs-section-banner"></div>
+
+            <ion-card-header>
+                <ion-card-title>Reporting bugs</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>
+                <p>
+                    If something is wrong when you is using App Outlet you can report it to us on our Github repository.
+                </p>
+                <p>
+                    Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them.
+                </p>
+
+
+            </ion-card-content>
+
+            <ion-button (click)="openLink('https://github.com/app-outlet/app-outlet/issues')" fill="clear">Go to Issues page</ion-button>
+
+        </ion-card>
+
+        <ion-card mode="ios">
+            <ion-card-header>
+                <ion-card-title>Being active on App Outlet community</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>Lorem ipsum</ion-card-content>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <ion-card-header>
+                <ion-card-title>Helping with App Outlet design</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>Lorem ipsum</ion-card-content>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <ion-card-header>
+                <ion-card-title>Coding</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>Lorem ipsum</ion-card-content>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <ion-card-header>
+                <ion-card-title>Donating</ion-card-title>
+            </ion-card-header>
+
+            <ion-card-content>Lorem ipsum</ion-card-content>
+        </ion-card>
+
+    </ion-grid>
 </ion-content>
