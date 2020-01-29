@@ -26,6 +26,7 @@ export class GetInvolvedComponent implements OnInit {
         const toast = await this.toastController.create({
             header: 'External resource',
             message: 'The page will open in you browser',
+            duration: 3000,
             buttons: [{
                 text: 'OK',
                 role: 'cancel'
