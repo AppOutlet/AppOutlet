@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { ElectronService } from './core/services';
-import { TranslateService } from '@ngx-translate/core';
-import { AppConfig } from '../environments/environment';
+import { Component } from '@angular/core'
+import { ElectronService } from './core/services'
+import { TranslateService } from '@ngx-translate/core'
+import { AppConfig } from '../environments/environment'
 
 @Component({
     selector: 'app-root',
@@ -14,26 +14,26 @@ export class AppComponent {
         private translate: TranslateService
     ) {
 
-        translate.setDefaultLang('en');
+        translate.setDefaultLang('en')
         translate.use(window.navigator.language)
 
-        console.log('AppConfig', AppConfig);
+        console.log('AppConfig', AppConfig)
 
         if (electronService.isElectron) {
-            console.log(process.env);
-            console.log('Mode electron');
-            console.log('Electron ipcRenderer', electronService.ipcRenderer);
-            console.log('NodeJS childProcess', electronService.childProcess);
+            console.log(process.env)
+            console.log('Mode electron')
+            console.log('Electron ipcRenderer', electronService.ipcRenderer)
+            console.log('NodeJS childProcess', electronService.childProcess)
         } else {
-            console.log('Mode web');
+            console.log('Mode web')
         }
 
         this.setupTheme()
     }
 
     private setupTheme() {
-        let theme = window.localStorage.getItem('theme') || 'light'
-        if(theme == 'dark'){
+        const theme = window.localStorage.getItem('theme') || 'light'
+        if (theme === 'dark') {
             document.body.classList.add('dark')
         }
     }
