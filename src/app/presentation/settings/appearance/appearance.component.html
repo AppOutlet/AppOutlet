@@ -11,15 +11,6 @@
                 </ion-select>
             </ion-item>
 
-            <ion-item>
-                <ion-icon name="switch" slot="start"></ion-icon>
-                <ion-label>{{ 'PAGES.SETTINGS.APPEARANCE.UI_MODE' | translate }}</ion-label>
-                <ion-select [(ngModel)]="uiMode" interface="popover" placeholder="Select One" (ionChange)="changeUiMode($event)">
-                    <ion-select-option value="ios">Human</ion-select-option>
-                    <ion-select-option value="md">Material</ion-select-option>
-                </ion-select>
-            </ion-item>
-
         </ion-list>
 
     </ion-grid>
