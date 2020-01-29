@@ -59,27 +59,46 @@
         </ion-card>
 
         <ion-card mode="ios">
-            <ion-card-header>
-                <ion-card-title>Helping with App Outlet design</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>Lorem ipsum</ion-card-content>
-        </ion-card>
-
-        <ion-card mode="ios">
+            <div class="coding-section-banner"></div>
             <ion-card-header>
                 <ion-card-title>Coding</ion-card-title>
             </ion-card-header>
-
-            <ion-card-content>Lorem ipsum</ion-card-content>
+            <ion-card-content>
+                <p>
+                    Help us to improve the features and stability of our beloved app. All you need is love and a little of Javascript.
+                </p>
+                <p>
+                    We made a simple tutorial about how to build and run the app.
+                </p>
+            </ion-card-content>
+            <ion-button fill="clear" (click)="openLink('https://github.com/app-outlet/app-outlet/')">
+                <ion-icon name="logo-github" slot="start"></ion-icon>
+                Github repository
+            </ion-button>
         </ion-card>
 
         <ion-card mode="ios">
+            <div class="donating-section-banner"></div>
             <ion-card-header>
                 <ion-card-title>Donating</ion-card-title>
             </ion-card-header>
-
-            <ion-card-content>Lorem ipsum</ion-card-content>
+            <ion-card-content>
+                We need help to mantain the infrastructure and we don't have sponsors.
+            </ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://www.patreon.com/appoutlet')">
+                        <ion-icon slot="start" name="heart"></ion-icon>
+                        Patreon
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://opencollective.com/app-outlet')">
+                        <ion-icon name="heart" slot="start" mode="ios"></ion-icon>
+                        Open Collective
+                    </ion-button>
+                </ion-col>
+            </ion-row>
         </ion-card>
 
     </ion-grid>
