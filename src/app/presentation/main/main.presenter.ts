@@ -26,7 +26,7 @@ export class MainPresenter {
         this.getAllCategories()
     }
 
-    getAllCategories(){
+    getAllCategories() {
         this.categoryService.getAll().subscribe(categoryList => {
             this.view.categoryList = categoryList
         })
