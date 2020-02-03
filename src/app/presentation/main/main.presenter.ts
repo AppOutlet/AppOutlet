@@ -22,26 +22,12 @@ export class MainPresenter {
 
     init(view: MainComponent) {
         this.view = view
-        this.getAllTags()
         this.getAllCategories()
     }
 
     getAllCategories() {
         this.categoryService.getAll().subscribe(categoryList => {
             this.view.categoryList = categoryList
-        })
-    }
-
-    getAllTags() {
-        this.view.error = false
-        this.view.loading = true
-        this.tagService.getAll().subscribe(categories => {
-            this.view.tags = categories
-        }, error => {
-            this.view.error = true
-            this.view.loading = false
-        }, () => {
-            this.view.loading = false
         })
     }
 
