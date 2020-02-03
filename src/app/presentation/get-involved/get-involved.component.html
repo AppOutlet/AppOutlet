@@ -1,0 +1,91 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>{{ 'PAGES.GET_INVOLVED.TITLE' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+    <ion-grid fixed class="container">
+
+        <h1>{{ 'PAGES.GET_INVOLVED.TITLE' | translate }}</h1>
+        <p>{{ 'PAGES.GET_INVOLVED.CALL_TO_ACTION' | translate }}</p>
+
+        <ion-card mode="ios">
+            <div class="bugs-section-banner"></div>
+            <ion-card-header>
+                <ion-card-title>{{ 'PAGES.GET_INVOLVED.BUGS.TITLE' | translate }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <p>{{ 'PAGES.GET_INVOLVED.BUGS.DESCRIPTION' | translate }}</p>
+                <p>{{ 'PAGES.GET_INVOLVED.BUGS.DESCRIPTION_2' | translate }}</p>
+            </ion-card-content>
+            <ion-button (click)="openLink('https://github.com/app-outlet/app-outlet/issues')" fill="clear">Go to Issues page</ion-button>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <div class="community-section-banner"></div>
+            <ion-card-header>
+                <ion-card-title>{{ 'PAGES.GET_INVOLVED.COMMUNITY.TITLE' | translate }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <p>{{ 'PAGES.GET_INVOLVED.COMMUNITY.DESCRIPTION' | translate }}</p>
+            </ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://twitter.com/AppOutletLinux')">
+                        <ion-icon slot="start" name="logo-twitter"></ion-icon>
+                        Twitter
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://t.me/joinchat/Lq-0qg7-NxwMjhZSvjnRzw')">
+                        <ion-icon name="send" slot="start" mode="ios"></ion-icon>
+                        Telegram
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://gitter.im/appoutlet')">
+                        <ion-icon name="chatbubbles" slot="start"></ion-icon>
+                        Gitter
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <div class="coding-section-banner"></div>
+            <ion-card-header>
+                <ion-card-title>{{ 'PAGES.GET_INVOLVED.CODING.TITLE' | translate }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                <p>{{ 'PAGES.GET_INVOLVED.CODING.DESCRIPTION' | translate }}</p>
+            </ion-card-content>
+            <ion-button fill="clear" (click)="openLink('https://github.com/app-outlet/app-outlet/')">
+                <ion-icon name="logo-github" slot="start"></ion-icon>
+                {{ 'PAGES.GET_INVOLVED.CODING.REPOSITORY' | translate }}
+            </ion-button>
+        </ion-card>
+
+        <ion-card mode="ios">
+            <div class="donating-section-banner"></div>
+            <ion-card-header>
+                <ion-card-title>{{ 'PAGES.GET_INVOLVED.DONATING.TITLE' | translate }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>{{ 'PAGES.GET_INVOLVED.DONATING.DESCRIPTION' | translate }}</ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://www.patreon.com/appoutlet')">
+                        <ion-icon slot="start" name="heart"></ion-icon>
+                        Patreon
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="clear" (click)="openLink('https://opencollective.com/app-outlet')">
+                        <ion-icon name="heart" slot="start" mode="ios"></ion-icon>
+                        Open Collective
+                    </ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+
+    </ion-grid>
+</ion-content>

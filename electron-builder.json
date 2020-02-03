@@ -37,12 +37,14 @@
         "target": [
             "AppImage",
             "deb",
-            "snap",
             "rpm",
             "tar.gz"
         ]
     },
     "rpm": {
         "depends": ["libXtst6"]
+    },
+    "deb": {
+        "depends": ["wget"]
     }
 }
