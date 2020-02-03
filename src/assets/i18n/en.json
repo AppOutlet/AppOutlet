@@ -67,7 +67,26 @@
             }
         },
         "GET_INVOLVED": {
-            "TITLE": "Get involved"
+            "TITLE": "Get involved",
+            "CALL_TO_ACTION": "There are too many ways to get involved in App Outlet project and help us to build the software that you use and love.",
+            "BUGS":{
+                "TITLE": "Reporting bugs",
+                "DESCRIPTION": "If something is wrong when you is using App Outlet you can report it to us on our Github repository.",
+                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
+            },
+            "COMMUNITY": {
+                "TITLE": "Being active on App Outlet community",
+                "DESCRIPTION": "We love interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+            },
+            "CODING":{
+                "TITLE": "Coding",
+                "DESCRIPTION": "Help us to improve the features and stability of our beloved app. All you need is love and a little bit of Javascript.",
+                "REPOSITORY": "Github repository"
+            },
+            "DONATING": {
+                "TITLE": "Donating",
+                "DESCRIPTION": "We need help to mantain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+            }
         },
         "ABOUT": {
             "AUTHORS": "Authors"
