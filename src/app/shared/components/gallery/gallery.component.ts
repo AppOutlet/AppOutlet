@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core'
 
 @Component({
     selector: 'app-gallery',
@@ -14,7 +14,7 @@ export class GalleryComponent {
     slideOpts = {
         loop: false,
         autoplay: {
-            delay :5000,
+            delay: 5000,
             stopOnLastSlide: true
         },
         hashNavigation: {
@@ -24,7 +24,7 @@ export class GalleryComponent {
             el: '.my-pagination',
             clickable: true,
             renderBullet: function (index, className) {
-                return `<span class="ion-padding-start ion-padding-end ${className}"> ${index + 1}</span>`;
+                return `<span class="ion-padding-start ion-padding-end ${className}"> ${index + 1}</span>`
             }
         }
     }

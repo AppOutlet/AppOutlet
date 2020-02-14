@@ -1,11 +1,11 @@
-import { Injectable } from '@angular/core';
-import { AppDetailComponent } from './app-detail.component';
-import { AppService } from '../../core/services/app/app.service';
-import { ElectronService } from '../../core/services';
-import { App } from '../../core/model/app.model';
-import { AppState } from '../../core/model/app-state.model';
-import { EventBusService } from 'ngx-eventbus';
-import { ExitCode } from '../../core/model/exit-code.enum';
+import { Injectable } from '@angular/core'
+import { AppDetailComponent } from './app-detail.component'
+import { AppService } from '../../core/services/app/app.service'
+import { ElectronService } from '../../core/services'
+import { App } from '../../core/model/app.model'
+import { AppState } from '../../core/model/app-state.model'
+import { EventBusService } from 'ngx-eventbus'
+import { ExitCode } from '../../core/model/exit-code.enum'
 
 @Injectable()
 export class AppDetailPresenter {
@@ -42,11 +42,11 @@ export class AppDetailPresenter {
     getAppState(app: App) {
         this.appService.getAppState(app).then((state: AppState) => {
             this.state = state
-            let isAppSupported = this.supportedTypes.includes(app.type)
-            this.view.shouldShowInstallButton = state == AppState.NOT_INSTALLED && isAppSupported
-            this.view.shouldShowRunButton = state == AppState.INSTALLED && isAppSupported
-            this.view.shouldShowUninstallButton = state == AppState.INSTALLED && isAppSupported
-            this.view.shouldShowLoading = state == AppState.INSTALLING || state == AppState.REMOVING && isAppSupported
+            const isAppSupported = this.supportedTypes.includes(app.type)
+            this.view.shouldShowInstallButton = state === AppState.NOT_INSTALLED && isAppSupported
+            this.view.shouldShowRunButton = state === AppState.INSTALLED && isAppSupported
+            this.view.shouldShowUninstallButton = state === AppState.INSTALLED && isAppSupported
+            this.view.shouldShowLoading = state === AppState.INSTALLING || state === AppState.REMOVING && isAppSupported
             this.view.changesDetector.detectChanges()
         })
     }
