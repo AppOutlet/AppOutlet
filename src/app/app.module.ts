@@ -12,7 +12,6 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
 import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { AppComponent } from './app.component'
 import { MainModule } from './presentation/main/main.module'
-import { StoreSetupComponent } from './presentation/settings/store-setup/store-setup.component'
 import { CacheInterceptor } from './interceptor/cache.interceptor'
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -20,7 +19,9 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [AppComponent, StoreSetupComponent],
+    declarations: [
+        AppComponent
+    ],
     imports: [
         BrowserModule,
         FormsModule,

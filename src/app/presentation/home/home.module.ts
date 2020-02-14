@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component'
 import { Routes, RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
 import { SectionModule } from '../../shared/components/section/section.module'
+import { HomePresenter } from './home.presenter'
 
 const routes: Routes = [
     { path: '', component: HomeComponent }
@@ -18,6 +19,9 @@ const routes: Routes = [
         RouterModule.forChild(routes),
         IonicModule,
         SectionModule
+    ],
+    providers: [
+        HomePresenter
     ]
 })
 export class HomeModule { }
