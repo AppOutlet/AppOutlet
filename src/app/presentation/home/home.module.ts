@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 import { HomeComponent } from './home.component'
 import { Routes, RouterModule } from '@angular/router'
 import { IonicModule } from '@ionic/angular'
-import { SharedModule } from '../../shared/shared.module'
+import { SectionModule } from '../../shared/components/section/section.module'
 
 const routes: Routes = [
     { path: '', component: HomeComponent }
@@ -17,7 +17,7 @@ const routes: Routes = [
         CommonModule,
         RouterModule.forChild(routes),
         IonicModule,
-        SharedModule
+        SectionModule
     ]
 })
 export class HomeModule { }

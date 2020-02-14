@@ -6,7 +6,6 @@ import { NgModule } from '@angular/core'
 import { FormsModule } from '@angular/forms'
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http'
 import { CoreModule } from './core/core.module'
-import { SharedModule } from './shared/shared.module'
 import { IonicModule } from '@ionic/angular'
 import { AppRoutingModule } from './app-routing.module'
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
@@ -27,7 +26,6 @@ export function HttpLoaderFactory(http: HttpClient) {
         FormsModule,
         HttpClientModule,
         CoreModule,
-        SharedModule,
         MainModule,
         IonicModule.forRoot(),
         AppRoutingModule,
