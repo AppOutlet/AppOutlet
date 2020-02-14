@@ -4,7 +4,6 @@ import { MainComponent } from './main.component'
 import { MainRoutingModule } from './main-routing.module'
 import { IonicModule } from '@ionic/angular'
 import { SharedModule } from '../../shared/shared.module'
-import { HomeComponent } from '../home/home.component'
 import { MainPresenter } from './main.presenter'
 import { MainRouter } from './main.router'
 import { SearchResultComponent } from '../search-result/search-result.component'
@@ -23,7 +22,6 @@ import { AboutComponent } from '../settings/about/about.component'
 @NgModule({
     declarations: [
         MainComponent,
-        HomeComponent,
         SearchResultComponent,
         AppDetailComponent,
         SettingsComponent,

@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
 import { Routes, RouterModule } from '@angular/router'
 import { MainComponent } from './main.component'
-import { HomeComponent } from '../home/home.component'
 import { AppDetailComponent } from '../app-detail/app-detail.component'
 import { SearchResultComponent } from '../search-result/search-result.component'
 import { SettingsComponent } from '../settings/settings.component'
@@ -17,10 +16,10 @@ const routes: Routes = [
         component: MainComponent,
         children: [{
             path: '',
-            component: HomeComponent
+            loadChildren: '../home/home.module#HomeModule'
         }, {
             path: 'home',
-            component: HomeComponent
+            loadChildren: '../home/home.module#HomeModule'
         }, {
             path: 'app',
             component: AppDetailComponent
@@ -41,7 +40,7 @@ const routes: Routes = [
             loadChildren: '../get-involved/get-involved.module#GetInvolvedModule'
         }]
     }
-]
+];
 
 @NgModule({
     imports: [
