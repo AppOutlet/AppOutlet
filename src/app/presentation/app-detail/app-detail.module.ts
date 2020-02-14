@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core'
 import { CommonModule } from '@angular/common'
-import { Routes } from '@angular/router'
+import { Routes, RouterModule } from '@angular/router'
 import { AppDetailComponent } from './app-detail.component'
 import { AppDetailPresenter } from './app-detail.presenter'
 import { IonicModule } from '@ionic/angular'
@@ -18,6 +18,7 @@ const routes: Routes = [{
     ],
     imports: [
         CommonModule,
+        RouterModule.forChild(routes),
         IonicModule,
         TranslateModule,
         GalleryModule
