@@ -6,7 +6,7 @@ App Outlet is a Universal application store inspired on the Linux App Store onli
 
 ![Screenshot](https://github.com/app-outlet/app-outlet/raw/master/src/assets/screenshot.png)
 
-## [Click here to Download](https://www.pling.com/p/1355468/)
+## [Click here to Download](https://www.pling.com/p/1355468/#files-panel)
 
 If your distro doesn't support the available packages you can dowload and compile the source code following the instructions below. 
 
