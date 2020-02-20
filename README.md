@@ -2,22 +2,11 @@
     
 ## App Outlet  | [![Build Status](https://travis-ci.org/app-outlet/app-outlet.svg?branch=master)](https://travis-ci.org/app-outlet/app-outlet)
 
-App Outlet is a Universal application store inspired on the Linux App Store online service. It easily allows you to search and download [W.I.P] applications that runs on most Linux distributions. It currently works with AppImages, Flatpaks and Snaps.
+App Outlet is a Universal application store inspired on the Linux App Store online service. It easily allows you to search and download applications that runs on most Linux distributions. It currently works with AppImages, Flatpaks and Snaps.
 
 ![Screenshot](https://github.com/app-outlet/app-outlet/raw/master/src/assets/screenshot.png)
 
-### Download
-
-You can get App Outlet by clicking on the following options:
-
-[![Debian package](https://github.com/app-outlet/app-outlet/raw/master/src/assets/deb.png)](https://appoutlet.herokuapp.com/download/deb)
-[![AppImage](https://github.com/app-outlet/app-outlet/raw/master/src/assets/appimage.png)](https://appoutlet.herokuapp.com/download/appimage)
-
-***We removed App Outlet from Snap store. We are having some issues with the confinement. The App Outlet will be back when the issues are resolved***
-
-You can also get the unpacked version here:
-
-[![Get unpacked version](https://github.com/app-outlet/app-outlet/raw/master/src/assets/unpacked.png)](https://appoutlet.herokuapp.com/download/unpacked)
+## [Click here to Download](https://www.pling.com/p/1355468/)
 
 If your distro doesn't support the available packages you can dowload and compile the source code following the instructions below. 
 
