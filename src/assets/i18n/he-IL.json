@@ -5,7 +5,7 @@
         "ERROR_MESSAGE": "אירעה שגיאה",
         "LOADING": "בטעינה",
         "TRY_AGAIN": "ניסיון חוזר",
-        "APP_SHORT_DESCRIPTION": "חנות יישומים אוניברסלית ללינוקס. יש כאן את Snap, Flatpak וגם AppImages!"
+        "APP_SHORT_DESCRIPTION": "חנות יישומים אוניברסלית ללינוקס. Snap, Flatpak וגם AppImages בפנים!"
     },
     "PAGES": {
         "APP_DETAIL": {
@@ -17,7 +17,7 @@
             "PROJECT_HOMEPAGE": "עמוד הבית של המיזם",
             "REPORT_ISSUE": "דיווח על בעיה",
             "RUN": "הרצה",
-            "STORE_PAGE": "Store page",
+            "STORE_PAGE": "עמוד החנות",
             "UNINSTALL": "הסרת התקנה"
         },
         "HOME": {
