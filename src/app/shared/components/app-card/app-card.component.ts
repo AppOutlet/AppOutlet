@@ -16,7 +16,6 @@ export class AppCardComponent {
 
     constructor(
         private alertController: AlertController,
-        private electronService: ElectronService,
         private appService: AppService,
         private router: Router
     ) { }

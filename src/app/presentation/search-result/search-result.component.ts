@@ -3,7 +3,6 @@ import { App } from '../../core/model/app.model'
 import { ActivatedRoute } from '@angular/router'
 import { SearchResultPresenter } from './search-result.presenter'
 import { SectionState } from '../../core/model/section.model'
-import { app } from 'electron'
 
 @Component({
     selector: 'app-search-result',
