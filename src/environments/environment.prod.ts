@@ -1,5 +1,3 @@
-export const AppConfig = {
+export const environment = {
     production: true,
-    environment: 'PROD',
-    baseUrl: 'https://appoutlet.herokuapp.com'
-}
+};

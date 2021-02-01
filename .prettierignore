@@ -1,0 +1,11 @@
+/node_modules/
+/.next/
+/out/
+/build/
+.DS_Store
+coverage
+.github
+.idea
+/release
+/dist
+*.md
