@@ -9,3 +9,4 @@ coverage
 /release
 /dist
 *.md
+**/*.yml
