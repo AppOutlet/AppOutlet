@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: App Outlet discussions
-    url: https://github.community/
+  - name: Question
+    url: https://github.com/app-outlet/app-outlet/discussions
     about: For questions, suggestions or support please see out discussions section
