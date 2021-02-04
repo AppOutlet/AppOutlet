@@ -8,6 +8,7 @@
         "electron:serve": "wait-on tcp:4200 && npx electron . --serve",
         "build": "ng build",
         "test": "NODE_ENV=test TZ=utc jest",
+        "test:coverage": "npm test -- --coverage",
         "test:quick": "npm test -- --no-coverage",
         "test:watch": "npm test -- --watch",
         "test:watch:quick": "npm run test:watch -- --no-coverage",
