@@ -1,10 +1,3 @@
-const { ipcMain } = require('electron');
+const synchronizationService = require('./service/synchronization/SynchornizationService');
 
-ipcMain.handle(
-    'get-uppercase-string',
-    (event, args) =>
-        new Promise((resolve) => {
-            console.log('Received', args);
-            resolve(args.toUpperCase());
-        }),
-);
+synchronizationService.startSynchronization();

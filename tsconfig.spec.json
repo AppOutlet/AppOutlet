@@ -3,7 +3,8 @@
     "extends": "./tsconfig.json",
     "compilerOptions": {
         "outDir": "./out-tsc/spec",
-        "types": ["jasmine"]
+        "types": ["jasmine"],
+        "allowJs": true
     },
     "files": ["src/test.ts", "src/polyfills.ts"],
     "include": ["src/**/*.spec.ts", "src/**/*.d.ts"]
