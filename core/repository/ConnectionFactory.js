@@ -1,10 +1,11 @@
 const typeOrm = require('typeorm');
+const { homedir } = require('os');
 
 const applicationEntity = require('../entity/ApplicationEntity');
 
 const connection = typeOrm.createConnection({
     type: 'sqlite',
-    database: '~/.config/app-outlet/database/app-outlet.db',
+    database: `${homedir()}/.config/app-outlet/database/app-outlet.db`,
     synchronize: true,
     logging: true,
     entities: [applicationEntity],
