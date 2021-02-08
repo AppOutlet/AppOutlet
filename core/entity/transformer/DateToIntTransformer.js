@@ -1,8 +1,8 @@
-function to() {
+function to(value) {
     return value ? value.getTime() : null;
 }
 
-function from() {
+function from(value) {
     return value ? new Date(value) : null;
 }
 
