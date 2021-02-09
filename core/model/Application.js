@@ -20,7 +20,6 @@ class Application {
         packageType,
         packageName,
         confinement,
-        viewCount,
     ) {
         this.id = id;
         this.name = name;
@@ -42,7 +41,6 @@ class Application {
         this.packageType = packageType;
         this.packageName = packageName;
         this.confinement = confinement;
-        this.viewCount = viewCount;
     }
 }
 
