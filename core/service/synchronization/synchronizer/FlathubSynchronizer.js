@@ -1,5 +1,6 @@
 const { from } = require('rxjs');
 const { mergeMap, toArray, map, onErrorResumeNext } = require('rxjs/operators');
+const log = require('loglevel');
 
 const flathubRepository = require('../../../repository/flathub/FlathubRepository');
 const applicationRepository = require('../../../repository/application/ApplicationRepository');
@@ -45,6 +46,7 @@ function mapToApplication(flathubApplication) {
 }
 
 function startSynchronization() {
+    log.info('Starting Flathub Synchronization');
     return from(flathubRepository.getApps()).pipe(
         mergeMap(from),
         mergeMap(flathubRepository.getAppDetails),
@@ -52,6 +54,10 @@ function startSynchronization() {
         onErrorResumeNext(),
         toArray(),
         mergeMap(applicationRepository.save),
+        map((result) => {
+            log.info('Flathub synchronization finished successfully');
+            return result;
+        }),
     );
 }
 
