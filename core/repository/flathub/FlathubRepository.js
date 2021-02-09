@@ -13,6 +13,7 @@ function getAppDetails(app) {
 }
 
 module.exports = {
+    FLATHUB_API,
     getApps,
     getAppDetails,
 };
