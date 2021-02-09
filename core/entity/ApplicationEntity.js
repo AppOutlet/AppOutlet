@@ -1,6 +1,6 @@
 const { EntitySchema } = require('typeorm');
 
-const { Application } = require('../model/Application');
+const Application = require('../model/Application');
 const arrayToStringTransformer = require('./transformer/ArrayToStringTransformer');
 const dateToIntTransformer = require('./transformer/DateToIntTransformer');
 
