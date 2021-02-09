@@ -1,4 +1,4 @@
-const { Application } = require('../../model/Application');
+const Application = require('../../model/Application');
 
 const mockConnection = {
     manager: {
