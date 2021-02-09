@@ -93,9 +93,5 @@ module.exports = new EntitySchema({
             type: 'varchar',
             nullable: true,
         },
-        viewCount: {
-            type: 'int',
-            nullable: true,
-        },
     },
 });
