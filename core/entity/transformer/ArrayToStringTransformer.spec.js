@@ -2,11 +2,11 @@ const arrayToStringTransformer = require('./ArrayToStringTransformer');
 
 describe('Array to string transformer', () => {
     it('should transform string to string array', () => {
-        expect(arrayToStringTransformer.to('a|b|c')).toEqual(['a', 'b', 'c']);
+        expect(arrayToStringTransformer.from('a|b|c')).toEqual(['a', 'b', 'c']);
     });
 
     it('should transform string array to string ', () => {
-        expect(arrayToStringTransformer.from(['a', 'b', 'c'])).toEqual('a|b|c');
+        expect(arrayToStringTransformer.to(['a', 'b', 'c'])).toEqual('a|b|c');
     });
 
     it('should return null if the entry of any functions is null or undefined ', () => {
