@@ -9,8 +9,16 @@ const mockFlathubSynchronizer = {
     startSynchronization: jest.fn(),
 };
 
+const mockAppImageHubSynchronizer = {
+    startSynchronization: jest.fn(),
+};
+
 jest.mock('loglevel', () => mockLogLevel);
 jest.mock('./synchronizer/FlathubSynchronizer', () => mockFlathubSynchronizer);
+jest.mock(
+    './synchronizer/AppImageHubSynchronizer',
+    () => mockAppImageHubSynchronizer,
+);
 
 const synchronizationService = require('./SynchornizationService');
 
@@ -21,6 +29,10 @@ describe('Synchronization service', () => {
 
     it('Should log info when the synchronization succeed', () => {
         mockFlathubSynchronizer.startSynchronization.mockReturnValueOnce(
+            of(true),
+        );
+
+        mockAppImageHubSynchronizer.startSynchronization.mockReturnValueOnce(
             of(true),
         );
 
@@ -35,9 +47,14 @@ describe('Synchronization service', () => {
             throwError('err'),
         );
 
+        mockAppImageHubSynchronizer.startSynchronization.mockReturnValueOnce(
+            throwError('err'),
+        );
+
         synchronizationService.startSynchronization();
 
         expect(mockLogLevel.info.mock.calls.length).toBe(0);
         expect(mockLogLevel.error.mock.calls.length).toBe(1);
+        expect(mockLogLevel.error.mock.calls[0][1]).toEqual('err');
     });
 });
