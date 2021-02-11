@@ -30,7 +30,7 @@ function getHomepage({ links }) {
 }
 
 function getDeveloper(appImageHubApplication) {
-    return appImageHubApplication?.authors?.[0]?.name ?? DEFAULT_AUTHOR_NAME;
+    return appImageHubApplication.authors?.[0]?.name ?? DEFAULT_AUTHOR_NAME;
 }
 
 function getId(appImageHubApplication) {
