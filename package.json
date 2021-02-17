@@ -33,7 +33,7 @@
         "loglevel": "^1.7.1",
         "ngx-electron": "^2.2.0",
         "rxjs": "~6.6.0",
-        "sqlite3": "^5.0.1",
+        "sqlite3": "^5.0.0",
         "tslib": "^2.0.0",
         "typeorm": "^0.2.30",
         "zone.js": "~0.11.3"
