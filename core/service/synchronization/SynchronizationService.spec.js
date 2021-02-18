@@ -1,9 +1,6 @@
 const { of, throwError } = require('rxjs');
 
-const mockLogLevel = {
-    info: jest.fn(),
-    error: jest.fn(),
-};
+const ONE_HOUR = 1000 * 60 * 60;
 
 const mockFlathubSynchronizer = {
     startSynchronization: jest.fn(),
@@ -17,7 +14,11 @@ const mockSnapStoreSynchronizer = {
     startSynchronization: jest.fn(),
 };
 
-jest.mock('loglevel', () => mockLogLevel);
+const mockSettingsService = {
+    getLastSynchronizationDate: jest.fn(),
+    setLastSynchronizationDate: jest.fn(),
+};
+
 jest.mock('./synchronizer/FlathubSynchronizer', () => mockFlathubSynchronizer);
 jest.mock(
     './synchronizer/AppImageHubSynchronizer',
@@ -28,6 +29,8 @@ jest.mock(
     () => mockSnapStoreSynchronizer,
 );
 
+jest.mock('../settings/SettingsService', () => mockSettingsService);
+
 const synchronizationService = require('./SynchornizationService');
 
 describe('Synchronization service', () => {
@@ -35,7 +38,11 @@ describe('Synchronization service', () => {
         jest.clearAllMocks();
     });
 
-    it('Should log info when the synchronization succeed', () => {
+    it('Should log info when the synchronization succeed', async () => {
+        mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+            new Date('1970-01-01'),
+        );
+
         mockFlathubSynchronizer.startSynchronization.mockReturnValueOnce(
             of(true),
         );
@@ -48,13 +55,18 @@ describe('Synchronization service', () => {
             of(true),
         );
 
-        synchronizationService.startSynchronization();
+        await synchronizationService.startSynchronization();
 
-        expect(mockLogLevel.info.mock.calls.length).toBe(1);
-        expect(mockLogLevel.error.mock.calls.length).toBe(0);
+        expect(
+            mockSettingsService.setLastSynchronizationDate.mock.calls.length,
+        ).toBe(1);
     });
 
-    it('Should log error when the synchronization fails', () => {
+    it('Should log error when the synchronization fails', async () => {
+        mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+            new Date('1970-01-01'),
+        );
+
         mockFlathubSynchronizer.startSynchronization.mockReturnValueOnce(
             throwError('err'),
         );
@@ -67,10 +79,51 @@ describe('Synchronization service', () => {
             throwError('err'),
         );
 
-        synchronizationService.startSynchronization();
+        await synchronizationService.startSynchronization();
 
-        expect(mockLogLevel.info.mock.calls.length).toBe(0);
-        expect(mockLogLevel.error.mock.calls.length).toBe(1);
-        expect(mockLogLevel.error.mock.calls[0][1]).toEqual('err');
+        expect(
+            mockSettingsService.setLastSynchronizationDate.mock.calls.length,
+        ).toBe(0);
+    });
+
+    function getDateBetweenYesterdayAndNow() {
+        const now = new Date().getTime();
+        return new Date(now - ONE_HOUR);
+    }
+
+    it('Should not synchronize if the last synchronization was newer than yesterday', async () => {
+        mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+            getDateBetweenYesterdayAndNow(),
+        );
+
+        await synchronizationService.startSynchronization();
+
+        expect(
+            mockSettingsService.setLastSynchronizationDate.mock.calls.length,
+        ).toBe(0);
+    });
+
+    it('Should synchronize if the synchronization was never ran', async () => {
+        mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+            Promise.resolve(null),
+        );
+
+        mockFlathubSynchronizer.startSynchronization.mockReturnValueOnce(
+            of(true),
+        );
+
+        mockAppImageHubSynchronizer.startSynchronization.mockReturnValueOnce(
+            of(true),
+        );
+
+        mockSnapStoreSynchronizer.startSynchronization.mockReturnValueOnce(
+            of(true),
+        );
+
+        await synchronizationService.startSynchronization();
+
+        expect(
+            mockSettingsService.setLastSynchronizationDate.mock.calls.length,
+        ).toBe(1);
     });
 });
