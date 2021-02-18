@@ -4,6 +4,7 @@
     "scripts": {
         "ng": "ng",
         "start": "npm-run-all -p electron:serve ng:serve",
+        "start:core": "node core",
         "ng:serve": "ng serve",
         "electron:serve": "wait-on tcp:4200 && npx electron . --serve",
         "build": "ng build",
@@ -33,7 +34,7 @@
         "loglevel": "^1.7.1",
         "ngx-electron": "^2.2.0",
         "rxjs": "~6.6.0",
-        "sqlite3": "^5.0.0",
+        "sqlite3": "^5.0.2",
         "tslib": "^2.0.0",
         "typeorm": "^0.2.30",
         "zone.js": "~0.11.3"
