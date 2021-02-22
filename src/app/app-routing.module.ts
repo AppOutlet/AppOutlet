@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainModule } from './ui/pages/main/main.module';
 
 const routes: Routes = [
     {
         path: '',
-        loadChildren: (): Promise<MainModule> =>
+        // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+        loadChildren: () =>
             import('./ui/pages/main/main.module').then((m) => m.MainModule),
     },
 ];
