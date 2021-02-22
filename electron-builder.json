@@ -1,0 +1,45 @@
+{
+    "productName": "App Outlet",
+    "directories": {
+        "output": "release/"
+    },
+    "files": [
+        "**/*",
+        "!**/*.ts",
+        "!*.code-workspace",
+        "!LICENSE.md",
+        "!package.json",
+        "!package-lock.json",
+        "!src/",
+        "!e2e/",
+        "!hooks/",
+        "!angular.json",
+        "!_config.yml",
+        "!karma.conf.js",
+        "!tsconfig.json",
+        "!tslint.json",
+        "!release/"
+    ],
+    "mac": {
+        "icon": "dist/app-outlet",
+        "target": [
+            "dmg"
+        ]
+    },
+    "linux": {
+        "icon": "dist/app-outlet",
+        "category": "Utility",
+        "target": [
+            "AppImage",
+            "deb",
+            "rpm",
+            "tar.gz"
+        ]
+    },
+    "rpm": {
+        "depends": ["libXtst6"]
+    },
+    "deb": {
+        "depends": ["wget"]
+    }
+}

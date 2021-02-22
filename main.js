@@ -22,7 +22,7 @@ function createWindow() {
 
         win.loadURL('http://localhost:4200');
     } else {
-        win.loadFile(`${__dirname}/dist/app-outlet-v2/index.html`);
+        win.loadFile(`${__dirname}/dist/app-outlet/index.html`);
     }
 }
 
