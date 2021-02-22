@@ -1,12 +1,9 @@
 <nb-layout>
-    <nb-sidebar>
-        <nb-sidebar-header>
-            <img
-                src="assets/icon.png"
-                alt="Application icon"
-                class="main-icon"
-            />
-        </nb-sidebar-header>
+    <nb-sidebar containerFixed="false">
+        <img src="assets/icon.png" alt="Application icon" class="main-icon" />
+        <app-main-menu class="main-menu"></app-main-menu>
     </nb-sidebar>
-    <nb-layout-column>Column</nb-layout-column>
+    <nb-layout-column>
+        <router-outlet></router-outlet>
+    </nb-layout-column>
 </nb-layout>
