@@ -22,19 +22,12 @@
     ],
     "mac": {
         "icon": "dist/app-outlet",
-        "target": [
-            "dmg"
-        ]
+        "target": ["dmg"]
     },
     "linux": {
         "icon": "dist/app-outlet",
         "category": "Utility",
-        "target": [
-            "AppImage",
-            "deb",
-            "rpm",
-            "tar.gz"
-        ]
+        "target": ["AppImage", "deb", "rpm", "tar.gz"]
     },
     "rpm": {
         "depends": ["libXtst6"]
