@@ -20,7 +20,10 @@ async function shouldSynchronize() {
 
 async function startSynchronization() {
     if (await shouldSynchronize()) {
+        console.log('Starting synchronization');
         synchronize();
+    } else {
+        console.log('No need to synchronize');
     }
 }
 
