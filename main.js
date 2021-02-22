@@ -9,7 +9,7 @@ function createWindow() {
     const win = new BrowserWindow({
         width: 1000,
         height: 700,
-        minHeight: 600,
+        minHeight: 680,
         minWidth: 800,
         title: 'App Outlet',
         webPreferences: {

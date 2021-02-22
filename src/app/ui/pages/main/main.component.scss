@@ -1,7 +1,18 @@
+nb-sidebar {
+    position: fixed;
+}
+
+nb-layout-column {
+    margin-left: 16rem;
+}
+
 .main-icon {
     height: 5rem;
     width: 5rem;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 1rem auto 2rem;
+}
+
+app-main-menu {
+    padding-bottom: 15rem;
 }
