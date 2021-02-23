@@ -8,7 +8,7 @@ const isDevelopment = process.argv
 function createWindow() {
     const win = new BrowserWindow({
         width: 1000,
-        height: 700,
+        height: 730,
         minHeight: 680,
         minWidth: 800,
         title: 'App Outlet',
