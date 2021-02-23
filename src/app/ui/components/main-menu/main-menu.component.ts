@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NbMenuItem } from '@nebular/theme';
 import { TranslateService } from '@ngx-translate/core';
 
+import { routes } from '../../../util/routes';
+
 @Component({
     selector: 'app-main-menu',
     templateUrl: './main-menu.component.html',
@@ -19,56 +21,67 @@ export class MainMenuComponent implements OnInit {
     async setupMenuItems(): Promise<void> {
         this.items = [
             {
+                link: routes.category.office,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.OFFICE'),
                 icon: 'layers-outline',
             },
             {
+                link: routes.category.internet,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.INTERNET_COMMUNICATION',
                 ),
                 icon: 'globe-2-outline',
             },
             {
+                link: routes.category.audio,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.AUDIO'),
                 icon: { icon: 'music-outline' },
             },
             {
+                link: routes.category.video,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.VIDEO'),
                 icon: 'video-outline',
             },
             {
+                link: routes.category.games,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.GAMES'),
                 icon: 'cube-outline',
             },
             {
+                link: routes.category.development,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.DEVELOPMENT',
                 ),
                 icon: 'code-outline',
             },
             {
+                link: routes.category.finance,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.FINANCE'),
                 icon: 'bar-chart-outline',
             },
             {
+                link: routes.category.graphics,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.GRAPHICS',
                 ),
                 icon: 'image-outline',
             },
             {
+                link: routes.category.science,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.SCIENCE_EDUCATION',
                 ),
                 icon: 'book-outline',
             },
             {
+                link: routes.category.utility,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.UTILITY_PRODUCTIVITY',
                 ),
                 icon: 'bulb-outline',
             },
             {
+                link: routes.category.misc,
                 title: await this.getTranslation(
                     'PAGES.MAIN.CATEGORY.MISCELLANEOUS',
                 ),
