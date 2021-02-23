@@ -34,7 +34,8 @@
         "test:report": "open coverage/lcov-report/index.html",
         "e2e": "ng e2e",
         "format": "prettier --write .",
-        "lint": "eslint {src,e2e}/**/*.ts core/**/*.js --fix",
+        "lint": "eslint {src,e2e}/**/*.ts core/**/*.js",
+        "lint:fix": "eslint {src,e2e}/**/*.ts core/**/*.js --fix",
         "check:style": "prettier --check ."
     },
     "main": "main.js",

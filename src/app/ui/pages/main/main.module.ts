@@ -7,6 +7,7 @@ import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { MainMenuModule } from '../../components/main-menu/main-menu.module';
 
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 const routes: Routes = [
     {
         path: '',
@@ -14,13 +15,20 @@ const routes: Routes = [
         children: [
             {
                 path: '',
-                // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
                 loadChildren: () =>
                     import('../home/home.module').then((m) => m.HomeModule),
+            },
+            {
+                path: 'category/:category',
+                loadChildren: () =>
+                    import('../category/category.module').then(
+                        (m) => m.CategoryModule,
+                    ),
             },
         ],
     },
 ];
+/* eslint-enable @typescript-eslint/explicit-function-return-type */
 
 @NgModule({
     declarations: [MainComponent],
