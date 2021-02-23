@@ -1,0 +1,53 @@
+{
+    "GENERAL": {
+        "BACK": "Indietro",
+        "DISMISS": "Abbandona",
+        "ERROR_MESSAGE": "Si è verificato un errore",
+        "LOADING": "Caricamento in corso",
+        "TRY_AGAIN": "Riprova",
+        "APP_SHORT_DESCRIPTION": "Un app store universale per Linux. Trova Snaps, Flatpaks e AppImages!"
+    },
+    "PAGES": {
+        "APP_DETAIL": {
+            "ACTIONS": "Azioni",
+            "DONATE": "Donare",
+            "HOW_TO_SETUP": "Come impostare?",
+            "INSTALL": "Installa",
+            "NO_SUPPORT_ERROR_MESSAGE": "Sembra che tu non abbia configurato il supporto per i pacchetti {{type}}. Per favore, verifica la tua configurazione.",
+            "PROJECT_HOMEPAGE": "Pagina iniziale del progetto",
+            "REPORT_ISSUE": "Segnala problema",
+            "RUN": "Avvia",
+            "STORE_PAGE": "Pagina dello store",
+            "UNINSTALL": "Disinstallare"
+        },
+        "HOME": {
+            "NEW_RELEASES": "Nuove versioni",
+            "POPULAR": "App popolari",
+            "RECENTLY_UPDATED": "Aggiornato di recente",
+            "TITLE": "Home"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categorie",
+            "TAGS": "Tags",
+            "TITLE": "Principale",
+            "SEARCH": "Cerca",
+            "BACK_TO_MENU": "Torna al menu"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "Nessun risultato trovato",
+            "QUERY_TITLE": "Risultati per '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "Tutti i tipi",
+                "APPIMAGE": "AppImage",
+                "FLATPAK": "Flatpak",
+                "SNAP": "Snap"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Impostazioni"
+        },
+        "ABOUT": {
+            "AUTHORS": "Autori"
+        }
+    }
+}
