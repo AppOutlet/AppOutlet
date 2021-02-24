@@ -55,6 +55,7 @@
         "@ngx-translate/core": "^13.0.0",
         "@ngx-translate/http-loader": "^6.0.0",
         "axios": "^0.21.1",
+        "bootstrap": "^4.6.0",
         "eva-icons": "^1.1.2",
         "loglevel": "^1.7.1",
         "ngx-electron": "^2.2.0",
