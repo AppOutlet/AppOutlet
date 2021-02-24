@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
 import { CardDto } from '../card/card.dto';
 
 @Component({
@@ -7,5 +8,21 @@ import { CardDto } from '../card/card.dto';
     styleUrls: ['./section.component.scss'],
 })
 export class SectionComponent {
-    apps: CardDto[] = [];
+    @Input() title = '';
+
+    @Input() apps: CardDto[] = [];
+
+    @Output() seeMoreClicked = new EventEmitter<void>();
+
+    @Output() applicationClicked = new EventEmitter<CardDto>();
+
+    onSeeMoreClicked(): void {
+        this.seeMoreClicked.emit();
+    }
+
+    onAppClicked(app?: CardDto): void {
+        if (app) {
+            this.applicationClicked.emit(app);
+        }
+    }
 }
