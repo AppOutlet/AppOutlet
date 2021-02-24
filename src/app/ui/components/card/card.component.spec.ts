@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { NbCardModule } from '@nebular/theme';
 
 import { CardComponent } from './card.component';
 
@@ -8,8 +9,13 @@ describe('CardComponent', () => {
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
+            imports: [NbCardModule],
             declarations: [CardComponent],
-        }).compileComponents();
+        })
+            .overrideComponent(CardComponent, {
+                set: { template: '' },
+            })
+            .compileComponents();
     });
 
     beforeEach(() => {

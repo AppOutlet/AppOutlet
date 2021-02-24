@@ -3,3 +3,29 @@ img {
     width: 100%;
     height: auto;
 }
+
+nb-card {
+    margin-bottom: 0;
+}
+
+h6 {
+    margin-top: 0.7rem;
+    margin-bottom: 0.2rem;
+}
+
+.application-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.application-summary {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

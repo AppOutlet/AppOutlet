@@ -1,6 +1,7 @@
 @import 'themes';
 
 @import '~@nebular/theme/styles/globals';
+@import '~bootstrap/scss/bootstrap-grid';
 
 @include nb-install() {
     @include nb-theme-global();
