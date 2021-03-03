@@ -1,12 +1,23 @@
 const connectionFactory = require('../ConnectionFactory');
+const ApplicationEntity = require('../../entity/ApplicationEntity');
+
+function getRepository() {
+    return connectionFactory.getRepository(ApplicationEntity);
+}
 
 function save(applications) {
-    return connectionFactory
-        .getConnection()
-        .then((connection) => connection.manager)
-        .then((manager) => manager.save(applications, { transaction: false }));
+    return getRepository().then((repository) =>
+        repository.save(applications, { transaction: false }),
+    );
+}
+
+function getRecentlyAdded() {
+    return getRepository().then((repository) =>
+        repository.find({ take: 6, orderBy: { creationDate: 'DESC' } }),
+    );
 }
 
 module.exports = {
     save,
+    getRecentlyAdded,
 };

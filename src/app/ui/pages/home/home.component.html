@@ -1,7 +1,9 @@
 <app-section
-    [apps]="apps"
+    title="{{ 'PAGES.HOME.NEW_RELEASES' | translate }}"
+    [apps]="recentlyAddedApps"
 ></app-section>
 
 <app-section
-    [apps]="apps"
+    title="{{ 'PAGES.HOME.RECENTLY_UPDATED' | translate }}"
+    [apps]="recentlyUpdatedApps"
 ></app-section>
