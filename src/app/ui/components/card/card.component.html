@@ -1,6 +1,6 @@
 <div (click)="click(application)">
     <nb-card>
-        <img [src]="application?.icon" alt="{{ application?.name }} icon" />
+        <img [src]="application?.icon || 'assets/icon/icon-placeholder.png'" alt="{{ application?.name }} icon" />
     </nb-card>
     <h6 class="application-title">{{ application?.name }}</h6>
     <span class="application-summary">{{ application?.summary }}</span>
