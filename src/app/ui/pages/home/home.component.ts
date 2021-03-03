@@ -1,39 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Application } from '../../../model/application.model';
+import { ApplicationService } from '../../../service/application/application.service';
 
 @Component({
     selector: 'app-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {
-    apps = [
-        {
-            id: '1',
-            title: 'Application title 1',
-            summary: 'Application description 1',
-            icon:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDN5iq5dod1mudrfsfxo6XGP51qtHQ-9xsdQ&usqp=CAU',
-        },
-        {
-            id: '1',
-            title: 'Application title 1',
-            summary: 'Application description 1',
-            icon:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDN5iq5dod1mudrfsfxo6XGP51qtHQ-9xsdQ&usqp=CAU',
-        },
-        {
-            id: '1',
-            title: 'Application title 1',
-            summary: 'Application description 1asdasdasda',
-            icon:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDN5iq5dod1mudrfsfxo6XGP51qtHQ-9xsdQ&usqp=CAU',
-        },
-        {
-            id: '1',
-            title: 'Application title 1',
-            summary: 'Application description 1',
-            icon:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDN5iq5dod1mudrfsfxo6XGP51qtHQ-9xsdQ&usqp=CAU',
-        },
-    ];
+export class HomeComponent implements OnInit {
+    recentlyUpdatedApps = [];
+    recentlyAddedApps: Application[] = [];
+
+    constructor(private applicationService: ApplicationService) {}
+
+    ngOnInit(): void {
+        this.getRecentlyAddedApps();
+    }
+
+    private getRecentlyAddedApps() {
+        this.applicationService.getRecentlyAdded().then((apps) => {
+            this.recentlyAddedApps = apps;
+        });
+    }
 }
