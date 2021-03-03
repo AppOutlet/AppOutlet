@@ -4,6 +4,11 @@ function getRecentlyAdded() {
     return applicationRepository.getRecentlyAdded();
 }
 
+function getRecentlyUpdated() {
+    return applicationRepository.getRecentlyUpdated();
+}
+
 module.exports = {
     getRecentlyAdded,
+    getRecentlyUpdated,
 };
