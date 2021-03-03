@@ -11,6 +11,11 @@ const connection = typeOrm.createConnection({
     entities: [applicationEntity, settingsEntity],
 });
 
+function getRepository(entity) {
+    return connection.then((conn) => conn.getRepository(entity));
+}
+
 module.exports = {
     getConnection: () => connection,
+    getRepository,
 };
