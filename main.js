@@ -7,10 +7,10 @@ const isDevelopment = process.argv
 
 function createWindow() {
     const win = new BrowserWindow({
-        width: 1000,
+        width: 1200,
         height: 730,
         minHeight: 680,
-        minWidth: 800,
+        minWidth: 1200,
         title: 'App Outlet',
         webPreferences: {
             nodeIntegration: true,
