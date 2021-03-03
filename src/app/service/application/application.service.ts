@@ -14,4 +14,10 @@ export class ApplicationService {
             Channel.application.getRecentlyAdded,
         );
     }
+
+    getRecentlyUpdated(): Promise<Application[]> {
+        return this.coreService.invoke<Application[]>(
+            Channel.application.getRecentlyUpdated,
+        );
+    }
 }

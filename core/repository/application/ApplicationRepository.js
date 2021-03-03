@@ -17,7 +17,14 @@ function getRecentlyAdded() {
     );
 }
 
+function getRecentlyUpdated() {
+    return getRepository().then((repository) =>
+        repository.find({ take: 6, orderBy: { lastReleaseDate: 'DESC' } }),
+    );
+}
+
 module.exports = {
     save,
     getRecentlyAdded,
+    getRecentlyUpdated,
 };
