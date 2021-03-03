@@ -7,8 +7,9 @@ jest.mock('../ConnectionFactory', () => testConnectionFactory);
 describe('Application repository', () => {
     const applicationRepository = require('./ApplicationRepository');
 
-    afterEach(() => {
-        jest.clearAllMocks();
+    afterEach(async () => {
+        const connection = await testConnectionFactory.getConnection();
+        await connection.query('delete from Application');
     });
 
     it('Should save one application', async () => {

@@ -5,8 +5,21 @@ import { CoreService } from './core.service';
 describe('CoreService', () => {
     let service: CoreService;
 
+    const mockElectronService = {
+        ipcRenderer: {
+            invoke: (): jest.Mock => jest.fn(),
+        },
+    };
+
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            providers: [
+                {
+                    provide: CoreService,
+                    useValue: mockElectronService,
+                },
+            ],
+        });
         service = TestBed.inject(CoreService);
     });
 

@@ -18,16 +18,14 @@ export class HomeComponent implements OnInit {
         this.getRecentlyUpdatedApps();
     }
 
-    private getRecentlyAddedApps() {
+    private getRecentlyAddedApps(): void {
         this.applicationService.getRecentlyAdded().then((apps) => {
-            debugger;
             this.recentlyAddedApps = apps;
         });
     }
 
-    private getRecentlyUpdatedApps() {
+    private getRecentlyUpdatedApps(): void {
         this.applicationService.getRecentlyUpdated().then((apps) => {
-            debugger;
             this.recentlyUpdatedApps = apps;
         });
     }
