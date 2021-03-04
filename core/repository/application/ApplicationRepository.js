@@ -5,7 +5,7 @@ const ApplicationEntity = require('../../entity/ApplicationEntity');
 
 const HOME_SCREEN_SECTION_LIMIT = 6;
 const LISTING_SCREEN_PAGE_SIZE = 30;
-const LISTING_SCREEN_FIELDS = ['id', 'name', 'summary', 'icon'];
+const LISTING_SCREEN_FIELDS = ['id', 'name', 'summary', 'icon', 'packageType'];
 
 function getRepository() {
     return connectionFactory.getRepository(ApplicationEntity);
