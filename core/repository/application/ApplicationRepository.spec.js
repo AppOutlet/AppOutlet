@@ -61,6 +61,27 @@ describe('Application repository', () => {
         );
     });
 
+    it('Should get recently updated apps', async () => {
+        const app1 = new Application('1');
+        app1.lastReleaseDate = new Date('2020-01-01 12:12:12');
+
+        const app2 = new Application('2');
+        app2.lastReleaseDate = new Date('2020-01-03 12:12:12');
+
+        const app3 = new Application('3');
+        app3.lastReleaseDate = new Date('2020-01-02 12:12:12');
+
+        const apps = [app1, app2, app3];
+
+        await applicationRepository.save(apps);
+
+        const sortedApps = await applicationRepository.getRecentlyUpdated();
+
+        expect(sortedApps.map((app) => app.id)).toEqual(
+            [app2, app3, app1].map((app) => app.id),
+        );
+    });
+
     it('Should search by term', async () => {
         const app1 = new Application('1', 'A', 'B', 'C');
 
