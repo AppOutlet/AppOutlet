@@ -56,6 +56,41 @@ describe('Application repository', () => {
 
         const sortedApps = await applicationRepository.getRecentlyAdded();
 
-        expect(sortedApps).toEqual([app2, app3, app1]);
+        expect(sortedApps.map((app) => app.id)).toEqual(
+            [app2, app3, app1].map((app) => app.id),
+        );
+    });
+
+    it('Should search by term', async () => {
+        const app1 = new Application('1', 'A', 'B', 'C');
+
+        const app2 = new Application('2', 'D', 'A', 'F');
+
+        const app3 = new Application('3', 'G', 'H', 'A');
+
+        const apps = [app1, app2, app3];
+
+        await applicationRepository.save(apps);
+
+        const aApps = await applicationRepository.searchByTerm({
+            searchTerm: 'a',
+        });
+
+        const bApps = await applicationRepository.searchByTerm({
+            searchTerm: 'B',
+        });
+
+        const cApps = await applicationRepository.searchByTerm({
+            searchTerm: 'C',
+        });
+
+        const gApps = await applicationRepository.searchByTerm({
+            searchTerm: 'G',
+        });
+
+        expect(aApps.map((app) => app.id)).toEqual(apps.map((app) => app.id));
+        expect(bApps[0].id).toEqual(app1.id);
+        expect(cApps[0].id).toEqual(app1.id);
+        expect(gApps[0].id).toEqual(app3.id);
     });
 });

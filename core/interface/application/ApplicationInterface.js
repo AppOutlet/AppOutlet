@@ -9,3 +9,10 @@ ipcMain?.handle(channels.application.getRecentlyAdded, () => {
 ipcMain?.handle(channels.application.getRecentlyUpdated, () => {
     return applicationService.getRecentlyUpdated();
 });
+
+ipcMain?.handle(
+    channels.application.searchByTerm,
+    (event, searchParameters) => {
+        return applicationService.searchByTerm(searchParameters);
+    },
+);
