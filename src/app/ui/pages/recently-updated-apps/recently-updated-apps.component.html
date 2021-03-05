@@ -1,0 +1,6 @@
+<app-list
+    [apps]="apps"
+    [loading]="isLoading"
+    title="{{ 'PAGES.HOME.RECENTLY_UPDATED' | translate }}"
+    (nextPageNeeded)="loadNext($event)"
+></app-list>

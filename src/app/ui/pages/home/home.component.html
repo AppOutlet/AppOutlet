@@ -1,9 +1,11 @@
 <app-section
     title="{{ 'PAGES.HOME.NEW_RELEASES' | translate }}"
     [apps]="recentlyAddedApps"
+    (seeMoreClicked)="showRecentlyAddedApps()"
 ></app-section>
 
 <app-section
     title="{{ 'PAGES.HOME.RECENTLY_UPDATED' | translate }}"
     [apps]="recentlyUpdatedApps"
+    (seeMoreClicked)="showRecentlyUpdatedApps()"
 ></app-section>

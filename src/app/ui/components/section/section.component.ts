@@ -9,11 +9,9 @@ import { CardDto } from '../card/card.dto';
 })
 export class SectionComponent {
     @Input() title = '';
-
     @Input() apps: CardDto[] = [];
 
     @Output() seeMoreClicked = new EventEmitter<void>();
-
     @Output() applicationClicked = new EventEmitter<CardDto>();
 
     onSeeMoreClicked(): void {
