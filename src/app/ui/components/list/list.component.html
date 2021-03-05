@@ -1,1 +1,17 @@
-<p>list works!</p>
+<h2>{{ title }}</h2>
+
+<div class="row" (scroll)="onListScroll($event)">
+    <app-card
+        *ngFor="let app of apps"
+        class="col-sm-6 col-md-4 col-lg-3 col-xl-2"
+        [application]="app"
+        (applicationClicked)="onAppClicked($event)"
+    ></app-card>
+</div>
+
+<div
+    *ngIf="loading"
+    [nbSpinner]="true"
+    nbSpinnerSize="giant"
+    class="loading-indicator"
+></div>

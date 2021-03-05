@@ -3,5 +3,7 @@ module.exports = {
         getRecentlyAdded: 'application.getRecentlyAdded',
         getRecentlyUpdated: 'application.getRecentlyUpdated',
         searchByTerm: 'application.searchByTerm',
+        findByCreationDate: 'application.findByCreationDate',
+        findByLastReleaseDate: 'application.findByLastReleaseDate',
     },
 };
