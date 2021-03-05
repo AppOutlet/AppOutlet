@@ -25,9 +25,24 @@ const routes: Routes = [
                         (m) => m.CategoryModule,
                     ),
             },
+            {
+                path: 'recently-added',
+                loadChildren: () =>
+                    import(
+                        '../recently-added-apps/recently-added-apps.module'
+                    ).then((m) => m.RecentlyAddedAppsModule),
+            },
+            {
+                path: 'recently-updated',
+                loadChildren: () =>
+                    import(
+                        '../recently-updated-apps/recently-updated-apps.module'
+                    ).then((m) => m.RecentlyUpdatedAppsModule),
+            },
         ],
     },
 ];
+
 /* eslint-enable @typescript-eslint/explicit-function-return-type */
 
 @NgModule({

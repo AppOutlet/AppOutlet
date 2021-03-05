@@ -21,8 +21,8 @@ function getRecentlyAdded() {
     return getRepository().then((repository) =>
         repository.find({
             select: LISTING_SCREEN_FIELDS,
-            take: HOME_SCREEN_SECTION_LIMIT,
             order: { creationDate: 'DESC' },
+            take: HOME_SCREEN_SECTION_LIMIT,
         }),
     );
 }
@@ -31,8 +31,8 @@ function getRecentlyUpdated() {
     return getRepository().then((repository) =>
         repository.find({
             select: LISTING_SCREEN_FIELDS,
-            take: HOME_SCREEN_SECTION_LIMIT,
             order: { lastReleaseDate: 'DESC' },
+            take: HOME_SCREEN_SECTION_LIMIT,
         }),
     );
 }
@@ -64,10 +64,30 @@ function searchByTerm(searchParameters) {
     return getRepository().then((repository) => repository.find(findOptions));
 }
 
+function findByCreationDate(searchParameters) {
+    const findOptions = {
+        ...getPaginationSettings(searchParameters.page),
+        order: { creationDate: 'DESC' },
+    };
+
+    return getRepository().then((repository) => repository.find(findOptions));
+}
+
+function findByLastReleaseDate(searchParameters) {
+    const findOptions = {
+        ...getPaginationSettings(searchParameters.page),
+        order: { lastReleaseDate: 'DESC' },
+    };
+
+    return getRepository().then((repository) => repository.find(findOptions));
+}
+
 module.exports = {
     save,
     getRecentlyAdded,
     getRecentlyUpdated,
     findById,
     searchByTerm,
+    findByCreationDate,
+    findByLastReleaseDate,
 };

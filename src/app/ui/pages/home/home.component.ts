@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Application } from '../../../model/application.model';
 import { ApplicationService } from '../../../service/application/application.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -11,7 +12,10 @@ export class HomeComponent implements OnInit {
     recentlyUpdatedApps: Application[] = [];
     recentlyAddedApps: Application[] = [];
 
-    constructor(private applicationService: ApplicationService) {}
+    constructor(
+        private applicationService: ApplicationService,
+        private router: Router,
+    ) {}
 
     ngOnInit(): void {
         this.getRecentlyAddedApps();
@@ -28,5 +32,13 @@ export class HomeComponent implements OnInit {
         this.applicationService.getRecentlyUpdated().then((apps) => {
             this.recentlyUpdatedApps = apps;
         });
+    }
+
+    async showRecentlyAddedApps(): Promise<void> {
+        await this.router.navigate(['recently-added']);
+    }
+
+    async showRecentlyUpdatedApps(): Promise<void> {
+        await this.router.navigate(['recently-updated']);
     }
 }

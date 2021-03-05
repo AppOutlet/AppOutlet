@@ -16,3 +16,11 @@ ipcMain?.handle(
         return applicationService.searchByTerm(searchParameters);
     },
 );
+
+ipcMain?.handle(channels.application.findByCreationDate, (event, args) => {
+    return applicationService.findByCreationDate(args[0]);
+});
+
+ipcMain?.handle(channels.application.findByLastReleaseDate, (event, args) => {
+    return applicationService.findByLastReleaseDate(args[0]);
+});
