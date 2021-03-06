@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CardDto } from '../card/card.dto';
 import { ScrollEvent } from './ScrollEvent';
+import { WindowRef } from '../../../util/window-ref';
 
 @Component({
     selector: 'app-list',
@@ -25,11 +26,17 @@ export class ListComponent {
 
     private currentPage = 1;
 
+    constructor(private window: WindowRef) {}
+
     @HostListener('window:scroll', ['$event'])
     onListScroll(event: ScrollEvent): void {
-        const scrollHeight = event?.target?.scrollingElement?.scrollHeight ?? 0;
-        const scrollTop = event?.target?.scrollingElement?.scrollTop ?? 0;
-        const height = window.innerHeight ?? 0;
+        if (!event.target) {
+            return;
+        }
+
+        const scrollHeight = event.target.scrollingElement.scrollHeight;
+        const scrollTop = event.target.scrollingElement.scrollTop;
+        const height = this.window.nativeWindow.innerHeight;
         const overflowRate = height / (scrollHeight - scrollTop);
 
         if (overflowRate > this.SCROLL_THRESHOLD && !this.loading) {
@@ -37,10 +44,8 @@ export class ListComponent {
         }
     }
 
-    onAppClicked(app?: CardDto): void {
-        if (app) {
-            this.applicationClicked.emit(app);
-        }
+    onAppClicked(app: CardDto): void {
+        this.applicationClicked.emit(app);
     }
 
     private loadNext(): void {
