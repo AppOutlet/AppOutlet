@@ -168,4 +168,34 @@ describe('Application repository', () => {
                 done();
             });
     });
+
+    it('should find by tags', async () => {
+        const app1 = new Application('1', 'App1');
+        app1.tags = ['video'];
+
+        const app2 = new Application('2', 'App2');
+        app2.tags = ['video', 'audio'];
+
+        const apps = [app1, app2];
+
+        await applicationRepository.save(apps);
+
+        const videoApps = await applicationRepository.findByTags({
+            page: 0,
+            tags: ['video'],
+        });
+
+        const audioApps = await applicationRepository.findByTags({
+            page: 0,
+            tags: ['audio'],
+        });
+
+        expect(videoApps.map((app) => app.id)).toEqual(
+            [app1, app2].map((app) => app.id),
+        );
+
+        expect(audioApps.map((app) => app.id)).toEqual(
+            [app2].map((app) => app.id),
+        );
+    });
 });

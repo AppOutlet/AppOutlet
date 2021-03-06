@@ -66,6 +66,7 @@ function searchByTerm(searchParameters) {
 
 function findByCreationDate(searchParameters) {
     const findOptions = {
+        select: LISTING_SCREEN_FIELDS,
         ...getPaginationSettings(searchParameters.page),
         order: { creationDate: 'DESC' },
     };
@@ -75,11 +76,39 @@ function findByCreationDate(searchParameters) {
 
 function findByLastReleaseDate(searchParameters) {
     const findOptions = {
+        select: LISTING_SCREEN_FIELDS,
         ...getPaginationSettings(searchParameters.page),
         order: { lastReleaseDate: 'DESC' },
     };
 
     return getRepository().then((repository) => repository.find(findOptions));
+}
+
+function findByTags(searchParameters) {
+    let where = '';
+
+    searchParameters.tags.forEach((tag, index) => {
+        where = `${where} a.tags LIKE '%${tag}%'`;
+        if (searchParameters.tags.length - 1 !== index) {
+            where = `${where} or`;
+        }
+    });
+
+    const paginationSettings = getPaginationSettings(searchParameters.page);
+
+    const query = `
+    SELECT
+        a.id,
+        a.name,
+        a.packageType,
+        a.summary
+    FROM
+        application a
+    WHERE ${where}
+    LIMIT ${paginationSettings.take} OFFSET ${paginationSettings.skip}
+    `;
+
+    return getRepository().then((repository) => repository.query(query));
 }
 
 module.exports = {
@@ -90,4 +119,5 @@ module.exports = {
     searchByTerm,
     findByCreationDate,
     findByLastReleaseDate,
+    findByTags,
 };
