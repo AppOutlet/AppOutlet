@@ -12,7 +12,7 @@ describe('Application repository', () => {
         await connection.query('delete from Application');
     });
 
-    it('Should save one application', async () => {
+    it('should save one application', async () => {
         const app = new Application('12312', 'Applications to save');
 
         await applicationRepository.save(app);
@@ -22,7 +22,7 @@ describe('Application repository', () => {
         expect(savedApp).toEqual(app);
     });
 
-    it('Should save more than one application', async () => {
+    it('should save more than one application', async () => {
         const apps = [
             new Application('1', 'Applications to save'),
             new Application('2', 'Applications to save'),
@@ -40,7 +40,7 @@ describe('Application repository', () => {
         expect(app2).toEqual(apps[2]);
     });
 
-    it('Should get recently added apps', async () => {
+    it('should get recently added apps', async () => {
         const app1 = new Application('1', 'Applications to save');
         app1.creationDate = new Date('2020-01-01 12:12:12');
 
@@ -61,7 +61,7 @@ describe('Application repository', () => {
         );
     });
 
-    it('Should get recently updated apps', async () => {
+    it('should get recently updated apps', async () => {
         const app1 = new Application('1');
         app1.lastReleaseDate = new Date('2020-01-01 12:12:12');
 
@@ -82,7 +82,7 @@ describe('Application repository', () => {
         );
     });
 
-    it('Should search by term', async () => {
+    it('should search by term', async () => {
         const app1 = new Application('1', 'A', 'B', 'C');
 
         const app2 = new Application('2', 'D', 'A', 'F');
@@ -113,5 +113,59 @@ describe('Application repository', () => {
         expect(bApps[0].id).toEqual(app1.id);
         expect(cApps[0].id).toEqual(app1.id);
         expect(gApps[0].id).toEqual(app3.id);
+    });
+
+    it('should find by creation date', (done) => {
+        const app1 = new Application('1', 'Applications to save');
+        app1.creationDate = new Date('2020-01-01 12:12:12');
+
+        const app2 = new Application('2', 'Applications to save');
+        app2.creationDate = new Date('2020-01-03 12:12:12');
+
+        const app3 = new Application('3', 'Applications to save');
+        app3.creationDate = new Date('2020-01-02 12:12:12');
+
+        const apps = [app1, app2, app3];
+
+        applicationRepository
+            .save(apps)
+            .then(() =>
+                applicationRepository.findByCreationDate({
+                    page: 0,
+                }),
+            )
+            .then((sortedApps) => {
+                expect(sortedApps.map((app) => app.id)).toEqual(
+                    [app2, app3, app1].map((app) => app.id),
+                );
+                done();
+            });
+    });
+
+    it('should find by last release date', (done) => {
+        const app1 = new Application('1', 'Applications to save');
+        app1.lastReleaseDate = new Date('2020-01-01 12:12:12');
+
+        const app2 = new Application('2', 'Applications to save');
+        app2.lastReleaseDate = new Date('2020-01-03 12:12:12');
+
+        const app3 = new Application('3', 'Applications to save');
+        app3.lastReleaseDate = new Date('2020-01-02 12:12:12');
+
+        const apps = [app1, app2, app3];
+
+        applicationRepository
+            .save(apps)
+            .then(() =>
+                applicationRepository.findByLastReleaseDate({
+                    page: 0,
+                }),
+            )
+            .then((sortedApps) => {
+                expect(sortedApps.map((app) => app.id)).toEqual(
+                    [app2, app3, app1].map((app) => app.id),
+                );
+                done();
+            });
     });
 });

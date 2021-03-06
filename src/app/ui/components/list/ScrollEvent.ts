@@ -3,11 +3,10 @@ export interface ScrollEvent {
 }
 
 export interface Target extends EventTarget {
-    scrollingElement?: ScrollingElement;
+    scrollingElement: ScrollingElement;
 }
 
 export interface ScrollingElement {
-    scrollHeight?: number;
-    scrollTop?: number;
-    offsetHeight?: number;
+    scrollHeight: number;
+    scrollTop: number;
 }

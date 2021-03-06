@@ -26,7 +26,7 @@ describe('ApplicationService', () => {
         expect(service).toBeTruthy();
     });
 
-    it('Should get recently added apps', async () => {
+    it('should get recently added apps', async () => {
         const mockedApps: Application[] = [{ id: '', name: '' }];
 
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
@@ -36,12 +36,32 @@ describe('ApplicationService', () => {
         expect(result).toEqual(mockedApps);
     });
 
-    it('Should get recently updated apps', async () => {
+    it('should get recently updated apps', async () => {
         const mockedApps: Application[] = [{ id: '', name: '' }];
 
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.getRecentlyUpdated();
+
+        expect(result).toEqual(mockedApps);
+    });
+
+    it('it should find apps by creation date', async () => {
+        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
+
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
+
+        const result = await service.findByCreationDate({ page: 0 });
+
+        expect(result).toEqual(mockedApps);
+    });
+
+    it('it should find apps by last release date', async () => {
+        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
+
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
+
+        const result = await service.findByLastReleaseDate({ page: 0 });
 
         expect(result).toEqual(mockedApps);
     });
