@@ -24,3 +24,7 @@ ipcMain?.handle(channels.application.findByCreationDate, (event, args) => {
 ipcMain?.handle(channels.application.findByLastReleaseDate, (event, args) => {
     return applicationService.findByLastReleaseDate(args[0]);
 });
+
+ipcMain?.handle(channels.application.findByCategory, (event, args) => {
+    return applicationService.findByCategory(args[0]);
+});

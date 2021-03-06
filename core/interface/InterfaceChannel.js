@@ -5,5 +5,6 @@ module.exports = {
         searchByTerm: 'application.searchByTerm',
         findByCreationDate: 'application.findByCreationDate',
         findByLastReleaseDate: 'application.findByLastReleaseDate',
+        findByCategory: 'application.findByCategory',
     },
 };
