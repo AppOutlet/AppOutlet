@@ -9,5 +9,6 @@ import { NbSpinnerModule } from '@nebular/theme';
     declarations: [ListComponent],
     imports: [CommonModule, CardModule, NbSpinnerModule],
     exports: [ListComponent],
+    providers: [{ provide: Window, useValue: window }],
 })
 export class ListModule {}
