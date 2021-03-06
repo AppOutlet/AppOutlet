@@ -1,4 +1,5 @@
 const applicationRepository = require('../../repository/application/ApplicationRepository');
+const tagsService = require('../tags/TagsSevice');
 
 function getRecentlyAdded() {
     return applicationRepository.getRecentlyAdded();
@@ -20,10 +21,19 @@ function findByLastReleaseDate(searchParameters) {
     return applicationRepository.findByLastReleaseDate(searchParameters);
 }
 
+function findByCategory(searchParameters) {
+    searchParameters.tags = tagsService.getTagsByCategory(
+        searchParameters.category,
+    );
+
+    return applicationRepository.findByTags(searchParameters);
+}
+
 module.exports = {
     getRecentlyAdded,
     getRecentlyUpdated,
     searchByTerm,
     findByCreationDate,
     findByLastReleaseDate,
+    findByCategory,
 };
