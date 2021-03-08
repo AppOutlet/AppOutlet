@@ -39,6 +39,13 @@ const routes: Routes = [
                         '../recently-updated-apps/recently-updated-apps.module'
                     ).then((m) => m.RecentlyUpdatedAppsModule),
             },
+            {
+                path: 'application/:id',
+                loadChildren: () =>
+                    import('../application/application.module').then(
+                        (m) => m.ApplicationModule,
+                    ),
+            },
         ],
     },
 ];
