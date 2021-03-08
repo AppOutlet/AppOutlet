@@ -60,7 +60,7 @@ describe('ListComponent', () => {
 
     it('should emit event when scroll reaches at bottom', (done) => {
         component.nextPageNeeded.subscribe((currentPage) => {
-            expect(currentPage).toBe(2);
+            expect(currentPage).toBe(1);
             done();
         });
 
