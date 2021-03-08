@@ -1,6 +1,6 @@
 <app-list
     [apps]="apps"
     [loading]="isLoading"
-    title="{{ category | translate }}"
+    title="{{ 'PAGES.MAIN.CATEGORY.' + category.toUpperCase() | translate }}"
     (nextPageNeeded)="loadApps($event)"
 ></app-list>

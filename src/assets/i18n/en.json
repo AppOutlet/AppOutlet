@@ -41,10 +41,10 @@
                 "DEVELOPMENT": "Development",
                 "FINANCE": "Finance",
                 "GRAPHICS": "Graphics",
-                "SCIENCE_EDUCATION": "Science and Education",
-                "INTERNET_COMMUNICATION": "Internet and Communication",
-                "UTILITY_PRODUCTIVITY": "Utility and Productivity",
-                "MISCELLANEOUS": "Miscellaneous"
+                "SCIENCE": "Science and Education",
+                "INTERNET": "Internet and Communication",
+                "UTILITY": "Utility and Productivity",
+                "MISC": "Miscellaneous"
             }
         },
         "SEARCH": {
