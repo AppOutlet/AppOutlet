@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CardDto } from './card.dto';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-card',
@@ -12,9 +13,13 @@ export class CardComponent {
 
     @Output() applicationClicked = new EventEmitter<CardDto>();
 
-    click(app?: CardDto): void {
+    constructor(private router: Router) {}
+
+    async click(app?: CardDto): Promise<void> {
         if (app) {
             this.applicationClicked.emit(app);
         }
+
+        await this.router.navigate(['application', app?.id]);
     }
 }
