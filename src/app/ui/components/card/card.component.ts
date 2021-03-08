@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CardDto } from './card.dto';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-card',
@@ -21,5 +21,18 @@ export class CardComponent {
         }
 
         await this.router.navigate(['application', app?.id]);
+    }
+
+    getPackageIcon(packageType?: string): string {
+        switch (packageType) {
+            case 'SNAP':
+                return 'assets/icon/snap.png';
+            case 'FLATPAK':
+                return 'assets/icon/flatpak.png';
+            case 'APP_IMAGE':
+                return 'assets/icon/appimage.png';
+            default:
+                return '';
+        }
     }
 }
