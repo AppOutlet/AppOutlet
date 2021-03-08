@@ -39,4 +39,13 @@ export class ApplicationService {
             searchParameters,
         );
     }
+
+    findByCategory(
+        searchParameters: SearchParametersModel,
+    ): Promise<Application[]> {
+        return this.coreService.invoke<Application[]>(
+            Channel.application.findByCategory,
+            searchParameters,
+        );
+    }
 }
