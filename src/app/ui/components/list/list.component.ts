@@ -24,7 +24,7 @@ export class ListComponent {
     @Output() applicationClicked = new EventEmitter<CardDto>();
     @Output() nextPageNeeded = new EventEmitter<number>();
 
-    private currentPage = 1;
+    private currentPage = 0;
 
     constructor(private window: WindowRef) {}
 

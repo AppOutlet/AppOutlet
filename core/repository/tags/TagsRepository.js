@@ -1,7 +1,7 @@
 module.exports = {
-    category: [
-        {
-            name: 'Graphics',
+    category: {
+        graphics: {
+            name: 'graphics',
             tags: [
                 'VectorGraphics',
                 'Viewer',
@@ -13,8 +13,8 @@ module.exports = {
                 'GUIDesigner',
             ],
         },
-        {
-            name: 'Games',
+        games: {
+            name: 'games',
             tags: [
                 'StrategyGame',
                 'SportsGame',
@@ -41,8 +41,8 @@ module.exports = {
                 'Games',
             ],
         },
-        {
-            name: 'Audio',
+        audio: {
+            name: 'audio',
             tags: [
                 'Sequencer',
                 'Player',
@@ -57,8 +57,8 @@ module.exports = {
                 'Mixer',
             ],
         },
-        {
-            name: 'Miscellaneous',
+        misc: {
+            name: 'misc',
             tags: [
                 'Security',
                 'Application',
@@ -73,8 +73,8 @@ module.exports = {
                 'Profiling',
             ],
         },
-        {
-            name: 'Utility and Productivity',
+        utility: {
+            name: 'utility',
             tags: [
                 'System',
                 'Settings',
@@ -101,8 +101,8 @@ module.exports = {
                 'Filesystem',
             ],
         },
-        {
-            name: 'Science and Education',
+        science: {
+            name: 'science',
             tags: [
                 'Matrix',
                 'Science',
@@ -123,8 +123,8 @@ module.exports = {
                 'MedicalSoftware',
             ],
         },
-        {
-            name: 'Internet and Communication',
+        internet: {
+            name: 'internet',
             tags: [
                 'RemoteAccess',
                 'Network',
@@ -138,8 +138,8 @@ module.exports = {
                 'Communication',
             ],
         },
-        {
-            name: 'Development',
+        development: {
+            name: 'development',
             tags: [
                 'DataVisualization',
                 'Database',
@@ -151,12 +151,12 @@ module.exports = {
                 'Development',
             ],
         },
-        {
-            name: 'Finance',
+        finance: {
+            name: 'finance',
             tags: ['Finance', 'NumericalAnalysis', 'Economy'],
         },
-        {
-            name: 'Office',
+        office: {
+            name: 'office',
             tags: [
                 'Presentation',
                 'News',
@@ -170,9 +170,9 @@ module.exports = {
                 'Office',
             ],
         },
-        {
-            name: 'Video',
+        video: {
+            name: 'video',
             tags: ['TV', 'Video', 'VideoConference'],
         },
-    ],
+    },
 };
