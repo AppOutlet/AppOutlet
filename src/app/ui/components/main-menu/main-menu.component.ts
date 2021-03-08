@@ -28,7 +28,7 @@ export class MainMenuComponent implements OnInit {
             {
                 link: routes.category.internet,
                 title: await this.getTranslation(
-                    'PAGES.MAIN.CATEGORY.INTERNET_COMMUNICATION',
+                    'PAGES.MAIN.CATEGORY.INTERNET',
                 ),
                 icon: 'globe-2-outline',
             },
@@ -68,23 +68,17 @@ export class MainMenuComponent implements OnInit {
             },
             {
                 link: routes.category.science,
-                title: await this.getTranslation(
-                    'PAGES.MAIN.CATEGORY.SCIENCE_EDUCATION',
-                ),
+                title: await this.getTranslation('PAGES.MAIN.CATEGORY.SCIENCE'),
                 icon: 'book-outline',
             },
             {
                 link: routes.category.utility,
-                title: await this.getTranslation(
-                    'PAGES.MAIN.CATEGORY.UTILITY_PRODUCTIVITY',
-                ),
+                title: await this.getTranslation('PAGES.MAIN.CATEGORY.UTILITY'),
                 icon: 'bulb-outline',
             },
             {
                 link: routes.category.misc,
-                title: await this.getTranslation(
-                    'PAGES.MAIN.CATEGORY.MISCELLANEOUS',
-                ),
+                title: await this.getTranslation('PAGES.MAIN.CATEGORY.MISC'),
                 icon: 'grid-outline',
             },
         ];
