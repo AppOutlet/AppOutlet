@@ -14,7 +14,7 @@ export class RecentlyAddedAppsComponent implements OnInit {
     constructor(private applicationService: ApplicationService) {}
 
     ngOnInit(): void {
-        this.loadNext(1);
+        this.loadNext(0);
     }
 
     loadNext(currentPage: number): void {

@@ -101,7 +101,8 @@ function findByTags(searchParameters) {
         a.id,
         a.name,
         a.packageType,
-        a.summary
+        a.summary,
+        a.icon
     FROM
         application a
     WHERE ${where}

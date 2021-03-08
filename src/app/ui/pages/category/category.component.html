@@ -1,1 +1,6 @@
-<p>category {{ category }} works!</p>
+<app-list
+    [apps]="apps"
+    [loading]="isLoading"
+    title="{{ category | translate }}"
+    (nextPageNeeded)="loadApps($event)"
+></app-list>
