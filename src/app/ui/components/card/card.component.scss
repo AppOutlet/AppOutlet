@@ -29,3 +29,11 @@ h6 {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.badge {
+    position: absolute;
+    height: 3.6rem;
+    width: 3.6rem;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+}

@@ -3,4 +3,5 @@ export interface CardDto {
     icon?: string;
     name?: string;
     summary?: string;
+    packageType?: string;
 }
