@@ -190,12 +190,21 @@ describe('Application repository', () => {
             tags: ['audio'],
         });
 
+        const allApps = await applicationRepository.findByTags({
+            page: 0,
+            tags: ['audio', 'video'],
+        });
+
         expect(videoApps.map((app) => app.id)).toEqual(
             [app1, app2].map((app) => app.id),
         );
 
         expect(audioApps.map((app) => app.id)).toEqual(
             [app2].map((app) => app.id),
+        );
+
+        expect(allApps.map((app) => app.id)).toEqual(
+            [app1, app2].map((app) => app.id),
         );
     });
 });
