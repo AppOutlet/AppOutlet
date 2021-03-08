@@ -1,11 +1,11 @@
 describe('[CORE] Tag service', () => {
     const mockCategories = {
-        category: [
-            {
+        category: {
+            someCategory: {
                 name: 'Sample category',
                 tags: ['Tag one', 'Tag two'],
             },
-        ],
+        },
     };
 
     jest.mock('../../repository/tags/TagsRepository', () => mockCategories);
@@ -13,8 +13,8 @@ describe('[CORE] Tag service', () => {
     const tagsService = require('./TagsSevice');
 
     it('should get tags by category', () => {
-        const name = mockCategories.category[0].name;
-        const tags = mockCategories.category[0].tags;
+        const name = 'someCategory';
+        const tags = mockCategories.category.someCategory.tags;
 
         expect(tagsService.getTagsByCategory(name)).toEqual(tags);
     });
