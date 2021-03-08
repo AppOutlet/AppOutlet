@@ -1,4 +1,10 @@
 <div (click)="click(application)">
+    <img
+        [src]="getPackageIcon(application?.packageType)"
+        class="badge"
+        [title]="application?.packageType"
+        alt="{{ application?.packageType }} icon"
+    />
     <nb-card>
         <img
             [src]="application?.icon || 'assets/icon/icon-placeholder.png'"
