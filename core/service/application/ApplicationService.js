@@ -29,6 +29,10 @@ function findByCategory(searchParameters) {
     return applicationRepository.findByTags(searchParameters);
 }
 
+function findById(applicationId) {
+    return applicationRepository.findById(applicationId);
+}
+
 module.exports = {
     getRecentlyAdded,
     getRecentlyUpdated,
@@ -36,4 +40,5 @@ module.exports = {
     findByCreationDate,
     findByLastReleaseDate,
     findByCategory,
+    findById,
 };
