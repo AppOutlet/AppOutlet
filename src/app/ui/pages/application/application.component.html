@@ -1,4 +1,29 @@
-<button nbButton ghost (click)="goBack()">
+<button nbButton ghost (click)="goBack()" class="back-button">
     <nb-icon icon="arrow-ios-back-outline"></nb-icon>
     {{ 'GENERAL.BACK' | translate }}
 </button>
+<div class="row">
+    <div class="col-8 offset-2">
+        <div class="row">
+            <div class="col-4">
+                <nb-card>
+                    <img
+                        class="application-icon"
+                        [src]="
+                            application?.icon ||
+                            'assets/icon/icon-placeholder.png'
+                        "
+                        alt="{{ application?.name }} icon"
+                    />
+                </nb-card>
+            </div>
+            <div class="col-8">
+                <p class="subtitle">
+                    {{ 'GENERAL.' + application?.packageType | translate }}
+                </p>
+                <h1>{{ application?.name }}</h1>
+                <p>{{ application?.summary }}</p>
+            </div>
+        </div>
+    </div>
+</div>
