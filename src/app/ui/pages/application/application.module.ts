@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApplicationComponent } from './application.component';
 import { RouterModule, Routes } from '@angular/router';
-import { NbButtonModule, NbIconModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 
 const routes: Routes = [{ path: '', component: ApplicationComponent }];
@@ -15,6 +15,7 @@ const routes: Routes = [{ path: '', component: ApplicationComponent }];
         NbButtonModule,
         NbIconModule,
         TranslateModule.forChild(),
+        NbCardModule,
     ],
 })
 export class ApplicationModule {}
