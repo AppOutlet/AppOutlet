@@ -21,7 +21,8 @@
             "REPORT_ISSUE": "Report issue",
             "RUN": "Run",
             "STORE_PAGE": "Store page",
-            "UNINSTALL": "Uninstall"
+            "UNINSTALL": "Uninstall",
+            "DEVELOPED_BY": "Developed by {{developer}}"
         },
         "HOME": {
             "NEW_RELEASES": "New releases",

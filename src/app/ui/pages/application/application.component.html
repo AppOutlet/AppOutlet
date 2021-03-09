@@ -18,11 +18,17 @@
                 </nb-card>
             </div>
             <div class="col-8">
-                <p class="subtitle">
+                <p class="subtitle package-type">
                     {{ 'GENERAL.' + application?.packageType | translate }}
                 </p>
                 <h1>{{ application?.name }}</h1>
+                <span class="version">{{ application?.version }}</span>
                 <p>{{ application?.summary }}</p>
+                <p class="developer">
+                    {{
+                        'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
+                    }}
+                </p>
             </div>
         </div>
     </div>
