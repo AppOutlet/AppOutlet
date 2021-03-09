@@ -4,6 +4,7 @@ import { ApplicationComponent } from './application.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
+import { GalleryModule } from '../../components/gallery/gallery.module';
 
 const routes: Routes = [{ path: '', component: ApplicationComponent }];
 
@@ -17,6 +18,7 @@ const routes: Routes = [{ path: '', component: ApplicationComponent }];
         TranslateModule.forChild(),
         NbCardModule,
         NbIconModule,
+        GalleryModule,
     ],
 })
 export class ApplicationModule {}
