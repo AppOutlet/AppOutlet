@@ -5,7 +5,10 @@
         "ERROR_MESSAGE": "Occurred an error",
         "LOADING": "Loading",
         "TRY_AGAIN": "Try again",
-        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!"
+        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!",
+        "APP_IMAGE": "AppImage",
+        "FLATPAK": "Flatpak",
+        "SNAP": "Snap"
     },
     "PAGES": {
         "APP_DETAIL": {
@@ -51,10 +54,7 @@
             "NO_RESULTS_FOUND": "No results found",
             "QUERY_TITLE": "Results for '{{query}}'",
             "SEGMENT": {
-                "ALL_TYPES": "All types",
-                "APPIMAGE": "AppImage",
-                "FLATPAK": "Flatpak",
-                "SNAP": "Snap"
+                "ALL_TYPES": "All types"
             }
         },
         "SETTINGS": {

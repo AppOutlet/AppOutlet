@@ -48,4 +48,11 @@ export class ApplicationService {
             searchParameters,
         );
     }
+
+    findById(id: string): Promise<Application> {
+        return this.coreService.invoke<Application>(
+            Channel.application.findById,
+            id,
+        );
+    }
 }
