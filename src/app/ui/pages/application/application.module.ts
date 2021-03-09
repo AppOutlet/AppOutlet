@@ -16,6 +16,7 @@ const routes: Routes = [{ path: '', component: ApplicationComponent }];
         NbIconModule,
         TranslateModule.forChild(),
         NbCardModule,
+        NbIconModule,
     ],
 })
 export class ApplicationModule {}
