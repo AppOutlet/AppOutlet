@@ -6,6 +6,7 @@ import { MainComponent } from './main.component';
 import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { MainMenuModule } from '../../components/main-menu/main-menu.module';
+import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const routes: Routes = [
@@ -60,6 +61,7 @@ const routes: Routes = [
 
         // App Outlet components
         MainMenuModule,
+        ToolbarModule,
 
         // Nebular
         NbLayoutModule,
