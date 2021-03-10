@@ -10,4 +10,8 @@ export class CoreService {
     invoke<T>(channel: string, ...args: unknown[]): Promise<T> {
         return this.electronService.ipcRenderer.invoke(channel, args);
     }
+
+    openLinkOnBrowser(url: string): Promise<void> {
+        return this.electronService.shell.openExternal(url);
+    }
 }
