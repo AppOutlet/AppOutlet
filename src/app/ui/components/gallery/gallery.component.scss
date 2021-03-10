@@ -1,6 +1,20 @@
 .current-image {
     width: 100%;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
     margin-top: 2rem;
+    transition-duration: 1s;
+}
+
+.active {
+    background-color: #a6c1ff;
+    transition: background-color 1s ease;
+    border-radius: 0.5rem;
+}
+
+.thumbnail {
+    width: 100%;
+    height: auto;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }

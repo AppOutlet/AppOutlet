@@ -1,5 +1,17 @@
-<img class="current-image" *ngIf="currentImage" [src]="currentImage" />
+<img
+    class="current-image"
+    *ngIf="currentImage"
+    [src]="currentImage"
+    alt="application screenshot large"
+/>
 
 <div class="row">
-    <img class="col-3" *ngFor="let image of images" [src]="image" />
+    <img
+        class="col-3 thumbnail"
+        *ngFor="let image of images; let i = index"
+        [src]="image"
+        alt="application screenshot"
+        [ngClass]="i === currentImageIndex ? 'active' : ''"
+        (click)="selectImage(i)"
+    />
 </div>
