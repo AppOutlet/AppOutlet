@@ -24,11 +24,6 @@
                 <h1>{{ application?.name }}</h1>
                 <span class="version">{{ application?.version }}</span>
                 <p>{{ application?.summary }}</p>
-                <p class="developer">
-                    {{
-                        'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
-                    }}
-                </p>
                 <button
                     nbButton
                     hero
@@ -43,5 +38,24 @@
         </div>
 
         <app-gallery [images]="application?.screenshots"></app-gallery>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-8">
+        <nb-card>
+            <nb-card-body [innerHTML]="application?.description"></nb-card-body>
+        </nb-card>
+    </div>
+    <div class="col-4">
+        <nb-card>
+            <nb-card-body>
+                <p class="developer">
+                    {{
+                        'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
+                    }}
+                </p>
+            </nb-card-body>
+        </nb-card>
     </div>
 </div>
