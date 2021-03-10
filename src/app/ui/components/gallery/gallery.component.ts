@@ -12,7 +12,7 @@ export class GalleryComponent implements OnChanges {
     @Input() images?: string[];
 
     currentImage?: string;
-
+    currentImageIndex = 0;
     private intervalId?: number;
     private shouldChangeImage = true;
 
@@ -23,10 +23,17 @@ export class GalleryComponent implements OnChanges {
             this.window.nativeWindow.clearInterval(this.intervalId);
         }
 
+        if (!changes.images.currentValue) {
+            return;
+        }
+
+        if (!this.currentImage) {
+            this.currentImage = changes.images.currentValue[0];
+            this.currentImageIndex = 0;
+        }
+
         this.intervalId = this.window.nativeWindow.setInterval(() => {
-            if (changes.images.currentValue) {
-                this.handleImages();
-            }
+            this.handleImages();
         }, this.TIMER);
     }
 
@@ -45,6 +52,13 @@ export class GalleryComponent implements OnChanges {
             }
 
             this.currentImage = this.images[nextIndex];
+            this.currentImageIndex = nextIndex;
         }
+    }
+
+    selectImage(imageIndex: number): void {
+        this.currentImage = this.images?.[imageIndex];
+        this.currentImageIndex = imageIndex;
+        this.shouldChangeImage = false;
     }
 }
