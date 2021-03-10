@@ -4,6 +4,7 @@ import { ApplicationService } from '../../../service/application/application.ser
 import { Location } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Application } from '../../../model/application.model';
+import { CoreService } from '../../../service/core/core.service';
 
 @Component({
     selector: 'app-application',
@@ -17,6 +18,7 @@ export class ApplicationComponent implements OnInit {
         private activatedRoute: ActivatedRoute,
         private applicationService: ApplicationService,
         private location: Location,
+        private coreService: CoreService,
     ) {}
 
     ngOnInit(): void {
@@ -37,5 +39,11 @@ export class ApplicationComponent implements OnInit {
 
     goBack(): void {
         this.location.back();
+    }
+
+    async openUrl(url?: string): Promise<void> {
+        if (url) {
+            await this.coreService.openLinkOnBrowser(url);
+        }
     }
 }

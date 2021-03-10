@@ -50,11 +50,20 @@
     <div class="col-4">
         <nb-card>
             <nb-card-body>
-                <p class="developer">
+                <p class="developer" *ngIf="application?.developer">
                     {{
                         'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
                     }}
                 </p>
+                <button
+                    nbButton
+                    ghost
+                    *ngIf="application?.homepage"
+                    (click)="openUrl(application?.homepage)"
+                >
+                    <nb-icon icon="globe-outline"></nb-icon>
+                    {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
+                </button>
             </nb-card-body>
         </nb-card>
     </div>
