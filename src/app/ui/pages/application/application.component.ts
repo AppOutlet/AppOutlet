@@ -46,4 +46,24 @@ export class ApplicationComponent implements OnInit {
             await this.coreService.openLinkOnBrowser(url);
         }
     }
+
+    async openStorePage(): Promise<void> {
+        let url: string | undefined;
+
+        switch (this.application?.store) {
+            case 'FLATHUB':
+                url = `https://flathub.org/apps/details/${this.application?.id}`;
+                break;
+            case 'SNAP_STORE':
+                url = `https://snapcraft.io/${this.application?.packageName}`;
+                break;
+            case 'APP_IMAGE_HUB':
+                url = `https://appimage.github.io/${this.application?.name}`;
+                break;
+        }
+
+        if (url) {
+            await this.openUrl(url);
+        }
+    }
 }
