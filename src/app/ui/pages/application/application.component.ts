@@ -37,10 +37,6 @@ export class ApplicationComponent implements OnInit {
         });
     }
 
-    goBack(): void {
-        this.location.back();
-    }
-
     async openUrl(url?: string): Promise<void> {
         if (url) {
             await this.coreService.openLinkOnBrowser(url);
