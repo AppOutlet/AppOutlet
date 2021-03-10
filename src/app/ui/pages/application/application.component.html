@@ -50,12 +50,6 @@
     <div class="col-4">
         <nb-card>
             <nb-card-body>
-                <p class="developer" *ngIf="application?.developer">
-                    {{
-                        'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
-                    }}
-                </p>
-
                 <button
                     nbButton
                     ghost
@@ -90,6 +84,21 @@
                     <nb-icon icon="shopping-bag-outline"></nb-icon>
                     {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
                 </button>
+
+                <div *ngIf="application?.developer">
+                    <p class="detail-title">Developed by</p>
+                    {{ application?.developer }}
+                </div>
+
+                <div *ngIf="application?.license">
+                    <p class="detail-title">License</p>
+                    {{ application?.license }}
+                </div>
+
+                <div *ngIf="application?.lastReleaseDate">
+                    <p class="detail-title">Last update</p>
+                    {{ application?.lastReleaseDate | date }}
+                </div>
             </nb-card-body>
         </nb-card>
     </div>
