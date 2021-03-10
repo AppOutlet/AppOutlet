@@ -1,4 +1,4 @@
-<img class="current-image" *ngIf="images" [src]="images[currentImage]" />
+<img class="current-image" *ngIf="currentImage" [src]="currentImage" />
 
 <div class="row">
     <img class="col-3" *ngFor="let image of images" [src]="image" />
