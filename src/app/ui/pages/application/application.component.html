@@ -55,6 +55,7 @@
                         'PAGES.APP_DETAIL.DEVELOPED_BY' | translate: application
                     }}
                 </p>
+
                 <button
                     nbButton
                     ghost
@@ -63,6 +64,31 @@
                 >
                     <nb-icon icon="globe-outline"></nb-icon>
                     {{ 'PAGES.APP_DETAIL.PROJECT_HOMEPAGE' | translate }}
+                </button>
+
+                <button
+                    nbButton
+                    ghost
+                    *ngIf="application?.bugtrackerUrl"
+                    (click)="openUrl(application?.bugtrackerUrl)"
+                >
+                    <nb-icon icon="github-outline"></nb-icon>
+                    {{ 'PAGES.APP_DETAIL.REPORT_ISSUE' | translate }}
+                </button>
+
+                <button
+                    nbButton
+                    ghost
+                    *ngIf="application?.donationUrl"
+                    (click)="openUrl(application?.donationUrl)"
+                >
+                    <nb-icon icon="heart-outline"></nb-icon>
+                    {{ 'PAGES.APP_DETAIL.DONATE' | translate }}
+                </button>
+
+                <button nbButton ghost (click)="openStorePage()">
+                    <nb-icon icon="shopping-bag-outline"></nb-icon>
+                    {{ 'PAGES.APP_DETAIL.STORE_PAGE' | translate }}
                 </button>
             </nb-card-body>
         </nb-card>
