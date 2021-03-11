@@ -1,10 +1,23 @@
-<button
-    *ngIf="shouldShowBackButton"
-    nbButton
-    ghost
-    (click)="goBack()"
-    class="back-button"
->
-    <nb-icon icon="arrow-ios-back-outline"></nb-icon>
-    {{ 'GENERAL.BACK' | translate }}
-</button>
+<div class="row justify-content-between">
+    <button
+        *ngIf="shouldShowBackButton"
+        nbButton
+        ghost
+        (click)="goBack()"
+        class="back-button"
+    >
+        <nb-icon icon="arrow-ios-back-outline"></nb-icon>
+        {{ 'GENERAL.BACK' | translate }}
+    </button>
+
+    <!-- TODO: remove this and improve alignment -->
+    <span></span>
+
+    <div>
+        <nb-search
+            type="rotate-layout"
+            hint=""
+            placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"
+        ></nb-search>
+    </div>
+</div>
