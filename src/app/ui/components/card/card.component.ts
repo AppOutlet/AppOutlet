@@ -17,10 +17,9 @@ export class CardComponent {
 
     async click(app?: CardDto): Promise<void> {
         if (app) {
+            await this.router.navigate(['application', app.id]);
             this.applicationClicked.emit(app);
         }
-
-        await this.router.navigate(['application', app?.id]);
     }
 
     getPackageIcon(packageType?: string): string {
