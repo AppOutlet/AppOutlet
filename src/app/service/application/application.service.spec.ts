@@ -65,4 +65,24 @@ describe('ApplicationService', () => {
 
         expect(result).toEqual(mockedApps);
     });
+
+    it('should find by category', async () => {
+        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
+
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
+
+        const result = await service.findByCategory({ page: 0 });
+
+        expect(result).toEqual(mockedApps);
+    });
+
+    it('should find by application id', async () => {
+        const mockApp: Application = { id: '1', name: 'Application' };
+
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockApp));
+
+        const result = await service.findById('some id');
+
+        expect(result).toEqual(mockApp);
+    });
 });
