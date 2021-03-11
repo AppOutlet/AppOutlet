@@ -12,6 +12,12 @@ import { CoreService } from '../../../service/core/core.service';
     styleUrls: ['./application.component.scss'],
 })
 export class ApplicationComponent implements OnInit {
+    static readonly FLATHUB_APPLICATION_BASE_URL =
+        'https://flathub.org/apps/details';
+    static readonly SNAP_STORE_APPLICATION_BASE_URL = 'https://snapcraft.io';
+    static readonly APP_IMAGE_HUB_APPLICATION_BASE_URL =
+        'https://appimage.github.io';
+
     application?: Application;
 
     constructor(
@@ -48,13 +54,13 @@ export class ApplicationComponent implements OnInit {
 
         switch (this.application?.store) {
             case 'FLATHUB':
-                url = `https://flathub.org/apps/details/${this.application?.id}`;
+                url = `${ApplicationComponent.FLATHUB_APPLICATION_BASE_URL}/${this.application?.id}`;
                 break;
             case 'SNAP_STORE':
-                url = `https://snapcraft.io/${this.application?.packageName}`;
+                url = `${ApplicationComponent.SNAP_STORE_APPLICATION_BASE_URL}/${this.application?.packageName}`;
                 break;
             case 'APP_IMAGE_HUB':
-                url = `https://appimage.github.io/${this.application?.name}`;
+                url = `${ApplicationComponent.APP_IMAGE_HUB_APPLICATION_BASE_URL}/${this.application?.name}`;
                 break;
         }
 
