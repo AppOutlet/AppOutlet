@@ -10,12 +10,9 @@ ipcMain?.handle(channels.application.getRecentlyUpdated, () => {
     return applicationService.getRecentlyUpdated();
 });
 
-ipcMain?.handle(
-    channels.application.searchByTerm,
-    (event, searchParameters) => {
-        return applicationService.searchByTerm(searchParameters);
-    },
-);
+ipcMain?.handle(channels.application.searchByTerm, (event, args) => {
+    return applicationService.searchByTerm(args[0]);
+});
 
 ipcMain?.handle(channels.application.findByCreationDate, (event, args) => {
     return applicationService.findByCreationDate(args[0]);
