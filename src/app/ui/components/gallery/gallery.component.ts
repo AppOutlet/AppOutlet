@@ -12,7 +12,7 @@ export class GalleryComponent implements OnChanges {
     @Input() images?: string[];
 
     currentImage?: string;
-    currentImageIndex = 0;
+    currentImageIndex?: number;
     private intervalId?: number;
     private shouldChangeImage = true;
 
@@ -27,33 +27,29 @@ export class GalleryComponent implements OnChanges {
             return;
         }
 
-        if (!this.currentImage) {
-            this.currentImage = changes.images.currentValue[0];
-            this.currentImageIndex = 0;
-        }
+        this.currentImage = changes.images.currentValue[0];
+        this.currentImageIndex = 0;
 
-        this.intervalId = this.window.nativeWindow.setInterval(() => {
-            this.handleImages();
-        }, this.TIMER);
+        this.intervalId = this.window.nativeWindow.setInterval(
+            this.handleImages.bind(this),
+            this.TIMER,
+        );
     }
 
-    private handleImages(): void {
-        if (!this.shouldChangeImage || !this.images) {
+    // Visible for testing purposes
+    handleImages(): void {
+        if (!this.shouldChangeImage || !this.images || !this.currentImage) {
             return;
         }
 
-        if (!this.currentImage) {
-            this.currentImage = this.images[0];
-        } else {
-            let nextIndex = this.images.indexOf(this.currentImage) + 1;
+        let nextIndex = this.images.indexOf(this.currentImage) + 1;
 
-            if (nextIndex === this.images.length) {
-                nextIndex = 0;
-            }
-
-            this.currentImage = this.images[nextIndex];
-            this.currentImageIndex = nextIndex;
+        if (nextIndex === this.images.length) {
+            nextIndex = 0;
         }
+
+        this.currentImage = this.images[nextIndex];
+        this.currentImageIndex = nextIndex;
     }
 
     selectImage(imageIndex: number): void {
