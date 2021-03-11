@@ -47,6 +47,13 @@ const routes: Routes = [
                         (m) => m.ApplicationModule,
                     ),
             },
+            {
+                path: 'search/:searchTerm',
+                loadChildren: () =>
+                    import('../search/search.module').then(
+                        (m) => m.SearchModule,
+                    ),
+            },
         ],
     },
 ];
