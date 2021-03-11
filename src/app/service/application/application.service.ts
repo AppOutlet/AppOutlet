@@ -55,4 +55,13 @@ export class ApplicationService {
             id,
         );
     }
+
+    findByTerm(
+        searchParameters: SearchParametersModel,
+    ): Promise<Application[]> {
+        return this.coreService.invoke<Application[]>(
+            Channel.application.searchByTerm,
+            searchParameters,
+        );
+    }
 }
