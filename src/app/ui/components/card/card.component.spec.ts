@@ -4,15 +4,21 @@ import { NbCardModule } from '@nebular/theme';
 import { CardComponent } from './card.component';
 import DoneCallback = jest.DoneCallback;
 import { CardDto } from './card.dto';
+import { Router } from '@angular/router';
 
 describe('CardComponent', () => {
     let component: CardComponent;
     let fixture: ComponentFixture<CardComponent>;
 
+    const mockRouter = {
+        navigate: jest.fn(),
+    };
+
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             imports: [NbCardModule],
             declarations: [CardComponent],
+            providers: [{ provide: Router, useValue: mockRouter }],
         })
             .overrideComponent(CardComponent, {
                 set: { template: '' },
@@ -26,6 +32,10 @@ describe('CardComponent', () => {
         fixture.detectChanges();
     });
 
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
     it('should create', () => {
         expect(component).toBeTruthy();
     });
@@ -35,23 +45,28 @@ describe('CardComponent', () => {
             id: '1',
             icon: 'icon',
             summary: 'summary',
-            title: 'title',
+            name: 'title',
+            packageType: 'SNAP',
         };
+
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
 
         component.applicationClicked.subscribe((event) => {
             expect(event).toEqual(app);
+            expect(mockRouter.navigate.mock.calls.length).toBe(1);
             done();
         });
 
-        component.click(app);
+        component.click(app).then();
     });
 
-    it('should not emit event when app is null', (done: DoneCallback) => {
+    it('should not emit event when app is null', async (done: DoneCallback) => {
         component.applicationClicked.subscribe(() => {
             fail();
         });
 
-        component.click(undefined);
+        await component.click(undefined);
+        expect(mockRouter.navigate.mock.calls.length).toBe(0);
 
         done();
     });

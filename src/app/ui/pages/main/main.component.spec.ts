@@ -7,6 +7,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 import { TranslateModule } from '@ngx-translate/core';
+import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 
 describe('MainComponent', () => {
     let component: MainComponent;
@@ -22,6 +23,7 @@ describe('MainComponent', () => {
                 RouterModule.forRoot([]),
                 NbThemeModule.forRoot(),
                 TranslateModule.forRoot(),
+                ToolbarModule,
             ],
             declarations: [MainComponent],
             providers: [{ provide: APP_BASE_HREF, useValue: './' }],
