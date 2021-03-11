@@ -70,4 +70,20 @@ describe('CardComponent', () => {
 
         done();
     });
+
+    it('should get package icon by package type', () => {
+        expect(component.getPackageIcon('SNAP')).toEqual(
+            'assets/icon/snap.png',
+        );
+
+        expect(component.getPackageIcon('FLATPAK')).toEqual(
+            'assets/icon/flatpak.png',
+        );
+
+        expect(component.getPackageIcon('APP_IMAGE')).toEqual(
+            'assets/icon/appimage.png',
+        );
+
+        expect(component.getPackageIcon()).toEqual('');
+    });
 });
