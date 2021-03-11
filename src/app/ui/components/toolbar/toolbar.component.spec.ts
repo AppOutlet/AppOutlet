@@ -2,16 +2,18 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ToolbarComponent } from './toolbar.component';
 import { Location } from '@angular/common';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { NbSearchService } from '@nebular/theme';
-import { Observable, of } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 
 describe('ToolbarComponent', () => {
     let component: ToolbarComponent;
     let fixture: ComponentFixture<ToolbarComponent>;
 
-    const mockLocation = {};
-    const mockRouter = { events: of('') };
+    const mockLocation = {
+        back: jest.fn(),
+    };
+    const mockRouter = { events: new Subject() };
     const mockSearchService = {
         onSearchSubmit: (): Observable<unknown> => of(''),
     };
@@ -37,5 +39,20 @@ describe('ToolbarComponent', () => {
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should show back button when navigate to any non root route', () => {
+        const event = new NavigationEnd(1, '/application', '');
+
+        mockRouter.events.next('');
+        mockRouter.events.next(event);
+
+        expect(component.shouldShowBackButton).toBeTruthy();
+    });
+
+    it('should navigate back', () => {
+        component.goBack();
+
+        expect(mockLocation.back.mock.calls.length).toBe(1);
     });
 });
