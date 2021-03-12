@@ -11,6 +11,8 @@ describe('ApplicationService', () => {
         invoke: jest.fn(),
     };
 
+    const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [{ provide: CoreService, useValue: mockCoreService }],
@@ -27,8 +29,6 @@ describe('ApplicationService', () => {
     });
 
     it('should get recently added apps', async () => {
-        const mockedApps: Application[] = [{ id: '', name: '' }];
-
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.getRecentlyAdded();
@@ -37,8 +37,6 @@ describe('ApplicationService', () => {
     });
 
     it('should get recently updated apps', async () => {
-        const mockedApps: Application[] = [{ id: '', name: '' }];
-
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.getRecentlyUpdated();
@@ -47,8 +45,6 @@ describe('ApplicationService', () => {
     });
 
     it('it should find apps by creation date', async () => {
-        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
-
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.findByCreationDate({ page: 0 });
@@ -57,8 +53,6 @@ describe('ApplicationService', () => {
     });
 
     it('it should find apps by last release date', async () => {
-        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
-
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.findByLastReleaseDate({ page: 0 });
@@ -67,8 +61,6 @@ describe('ApplicationService', () => {
     });
 
     it('should find by category', async () => {
-        const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
-
         mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
 
         const result = await service.findByCategory({ page: 0 });
@@ -84,5 +76,16 @@ describe('ApplicationService', () => {
         const result = await service.findById('some id');
 
         expect(result).toEqual(mockApp);
+    });
+
+    it('should find applications by term', async () => {
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockedApps));
+
+        const result = await service.findByTerm({
+            page: 0,
+            searchTerm: 'search term',
+        });
+
+        expect(result).toEqual(mockedApps);
     });
 });
