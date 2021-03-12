@@ -6,7 +6,7 @@ function getLastSynchronizationDate() {
         .findByKey(SettingsKeys.LAST_SYNC)
         .then((dateString) => {
             if (dateString) {
-                return new Date(dateString);
+                return new Date(dateString.value);
             } else {
                 return null;
             }
