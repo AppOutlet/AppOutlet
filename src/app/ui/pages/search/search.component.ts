@@ -49,7 +49,6 @@ export class SearchComponent implements OnInit {
         this.loading = true;
 
         this.applicationService.findByTerm(searchParameters).then((apps) => {
-            debugger;
             this.apps.push(...apps);
             this.loading = false;
         });
