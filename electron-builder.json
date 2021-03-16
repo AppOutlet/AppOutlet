@@ -20,12 +20,8 @@
         "!tslint.json",
         "!release/"
     ],
-    "mac": {
-        "icon": "dist/app-outlet",
-        "target": ["dmg"]
-    },
     "linux": {
-        "icon": "dist/app-outlet",
+        "icon": "dist/app-outlet/assets/icon",
         "category": "Utility",
         "target": ["AppImage", "deb", "rpm", "tar.gz"]
     },
