@@ -1,0 +1,50 @@
+name: Pipeline
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Fetch dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Generage changelog
+        run: npx standard-changelog -o CHANGELOG.txt
+        if: startsWith(github.ref, 'refs/tags/')
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to releases
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            release/App Outlet-*.AppImage
+            release/app-outlet-*.tar.gz
+            release/app-outlet_*_amd64.deb
+            release/app-outlet-*.x86_64.rpm
+
+          body_path: CHANGELOG.txt
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
