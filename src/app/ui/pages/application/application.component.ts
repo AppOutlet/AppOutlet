@@ -68,4 +68,10 @@ export class ApplicationComponent implements OnInit {
             await this.openUrl(url);
         }
     }
+
+    async install(application?: Application): Promise<void> {
+        if (application) {
+            await this.applicationService.install(application);
+        }
+    }
 }

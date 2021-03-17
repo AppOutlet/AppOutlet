@@ -3,12 +3,16 @@ import { Application } from '../../model/application.model';
 import { CoreService } from '../core/core.service';
 import * as Channel from '../../../../core/interface/InterfaceChannel';
 import { SearchParametersModel } from '../../model/search-parameters.model';
+import { ProcessService } from '../process/process.service';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ApplicationService {
-    constructor(private coreService: CoreService) {}
+    constructor(
+        private coreService: CoreService,
+        private processService: ProcessService,
+    ) {}
 
     getRecentlyAdded(): Promise<Application[]> {
         return this.coreService.invoke<Application[]>(
@@ -63,5 +67,9 @@ export class ApplicationService {
             Channel.application.searchByTerm,
             searchParameters,
         );
+    }
+
+    install(application: Application): Promise<void> {
+        return this.processService.installApplication(application);
     }
 }
