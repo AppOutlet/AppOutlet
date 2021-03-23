@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { Application } from '../../model/application.model';
 import * as PackageType from '../../../../core/model/PackageType';
 import { WindowRef } from '../../util/window-ref';
-import { ChildProcess } from 'child_process';
 import { Process } from './process';
 import { InstallSnap } from './install-snap.process';
 import { ProcessQueue } from './ProcessQueue';
+import { ApplicationStatus } from '../../model/application-status';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProcessService {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    private readonly childProcess: ChildProcess;
+    private readonly childProcess: any;
     private readonly processQueue = new ProcessQueue();
 
     constructor(windowRef: WindowRef) {
@@ -30,11 +30,13 @@ export class ProcessService {
         switch (application.packageType) {
             case PackageType.SNAP:
                 this.addProcess(
-                    new InstallSnap(this.childProcess, application),
+                    new InstallSnap(this.childProcess, application, (process) =>
+                        this.onProcessFinished(process),
+                    ),
                 );
                 break;
             default:
-                return Promise.reject('invalid package tyoe');
+                return Promise.reject('invalid package type');
         }
 
         return Promise.resolve();
@@ -46,5 +48,13 @@ export class ProcessService {
 
     private onNextProcess(process: Process): void {
         process.start();
+    }
+
+    private onProcessFinished(process: Process): void {
+        this.processQueue.notifyProcessFinished(process);
+    }
+
+    getApplicationStatus(application: Application): Promise<ApplicationStatus> {
+        return Promise.resolve(ApplicationStatus.NOT_INSTALLED);
     }
 }

@@ -20,17 +20,8 @@
                 <h1>{{ application?.name }}</h1>
                 <span class="version">{{ application?.version }}</span>
                 <p>{{ application?.summary }}</p>
-                <button
-                    nbButton
-                    hero
-                    appearance="hero"
-                    shape="semi-round"
-                    status="success"
-                    (click)="install(application)"
-                >
-                    <nb-icon icon="download-outline"></nb-icon>
-                    {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}
-                </button>
+
+                <app-install-button></app-install-button>
             </div>
         </div>
 

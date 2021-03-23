@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NbButtonModule, NbCardModule, NbIconModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { GalleryModule } from '../../components/gallery/gallery.module';
+import { InstallButtonModule } from '../../components/install-button/install-button.module';
 
 const routes: Routes = [{ path: '', component: ApplicationComponent }];
 
@@ -19,6 +20,7 @@ const routes: Routes = [{ path: '', component: ApplicationComponent }];
         NbCardModule,
         NbIconModule,
         GalleryModule,
+        InstallButtonModule,
     ],
 })
 export class ApplicationModule {}

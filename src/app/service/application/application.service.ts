@@ -4,6 +4,7 @@ import { CoreService } from '../core/core.service';
 import * as Channel from '../../../../core/interface/InterfaceChannel';
 import { SearchParametersModel } from '../../model/search-parameters.model';
 import { ProcessService } from '../process/process.service';
+import { ApplicationStatus } from '../../model/application-status';
 
 @Injectable({
     providedIn: 'root',
@@ -71,5 +72,9 @@ export class ApplicationService {
 
     install(application: Application): Promise<void> {
         return this.processService.installApplication(application);
+    }
+
+    getApplicationStatus(application: Application): Promise<ApplicationStatus> {
+        return this.processService.getApplicationStatus(application);
     }
 }
