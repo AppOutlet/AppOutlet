@@ -54,7 +54,8 @@ export class ProcessService {
         this.processQueue.notifyProcessFinished(process);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     getApplicationStatus(application: Application): Promise<ApplicationStatus> {
-        return Promise.resolve(ApplicationStatus.NOT_INSTALLED);
+        return Promise.resolve(ApplicationStatus.INSTALLING);
     }
 }

@@ -21,7 +21,9 @@
                 <span class="version">{{ application?.version }}</span>
                 <p>{{ application?.summary }}</p>
 
-                <app-install-button></app-install-button>
+                <app-install-button
+                    [applicationStatus]="applicationStatus"
+                ></app-install-button>
             </div>
         </div>
 
