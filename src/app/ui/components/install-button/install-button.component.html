@@ -1,12 +1,25 @@
-<p>install-button works!</p>
-<!--<button-->
-<!--    nbButton-->
-<!--    hero-->
-<!--    appearance="hero"-->
-<!--    shape="semi-round"-->
-<!--    status="success"-->
-<!--    (click)="install(application)"-->
-<!--&gt;-->
-<!--    <nb-icon icon="download-outline"></nb-icon>-->
-<!--    {{ 'PAGES.APP_DETAIL.INSTALL' | translate }}-->
-<!--</button>-->
+<div *ngIf="loading && isIndefinite" [nbSpinner]="true" class="spinner">
+    &nbsp;
+</div>
+
+<button
+    nbButton
+    hero
+    shape="semi-round"
+    [disabled]="!buttonEnabled"
+    [status]="buttonStatus">
+    <nb-icon *ngIf="shouldShowButtonIcon" [icon]="buttonIcon"></nb-icon>
+
+    {{ buttonText | translate }}
+</button>
+
+<nb-progress-bar
+    *ngIf="loading && (!isIndefinite)"
+    class="progress-bar"
+    [value]="installationPercentage"
+    size="tiny"
+    status="primary"
+    [displayValue]="true">
+</nb-progress-bar>
+
+
