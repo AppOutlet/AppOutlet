@@ -1,4 +1,10 @@
 export abstract class Process {
+    protected stdout: string[] = [];
+    protected stderr: string[] = [];
+
+    isIndefinite = true;
+    completePercentage = 0;
+
     abstract start(): void;
 
     abstract update(): void;

@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { map } from 'rxjs/operators';
 import { Application } from '../../../model/application.model';
 import { CoreService } from '../../../service/core/core.service';
+import { ApplicationStatus } from '../../../model/application-status';
 
 @Component({
     selector: 'app-application',
@@ -19,6 +20,7 @@ export class ApplicationComponent implements OnInit {
         'https://appimage.github.io';
 
     application?: Application;
+    applicationStatus?: ApplicationStatus;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -40,6 +42,7 @@ export class ApplicationComponent implements OnInit {
 
         this.applicationService.findById(id).then((app) => {
             this.application = app;
+            this.syncApplicationStatus(app);
         });
     }
 
@@ -73,5 +76,13 @@ export class ApplicationComponent implements OnInit {
         if (application) {
             await this.applicationService.install(application);
         }
+    }
+
+    private syncApplicationStatus(application: Application): void {
+        this.applicationService
+            .getApplicationStatus(application)
+            .then((status) => {
+                this.applicationStatus = status;
+            });
     }
 }
