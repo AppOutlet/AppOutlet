@@ -5,6 +5,8 @@ import * as Channel from '../../../../core/interface/InterfaceChannel';
 import { SearchParametersModel } from '../../model/search-parameters.model';
 import { ProcessService } from '../process/process.service';
 import { ApplicationStatus } from '../../model/application-status';
+import { Observable } from 'rxjs';
+import { ProcessInfo } from '../process/process-info';
 
 @Injectable({
     providedIn: 'root',
@@ -76,5 +78,9 @@ export class ApplicationService {
 
     getApplicationStatus(application: Application): Promise<ApplicationStatus> {
         return this.processService.getApplicationStatus(application);
+    }
+
+    getApplicationListener(application: Application): Observable<ProcessInfo> {
+        return this.processService.getProcessListener(application.id);
     }
 }

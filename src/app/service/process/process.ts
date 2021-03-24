@@ -1,3 +1,5 @@
+import { ProcessInfo } from './process-info';
+
 export abstract class Process {
     protected stdout: string[] = [];
     protected stderr: string[] = [];
@@ -14,6 +16,8 @@ export abstract class Process {
     abstract getApplicationId(): string;
 
     abstract getProcessStatus(): ProcessStatus;
+
+    abstract getProcessInfo(): ProcessInfo;
 }
 
 export enum ProcessStatus {
