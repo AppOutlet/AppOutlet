@@ -75,7 +75,12 @@ export class ApplicationComponent implements OnInit {
     async install(application?: Application): Promise<void> {
         if (application) {
             await this.applicationService.install(application);
+            this.syncApplicationStatus(application);
         }
+    }
+
+    async uninstall(application?: Application): Promise<void> {
+        return Promise.resolve();
     }
 
     private syncApplicationStatus(application: Application): void {

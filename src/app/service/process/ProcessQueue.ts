@@ -1,4 +1,5 @@
 import { Process, ProcessStatus } from './process';
+import { ProcessInfo } from './process-info';
 
 export class ProcessQueue {
     private processQueue: Process[] = [];
@@ -43,5 +44,14 @@ export class ProcessQueue {
                 this.processQueueListener?.(firstIdleProcess);
             }
         }
+    }
+
+    getProcessList(): ProcessInfo[] {
+        return this.processQueue.map((process) => {
+            return {
+                applicationId: process.getApplicationId(),
+                processStatus: process.getProcessStatus(),
+            };
+        });
     }
 }

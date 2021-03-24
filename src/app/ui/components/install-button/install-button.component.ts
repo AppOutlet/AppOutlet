@@ -65,4 +65,16 @@ export class InstallButtonComponent implements OnChanges {
                 this.buttonText = '';
         }
     }
+
+    onClick(): void {
+        switch (this.applicationStatus) {
+            case ApplicationStatus.NOT_INSTALLED:
+                this.installClicked.emit();
+                break;
+
+            case ApplicationStatus.INSTALLED:
+                this.uninstallClicked.emit();
+                break;
+        }
+    }
 }
