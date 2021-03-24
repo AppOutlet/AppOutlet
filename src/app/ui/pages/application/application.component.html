@@ -23,6 +23,8 @@
 
                 <app-install-button
                     [applicationStatus]="applicationStatus"
+                    (installClicked)="install(application)"
+                    (uninstallClicked)="uninstall(application)"
                 ></app-install-button>
             </div>
         </div>

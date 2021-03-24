@@ -7,7 +7,8 @@
     hero
     shape="semi-round"
     [disabled]="!buttonEnabled"
-    [status]="buttonStatus">
+    [status]="buttonStatus"
+    (click)="onClick()">
     <nb-icon *ngIf="shouldShowButtonIcon" [icon]="buttonIcon"></nb-icon>
 
     {{ buttonText | translate }}
