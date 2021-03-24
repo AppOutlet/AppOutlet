@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProcessService } from './process.service';
+import { FlatpakService } from './flatpak.service';
 
-describe('ProcessService', () => {
-    let service: ProcessService;
+describe('FlatpakService', () => {
+    let service: FlatpakService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(ProcessService);
+        service = TestBed.inject(FlatpakService);
     });
 
     it('should be created', () => {

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ProcessService } from './process.service';
+import { SnapService } from './snap.service';
 
-describe('ProcessService', () => {
-    let service: ProcessService;
+describe('SnapService', () => {
+    let service: SnapService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(ProcessService);
+        service = TestBed.inject(SnapService);
     });
 
     it('should be created', () => {

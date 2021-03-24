@@ -79,15 +79,14 @@ export class ApplicationComponent implements OnInit {
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async uninstall(application?: Application): Promise<void> {
         return Promise.resolve();
     }
 
-    private syncApplicationStatus(application: Application): void {
-        this.applicationService
-            .getApplicationStatus(application)
-            .then((status) => {
-                this.applicationStatus = status;
-            });
+    async syncApplicationStatus(application: Application): Promise<void> {
+        this.applicationStatus = await this.applicationService.getApplicationStatus(
+            application,
+        );
     }
 }
