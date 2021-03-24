@@ -7,6 +7,9 @@ import { InstallSnap } from './install-snap.process';
 import { ProcessQueue } from './ProcessQueue';
 import { ApplicationStatus } from '../../model/application-status';
 import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
+import { ProcessListeners } from './process-listeners';
+import { Observable, Subject } from 'rxjs';
+import { ProcessInfo } from './process-info';
 
 @Injectable({
     providedIn: 'root',
@@ -15,6 +18,7 @@ export class ProcessService {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private readonly childProcess: AppOutletChildProcess;
     private readonly processQueue = new ProcessQueue();
+    private processListeners: ProcessListeners = {};
 
     constructor(windowRef: WindowRef) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -43,8 +47,14 @@ export class ProcessService {
         return Promise.resolve();
     }
 
+    getProcessListener(applicationId: string): Observable<ProcessInfo> {
+        this.addProcessListenerIfNecessary(applicationId);
+        return this.processListeners[applicationId];
+    }
+
     private addProcess(process: Process): void {
         this.processQueue.push(process);
+        this.addProcessListenerIfNecessary(process.getApplicationId());
     }
 
     private onNextProcess(process: Process): void {
@@ -53,6 +63,17 @@ export class ProcessService {
 
     private onProcessFinished(process: Process): void {
         this.processQueue.notifyProcessFinished(process);
+        if (this.processListeners[process.getApplicationId()]) {
+            this.processListeners[process.getApplicationId()].next(
+                process.getProcessInfo(),
+            );
+        }
+    }
+
+    private addProcessListenerIfNecessary(applicationId: string): void {
+        if (!this.processListeners[applicationId]) {
+            this.processListeners[applicationId] = new Subject<ProcessInfo>();
+        }
     }
 
     async getApplicationStatus(

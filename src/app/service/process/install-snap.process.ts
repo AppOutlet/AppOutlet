@@ -1,6 +1,7 @@
 import { Process, ProcessStatus } from './process';
 import { Application } from '../../model/application.model';
 import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
+import { ProcessInfo } from './process-info';
 
 export class InstallSnap extends Process {
     private processStatus = ProcessStatus.IDLE;
@@ -83,5 +84,12 @@ export class InstallSnap extends Process {
 
     getProcessStatus(): ProcessStatus {
         return this.processStatus;
+    }
+
+    getProcessInfo(): ProcessInfo {
+        return {
+            applicationId: this.getApplicationId(),
+            processStatus: this.getProcessStatus(),
+        };
     }
 }

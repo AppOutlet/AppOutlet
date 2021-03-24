@@ -48,10 +48,7 @@ export class ProcessQueue {
 
     getProcessList(): ProcessInfo[] {
         return this.processQueue.map((process) => {
-            return {
-                applicationId: process.getApplicationId(),
-                processStatus: process.getProcessStatus(),
-            };
+            return process.getProcessInfo();
         });
     }
 }

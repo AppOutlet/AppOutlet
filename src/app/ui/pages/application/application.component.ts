@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationService } from '../../../service/application/application.service';
 import { Location } from '@angular/common';
@@ -6,13 +6,14 @@ import { map } from 'rxjs/operators';
 import { Application } from '../../../model/application.model';
 import { CoreService } from '../../../service/core/core.service';
 import { ApplicationStatus } from '../../../model/application-status';
+import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'app-application',
     templateUrl: './application.component.html',
     styleUrls: ['./application.component.scss'],
 })
-export class ApplicationComponent implements OnInit {
+export class ApplicationComponent implements OnInit, OnDestroy {
     static readonly FLATHUB_APPLICATION_BASE_URL =
         'https://flathub.org/apps/details';
     static readonly SNAP_STORE_APPLICATION_BASE_URL = 'https://snapcraft.io';
@@ -21,6 +22,9 @@ export class ApplicationComponent implements OnInit {
 
     application?: Application;
     applicationStatus?: ApplicationStatus;
+    isIndefinite = true;
+    installationPercentage = 0;
+    private applicationListenerSubscription?: Subscription;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -43,6 +47,7 @@ export class ApplicationComponent implements OnInit {
         this.applicationService.findById(id).then((app) => {
             this.application = app;
             this.syncApplicationStatus(app);
+            this.listenToApplicationChanges(app);
         });
     }
 
@@ -75,7 +80,7 @@ export class ApplicationComponent implements OnInit {
     async install(application?: Application): Promise<void> {
         if (application) {
             await this.applicationService.install(application);
-            this.syncApplicationStatus(application);
+            await this.syncApplicationStatus(application);
         }
     }
 
@@ -88,5 +93,22 @@ export class ApplicationComponent implements OnInit {
         this.applicationStatus = await this.applicationService.getApplicationStatus(
             application,
         );
+    }
+
+    private listenToApplicationChanges(application: Application): void {
+        this.applicationListenerSubscription = this.applicationService
+            .getApplicationListener(application)
+            .subscribe((processInfo) => {
+                if (processInfo.completePercentage) {
+                    this.isIndefinite = false;
+                    this.installationPercentage =
+                        processInfo.completePercentage;
+                }
+                this.syncApplicationStatus(application);
+            });
+    }
+
+    ngOnDestroy(): void {
+        this.applicationListenerSubscription?.unsubscribe();
     }
 }

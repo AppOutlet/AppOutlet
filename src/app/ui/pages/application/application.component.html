@@ -23,6 +23,8 @@
 
                 <app-install-button
                     [applicationStatus]="applicationStatus"
+                    [isIndefinite]="isIndefinite"
+                    [installationPercentage]="installationPercentage"
                     (installClicked)="install(application)"
                     (uninstallClicked)="uninstall(application)"
                 ></app-install-button>
