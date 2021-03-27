@@ -83,4 +83,8 @@ export class ApplicationService {
     getApplicationListener(application: Application): Observable<ProcessInfo> {
         return this.processService.getProcessListener(application.id);
     }
+
+    async uninstall(application: Application): Promise<void> {
+        return this.processService.uninstallApplication(application);
+    }
 }

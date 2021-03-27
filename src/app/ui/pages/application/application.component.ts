@@ -84,9 +84,10 @@ export class ApplicationComponent implements OnInit, OnDestroy {
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     async uninstall(application?: Application): Promise<void> {
-        return Promise.resolve();
+        if (application) {
+            await this.applicationService.uninstall(application);
+        }
     }
 
     async syncApplicationStatus(application: Application): Promise<void> {
