@@ -3,6 +3,11 @@ import { TestBed } from '@angular/core/testing';
 import { ApplicationService } from './application.service';
 import { CoreService } from '../core/core.service';
 import { Application } from '../../model/application.model';
+import { ProcessService } from '../process/process.service';
+import { ApplicationStatus } from '../../model/application-status';
+import { of } from 'rxjs';
+import { ProcessInfo } from '../process/process-info';
+import { ProcessStatus } from '../process/process';
 
 describe('ApplicationService', () => {
     let service: ApplicationService;
@@ -11,11 +16,22 @@ describe('ApplicationService', () => {
         invoke: jest.fn(),
     };
 
-    const mockedApps: Application[] = [{ id: '1', name: 'Application' }];
+    const mockProcessService = {
+        installApplication: jest.fn(),
+        getApplicationStatus: jest.fn(),
+        getProcessListener: jest.fn(),
+        uninstallApplication: jest.fn(),
+    };
+
+    const mockApplication: Application = { id: '1', name: 'Application' };
+    const mockedApps: Application[] = [mockApplication];
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            providers: [{ provide: CoreService, useValue: mockCoreService }],
+            providers: [
+                { provide: CoreService, useValue: mockCoreService },
+                { provide: ProcessService, useValue: mockProcessService },
+            ],
         });
         service = TestBed.inject(ApplicationService);
     });
@@ -87,5 +103,52 @@ describe('ApplicationService', () => {
         });
 
         expect(result).toEqual(mockedApps);
+    });
+
+    it('should install application', async () => {
+        await service.install(mockApplication);
+
+        expect(mockProcessService.installApplication.mock.calls.length).toBe(1);
+        expect(mockProcessService.installApplication.mock.calls[0][0]).toEqual(
+            mockApplication,
+        );
+    });
+
+    it('should get application status', async () => {
+        const expectedStatus = Promise.resolve(ApplicationStatus.INSTALLED);
+        mockProcessService.getApplicationStatus.mockReturnValue(expectedStatus);
+        const status = await service.getApplicationStatus(mockApplication);
+
+        expect(status).toBe(ApplicationStatus.INSTALLED);
+        expect(mockProcessService.getApplicationStatus.mock.calls.length).toBe(
+            1,
+        );
+        expect(mockProcessService.getApplicationStatus.mock.calls[0][0]).toBe(
+            mockApplication,
+        );
+    });
+
+    it('should get application listener', (done) => {
+        const processInfo: ProcessInfo = {
+            applicationId: 'appId',
+            processStatus: ProcessStatus.IDLE,
+        };
+        mockProcessService.getProcessListener.mockReturnValue(of(processInfo));
+
+        service.getApplicationListener(mockApplication).subscribe((result) => {
+            expect(result).toEqual(processInfo);
+            done();
+        });
+    });
+
+    it('should uninstall application', async () => {
+        await service.uninstall(mockApplication);
+
+        expect(mockProcessService.uninstallApplication.mock.calls.length).toBe(
+            1,
+        );
+        expect(
+            mockProcessService.uninstallApplication.mock.calls[0][0],
+        ).toEqual(mockApplication);
     });
 });
