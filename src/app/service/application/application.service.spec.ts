@@ -141,7 +141,7 @@ describe('ApplicationService', () => {
         });
     });
 
-    it('should uninstall application', async () => {
+    it('should uninstall applications', async () => {
         await service.uninstall(mockApplication);
 
         expect(mockProcessService.uninstallApplication.mock.calls.length).toBe(
