@@ -3,13 +3,14 @@ import { Application } from '../../model/application.model';
 import * as PackageType from '../../../../core/model/PackageType';
 import { WindowRef } from '../../util/window-ref';
 import { Process } from './process';
-import { InstallSnap } from './install-snap.process';
+import { InstallSnap } from './snap/install-snap.process';
 import { ProcessQueue } from './ProcessQueue';
 import { ApplicationStatus } from '../../model/application-status';
 import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
 import { ProcessListeners } from './process-listeners';
 import { Observable, Subject } from 'rxjs';
 import { ProcessInfo } from './process-info';
+import { UninstallSnap } from './snap/uninstall-snap.process';
 
 @Injectable({
     providedIn: 'root',
@@ -127,5 +128,23 @@ export class ProcessService {
                 }
             });
         });
+    }
+
+    uninstallApplication(application: Application): Promise<void> {
+        switch (application.packageType) {
+            case PackageType.SNAP:
+                this.addProcess(
+                    new UninstallSnap(
+                        this.childProcess,
+                        application,
+                        (process) => this.onProcessFinished(process),
+                    ),
+                );
+                break;
+            default:
+                return Promise.reject('invalid package type');
+        }
+
+        return Promise.resolve();
     }
 }

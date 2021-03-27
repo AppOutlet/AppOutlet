@@ -1,7 +1,7 @@
-import { Process, ProcessStatus } from './process';
-import { Application } from '../../model/application.model';
-import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
-import { ProcessInfo } from './process-info';
+import { Process, ProcessStatus } from '../process';
+import { Application } from '../../../model/application.model';
+import { AppOutletChildProcess } from '../../../util/app-outlet-child-process';
+import { ProcessInfo } from '../process-info';
 
 export class InstallSnap extends Process {
     private processStatus = ProcessStatus.IDLE;
@@ -15,9 +15,8 @@ export class InstallSnap extends Process {
         this.isIndefinite = true;
     }
 
-    close(): void {
-        process?.abort();
-    }
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    close(): void {}
 
     start(): void {
         this.processStatus = ProcessStatus.RUNNING;
