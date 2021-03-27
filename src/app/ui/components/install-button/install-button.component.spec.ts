@@ -9,7 +9,11 @@ describe('InstallButtonComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [InstallButtonComponent],
-        }).compileComponents();
+        })
+            .overrideComponent(InstallButtonComponent, {
+                set: { template: '' },
+            })
+            .compileComponents();
     });
 
     beforeEach(() => {
