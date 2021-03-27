@@ -8,19 +8,19 @@
     shape="semi-round"
     [disabled]="!buttonEnabled"
     [status]="buttonStatus"
-    (click)="onClick()">
+    (click)="onClick()"
+>
     <nb-icon *ngIf="shouldShowButtonIcon" [icon]="buttonIcon"></nb-icon>
 
     {{ buttonText | translate }}
 </button>
 
 <nb-progress-bar
-    *ngIf="loading && (!isIndefinite)"
+    *ngIf="loading && !isIndefinite"
     class="progress-bar"
     [value]="installationPercentage"
     size="tiny"
     status="primary"
-    [displayValue]="true">
+    [displayValue]="true"
+>
 </nb-progress-bar>
-
-
