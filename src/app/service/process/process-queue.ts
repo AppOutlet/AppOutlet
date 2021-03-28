@@ -26,10 +26,6 @@ export class ProcessQueue {
         this.notifyQueueChanged();
     }
 
-    first(): Process {
-        return this.processQueue[0];
-    }
-
     private notifyQueueChanged(): void {
         const shouldStartNewProcess = this.processQueue.every(
             (process) => process.getProcessStatus() !== ProcessStatus.RUNNING,

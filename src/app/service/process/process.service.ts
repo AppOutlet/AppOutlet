@@ -4,7 +4,7 @@ import * as PackageType from '../../../../core/model/PackageType';
 import { WindowRef } from '../../util/window-ref';
 import { Process } from './process';
 import { InstallSnap } from './snap/install-snap.process';
-import { ProcessQueue } from './ProcessQueue';
+import { ProcessQueue } from './process-queue';
 import { ApplicationStatus } from '../../model/application-status';
 import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
 import { ProcessListeners } from './process-listeners';
