@@ -28,7 +28,7 @@ export class InstallButtonComponent implements OnChanges {
     loading = false;
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    ngOnChanges(changes: SimpleChanges): void {
+    ngOnChanges(changes?: SimpleChanges): void {
         this.updateButtonAppearance();
     }
 
