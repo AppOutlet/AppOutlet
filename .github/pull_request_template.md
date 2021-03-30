@@ -1,11 +1,3 @@
-## ✔️ Pull request checklist
-
-Please check if your PR fulfils the following requirements:
-
--   [ ] Relevant tests for the changes have been added (for bug fixes/features)
--   [ ] All new and existing tests passed
--   [ ] Your commit messages format follows the [Conventional commits guidelines](https://www.conventionalcommits.org/en/v1.0.0/#specification)
-
 ## Pull request type
 
 Please check the type of change your PR introduces:
