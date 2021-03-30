@@ -1,6 +1,8 @@
 import { Process, ProcessStatus } from './process';
 import { ProcessInfo } from './process-info';
+import { Injectable } from '@angular/core';
 
+@Injectable({ providedIn: 'root' })
 export class ProcessQueue {
     private processQueue: Process[] = [];
     private processQueueListener?: (process: Process) => void;
@@ -38,6 +40,7 @@ export class ProcessQueue {
 
             if (firstIdleProcess) {
                 this.processQueueListener?.(firstIdleProcess);
+                firstIdleProcess.start();
             }
         }
     }

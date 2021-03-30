@@ -18,18 +18,13 @@ import { UninstallSnap } from './snap/uninstall-snap.process';
 export class ProcessService {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private readonly childProcess: AppOutletChildProcess;
-    private readonly processQueue = new ProcessQueue();
     private processListeners: ProcessListeners = {};
 
-    constructor(windowRef: WindowRef) {
+    constructor(windowRef: WindowRef, private processQueue: ProcessQueue) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         // tslint:disable-next-line:no-string-literal
         this.childProcess = windowRef.nativeWindow['require']('child_process');
-
-        this.processQueue.setProcessQueueListener((process) =>
-            this.onNextProcess(process),
-        );
     }
 
     installApplication(application: Application): Promise<void> {
@@ -56,10 +51,6 @@ export class ProcessService {
     private addProcess(process: Process): void {
         this.processQueue.push(process);
         this.addProcessListenerIfNecessary(process.getApplicationId());
-    }
-
-    private onNextProcess(process: Process): void {
-        process.start();
     }
 
     private onProcessFinished(process: Process): void {
@@ -146,5 +137,9 @@ export class ProcessService {
         }
 
         return Promise.resolve();
+    }
+
+    getProcessListeners(): ProcessListeners {
+        return this.processListeners;
     }
 }
