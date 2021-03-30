@@ -13,6 +13,9 @@ describe('Process queue', () => {
     it('should start a process if theres only idle process', (done) => {
         const process: unknown = {
             getProcessStatus: (): ProcessStatus => ProcessStatus.IDLE,
+            start: (): void => {
+                /* no-op */
+            },
         };
 
         processQueue.setProcessQueueListener((result) => {
