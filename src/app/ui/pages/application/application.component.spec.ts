@@ -1,12 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ApplicationComponent } from './application.component';
-import { Subject } from 'rxjs';
+import { of, Subject } from 'rxjs';
 import { Application } from '../../../model/application.model';
 import { ActivatedRoute } from '@angular/router';
 import { ApplicationService } from '../../../service/application/application.service';
 import { Location } from '@angular/common';
 import { CoreService } from '../../../service/core/core.service';
+import { ApplicationStatus } from '../../../model/application-status';
+import { ProcessInfo } from '../../../service/process/process-info';
+import { ProcessStatus } from '../../../service/process/process';
 
 describe('ApplicationComponent', () => {
     let component: ApplicationComponent;
@@ -18,6 +21,10 @@ describe('ApplicationComponent', () => {
 
     const mockApplicationService = {
         findById: jest.fn(),
+        install: jest.fn(),
+        getApplicationStatus: jest.fn(),
+        uninstall: jest.fn(),
+        getApplicationListener: jest.fn(),
     };
 
     const mockLocation = {};
@@ -63,6 +70,16 @@ describe('ApplicationComponent', () => {
     });
 
     it('should load application when the parameters change', (done) => {
+        const processInfo: ProcessInfo = {
+            applicationId: 'appid',
+            processStatus: ProcessStatus.RUNNING,
+            completePercentage: 50,
+        };
+
+        mockApplicationService.getApplicationListener.mockReturnValue(
+            of(processInfo),
+        );
+
         mockApplicationService.findById.mockReturnValue(
             Promise.resolve(mockApplication),
         );
@@ -71,6 +88,8 @@ describe('ApplicationComponent', () => {
 
         setTimeout(() => {
             expect(component.application).toEqual(mockApplication);
+            expect(component.isIndefinite).toBeFalsy();
+            expect(component.installationPercentage).toBe(50);
             done();
         }, 0);
     });
@@ -124,6 +143,34 @@ describe('ApplicationComponent', () => {
         );
         expect(mockCoreService.openLinkOnBrowser.mock.calls[2][0]).toEqual(
             `${ApplicationComponent.APP_IMAGE_HUB_APPLICATION_BASE_URL}/${component.application?.name}`,
+        );
+    });
+
+    it('should install application', async () => {
+        mockApplicationService.install.mockReturnValue(Promise.resolve());
+        mockApplicationService.getApplicationStatus.mockReturnValue(
+            Promise.resolve(ApplicationStatus.NOT_INSTALLED),
+        );
+
+        await component.install(mockApplication);
+
+        expect(mockApplicationService.install.mock.calls[0][0]).toEqual(
+            mockApplication,
+        );
+        expect(component.applicationStatus).toBe(
+            ApplicationStatus.NOT_INSTALLED,
+        );
+    });
+
+    it('should uninstall applications', () => {
+        mockApplicationService.uninstall.mockReturnValue(Promise.resolve());
+
+        component.uninstall(undefined);
+        component.uninstall(mockApplication);
+
+        expect(mockApplicationService.uninstall.mock.calls.length).toBe(1);
+        expect(mockApplicationService.uninstall.mock.calls[0][0]).toEqual(
+            mockApplication,
         );
     });
 });
