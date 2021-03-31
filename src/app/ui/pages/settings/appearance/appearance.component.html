@@ -1,0 +1,20 @@
+<nb-card>
+    <nb-card-body>
+        <h5 class="settings-section-title">
+            🎨 {{ 'PAGES.SETTINGS.APPEARANCE.TITLE' | translate }}
+        </h5>
+        <div class="row">
+            <span class="col setting-name">Theme</span>
+            <nb-select
+                class="col"
+                [(selected)]="selectedTheme"
+                (selectedChange)="onThemeChange($event)"
+            >
+                <nb-option value="default">Default</nb-option>
+                <nb-option value="dark">Dark</nb-option>
+                <nb-option value="cosmic">Cosmic</nb-option>
+                <nb-option value="corporate">Corporate</nb-option>
+            </nb-select>
+        </div>
+    </nb-card-body>
+</nb-card>

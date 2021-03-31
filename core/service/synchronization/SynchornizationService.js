@@ -5,7 +5,7 @@ const appImageHubSynchronizer = require('./synchronizer/AppImageHubSynchronizer'
 const snapStoreSynchronizer = require('./synchronizer/SnapStoreSynchronizer');
 const settingsService = require('../settings/SettingsService');
 
-const DAY_IN_MILLIS = 1000 * 60 * 60 * 24;
+const DAY_IN_MILLIS = 1000 * 60 * 60 * 24 * 7;
 
 async function shouldSynchronize() {
     const now = new Date();

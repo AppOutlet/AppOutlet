@@ -43,4 +43,8 @@ export class ToolbarComponent implements OnInit {
     goBack(): void {
         this.location.back();
     }
+
+    async goToSettings(): Promise<void> {
+        await this.router.navigate(['settings']);
+    }
 }
