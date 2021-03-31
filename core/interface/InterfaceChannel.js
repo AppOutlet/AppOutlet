@@ -8,4 +8,8 @@ module.exports = {
         findByCategory: 'application.findByCategory',
         findById: 'application.findById',
     },
+    settings: {
+        getTheme: 'settings.getTheme',
+        setTheme: 'settings.setTheme',
+    },
 };

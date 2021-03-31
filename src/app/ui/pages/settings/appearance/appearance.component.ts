@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
+import { SettingsService } from '../../../../service/settings/settings.service';
 
 @Component({
     selector: 'app-appearance',
@@ -9,9 +10,14 @@ import { NbThemeService } from '@nebular/theme';
 export class AppearanceComponent {
     selectedTheme = 'default';
 
-    constructor(private themeService: NbThemeService) {}
+    constructor(
+        private themeService: NbThemeService,
+        private settingsService: SettingsService,
+    ) {}
 
     onThemeChange(selectedTheme: string): void {
-        this.themeService.changeTheme(selectedTheme);
+        this.settingsService.setTheme(selectedTheme).then(() => {
+            this.themeService.changeTheme(selectedTheme);
+        });
     }
 }
