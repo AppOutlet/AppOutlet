@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { ApplicationService } from '../../../service/application/application.service';
 import { Application } from '../../../model/application.model';
 import { map } from 'rxjs/operators';
-import { SearchParametersModel } from '../../../model/search-parameters.model';
+import { SearchParameters } from '../../../model/search-parameters.model';
 
 @Component({
     selector: 'app-search',
@@ -41,7 +41,7 @@ export class SearchComponent implements OnInit {
     }
 
     getApplications(currentPage: number): void {
-        const searchParameters: SearchParametersModel = {
+        const searchParameters: SearchParameters = {
             page: currentPage,
             searchTerm: this.searchTerm,
         };

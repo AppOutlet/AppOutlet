@@ -17,7 +17,17 @@ function setLastSynchronizationDate(date) {
     return settingsRepository.save(SettingsKeys.LAST_SYNC, date.toISOString());
 }
 
+function setTheme(theme) {
+    return settingsRepository.save(SettingsKeys.THEME, theme);
+}
+
+function getTheme() {
+    return settingsRepository.findByKey(SettingsKeys.THEME);
+}
+
 module.exports = {
     getLastSynchronizationDate,
     setLastSynchronizationDate,
+    getTheme,
+    setTheme,
 };

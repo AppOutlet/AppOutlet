@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Application } from '../../model/application.model';
 import { CoreService } from '../core/core.service';
 import * as Channel from '../../../../core/interface/InterfaceChannel';
-import { SearchParametersModel } from '../../model/search-parameters.model';
+import { SearchParameters } from '../../model/search-parameters.model';
 import { ProcessService } from '../process/process.service';
 import { ApplicationStatus } from '../../model/application-status';
 import { Observable } from 'rxjs';
@@ -30,7 +30,7 @@ export class ApplicationService {
     }
 
     findByCreationDate(
-        searchParameters: SearchParametersModel,
+        searchParameters: SearchParameters,
     ): Promise<Application[]> {
         return this.coreService.invoke<Application[]>(
             Channel.application.findByCreationDate,
@@ -39,7 +39,7 @@ export class ApplicationService {
     }
 
     findByLastReleaseDate(
-        searchParameters: SearchParametersModel,
+        searchParameters: SearchParameters,
     ): Promise<Application[]> {
         return this.coreService.invoke<Application[]>(
             Channel.application.findByLastReleaseDate,
@@ -47,9 +47,7 @@ export class ApplicationService {
         );
     }
 
-    findByCategory(
-        searchParameters: SearchParametersModel,
-    ): Promise<Application[]> {
+    findByCategory(searchParameters: SearchParameters): Promise<Application[]> {
         return this.coreService.invoke<Application[]>(
             Channel.application.findByCategory,
             searchParameters,
@@ -63,9 +61,7 @@ export class ApplicationService {
         );
     }
 
-    findByTerm(
-        searchParameters: SearchParametersModel,
-    ): Promise<Application[]> {
+    findByTerm(searchParameters: SearchParameters): Promise<Application[]> {
         return this.coreService.invoke<Application[]>(
             Channel.application.searchByTerm,
             searchParameters,
