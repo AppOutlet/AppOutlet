@@ -9,7 +9,9 @@ describe('SettingsComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
             declarations: [SettingsComponent],
-        }).compileComponents();
+        })
+            .overrideComponent(SettingsComponent, { set: { template: '' } })
+            .compileComponents();
     });
 
     beforeEach(() => {
