@@ -15,8 +15,8 @@ export class AppearanceComponent {
         private settingsService: SettingsService,
     ) {}
 
-    onThemeChange(selectedTheme: string): void {
-        this.settingsService.setTheme(selectedTheme).then(() => {
+    async onThemeChange(selectedTheme: string): Promise<void> {
+        return this.settingsService.setTheme(selectedTheme).then(() => {
             this.themeService.changeTheme(selectedTheme);
         });
     }
