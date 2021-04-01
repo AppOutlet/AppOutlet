@@ -6,9 +6,10 @@ import { SettingsService } from './service/settings/settings.service';
 import { NbThemeService } from '@nebular/theme';
 
 describe('AppComponent', () => {
+    let component: AppComponent;
     const mockTranslateService = {};
-    const mockSettingsService = {};
-    const mockThemeService = {};
+    const mockSettingsService = { getTheme: jest.fn() };
+    const mockThemeService = { changeTheme: jest.fn() };
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -24,7 +25,16 @@ describe('AppComponent', () => {
 
     it('should create the app', () => {
         const fixture = TestBed.createComponent(AppComponent);
-        const app = fixture.componentInstance;
-        expect(app).toBeTruthy();
+        component = fixture.componentInstance;
+        expect(component).toBeTruthy();
+    });
+
+    it('should setup theme at start', () => {
+        const currentTheme = 'cosmic';
+        mockSettingsService.getTheme.mockReturnValue(
+            Promise.resolve(currentTheme),
+        );
+
+        expect(mockThemeService.changeTheme.mock.calls.length).toBe(1);
     });
 });
