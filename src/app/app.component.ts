@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { SettingsService } from './service/settings/settings.service';
 import { NbThemeService } from '@nebular/theme';
+import { WindowRef } from './util/window-ref';
 
 @Component({
     selector: 'app-root',
@@ -13,6 +14,7 @@ export class AppComponent implements OnInit {
         private translateService: TranslateService,
         private settingsService: SettingsService,
         private themeService: NbThemeService,
+        private windowRef: WindowRef,
     ) {}
 
     ngOnInit(): void {
@@ -21,7 +23,9 @@ export class AppComponent implements OnInit {
     }
 
     private setupTranslation(): void {
-        this.translateService.use(navigator.language);
+        this.translateService.use(
+            this.windowRef.nativeWindow.navigator.language,
+        );
     }
 
     private async setupTheme(): Promise<void> {
