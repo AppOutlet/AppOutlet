@@ -9,7 +9,7 @@ describe('AppearanceComponent', () => {
     let fixture: ComponentFixture<AppearanceComponent>;
 
     const mockThemeService = { changeTheme: jest.fn() };
-    const mockSettingsService = { setTheme: jest.fn() };
+    const mockSettingsService = { setTheme: jest.fn(), getTheme: jest.fn() };
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -35,7 +35,22 @@ describe('AppearanceComponent', () => {
 
     // tslint:disable-next-line:quotemark
     it("should show 'default' as default theme", () => {
-        expect(component.selectedTheme).toEqual('default');
+        mockSettingsService.getTheme.mockReturnValue(Promise.resolve(null));
+        component.ngOnInit();
+        setTimeout(() => {
+            expect(component.selectedTheme).toEqual('default');
+        }, 0);
+    });
+
+    it('should show saved theme', () => {
+        const savedTheme = 'cosmic';
+        mockSettingsService.getTheme.mockReturnValue(
+            Promise.resolve(savedTheme),
+        );
+        component.ngOnInit();
+        setTimeout(() => {
+            expect(component.selectedTheme).toEqual(savedTheme);
+        }, 0);
     });
 
     it('should set theme when is successfully saved', async () => {
