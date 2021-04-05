@@ -11,6 +11,7 @@ import { ProcessListeners } from './process-listeners';
 import { Observable, Subject } from 'rxjs';
 import { ProcessInfo } from './process-info';
 import { UninstallSnap } from './snap/uninstall-snap.process';
+import { InstallFlatpak } from './flatpak/InstallFlatpak';
 
 @Injectable({
     providedIn: 'root',
@@ -33,6 +34,17 @@ export class ProcessService {
                 this.addProcess(
                     new InstallSnap(this.childProcess, application, (process) =>
                         this.onProcessFinished(process),
+                    ),
+                );
+                break;
+            case PackageType.FLATPAK:
+                this.addProcess(
+                    new InstallFlatpak(
+                        this.childProcess,
+                        application,
+                        (process) => {
+                            this.onProcessFinished(process);
+                        },
                     ),
                 );
                 break;
