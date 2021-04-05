@@ -25,6 +25,7 @@ function createWindow() {
         win.loadURL('http://localhost:4200');
     } else {
         win.loadFile(`${__dirname}/dist/app-outlet/index.html`);
+        win.setMenuBarVisibility(false);
     }
 }
 
