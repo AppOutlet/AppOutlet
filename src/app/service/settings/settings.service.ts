@@ -16,6 +16,6 @@ export class SettingsService {
     getTheme(): Promise<string> {
         return this.coreService
             .invoke<SettingModel>(Channel.settings.getTheme)
-            .then((themeEntity) => themeEntity.value);
+            .then((themeEntity) => themeEntity?.value);
     }
 }
