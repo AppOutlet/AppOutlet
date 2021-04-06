@@ -1,12 +1,14 @@
 import { Process } from '../process';
 import { AppOutletChildProcess } from '../../../util/app-outlet-child-process';
 import { Application } from '../../../model/application.model';
+import { ProcessInfo } from '../process-info';
 
 export class InstallFlatpak extends Process {
     constructor(
         childProcess: AppOutletChildProcess,
         application: Application,
         private onProcessFinishedCallback: (process: Process) => void,
+        private onUpdateProcessListener: (processInfo: ProcessInfo) => void,
     ) {
         super(childProcess, application);
         this.isIndefinite = true;
@@ -39,6 +41,8 @@ export class InstallFlatpak extends Process {
         const currentStepPercentage = installationPercent / steps.maxStep;
 
         this.completePercentage = base + currentStepPercentage;
+
+        this.onUpdateProcessListener(this.getProcessInfo());
     }
 
     private getNumberSteps(outputFragment: string[]): Steps {

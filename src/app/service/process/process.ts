@@ -11,7 +11,7 @@ export abstract class Process {
     protected stderr: string[] = [];
 
     isIndefinite = true;
-    completePercentage = 0;
+    completePercentage?: number;
 
     protected constructor(
         private childProcess: AppOutletChildProcess,
@@ -71,6 +71,7 @@ export abstract class Process {
         return {
             applicationId: this.getApplicationId(),
             processStatus: this.getProcessStatus(),
+            completePercentage: this.completePercentage,
         };
     }
 
