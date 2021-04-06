@@ -11,7 +11,7 @@ import { ProcessListeners } from './process-listeners';
 import { Observable, Subject } from 'rxjs';
 import { ProcessInfo } from './process-info';
 import { UninstallSnap } from './snap/uninstall-snap.process';
-import { InstallFlatpak } from './flatpak/InstallFlatpak';
+import { InstallFlatpak } from './flatpak/install-flatpak.process';
 
 @Injectable({
     providedIn: 'root',

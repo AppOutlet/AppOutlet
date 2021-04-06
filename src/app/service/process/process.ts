@@ -32,6 +32,7 @@ export abstract class Process {
             process.stdout.on('data', (data: Buffer) => {
                 const output = data.toString();
                 this.stdout.push(output);
+                this.onUpdate(output);
             });
 
             process.on('error', (data: Buffer) => {
@@ -71,6 +72,11 @@ export abstract class Process {
             applicationId: this.getApplicationId(),
             processStatus: this.getProcessStatus(),
         };
+    }
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    protected onUpdate(update: string): void {
+        /* no-op */
     }
 
     abstract onProcessFinished(process: Process): void;
