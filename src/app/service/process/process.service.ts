@@ -45,6 +45,7 @@ export class ProcessService {
                         (process) => {
                             this.onProcessFinished(process);
                         },
+                        (processInfo) => this.onUpdateProcess(processInfo),
                     ),
                 );
                 break;
@@ -58,6 +59,19 @@ export class ProcessService {
     getProcessListener(applicationId: string): Observable<ProcessInfo> {
         this.addProcessListenerIfNecessary(applicationId);
         return this.processListeners[applicationId];
+    }
+
+    private getProcessListenerSubject(
+        applicationId: string,
+    ): Subject<ProcessInfo> {
+        this.addProcessListenerIfNecessary(applicationId);
+        return this.processListeners[applicationId];
+    }
+
+    private onUpdateProcess(processInfo: ProcessInfo): void {
+        this.getProcessListenerSubject(processInfo.applicationId).next(
+            processInfo,
+        );
     }
 
     private addProcess(process: Process): void {
