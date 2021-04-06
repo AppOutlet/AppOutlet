@@ -118,9 +118,23 @@ export class ProcessService {
         switch (application.packageType) {
             case PackageType.SNAP:
                 return this.isSnapInstalled(application);
+            case PackageType.FLATPAK:
+                return this.isFlatpakInstalled(application);
             default:
                 return false;
         }
+    }
+
+    private isFlatpakInstalled(application: Application): Promise<boolean> {
+        return this.executeCommand(
+            `flatpak list | grep ${application.packageName}`,
+        )
+            .then((output: string) => {
+                return output.length > 0;
+            })
+            .catch(() => {
+                return false;
+            });
     }
 
     private isSnapInstalled(application: Application): Promise<boolean> {
