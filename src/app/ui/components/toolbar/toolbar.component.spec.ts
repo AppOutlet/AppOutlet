@@ -13,7 +13,7 @@ describe('ToolbarComponent', () => {
     const mockLocation = {
         back: jest.fn(),
     };
-    const mockRouter = { events: new Subject() };
+    const mockRouter = { events: new Subject(), navigate: jest.fn() };
     const mockSearchService = {
         onSearchSubmit: (): Observable<unknown> => of(''),
     };
@@ -37,6 +37,11 @@ describe('ToolbarComponent', () => {
         fixture.detectChanges();
     });
 
+    afterEach(() => {
+        jest.clearAllMocks();
+        mockRouter.events = new Subject();
+    });
+
     it('should create', () => {
         expect(component).toBeTruthy();
     });
@@ -54,5 +59,12 @@ describe('ToolbarComponent', () => {
         component.goBack();
 
         expect(mockLocation.back.mock.calls.length).toBe(1);
+    });
+
+    it('should go to settings', () => {
+        // TODO: improve this test
+        component.goToSettings();
+
+        expect(mockRouter.navigate.mock.calls[1][0]).toEqual(['settings']);
     });
 });
