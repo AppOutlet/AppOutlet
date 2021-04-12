@@ -40,7 +40,7 @@ export class InstallFlatpak extends Process {
             (steps.currentStep / steps.maxStep - 1 / steps.maxStep) * 100;
         const currentStepPercentage = installationPercent / steps.maxStep;
 
-        this.completePercentage = base + currentStepPercentage;
+        this.completePercentage = Math.round(base + currentStepPercentage);
 
         this.onUpdateProcessListener(this.getProcessInfo());
     }
