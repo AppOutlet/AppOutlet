@@ -26,6 +26,7 @@ export class InstallButtonComponent implements OnChanges {
     buttonEnabled = true;
     shouldShowButtonIcon = true;
     loading = false;
+    private wasInstalled = false;
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ngOnChanges(changes?: SimpleChanges): void {
@@ -41,6 +42,7 @@ export class InstallButtonComponent implements OnChanges {
                 this.buttonEnabled = true;
                 this.shouldShowButtonIcon = true;
                 this.loading = false;
+                this.wasInstalled = false;
                 break;
 
             case ApplicationStatus.INSTALLED:
@@ -50,10 +52,11 @@ export class InstallButtonComponent implements OnChanges {
                 this.buttonEnabled = true;
                 this.shouldShowButtonIcon = true;
                 this.loading = false;
+                this.wasInstalled = true;
                 break;
 
             case ApplicationStatus.INSTALLING:
-                this.buttonText = 'PAGES.APP_DETAIL.INSTALLING';
+                this.buttonText = this.getProcessingButtonText();
                 this.buttonStatus = 'basic';
                 this.buttonEnabled = false;
                 this.shouldShowButtonIcon = false;
@@ -63,6 +66,14 @@ export class InstallButtonComponent implements OnChanges {
             default:
                 this.buttonStatus = 'basic';
                 this.buttonText = '';
+        }
+    }
+
+    private getProcessingButtonText(): string {
+        if (this.wasInstalled) {
+            return 'PAGES.APP_DETAIL.UNINSTALLING';
+        } else {
+            return 'PAGES.APP_DETAIL.INSTALLING';
         }
     }
 
