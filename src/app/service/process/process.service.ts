@@ -12,6 +12,7 @@ import { Observable, Subject } from 'rxjs';
 import { ProcessInfo } from './process-info';
 import { UninstallSnap } from './snap/uninstall-snap.process';
 import { InstallFlatpak } from './flatpak/install-flatpak.process';
+import { UninstallFlatpak } from './flatpak/uninstall-flatpak.process.';
 
 @Injectable({
     providedIn: 'root',
@@ -166,6 +167,15 @@ export class ProcessService {
             case PackageType.SNAP:
                 this.addProcess(
                     new UninstallSnap(
+                        this.childProcess,
+                        application,
+                        (process) => this.onProcessFinished(process),
+                    ),
+                );
+                break;
+            case PackageType.FLATPAK:
+                this.addProcess(
+                    new UninstallFlatpak(
                         this.childProcess,
                         application,
                         (process) => this.onProcessFinished(process),
