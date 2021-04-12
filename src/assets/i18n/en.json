@@ -23,6 +23,7 @@
             "STORE_PAGE": "Store page",
             "UNINSTALL": "Uninstall",
             "INSTALLING": "Installing",
+            "UNINSTALLING": "Uninstalling",
             "DEVELOPED_BY": "Developed by {{developer}}"
         },
         "HOME": {

@@ -87,6 +87,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     async uninstall(application?: Application): Promise<void> {
         if (application) {
             await this.applicationService.uninstall(application);
+            this.syncApplicationStatus(application).then();
         }
     }
 
