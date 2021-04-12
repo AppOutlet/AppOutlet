@@ -6,24 +6,36 @@ import { Application } from '../../model/application.model';
 import * as PackageType from '../../../../core/model/PackageType';
 import { ProcessQueue } from './process-queue';
 import { InstallSnap } from './snap/install-snap.process';
+import { InstallFlatpak } from './flatpak/install-flatpak.process';
+import { ProcessInfo } from './process-info';
+import { ProcessStatus } from './process';
+import { ApplicationStatus } from '../../model/application-status';
+import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
 
 describe('ProcessService', () => {
     let service: ProcessService;
 
     const mockSnapApplication: Application = {
-        id: 'sample application',
+        id: 'sample snap application',
         name: 'sample applications',
         packageType: PackageType.SNAP,
     };
 
+    const mockFlatpakApplication: Application = {
+        id: 'sample flatpak application',
+        name: 'sample applications',
+        packageType: PackageType.FLATPAK,
+    };
+
     const mockWindowRef = {
         nativeWindow: {
-            require: (): undefined => undefined,
+            require: (): AppOutletChildProcess | undefined => undefined,
         },
     };
 
     const mockProcessQueue = {
         push: jest.fn(),
+        getProcessList: jest.fn(),
     };
 
     beforeEach(() => {
@@ -42,14 +54,22 @@ describe('ProcessService', () => {
 
     it('should install applications', async () => {
         await service.installApplication(mockSnapApplication);
+        await service.installApplication(mockFlatpakApplication);
 
-        expect(mockProcessQueue.push.mock.calls.length).toBe(1);
+        expect(mockProcessQueue.push.mock.calls.length).toBe(2);
         expect(
             mockProcessQueue.push.mock.calls[0][0] instanceof InstallSnap,
         ).toBeTruthy();
         expect(
             mockProcessQueue.push.mock.calls[0][0].getApplicationId(),
         ).toEqual(mockSnapApplication.id);
+
+        expect(
+            mockProcessQueue.push.mock.calls[1][0] instanceof InstallFlatpak,
+        ).toBeTruthy();
+        expect(
+            mockProcessQueue.push.mock.calls[1][0].getApplicationId(),
+        ).toEqual(mockFlatpakApplication.id);
 
         expect(
             service.getProcessListeners()[mockSnapApplication.id],
@@ -83,5 +103,19 @@ describe('ProcessService', () => {
         service.getProcessListener(applicationId);
 
         expect(Object.keys(service.getProcessListeners()).length).toBe(1);
+    });
+
+    it('should get application status | INSTALLING', async () => {
+        const processInfoList: ProcessInfo[] = [
+            {
+                applicationId: mockSnapApplication.id,
+                processStatus: ProcessStatus.RUNNING,
+            },
+        ];
+        mockProcessQueue.getProcessList.mockReturnValue(processInfoList);
+
+        const status = await service.getApplicationStatus(mockSnapApplication);
+
+        expect(status).toEqual(ApplicationStatus.INSTALLING);
     });
 });
