@@ -59,6 +59,18 @@ describe('InstallButtonComponent', () => {
         expect(component.loading).toBeTruthy();
     });
 
+    it('should setup button for application uninstalling status', () => {
+        component.applicationStatus = ApplicationStatus.INSTALLED;
+        component.ngOnChanges(undefined);
+        component.applicationStatus = ApplicationStatus.INSTALLING;
+        component.ngOnChanges(undefined);
+        expect(component.buttonStatus).toEqual('basic');
+        expect(component.buttonText).toEqual('PAGES.APP_DETAIL.UNINSTALLING');
+        expect(component.buttonEnabled).toBeFalsy();
+        expect(component.shouldShowButtonIcon).toBeFalsy();
+        expect(component.loading).toBeTruthy();
+    });
+
     it('should setup button for application invalid status', () => {
         component.applicationStatus = undefined;
         component.ngOnChanges(undefined);
