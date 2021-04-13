@@ -29,3 +29,5 @@ ipcMain?.handle(channels.application.findByCategory, (event, args) => {
 ipcMain?.handle(channels.application.findById, (event, args) => {
     return applicationService.findById(args[0]);
 });
+
+module.exports = { ipcMain };
