@@ -13,7 +13,7 @@ export class SettingsService {
         return this.coreService.invoke<void>(Channel.settings.setTheme, theme);
     }
 
-    getTheme(): Promise<string> {
+    getTheme(): Promise<string | undefined> {
         return this.coreService
             .invoke<SettingModel>(Channel.settings.getTheme)
             .then((themeEntity) => themeEntity?.value);
