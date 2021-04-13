@@ -11,6 +11,7 @@
         "!package.json",
         "!package-lock.json",
         "!src/",
+        "!screenshot/",
         "!e2e/",
         "!hooks/",
         "!angular.json",
