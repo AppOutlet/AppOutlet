@@ -34,18 +34,12 @@ npm run start
 ### Building the app
 #### To build for linux run:
 ```
-npm run electron:linux
+npm run build
 ```
 This command will create:
 - An AppImage file 
 - An .deb file
-- An .snap file
+- An .rpm file
+- An .tar.gz file
 - A folder `linux-unpacked` folder with the unpacked app
-
-
-***PPS: You can run/build for Windows or MacOS too. But the installing app features will not work***
-
-## Third part stuff:
-- Icon made by [martz90](https://www.deviantart.com/martz90) from [deviantart.com](https://www.deviantart.com/martz90/art/Light-Icons-Pack-379943080)
-- Initial project started using [angular-electron boilerplate](https://github.com/maximegris/angular-electron)
 
