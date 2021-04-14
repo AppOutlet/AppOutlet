@@ -7,6 +7,8 @@ import { ProcessService } from '../process/process.service';
 import { ApplicationStatus } from '../../model/application-status';
 import { Observable } from 'rxjs';
 import { ProcessInfo } from '../process/process-info';
+import * as PackageType from '../../../../core/model/PackageType';
+import { AppImageService } from '../appimage/app-image.service';
 
 @Injectable({
     providedIn: 'root',
@@ -15,6 +17,7 @@ export class ApplicationService {
     constructor(
         private coreService: CoreService,
         private processService: ProcessService,
+        private appImageService: AppImageService,
     ) {}
 
     getRecentlyAdded(): Promise<Application[]> {
@@ -55,10 +58,17 @@ export class ApplicationService {
     }
 
     findById(id: string): Promise<Application> {
-        return this.coreService.invoke<Application>(
-            Channel.application.findById,
-            id,
-        );
+        return this.coreService
+            .invoke<Application>(Channel.application.findById, id)
+            .then((application) => {
+                if (application.packageType === PackageType.APP_IMAGE) {
+                    return this.appImageService.getAppImageInformation(
+                        application,
+                    );
+                } else {
+                    return application;
+                }
+            });
     }
 
     findByTerm(searchParameters: SearchParameters): Promise<Application[]> {
