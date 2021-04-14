@@ -11,7 +11,7 @@ on:
       - main
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,14 @@ jobs:
         run: npm run lint
 
       - name: Test
-        run: npm run test
+        run: npm run test:coverage
+
+      - name: Upload code coverage report
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageLocations: coverage/lcov.info:lcov
 
       - name: Generage changelog
         run: npx standard-changelog -o CHANGELOG.txt
