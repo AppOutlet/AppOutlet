@@ -24,26 +24,12 @@
     "linux": {
         "icon": "dist/app-outlet/assets/icon",
         "category": "Utility",
-        "target": [
-            "AppImage",
-            "deb",
-            "rpm",
-            "tar.gz"
-        ]
+        "target": ["AppImage", "deb", "rpm", "tar.gz"]
     },
     "rpm": {
-        "depends": [
-            "libXtst6",
-            "wget",
-            "snapd",
-            "flatpak"
-        ]
+        "depends": ["libXtst6", "wget", "snapd", "flatpak"]
     },
     "deb": {
-        "depends": [
-            "wget",
-            "snapd",
-            "flatpak"
-        ]
+        "depends": ["wget", "snapd", "flatpak"]
     }
 }
