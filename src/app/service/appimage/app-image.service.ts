@@ -8,6 +8,8 @@ import { Release } from '../github/github-models';
     providedIn: 'root',
 })
 export class AppImageService {
+    private static readonly APP_IMAGE_EXTENSION = '.AppImage';
+
     constructor(private githubService: GithubService) {}
 
     getAppImageInformation(application: Application): Promise<Application> {
@@ -31,7 +33,25 @@ export class AppImageService {
     private mergeReleaseDataToApplication(
         releaseData: Release,
         application: Application,
-    ): Application {
-        return application;
+    ): Promise<Application> {
+        const downloadUrl = this.getDownloadUrl(releaseData);
+        if (!downloadUrl) {
+            return Promise.reject(
+                `Cannot get download url from ${application.name}`,
+            );
+        }
+
+        application.downloadUrl = downloadUrl;
+        application.version = releaseData.tag_name;
+
+        return Promise.resolve(application);
+    }
+
+    private getDownloadUrl(release: Release): string | undefined {
+        const appImageAsset = release.assets?.find((asset) =>
+            asset.name?.endsWith(AppImageService.APP_IMAGE_EXTENSION),
+        );
+
+        return appImageAsset?.browser_download_url;
     }
 }

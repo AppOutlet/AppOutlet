@@ -33,6 +33,10 @@ function findById(applicationId) {
     return applicationRepository.findById(applicationId);
 }
 
+function save(application) {
+    return applicationRepository.save(application);
+}
+
 module.exports = {
     getRecentlyAdded,
     getRecentlyUpdated,
@@ -41,4 +45,5 @@ module.exports = {
     findByLastReleaseDate,
     findByCategory,
     findById,
+    save,
 };

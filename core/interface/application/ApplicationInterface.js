@@ -30,4 +30,8 @@ ipcMain?.handle(channels.application.findById, (event, args) => {
     return applicationService.findById(args[0]);
 });
 
+ipcMain?.handle(channels.application.save, (event, args) => {
+    return applicationService.save(args[0]);
+});
+
 module.exports = { ipcMain };

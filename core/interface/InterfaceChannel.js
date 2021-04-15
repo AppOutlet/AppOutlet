@@ -7,6 +7,7 @@ module.exports = {
         findByLastReleaseDate: 'application.findByLastReleaseDate',
         findByCategory: 'application.findByCategory',
         findById: 'application.findById',
+        save: 'application.save',
     },
     settings: {
         getTheme: 'settings.getTheme',
