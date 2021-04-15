@@ -10,6 +10,13 @@ import { ProcessInfo } from '../process/process-info';
 import * as PackageType from '../../../../core/model/PackageType';
 import { AppImageService } from '../appimage/app-image.service';
 
+function shouldGetAppOutletInformation(application: Application): boolean {
+    return (
+        application.packageType === PackageType.APP_IMAGE &&
+        (application.downloadUrl === '' || application.downloadUrl == null)
+    );
+}
+
 @Injectable({
     providedIn: 'root',
 })
@@ -61,14 +68,20 @@ export class ApplicationService {
         return this.coreService
             .invoke<Application>(Channel.application.findById, id)
             .then((application) => {
-                if (application.packageType === PackageType.APP_IMAGE) {
-                    return this.appImageService.getAppImageInformation(
-                        application,
-                    );
+                if (shouldGetAppOutletInformation(application)) {
+                    return this.getAppImageInformation(application);
                 } else {
                     return application;
                 }
             });
+    }
+
+    private getAppImageInformation(
+        application: Application,
+    ): Promise<Application> {
+        return this.appImageService
+            .getAppImageInformation(application)
+            .then((app) => this.save(app));
     }
 
     findByTerm(searchParameters: SearchParameters): Promise<Application[]> {
@@ -92,5 +105,12 @@ export class ApplicationService {
 
     async uninstall(application: Application): Promise<void> {
         return this.processService.uninstallApplication(application);
+    }
+
+    save(application: Application): Promise<Application> {
+        return this.coreService.invoke<Application>(
+            Channel.application.save,
+            application,
+        );
     }
 }
