@@ -27,6 +27,7 @@
                     [installationPercentage]="installationPercentage"
                     (installClicked)="install(application)"
                     (uninstallClicked)="uninstall(application)"
+                    [packageType]="application?.packageType"
                 ></app-install-button>
             </div>
         </div>
