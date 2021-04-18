@@ -1,5 +1,5 @@
 const { from } = require('rxjs');
-const { mergeMap, toArray, map, groupBy } = require('rxjs/operators');
+const { mergeMap, toArray, map, groupBy, filter } = require('rxjs/operators');
 
 const snapStoreRepository = require('../../../repository/snapstore/SnapStoreRepository');
 const applicationRepository = require('../../../repository/application/ApplicationRepository');
@@ -50,6 +50,14 @@ function mergeGroup(group) {
     return result;
 }
 
+function filterApps(application) {
+    return (
+        application.icon !== undefined &&
+        application.icon !== null &&
+        application.icon !== ''
+    );
+}
+
 function startSynchronization() {
     return from(snapStoreRepository.getApps()).pipe(
         mergeMap(from),
@@ -57,6 +65,7 @@ function startSynchronization() {
         groupBy((app) => app.id),
         mergeMap((group) => group.pipe(toArray())),
         map(mergeGroup),
+        filter(filterApps),
         toArray(),
         mergeMap(applicationRepository.save),
     );
