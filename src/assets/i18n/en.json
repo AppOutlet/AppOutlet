@@ -24,7 +24,8 @@
             "UNINSTALL": "Uninstall",
             "INSTALLING": "Installing",
             "UNINSTALLING": "Uninstalling",
-            "DEVELOPED_BY": "Developed by {{developer}}"
+            "DEVELOPED_BY": "Developed by {{developer}}",
+            "DOWNLOAD": "Download"
         },
         "HOME": {
             "NEW_RELEASES": "New releases",

@@ -6,6 +6,7 @@ import {
     Output,
     SimpleChanges,
 } from '@angular/core';
+import * as PackageType from '../../../../../core/model/PackageType';
 import { ApplicationStatus } from '../../../model/application-status';
 
 @Component({
@@ -17,6 +18,7 @@ export class InstallButtonComponent implements OnChanges {
     @Input() applicationStatus?: ApplicationStatus;
     @Input() installationPercentage = 0;
     @Input() isIndefinite = true;
+    @Input() packageType?: string;
     @Output() installClicked = new EventEmitter<void>();
     @Output() uninstallClicked = new EventEmitter<void>();
 
@@ -37,7 +39,7 @@ export class InstallButtonComponent implements OnChanges {
         switch (this.applicationStatus) {
             case ApplicationStatus.NOT_INSTALLED:
                 this.buttonStatus = 'success';
-                this.buttonText = 'PAGES.APP_DETAIL.INSTALL';
+                this.buttonText = this.getInstallButtonText();
                 this.buttonIcon = 'download-outline';
                 this.buttonEnabled = true;
                 this.shouldShowButtonIcon = true;
@@ -66,6 +68,14 @@ export class InstallButtonComponent implements OnChanges {
             default:
                 this.buttonStatus = 'basic';
                 this.buttonText = '';
+        }
+    }
+
+    private getInstallButtonText(): string {
+        if (this.packageType === PackageType.APP_IMAGE) {
+            return 'PAGES.APP_DETAIL.DOWNLOAD';
+        } else {
+            return 'PAGES.APP_DETAIL.INSTALL';
         }
     }
 
