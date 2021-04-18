@@ -11,6 +11,7 @@ import { ProcessInfo } from './process-info';
 import { ProcessStatus } from './process';
 import { ApplicationStatus } from '../../model/application-status';
 import { AppOutletChildProcess } from '../../util/app-outlet-child-process';
+import { CoreService } from '../core/core.service';
 
 describe('ProcessService', () => {
     let service: ProcessService;
@@ -38,11 +39,14 @@ describe('ProcessService', () => {
         getProcessList: jest.fn(),
     };
 
+    const mockCoreService = {};
+
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
                 { provide: WindowRef, useValue: mockWindowRef },
                 { provide: ProcessQueue, useValue: mockProcessQueue },
+                { provide: CoreService, useValue: mockCoreService },
             ],
         });
         service = TestBed.inject(ProcessService);

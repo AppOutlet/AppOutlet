@@ -73,7 +73,7 @@ function getScreenshots({ screenshots }) {
 function mapToApplication(appImageHubApplication) {
     return new Application(
         getId(appImageHubApplication),
-        appImageHubApplication.name.replaceAll('_', ' '),
+        appImageHubApplication.name.replace(/_/g, ' '),
         appImageHubApplication.description,
         appImageHubApplication.description,
         getDeveloper(appImageHubApplication),
