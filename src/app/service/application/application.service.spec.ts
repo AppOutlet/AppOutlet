@@ -8,6 +8,7 @@ import { ApplicationStatus } from '../../model/application-status';
 import { of } from 'rxjs';
 import { ProcessInfo } from '../process/process-info';
 import { ProcessStatus } from '../process/process';
+import { AppImageService } from '../appimage/app-image.service';
 
 describe('ApplicationService', () => {
     let service: ApplicationService;
@@ -23,6 +24,8 @@ describe('ApplicationService', () => {
         uninstallApplication: jest.fn(),
     };
 
+    const mockAppImageService = {};
+
     const mockApplication: Application = { id: '1', name: 'Application' };
     const mockedApps: Application[] = [mockApplication];
 
@@ -31,6 +34,7 @@ describe('ApplicationService', () => {
             providers: [
                 { provide: CoreService, useValue: mockCoreService },
                 { provide: ProcessService, useValue: mockProcessService },
+                { provide: AppImageService, useValue: mockAppImageService },
             ],
         });
         service = TestBed.inject(ApplicationService);
