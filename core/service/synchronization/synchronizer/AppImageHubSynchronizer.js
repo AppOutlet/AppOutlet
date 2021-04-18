@@ -1,5 +1,5 @@
 const { from } = require('rxjs');
-const { mergeMap, map, toArray } = require('rxjs/operators');
+const { mergeMap, map, toArray, filter } = require('rxjs/operators');
 
 const Application = require('../../../model/Application');
 const ApplicationStores = require('../../../model/ApplicationStores');
@@ -73,7 +73,7 @@ function getScreenshots({ screenshots }) {
 function mapToApplication(appImageHubApplication) {
     return new Application(
         getId(appImageHubApplication),
-        appImageHubApplication.name,
+        appImageHubApplication.name.replaceAll('_', ' '),
         appImageHubApplication.description,
         appImageHubApplication.description,
         getDeveloper(appImageHubApplication),
@@ -95,10 +95,25 @@ function mapToApplication(appImageHubApplication) {
     );
 }
 
+function filterApps(application) {
+    return (
+        // Icon validation
+        application.icon !== undefined &&
+        application.icon !== null &&
+        application.icon !== '' &&
+        // Developer validation
+        application.developer !== undefined &&
+        application.developer !== null &&
+        application.developer !== '' &&
+        application.developer !== DEFAULT_AUTHOR_NAME
+    );
+}
+
 function startSynchronization() {
     return from(appImageHubRepository.getApps()).pipe(
         mergeMap(from),
         map(mapToApplication),
+        filter(filterApps),
         toArray(),
         mergeMap(applicationRepository.save),
     );
