@@ -13,6 +13,7 @@ import { ProcessInfo } from './process-info';
 import { UninstallSnap } from './snap/uninstall-snap.process';
 import { InstallFlatpak } from './flatpak/install-flatpak.process';
 import { UninstallFlatpak } from './flatpak/uninstall-flatpak.process.';
+import { CoreService } from '../core/core.service';
 
 @Injectable({
     providedIn: 'root',
@@ -22,7 +23,11 @@ export class ProcessService {
     private readonly childProcess: AppOutletChildProcess;
     private processListeners: ProcessListeners = {};
 
-    constructor(windowRef: WindowRef, private processQueue: ProcessQueue) {
+    constructor(
+        windowRef: WindowRef,
+        private processQueue: ProcessQueue,
+        private codeService: CoreService,
+    ) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         // tslint:disable-next-line:no-string-literal
@@ -50,6 +55,10 @@ export class ProcessService {
                     ),
                 );
                 break;
+            case PackageType.APP_IMAGE:
+                return this.codeService.openLinkOnBrowser(
+                    application.downloadUrl ?? '',
+                );
             default:
                 return Promise.reject('invalid package type');
         }
