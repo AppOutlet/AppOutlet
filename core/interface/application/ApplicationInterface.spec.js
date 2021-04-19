@@ -17,6 +17,7 @@ describe('application interface', () => {
         findByLastReleaseDate: jest.fn(),
         findByCategory: jest.fn(),
         findById: jest.fn(),
+        save: jest.fn(),
     };
 
     jest.mock('electron', () => {
@@ -114,6 +115,19 @@ describe('application interface', () => {
         expect(mockApplicationService.findById.mock.calls.length).toBe(1);
         expect(mockApplicationService.findById.mock.calls[0][0]).toBe(
             searchTerm,
+        );
+    });
+
+    it('should handle save request', () => {
+        const saveParameter = 'save parameter';
+        const callback = handleAux[channels.application.save];
+        expect(callback).toBeDefined();
+
+        callback(undefined, [saveParameter]);
+
+        expect(mockApplicationService.save.mock.calls.length).toBe(1);
+        expect(mockApplicationService.save.mock.calls[0][0]).toBe(
+            saveParameter,
         );
     });
 });
