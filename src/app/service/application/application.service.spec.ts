@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { ProcessInfo } from '../process/process-info';
 import { ProcessStatus } from '../process/process';
 import { AppImageService } from '../appimage/app-image.service';
+import * as PackageType from '../../../../core/model/PackageType';
 
 describe('ApplicationService', () => {
     let service: ApplicationService;
@@ -24,7 +25,9 @@ describe('ApplicationService', () => {
         uninstallApplication: jest.fn(),
     };
 
-    const mockAppImageService = {};
+    const mockAppImageService = {
+        getAppImageInformation: jest.fn(),
+    };
 
     const mockApplication: Application = { id: '1', name: 'Application' };
     const mockedApps: Application[] = [mockApplication];
@@ -154,5 +157,22 @@ describe('ApplicationService', () => {
         expect(
             mockProcessService.uninstallApplication.mock.calls[0][0],
         ).toEqual(mockApplication);
+    });
+
+    it('should get app image information', async () => {
+        const mockApp: Application = {
+            id: '1',
+            name: 'Application',
+            packageType: PackageType.APP_IMAGE,
+        };
+
+        mockCoreService.invoke.mockReturnValue(Promise.resolve(mockApp));
+        mockAppImageService.getAppImageInformation.mockReturnValue(
+            Promise.resolve(mockApp),
+        );
+
+        const result = await service.findById(mockApp.id);
+
+        expect(result).toEqual(mockApp);
     });
 });
