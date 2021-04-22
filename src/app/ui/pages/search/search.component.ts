@@ -14,6 +14,7 @@ export class SearchComponent implements OnInit {
     apps: Application[] = [];
     searchTerm?: string;
     loading = false;
+    numberOfPages = Number.MAX_SAFE_INTEGER;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -48,9 +49,12 @@ export class SearchComponent implements OnInit {
 
         this.loading = true;
 
-        this.applicationService.findByTerm(searchParameters).then((apps) => {
-            this.apps.push(...apps);
-            this.loading = false;
-        });
+        this.applicationService
+            .findByTerm(searchParameters)
+            .then((response) => {
+                this.numberOfPages = response.numberOfPages;
+                this.apps.push(...response.apps);
+                this.loading = false;
+            });
     }
 }

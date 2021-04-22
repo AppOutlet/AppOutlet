@@ -7,6 +7,10 @@ const HOME_SCREEN_SECTION_LIMIT = 6;
 const LISTING_SCREEN_PAGE_SIZE = 30;
 const LISTING_SCREEN_FIELDS = ['id', 'name', 'summary', 'icon', 'packageType'];
 
+function getNumberOfPages(count) {
+    return Math.ceil(count / LISTING_SCREEN_PAGE_SIZE);
+}
+
 function getRepository() {
     return connectionFactory.getRepository(ApplicationEntity);
 }
@@ -61,7 +65,14 @@ function searchByTerm(searchParameters) {
         ],
     };
 
-    return getRepository().then((repository) => repository.find(findOptions));
+    return getRepository()
+        .then((repository) => repository.findAndCount(findOptions))
+        .then(([apps, count]) => {
+            return {
+                apps: apps,
+                numberOfPages: getNumberOfPages(count),
+            };
+        });
 }
 
 function findByCreationDate(searchParameters) {

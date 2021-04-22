@@ -3,7 +3,9 @@ import {
     EventEmitter,
     HostListener,
     Input,
+    OnChanges,
     Output,
+    SimpleChanges,
 } from '@angular/core';
 import { CardDto } from '../card/card.dto';
 import { ScrollEvent } from './ScrollEvent';
@@ -14,12 +16,13 @@ import { WindowRef } from '../../../util/window-ref';
     templateUrl: './list.component.html',
     styleUrls: ['./list.component.scss'],
 })
-export class ListComponent {
+export class ListComponent implements OnChanges {
     private readonly SCROLL_THRESHOLD = 0.9;
 
     @Input() title = '';
     @Input() apps: CardDto[] = [];
     @Input() loading = false;
+    @Input() numberOfPages = Number.MAX_SAFE_INTEGER;
 
     @Output() applicationClicked = new EventEmitter<CardDto>();
     @Output() nextPageNeeded = new EventEmitter<number>();
@@ -39,9 +42,17 @@ export class ListComponent {
         const height = this.window.nativeWindow.innerHeight;
         const overflowRate = height / (scrollHeight - scrollTop);
 
-        if (overflowRate > this.SCROLL_THRESHOLD && !this.loading) {
+        if (this.shouldLoadNextPage(overflowRate)) {
             this.loadNext();
         }
+    }
+
+    private shouldLoadNextPage(overflowRate: number): boolean {
+        return (
+            overflowRate > this.SCROLL_THRESHOLD &&
+            !this.loading &&
+            this.currentPage < this.numberOfPages
+        );
     }
 
     onAppClicked(app: CardDto): void {
@@ -51,5 +62,11 @@ export class ListComponent {
     private loadNext(): void {
         this.currentPage++;
         this.nextPageNeeded.emit(this.currentPage);
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.apps.currentValue.length === 0) {
+            this.currentPage = 0;
+        }
     }
 }
