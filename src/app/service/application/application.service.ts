@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 import { ProcessInfo } from '../process/process-info';
 import * as PackageType from '../../../../core/model/PackageType';
 import { AppImageService } from '../appimage/app-image.service';
+import { ApplicationResponse } from '../../model/application-response.model';
 
 function shouldGetAppOutletInformation(application: Application): boolean {
     return (
@@ -84,8 +85,10 @@ export class ApplicationService {
             .then((app) => this.save(app));
     }
 
-    findByTerm(searchParameters: SearchParameters): Promise<Application[]> {
-        return this.coreService.invoke<Application[]>(
+    findByTerm(
+        searchParameters: SearchParameters,
+    ): Promise<ApplicationResponse> {
+        return this.coreService.invoke<ApplicationResponse>(
             Channel.application.searchByTerm,
             searchParameters,
         );
