@@ -3,4 +3,5 @@
     [loading]="isLoading"
     title="{{ 'PAGES.MAIN.CATEGORY.' + category.toUpperCase() | translate }}"
     (nextPageNeeded)="loadApps($event)"
+    [numberOfPages]="numberOfPages"
 ></app-list>
