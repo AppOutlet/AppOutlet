@@ -71,6 +71,7 @@ function searchByTerm(searchParameters) {
             return {
                 apps: apps,
                 numberOfPages: getNumberOfPages(count),
+                count: count,
             };
         });
 }

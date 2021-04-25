@@ -65,7 +65,7 @@ export class ListComponent implements OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes.apps.currentValue.length === 0) {
+        if (changes.apps?.currentValue.length === 0) {
             this.currentPage = 0;
         }
     }
