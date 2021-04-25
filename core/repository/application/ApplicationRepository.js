@@ -97,31 +97,27 @@ function findByLastReleaseDate(searchParameters) {
 }
 
 function findByTags(searchParameters) {
-    let where = '';
+    const whereOptions = [];
 
-    searchParameters.tags.forEach((tag, index) => {
-        where = `${where} a.tags LIKE '%${tag}%'`;
-        if (searchParameters.tags.length - 1 !== index) {
-            where = `${where} or`;
-        }
+    searchParameters.tags.forEach((tag) => {
+        whereOptions.push({ tags: ILike(`%${tag}%`) });
     });
 
-    const paginationSettings = getPaginationSettings(searchParameters.page);
+    const findOptions = {
+        select: LISTING_SCREEN_FIELDS,
+        ...getPaginationSettings(searchParameters.page),
+        where: whereOptions,
+    };
 
-    const query = `
-    SELECT
-        a.id,
-        a.name,
-        a.packageType,
-        a.summary,
-        a.icon
-    FROM
-        application a
-    WHERE ${where}
-    LIMIT ${paginationSettings.take} OFFSET ${paginationSettings.skip}
-    `;
-
-    return getRepository().then((repository) => repository.query(query));
+    return getRepository()
+        .then((repository) => repository.findAndCount(findOptions))
+        .then(([apps, count]) => {
+            return {
+                apps: apps,
+                numberOfPages: getNumberOfPages(count),
+                count: count,
+            };
+        });
 }
 
 module.exports = {

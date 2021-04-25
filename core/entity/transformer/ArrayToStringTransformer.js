@@ -1,4 +1,8 @@
 function to(values) {
+    if (typeof values === 'object') {
+        return values;
+    }
+
     return values ? values.join('|') : null;
 }
 

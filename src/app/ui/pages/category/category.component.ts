@@ -13,6 +13,7 @@ export class CategoryComponent implements OnInit {
     apps: Application[] = [];
     category = '';
     isLoading = false;
+    numberOfPages = Number.MAX_SAFE_INTEGER;
 
     constructor(
         private activatedRoute: ActivatedRoute,
@@ -43,13 +44,18 @@ export class CategoryComponent implements OnInit {
                 page,
                 category: this.category,
             })
-            .then((apps) => {
+            .then((applicationResponse) => {
                 if (shouldResetList) {
                     this.apps = [];
                 }
 
-                this.apps.push(...apps);
+                this.apps.push(...applicationResponse.apps);
                 this.isLoading = false;
+                this.numberOfPages = applicationResponse.numberOfPages;
+            })
+            .catch((err) => {
+                this.isLoading = false;
+                console.error(err);
             });
     }
 }
