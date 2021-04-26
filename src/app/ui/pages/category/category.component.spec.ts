@@ -5,15 +5,22 @@ import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { ApplicationService } from '../../../service/application/application.service';
 import { Application } from '../../../model/application.model';
+import { ApplicationResponse } from '../../../model/application-response.model';
 
 describe('CategoryComponent', () => {
     let component: CategoryComponent;
     let fixture: ComponentFixture<CategoryComponent>;
 
     const mockApps: Application[] = [{ id: '1', name: 'apps' }];
+    const mockAppResponse: ApplicationResponse = {
+        apps: mockApps,
+        count: mockApps.length,
+        numberOfPages: 1,
+    };
 
     const mockApplicationService = {
-        findByCategory: (): Promise<Application[]> => Promise.resolve(mockApps),
+        findByCategory: (): Promise<ApplicationResponse> =>
+            Promise.resolve(mockAppResponse),
     };
 
     const mockActivatedRoute = {

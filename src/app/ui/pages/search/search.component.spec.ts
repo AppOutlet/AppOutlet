@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { SearchComponent } from './search.component';
 import { ApplicationService } from '../../../service/application/application.service';
 import { Application } from '../../../model/application.model';
+import { ApplicationResponse } from '../../../model/application-response.model';
 
 describe('SearchComponent', () => {
     let component: SearchComponent;
@@ -19,6 +20,12 @@ describe('SearchComponent', () => {
     };
 
     const mockApps: Application[] = [{ id: '1', name: 'apps' }];
+
+    const mockAppResponse: ApplicationResponse = {
+        apps: mockApps,
+        numberOfPages: 1,
+        count: mockApps.length,
+    };
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -49,7 +56,7 @@ describe('SearchComponent', () => {
         const mockSearchTerm = 'Search term';
 
         mockApplicationService.findByTerm.mockReturnValue(
-            Promise.resolve(mockApps),
+            Promise.resolve(mockAppResponse),
         );
 
         mockActivatedRoute.paramMap.next({ get: () => mockSearchTerm });
