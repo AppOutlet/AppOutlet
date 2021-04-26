@@ -4,9 +4,17 @@ const { homedir } = require('os');
 const applicationEntity = require('../entity/ApplicationEntity');
 const settingsEntity = require('../entity/SettingsEntity');
 
+function getDatabaseFilePath() {
+    if (process.env.CI) {
+        return `release/app-outlet.db`;
+    } else {
+        return `${homedir()}/.config/app-outlet/database/app-outlet.db`;
+    }
+}
+
 const connection = typeOrm.createConnection({
     type: 'sqlite',
-    database: `${homedir()}/.config/app-outlet/database/app-outlet.db`,
+    database: getDatabaseFilePath(),
     synchronize: true,
     logging: true,
     entities: [applicationEntity, settingsEntity],
