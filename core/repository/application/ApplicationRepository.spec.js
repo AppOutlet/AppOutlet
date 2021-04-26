@@ -109,10 +109,12 @@ describe('Application repository', () => {
             searchTerm: 'G',
         });
 
-        expect(aApps.map((app) => app.id)).toEqual(apps.map((app) => app.id));
-        expect(bApps[0].id).toEqual(app1.id);
-        expect(cApps[0].id).toEqual(app1.id);
-        expect(gApps[0].id).toEqual(app3.id);
+        expect(aApps.apps.map((app) => app.id)).toEqual(
+            apps.map((app) => app.id),
+        );
+        expect(bApps.apps[0].id).toEqual(app1.id);
+        expect(cApps.apps[0].id).toEqual(app1.id);
+        expect(gApps.apps[0].id).toEqual(app3.id);
     });
 
     it('should find by creation date', (done) => {
@@ -195,15 +197,15 @@ describe('Application repository', () => {
             tags: ['audio', 'video'],
         });
 
-        expect(videoApps.map((app) => app.id)).toEqual(
+        expect(videoApps.apps.map((app) => app.id)).toEqual(
             [app1, app2].map((app) => app.id),
         );
 
-        expect(audioApps.map((app) => app.id)).toEqual(
+        expect(audioApps.apps.map((app) => app.id)).toEqual(
             [app2].map((app) => app.id),
         );
 
-        expect(allApps.map((app) => app.id)).toEqual(
+        expect(allApps.apps.map((app) => app.id)).toEqual(
             [app1, app2].map((app) => app.id),
         );
     });

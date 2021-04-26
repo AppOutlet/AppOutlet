@@ -1,9 +1,9 @@
 function to(values) {
-    if (typeof values === 'object') {
-        return values;
+    if (Array.isArray(values)) {
+        return values ? values.join('|') : null;
+    } else {
+        return values ?? null;
     }
-
-    return values ? values.join('|') : null;
 }
 
 function from(value) {
