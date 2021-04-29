@@ -14,10 +14,22 @@
                 }}</nb-card-header>
                 <nb-card-body>
                     <app-setup-item-card
+                        [status]="snapdStatus"
                         itemName="snapd"
                         installButtonText="{{
                             'PAGES.INITIAL_SETUP.INSTALL_SNAPD' | translate
                         }}"
+                        (installClicked)="installSnapd()"
+                        (tryAgainClicked)="installSnapd()"
+                    ></app-setup-item-card>
+                    <app-setup-item-card
+                        [status]="flatpakStatus"
+                        itemName="flatpak"
+                        installButtonText="{{
+                            'PAGES.INITIAL_SETUP.INSTALL_FLATPAK' | translate
+                        }}"
+                        (installClicked)="installFlatpak()"
+                        (tryAgainClicked)="installFlatpak()"
                     ></app-setup-item-card>
                 </nb-card-body>
                 <nb-card-footer>

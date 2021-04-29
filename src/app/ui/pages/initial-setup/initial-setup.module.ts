@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NbButtonModule, NbCardModule, NbLayoutModule } from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 import { SetupItemCardModule } from '../../components/setup-item-card/setup-item-card.module';
+import { SetupService } from '../../../service/setup/setup.service';
 
 const routes: Routes = [{ path: '', component: InitialSetupComponent }];
 
@@ -19,5 +20,6 @@ const routes: Routes = [{ path: '', component: InitialSetupComponent }];
         NbButtonModule,
         SetupItemCardModule,
     ],
+    providers: [SetupService],
 })
 export class InitialSetupModule {}

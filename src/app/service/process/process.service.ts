@@ -159,7 +159,7 @@ export class ProcessService {
             });
     }
 
-    private executeCommand(command: string): Promise<string> {
+    executeCommand(command: string): Promise<string> {
         return new Promise((resolve, reject) => {
             this.childProcess.exec(command, (error, stdout, stderr) => {
                 if (error || stderr) {
