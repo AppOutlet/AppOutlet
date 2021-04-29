@@ -11,6 +11,12 @@
         "SNAP": "Snap"
     },
     "PAGES": {
+        "INITIAL_SETUP": {
+            "GREETINGS": "Welcome to App Outlet",
+            "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
+            "INSTALL_SNAPD": "Install snapd",
+            "INSTALLING": "Installing"
+        },
         "APP_DETAIL": {
             "ACTIONS": "Actions",
             "DONATE": "Donate",

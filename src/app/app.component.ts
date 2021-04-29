@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 
     private openInitialSetupIfNecessary(): void {
         this.settingsService.getLastSynchronizationDate().then((date) => {
-            if (!date) {
+            if (date) {
                 return this.goToInitialSetup();
             }
         });

@@ -1,1 +1,31 @@
-<p>initial-setup works!</p>
+<nb-layout>
+    <nb-layout-column class="container">
+        <div>
+            <img src="favicon.ico" class="logo" alt="logo"/>
+            <h4 class="greetings">
+                {{ 'PAGES.INITIAL_SETUP.GREETINGS' | translate }}
+            </h4>
+        </div>
+
+        <div class="card">
+            <nb-card>
+                <nb-card-header>{{
+                    'PAGES.INITIAL_SETUP.CHECKING_REQUIREMENTS' | translate
+                }}</nb-card-header>
+                <nb-card-body>
+                    <app-setup-item-card
+                        itemName="snapd"
+                        installButtonText="{{
+                            'PAGES.INITIAL_SETUP.INSTALL_SNAPD' | translate
+                        }}"
+                    ></app-setup-item-card>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button nbButton hero status="primary">
+                        Proceed anyway
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+    </nb-layout-column>
+</nb-layout>

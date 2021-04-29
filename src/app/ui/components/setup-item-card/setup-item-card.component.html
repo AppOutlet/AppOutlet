@@ -1,0 +1,32 @@
+<nb-card [nbSpinner]="status === 'loading' || status === 'installing'">
+    <nb-card-body>
+        <div class="d-flex justify-content-between">
+            <div>
+                <span *ngIf="status === 'installing'" class="item-name">{{
+                    'PAGES.INITIAL_SETUP.INSTALLING' | translate
+                }}</span>
+                <span class="item-name">{{ itemName }}</span>
+            </div>
+            <div>
+                <button
+                    nbButton
+                    hero
+                    status="primary"
+                    size="small"
+                    *ngIf="status === 'not_installed'"
+                >
+                    {{ installButtonText }}
+                </button>
+                <button
+                    nbButton
+                    hero
+                    status="danger"
+                    size="small"
+                    *ngIf="status === 'error'"
+                >
+                    {{ tryAgainButtonText || 'GENERAL.TRY_AGAIN' | translate }}
+                </button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
