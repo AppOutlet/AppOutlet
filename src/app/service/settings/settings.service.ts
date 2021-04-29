@@ -18,4 +18,10 @@ export class SettingsService {
             .invoke<SettingModel>(Channel.settings.getTheme)
             .then((themeEntity) => themeEntity?.value);
     }
+
+    getLastSynchronizationDate(): Promise<Date | undefined> {
+        return this.coreService.invoke<Date>(
+            Channel.settings.getLastSynchronizationDate,
+        );
+    }
 }
