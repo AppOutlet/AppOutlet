@@ -13,11 +13,17 @@ export class SetupService {
         return this.processService.executeCommand('pkexec apt install snapd');
     }
 
-    checkIfSnapdIsIntalled(): void {
-        this.processService.executeCommand('pkexec apt install snapd');
+    checkIfSnapdIsInstalled(): Promise<void> {
+        return this.processService.executeCommand('snap version').then(() => {
+            return;
+        });
     }
 
-    checkIfFlatpakIsIntalled(): void {
-        this.processService.executeCommand('pkexec apt install snapd');
+    checkIfFlatpakIsInstalled(): Promise<void> {
+        return this.processService
+            .executeCommand('flatpak --version')
+            .then(() => {
+                return;
+            });
     }
 }

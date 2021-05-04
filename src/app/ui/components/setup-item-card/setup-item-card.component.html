@@ -3,6 +3,7 @@
         <div class="d-flex justify-content-between">
             <span class="item-name">{{ itemName }}</span>
             <div>
+                <nb-icon *ngIf="status === 'installed'" icon="checkmark-circle-2-outline" status="success" size="large"></nb-icon>
                 <button
                     nbButton
                     hero

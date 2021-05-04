@@ -18,16 +18,32 @@ export class InitialSetupComponent implements OnInit {
     }
 
     private checkSetup(): void {
-        this.checkIfFlatpakIsIntalled();
-        this.checkIfSnapdIsIntalled();
+        this.checkIfFlatpakIsInstalled();
+        this.checkIfSnapdIsInstalled();
     }
 
-    private checkIfSnapdIsIntalled(): void {
-        this.setupService.checkIfSnapdIsIntalled();
+    private checkIfSnapdIsInstalled(): void {
+        this.snapdStatus = CardStatus.LOADING;
+        this.setupService
+            .checkIfSnapdIsInstalled()
+            .then(() => {
+                this.snapdStatus = CardStatus.INSTALLED;
+            })
+            .catch(() => {
+                this.snapdStatus = CardStatus.NOT_INSTALLED;
+            });
     }
 
-    private checkIfFlatpakIsIntalled(): void {
-        this.setupService.checkIfFlatpakIsIntalled();
+    private checkIfFlatpakIsInstalled(): void {
+        this.flatpakStatus = CardStatus.LOADING;
+        this.setupService
+            .checkIfFlatpakIsInstalled()
+            .then(() => {
+                this.flatpakStatus = CardStatus.INSTALLED;
+            })
+            .catch(() => {
+                this.flatpakStatus = CardStatus.NOT_INSTALLED;
+            });
     }
 
     installSnapd(): void {
