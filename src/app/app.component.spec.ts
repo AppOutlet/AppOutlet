@@ -5,11 +5,18 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { SettingsService } from './service/settings/settings.service';
 import { NbThemeService } from '@nebular/theme';
 import { WindowRef } from './util/window-ref';
+import { Router } from '@angular/router';
 
 describe('AppComponent', () => {
     let component: AppComponent;
     const mockTranslateService = { use: jest.fn() };
-    const mockSettingsService = { getTheme: jest.fn() };
+    const mockSettingsService = {
+        getTheme: jest.fn(),
+        getLastSynchronizationDate: jest.fn(),
+    };
+    mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+        Promise.resolve(new Date()),
+    );
     const mockThemeService = { changeTheme: jest.fn() };
     const mockWindowRef = {
         nativeWindow: {
@@ -17,6 +24,9 @@ describe('AppComponent', () => {
                 language: 'pt-BR',
             },
         },
+    };
+    const mockRouter = {
+        navigate: jest.fn(),
     };
 
     beforeEach(async () => {
@@ -27,6 +37,7 @@ describe('AppComponent', () => {
                 { provide: SettingsService, useValue: mockSettingsService },
                 { provide: NbThemeService, useValue: mockThemeService },
                 { provide: WindowRef, useValue: mockWindowRef },
+                { provide: Router, useValue: mockRouter },
             ],
             declarations: [AppComponent],
         }).compileComponents();
@@ -82,5 +93,20 @@ describe('AppComponent', () => {
     it('should setup language at start', () => {
         expect(mockTranslateService.use.mock.calls.length).toBe(1);
         expect(mockTranslateService.use.mock.calls[0][0]).toEqual('pt-BR');
+    });
+
+    it('should open initial setup component if there is not last sychronization date', (done) => {
+        mockSettingsService.getLastSynchronizationDate.mockReturnValue(
+            Promise.resolve(null),
+        );
+
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
+
+        component.ngOnInit();
+
+        setTimeout(() => {
+            expect(mockRouter.navigate.mock.calls[0][0]).toEqual(['setup']);
+            done();
+        }, 0);
     });
 });
