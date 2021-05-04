@@ -10,6 +10,7 @@
                     status="primary"
                     size="small"
                     *ngIf="status === 'not_installed'"
+                    (click)="onInstallClicked()"
                 >
                     {{ installButtonText }}
                 </button>
@@ -19,6 +20,7 @@
                     status="danger"
                     size="small"
                     *ngIf="status === 'error'"
+                    (click)="onInstallClicked()"
                 >
                     {{ tryAgainButtonText || 'GENERAL.TRY_AGAIN' | translate }}
                 </button>

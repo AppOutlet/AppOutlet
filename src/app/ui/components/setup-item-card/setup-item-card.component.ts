@@ -12,13 +12,8 @@ export class SetupItemCardComponent {
     @Input() tryAgainButtonText?: string;
     @Input() status = CardStatus.LOADING;
     @Output() installClicked = new EventEmitter<void>();
-    @Output() tryAgainClicked = new EventEmitter<void>();
 
     onInstallClicked(): void {
         this.installClicked.emit();
-    }
-
-    onTryAgainClicked(): void {
-        this.tryAgainClicked.emit();
     }
 }

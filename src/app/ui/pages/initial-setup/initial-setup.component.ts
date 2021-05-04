@@ -47,10 +47,28 @@ export class InitialSetupComponent implements OnInit {
     }
 
     installSnapd(): void {
-        this.setupService.installSnapd().then();
+        this.snapdStatus = CardStatus.INSTALLING;
+        this.setupService
+            .installSnapd()
+            .then((result) => {
+                console.log(result);
+                this.snapdStatus = CardStatus.INSTALLED;
+            })
+            .catch((err) => {
+                console.error(err);
+                this.snapdStatus = CardStatus.ERROR;
+            });
     }
 
     installFlatpak(): void {
-        this.setupService.installFlatpak().then();
+        this.flatpakStatus = CardStatus.INSTALLING;
+        this.setupService
+            .installFlatpak()
+            .then(() => {
+                this.flatpakStatus = CardStatus.INSTALLED;
+            })
+            .catch(() => {
+                this.flatpakStatus = CardStatus.ERROR;
+            });
     }
 }

@@ -20,7 +20,6 @@
                             'PAGES.INITIAL_SETUP.INSTALL_SNAPD' | translate
                         }}"
                         (installClicked)="installSnapd()"
-                        (tryAgainClicked)="installSnapd()"
                     ></app-setup-item-card>
                     <app-setup-item-card
                         [status]="flatpakStatus"
@@ -29,7 +28,6 @@
                             'PAGES.INITIAL_SETUP.INSTALL_FLATPAK' | translate
                         }}"
                         (installClicked)="installFlatpak()"
-                        (tryAgainClicked)="installFlatpak()"
                     ></app-setup-item-card>
                 </nb-card-body>
                 <nb-card-footer>

@@ -6,24 +6,20 @@ export class SetupService {
     constructor(private processService: ProcessService) {}
 
     installSnapd(): Promise<string> {
-        return this.processService.executeCommand('pkexec apt install snapd');
+        return this.processService.executeCommand(
+            'pkexec apt-get install snapd -y',
+        );
     }
 
     installFlatpak(): Promise<string> {
-        return this.processService.executeCommand('pkexec apt install snapd');
+        return this.processService.executeCommand('pkexec apt install flatpak');
     }
 
-    checkIfSnapdIsInstalled(): Promise<void> {
-        return this.processService.executeCommand('snap version').then(() => {
-            return;
-        });
+    checkIfSnapdIsInstalled(): Promise<string> {
+        return this.processService.executeCommand('snap version');
     }
 
-    checkIfFlatpakIsInstalled(): Promise<void> {
-        return this.processService
-            .executeCommand('flatpak --version')
-            .then(() => {
-                return;
-            });
+    checkIfFlatpakIsInstalled(): Promise<string> {
+        return this.processService.executeCommand('flatpak --version');
     }
 }
