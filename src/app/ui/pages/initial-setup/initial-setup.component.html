@@ -11,7 +11,7 @@
             <nb-card>
                 <nb-card-header>{{
                     'PAGES.INITIAL_SETUP.CHECKING_REQUIREMENTS' | translate
-                }}</nb-card-header>
+                    }}</nb-card-header>
                 <nb-card-body>
                     <app-setup-item-card
                         [status]="snapdStatus"
@@ -31,8 +31,10 @@
                     ></app-setup-item-card>
                 </nb-card-body>
                 <nb-card-footer>
-                    <button nbButton hero status="primary">
-                        Proceed anyway
+                    <button nbButton hero
+                            (click)="goToMain()"
+                            [status]="flatpakStatus == 'installed' && snapdStatus == 'installed' ? 'success' : 'basic'">
+                        {{ 'PAGES.INITIAL_SETUP.TAKE_ME_TO_THE_APP'  | translate }}
                     </button>
                 </nb-card-footer>
             </nb-card>

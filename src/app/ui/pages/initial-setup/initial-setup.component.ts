@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CardStatus } from '../../components/setup-item-card/card-status';
 import { SetupService } from '../../../service/setup/setup.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-initial-setup',
@@ -12,7 +13,7 @@ export class InitialSetupComponent implements OnInit {
     snapdStatus = CardStatus.NOT_INSTALLED;
     flatpakStatus = CardStatus.NOT_INSTALLED;
 
-    constructor(private setupService: SetupService) {}
+    constructor(private setupService: SetupService, private router: Router) {}
 
     ngOnInit(): void {
         this.checkSetup();
@@ -74,5 +75,9 @@ export class InitialSetupComponent implements OnInit {
                 console.error(err);
                 this.flatpakStatus = CardStatus.ERROR;
             });
+    }
+
+    goToMain(): void {
+        this.router.navigate(['']).then();
     }
 }

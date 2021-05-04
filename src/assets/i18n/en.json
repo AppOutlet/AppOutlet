@@ -15,7 +15,9 @@
             "GREETINGS": "Welcome to App Outlet",
             "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
             "INSTALL_SNAPD": "Install snapd",
-            "INSTALL_FLATPAK": "Install flatpak"
+            "INSTALL_FLATPAK": "Install flatpak",
+            "TAKE_ME_TO_THE_APP": "Take me to the app!",
+            "PROCEED_ANYWAY": "Proceed anyway"
         },
         "APP_DETAIL": {
             "ACTIONS": "Actions",
