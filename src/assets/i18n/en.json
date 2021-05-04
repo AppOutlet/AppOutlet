@@ -17,7 +17,10 @@
             "INSTALL_SNAPD": "Install snapd",
             "INSTALL_FLATPAK": "Install flatpak",
             "TAKE_ME_TO_THE_APP": "Take me to the app!",
-            "PROCEED_ANYWAY": "Proceed anyway"
+            "PROCEED_ANYWAY": "Proceed anyway",
+            "RESTART_MODAL_TEXT": "The flapak and flathub was installed and you problably needs to restart your computet to finish the flatpak setup",
+            "RESTART_NOW": "Restart now",
+            "DO_IT_LATER": "Do it later"
         },
         "APP_DETAIL": {
             "ACTIONS": "Actions",

@@ -24,4 +24,8 @@ export class SetupService {
     checkIfFlatpakIsInstalled(): Promise<string> {
         return this.processService.executeCommand('flatpak --version');
     }
+
+    restart(): Promise<string> {
+        return this.processService.executeCommand('reboot');
+    }
 }

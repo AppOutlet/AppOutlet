@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CardStatus } from '../../components/setup-item-card/card-status';
 import { SetupService } from '../../../service/setup/setup.service';
 import { Router } from '@angular/router';
+import { NbDialogService } from '@nebular/theme';
+import { FlatpakInstalledComponent } from './flatpak-installed/flatpak-installed.component';
 
 @Component({
     selector: 'app-initial-setup',
@@ -13,7 +15,11 @@ export class InitialSetupComponent implements OnInit {
     snapdStatus = CardStatus.NOT_INSTALLED;
     flatpakStatus = CardStatus.NOT_INSTALLED;
 
-    constructor(private setupService: SetupService, private router: Router) {}
+    constructor(
+        private setupService: SetupService,
+        private router: Router,
+        private dialogService: NbDialogService,
+    ) {}
 
     ngOnInit(): void {
         this.checkSetup();
@@ -70,6 +76,7 @@ export class InitialSetupComponent implements OnInit {
                 console.log(result);
                 this.flatpakStatus = CardStatus.INSTALLED;
                 this.wasFlatpakInstalled = true;
+                this.openRestartModal();
             })
             .catch((err) => {
                 console.error(err);
@@ -79,5 +86,9 @@ export class InitialSetupComponent implements OnInit {
 
     goToMain(): void {
         this.router.navigate(['']).then();
+    }
+
+    openRestartModal(): void {
+        this.dialogService.open(FlatpakInstalledComponent);
     }
 }
