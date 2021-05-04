@@ -12,7 +12,9 @@ export class SetupService {
     }
 
     installFlatpak(): Promise<string> {
-        return this.processService.executeCommand('pkexec apt install flatpak');
+        return this.processService.executeCommand(
+            'pkexec apt-get install flatpak -y && flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo',
+        );
     }
 
     checkIfSnapdIsInstalled(): Promise<string> {

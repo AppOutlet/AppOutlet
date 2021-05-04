@@ -8,6 +8,7 @@ import { SetupService } from '../../../service/setup/setup.service';
     styleUrls: ['./initial-setup.component.scss'],
 })
 export class InitialSetupComponent implements OnInit {
+    private wasFlatpakInstalled = false;
     snapdStatus = CardStatus.NOT_INSTALLED;
     flatpakStatus = CardStatus.NOT_INSTALLED;
 
@@ -64,10 +65,13 @@ export class InitialSetupComponent implements OnInit {
         this.flatpakStatus = CardStatus.INSTALLING;
         this.setupService
             .installFlatpak()
-            .then(() => {
+            .then((result) => {
+                console.log(result);
                 this.flatpakStatus = CardStatus.INSTALLED;
+                this.wasFlatpakInstalled = true;
             })
-            .catch(() => {
+            .catch((err) => {
+                console.error(err);
                 this.flatpakStatus = CardStatus.ERROR;
             });
     }
