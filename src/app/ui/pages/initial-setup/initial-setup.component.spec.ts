@@ -1,5 +1,6 @@
 import { InitialSetupComponent } from './initial-setup.component';
 import { CardStatus } from '../../components/setup-item-card/card-status';
+import { of } from 'rxjs';
 
 describe('InitialSetupComponent', () => {
     let component: InitialSetupComponent;
@@ -10,8 +11,14 @@ describe('InitialSetupComponent', () => {
         installSnapd: jest.fn(),
         installFlatpak: jest.fn(),
     };
-    const mockRouter = {};
-    const mockDialogService = {};
+
+    const mockRouter = {
+        navigate: jest.fn(),
+    };
+
+    const mockDialogService = {
+        open: jest.fn(),
+    };
 
     beforeEach(() => {
         component = new InitialSetupComponent(
@@ -21,6 +28,10 @@ describe('InitialSetupComponent', () => {
             mockRouter,
             mockDialogService,
         );
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     it('should create', () => {
@@ -123,5 +134,53 @@ describe('InitialSetupComponent', () => {
             expect(component.flatpakStatus).toEqual(CardStatus.ERROR);
             done();
         }, 0);
+    });
+
+    it('should go to main', () => {
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
+
+        component.snapdStatus = CardStatus.INSTALLED;
+        component.flatpakStatus = CardStatus.INSTALLED;
+
+        component.goToMain();
+
+        expect(mockRouter.navigate.mock.calls.length).toBe(1);
+    });
+
+    it('should go to main | force', () => {
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
+
+        component.snapdStatus = CardStatus.NOT_INSTALLED;
+        component.flatpakStatus = CardStatus.ERROR;
+
+        component.goToMain(true);
+
+        expect(mockRouter.navigate.mock.calls.length).toBe(1);
+    });
+
+    it('should go to main | open modal | proceed anyway', () => {
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
+        mockDialogService.open.mockReturnValue({ onClose: of(true) });
+
+        component.snapdStatus = CardStatus.NOT_INSTALLED;
+        component.flatpakStatus = CardStatus.ERROR;
+
+        component.goToMain();
+
+        expect(mockRouter.navigate.mock.calls.length).toBe(1);
+        expect(mockDialogService.open.mock.calls.length).toBe(1);
+    });
+
+    it('should go to main | open modal | dismiss', () => {
+        mockRouter.navigate.mockReturnValue(Promise.resolve());
+        mockDialogService.open.mockReturnValue({ onClose: of(false) });
+
+        component.snapdStatus = CardStatus.NOT_INSTALLED;
+        component.flatpakStatus = CardStatus.ERROR;
+
+        component.goToMain();
+
+        expect(mockRouter.navigate.mock.calls.length).toBe(0);
+        expect(mockDialogService.open.mock.calls.length).toBe(1);
     });
 });
