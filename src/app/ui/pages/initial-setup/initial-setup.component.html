@@ -1,0 +1,53 @@
+<nb-layout>
+    <nb-layout-column class="container">
+        <div>
+            <img src="favicon.ico" class="logo" alt="logo" />
+            <h4 class="greetings">
+                {{ 'PAGES.INITIAL_SETUP.GREETINGS' | translate }}
+            </h4>
+        </div>
+
+        <div class="card">
+            <nb-card>
+                <nb-card-header>{{
+                    'PAGES.INITIAL_SETUP.CHECKING_REQUIREMENTS' | translate
+                }}</nb-card-header>
+                <nb-card-body>
+                    <app-setup-item-card
+                        [status]="snapdStatus"
+                        itemName="snapd"
+                        installButtonText="{{
+                            'PAGES.INITIAL_SETUP.INSTALL_SNAPD' | translate
+                        }}"
+                        (installClicked)="installSnapd()"
+                    ></app-setup-item-card>
+                    <app-setup-item-card
+                        [status]="flatpakStatus"
+                        itemName="flatpak"
+                        installButtonText="{{
+                            'PAGES.INITIAL_SETUP.INSTALL_FLATPAK' | translate
+                        }}"
+                        (installClicked)="installFlatpak()"
+                    ></app-setup-item-card>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button
+                        nbButton
+                        hero
+                        (click)="goToMain()"
+                        [status]="
+                            flatpakStatus == 'installed' &&
+                            snapdStatus == 'installed'
+                                ? 'success'
+                                : 'basic'
+                        "
+                    >
+                        {{
+                            'PAGES.INITIAL_SETUP.TAKE_ME_TO_THE_APP' | translate
+                        }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+    </nb-layout-column>
+</nb-layout>

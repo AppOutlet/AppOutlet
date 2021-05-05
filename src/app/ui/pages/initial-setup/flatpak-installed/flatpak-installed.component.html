@@ -1,0 +1,19 @@
+<nb-card class="modal" status="warning">
+    <nb-card-body>
+        <p>{{ 'PAGES.INITIAL_SETUP.RESTART_MODAL_TEXT' | translate }}</p>
+    </nb-card-body>
+    <nb-card-footer>
+        <button
+            (click)="restart()"
+            class="restart-button"
+            nbButton
+            hero
+            status="danger"
+        >
+            {{ 'PAGES.INITIAL_SETUP.RESTART_NOW' | translate }}
+        </button>
+        <button (click)="dismiss()" nbButton hero>
+            {{ 'PAGES.INITIAL_SETUP.DO_IT_LATER' | translate }}
+        </button>
+    </nb-card-footer>
+</nb-card>

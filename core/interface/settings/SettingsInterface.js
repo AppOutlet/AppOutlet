@@ -9,3 +9,7 @@ ipcMain?.handle(channels.settings.setTheme, (event, args) => {
 ipcMain?.handle(channels.settings.getTheme, () => {
     return settingsService.getTheme();
 });
+
+ipcMain?.handle(channels.settings.getLastSynchronizationDate, () => {
+    return settingsService.getLastSynchronizationDate();
+});

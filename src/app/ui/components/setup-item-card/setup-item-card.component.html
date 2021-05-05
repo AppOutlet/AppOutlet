@@ -1,0 +1,35 @@
+<nb-card [nbSpinner]="status === 'loading' || status === 'installing'">
+    <nb-card-body>
+        <div class="d-flex justify-content-between">
+            <span class="item-name">{{ itemName }}</span>
+            <div>
+                <nb-icon
+                    *ngIf="status === 'installed'"
+                    icon="checkmark-circle-2-outline"
+                    status="success"
+                    size="large"
+                ></nb-icon>
+                <button
+                    nbButton
+                    hero
+                    status="primary"
+                    size="small"
+                    *ngIf="status === 'not_installed'"
+                    (click)="onInstallClicked()"
+                >
+                    {{ installButtonText }}
+                </button>
+                <button
+                    nbButton
+                    hero
+                    status="danger"
+                    size="small"
+                    *ngIf="status === 'error'"
+                    (click)="onInstallClicked()"
+                >
+                    {{ tryAgainButtonText || 'GENERAL.TRY_AGAIN' | translate }}
+                </button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>

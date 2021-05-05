@@ -12,5 +12,6 @@ module.exports = {
     settings: {
         getTheme: 'settings.getTheme',
         setTheme: 'settings.setTheme',
+        getLastSynchronizationDate: 'settings.getLastSynchronizationDate',
     },
 };
