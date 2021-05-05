@@ -1,24 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CheckPackagesModalComponent } from './check-packages-modal.component';
 
 describe('CheckPackagesModalComponent', () => {
     let component: CheckPackagesModalComponent;
-    let fixture: ComponentFixture<CheckPackagesModalComponent>;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [CheckPackagesModalComponent],
-        }).compileComponents();
-    });
+    const mockDialogRef = {
+        close: jest.fn(),
+    };
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(CheckPackagesModalComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        component = new CheckPackagesModalComponent(mockDialogRef);
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should proceed anyway', () => {
+        component.proceedAnyway();
+        expect(mockDialogRef.close.mock.calls[0][0]).toBeTruthy();
+    });
+
+    it('should dismiss', () => {
+        component.dismiss();
+        expect(mockDialogRef.close.mock.calls[0][0]).toBeFalsy();
     });
 });
