@@ -9,15 +9,20 @@ import { Router } from '@angular/router';
 
 describe('AppComponent', () => {
     let component: AppComponent;
+
     const mockTranslateService = { use: jest.fn() };
+
     const mockSettingsService = {
         getTheme: jest.fn(),
         getLastSynchronizationDate: jest.fn(),
     };
+
     mockSettingsService.getLastSynchronizationDate.mockReturnValue(
         Promise.resolve(new Date()),
     );
+
     const mockThemeService = { changeTheme: jest.fn() };
+
     const mockWindowRef = {
         nativeWindow: {
             navigator: {
@@ -25,6 +30,7 @@ describe('AppComponent', () => {
             },
         },
     };
+
     const mockRouter = {
         navigate: jest.fn(),
     };
