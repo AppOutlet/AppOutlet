@@ -4,6 +4,7 @@ import { SetupService } from '../../../service/setup/setup.service';
 import { Router } from '@angular/router';
 import { NbDialogService } from '@nebular/theme';
 import { FlatpakInstalledComponent } from './flatpak-installed/flatpak-installed.component';
+import { CheckPackagesModalComponent } from './check-packages-modal/check-packages-modal.component';
 
 @Component({
     selector: 'app-initial-setup',
@@ -84,8 +85,29 @@ export class InitialSetupComponent implements OnInit {
             });
     }
 
-    goToMain(): void {
-        this.router.navigate(['']).then();
+    goToMain(force = false): void {
+        if (force || this.shouldGoToMainDirectly()) {
+            this.router.navigate(['']).then();
+        } else {
+            this.openCheckPackagesModal();
+        }
+    }
+
+    private openCheckPackagesModal(): void {
+        this.dialogService
+            .open(CheckPackagesModalComponent)
+            .onClose.subscribe((proceedAnyway) => {
+                if (proceedAnyway) {
+                    this.goToMain(true);
+                }
+            });
+    }
+
+    private shouldGoToMainDirectly(): boolean {
+        return (
+            this.snapdStatus === CardStatus.INSTALLED &&
+            this.flatpakStatus === CardStatus.INSTALLED
+        );
     }
 
     private openRestartModal(): void {

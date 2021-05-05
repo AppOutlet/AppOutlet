@@ -20,7 +20,10 @@
             "PROCEED_ANYWAY": "Proceed anyway",
             "RESTART_MODAL_TEXT": "The flapak and flathub was installed and you problably needs to restart your computet to finish the flatpak setup",
             "RESTART_NOW": "Restart now",
-            "DO_IT_LATER": "Do it later"
+            "DO_IT_LATER": "Do it later",
+            "DISMISS": "Dismiss",
+            "CHECK_PACKAGES_MODAL_TITLE": "Snapd and flatpak packages are required to install snap and flatpak applications respectively.",
+            "CHECK_PACKAGES_MODAL_TEXT": "Are you sure you want to proceed without installing these packages?"
         },
         "APP_DETAIL": {
             "ACTIONS": "Actions",

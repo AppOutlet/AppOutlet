@@ -1,0 +1,29 @@
+<nb-card class="modal" accent="danger">
+    <nb-card-header class="row">
+        <nb-icon
+            class="col-2 warning-icon"
+            icon="alert-triangle-outline"
+            status="warning"
+        ></nb-icon>
+        <span class="col-10">{{
+            'PAGES.INITIAL_SETUP.CHECK_PACKAGES_MODAL_TITLE' | translate
+        }}</span>
+    </nb-card-header>
+    <nb-card-body>
+        <p>{{ 'PAGES.INITIAL_SETUP.CHECK_PACKAGES_MODAL_TEXT' | translate }}</p>
+    </nb-card-body>
+    <nb-card-footer>
+        <button
+            (click)="proceedAnyway()"
+            class="restart-button"
+            nbButton
+            hero
+            status="danger"
+        >
+            {{ 'PAGES.INITIAL_SETUP.PROCEED_ANYWAY' | translate }}
+        </button>
+        <button (click)="dismiss()" nbButton hero>
+            {{ 'PAGES.INITIAL_SETUP.DISMISS' | translate }}
+        </button>
+    </nb-card-footer>
+</nb-card>
