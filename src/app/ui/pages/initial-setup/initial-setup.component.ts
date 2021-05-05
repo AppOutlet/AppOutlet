@@ -88,7 +88,7 @@ export class InitialSetupComponent implements OnInit {
         this.router.navigate(['']).then();
     }
 
-    openRestartModal(): void {
+    private openRestartModal(): void {
         this.dialogService.open(FlatpakInstalledComponent);
     }
 }
