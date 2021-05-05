@@ -1,24 +1,33 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FlatpakInstalledComponent } from './flatpak-installed.component';
 
 describe('FlatpakInstalledComponent', () => {
     let component: FlatpakInstalledComponent;
-    let fixture: ComponentFixture<FlatpakInstalledComponent>;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [FlatpakInstalledComponent],
-        }).compileComponents();
-    });
+    const mockDialogRef = { close: jest.fn() };
+    const mockSetupService = { restart: jest.fn() };
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(FlatpakInstalledComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+        component = new FlatpakInstalledComponent(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            mockDialogRef,
+            mockSetupService,
+        );
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should dismiss dialog', () => {
+        component.dismiss();
+
+        expect(mockDialogRef.close.mock.calls.length).toBe(1);
+    });
+
+    it('should restart computer', () => {
+        mockSetupService.restart.mockReturnValue(Promise.resolve());
+        component.restart();
+        expect(mockSetupService.restart.mock.calls.length).toBe(1);
     });
 });
