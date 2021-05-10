@@ -1,7 +1,22 @@
-img {
+.img-wrapper {
+    padding-bottom: 100%;
+    position: relative;
+}
+
+.img-wrapper img {
+    position: absolute;
     padding: 1rem;
     width: 100%;
     height: auto;
+}
+
+.badge {
+    position: absolute;
+    height: 2rem;
+    width: 2rem;
+    margin-top: -0.5rem;
+    margin-left: -0.5rem;
+    z-index: 1;
 }
 
 nb-card {
@@ -28,12 +43,4 @@ h6 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-}
-
-.badge {
-    position: absolute;
-    height: 3.6rem;
-    width: 3.6rem;
-    margin-top: -0.5rem;
-    margin-left: -0.5rem;
 }
