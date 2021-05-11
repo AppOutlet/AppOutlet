@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="!isLoading">
     <div class="col-8 offset-2">
         <div class="row application-detail-header">
             <div class="col-4">
@@ -36,7 +36,7 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row" *ngIf="!isLoading">
     <div class="col-8">
         <nb-card>
             <nb-card-body [innerHTML]="application?.description"></nb-card-body>
@@ -98,3 +98,10 @@
         </nb-card>
     </div>
 </div>
+
+<div
+    *ngIf="isLoading"
+    [nbSpinner]="true"
+    nbSpinnerSize="giant"
+    class="loading-indicator"
+></div>
