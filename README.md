@@ -16,7 +16,12 @@ Linux distributions. It currently supports AppImages, Flatpaks and Snaps package
 
 ![Screenshot](screenshot/screenshots.png)
 
-## [Click here to Download](https://www.pling.com/p/1355468/#files-panel)
+<div align="center">
+    <a href="https://www.pling.com/p/1355468/#files-panel" target="_blank">
+        <img alt="GitHub all releases" src="https://img.shields.io/github/downloads/app-outlet/app-outlet/total?label=Download%20App%20Outlet&style=for-the-badge">
+    </a>
+</div>
+
 Or [here](https://github.com/app-outlet/app-outlet/releases) to the Github releases
 
 If your distro doesn't support the available packages you can download and compile the source code following the instructions [here](CONTRIBUTING.md).
