@@ -24,6 +24,7 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     applicationStatus?: ApplicationStatus;
     isIndefinite = true;
     installationPercentage = 0;
+    isLoading = false;
     private applicationListenerSubscription?: Subscription;
 
     constructor(
@@ -44,11 +45,19 @@ export class ApplicationComponent implements OnInit, OnDestroy {
             return;
         }
 
-        this.applicationService.findById(id).then((app) => {
-            this.application = app;
-            this.syncApplicationStatus(app);
-            this.listenToApplicationChanges(app);
-        });
+        this.isLoading = true;
+        this.applicationService
+            .findById(id)
+            .then((app) => {
+                this.application = app;
+                this.syncApplicationStatus(app);
+                this.listenToApplicationChanges(app);
+                this.isLoading = false;
+            })
+            .catch((err) => {
+                console.error(err);
+                this.isLoading = false;
+            });
     }
 
     async openUrl(url?: string): Promise<void> {
