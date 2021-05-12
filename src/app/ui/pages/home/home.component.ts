@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
     recentlyUpdatedApps: Application[] = [];
     recentlyAddedApps: Application[] = [];
+    isRecentlyAddedLoading = false;
+    isRecentlyUpdatedLoading = false;
 
     constructor(
         private applicationService: ApplicationService,
@@ -23,15 +25,31 @@ export class HomeComponent implements OnInit {
     }
 
     private getRecentlyAddedApps(): void {
-        this.applicationService.getRecentlyAdded().then((apps) => {
-            this.recentlyAddedApps = apps;
-        });
+        this.isRecentlyAddedLoading = true;
+        this.applicationService
+            .getRecentlyAdded()
+            .then((apps) => {
+                this.recentlyAddedApps = apps;
+                this.isRecentlyAddedLoading = false;
+            })
+            .catch((err) => {
+                console.error(err);
+                this.isRecentlyAddedLoading = false;
+            });
     }
 
     private getRecentlyUpdatedApps(): void {
-        this.applicationService.getRecentlyUpdated().then((apps) => {
-            this.recentlyUpdatedApps = apps;
-        });
+        this.isRecentlyUpdatedLoading = true;
+        this.applicationService
+            .getRecentlyUpdated()
+            .then((apps) => {
+                this.recentlyUpdatedApps = apps;
+                this.isRecentlyUpdatedLoading = false;
+            })
+            .catch((err) => {
+                console.error(err);
+                this.isRecentlyUpdatedLoading = false;
+            });
     }
 
     async showRecentlyAddedApps(): Promise<void> {
