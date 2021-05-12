@@ -14,4 +14,8 @@ module.exports = {
         setTheme: 'settings.setTheme',
         getLastSynchronizationDate: 'settings.getLastSynchronizationDate',
     },
+    synchronization: {
+        isRunning: 'synchronization.isRunning',
+        isRunningSync: 'synchronization.isRunning.sync',
+    },
 };
