@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home.component';
 import { SectionModule } from '../../components/section/section.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { NbSpinnerModule } from '@nebular/theme';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
 
@@ -15,6 +16,7 @@ const routes: Routes = [{ path: '', component: HomeComponent }];
         RouterModule.forChild(routes),
         SectionModule,
         TranslateModule.forChild(),
+        NbSpinnerModule,
     ],
 })
 export class HomeModule {}

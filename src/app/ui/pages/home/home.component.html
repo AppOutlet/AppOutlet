@@ -1,11 +1,20 @@
 <app-section
+    *ngIf="!isRecentlyAddedLoading"
     title="{{ 'PAGES.HOME.NEW_RELEASES' | translate }}"
     [apps]="recentlyAddedApps"
     (seeMoreClicked)="showRecentlyAddedApps()"
 ></app-section>
 
 <app-section
+    *ngIf="!isRecentlyUpdatedLoading"
     title="{{ 'PAGES.HOME.RECENTLY_UPDATED' | translate }}"
     [apps]="recentlyUpdatedApps"
     (seeMoreClicked)="showRecentlyUpdatedApps()"
 ></app-section>
+
+<div
+    *ngIf="isRecentlyAddedLoading || isRecentlyUpdatedLoading"
+    [nbSpinner]="true"
+    nbSpinnerSize="giant"
+    class="loading-indicator"
+></div>
