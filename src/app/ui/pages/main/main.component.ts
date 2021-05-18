@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SynchronizationService } from '../../../service/synchronization/synchronization.service';
-import { ElectronService } from 'ngx-electron';
-import * as InterfaceChannel from '../../../../../core/interface/InterfaceChannel';
 
 @Component({
     selector: 'app-main',
@@ -12,13 +10,9 @@ export class MainComponent implements OnInit {
     shouldShowSynchronizationMessage = true;
     isSynchronizationRunning = false;
 
-    constructor(
-        private synchronizationService: SynchronizationService,
-        private electronService: ElectronService,
-    ) {}
+    constructor(private synchronizationService: SynchronizationService) {}
 
     ngOnInit(): void {
-        this.listenToSynchronizationUpdates();
         this.getCurrentSynchronizationStatus();
     }
 
@@ -26,19 +20,8 @@ export class MainComponent implements OnInit {
         this.synchronizationService
             .getCurrentSynchronizationStatus()
             .then((status) => {
-                debugger;
                 this.isSynchronizationRunning = status;
             });
-    }
-
-    private listenToSynchronizationUpdates(): void {
-        this.electronService.ipcRenderer.addListener(
-            InterfaceChannel.synchronization.isRunning,
-            (event, args) => {
-                debugger;
-                console.log(args, event);
-            },
-        );
     }
 
     closeSynchronizationMessage(): void {
