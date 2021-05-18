@@ -66,7 +66,8 @@
                 "INTERNET": "Internet and Communication",
                 "UTILITY": "Utility and Productivity",
                 "MISC": "Miscellaneous"
-            }
+            },
+            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect the search performance. When synchronization ends, it will back to normal"
         },
         "SEARCH": {
             "NO_RESULTS_FOUND": "No results found",

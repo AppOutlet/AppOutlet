@@ -16,3 +16,11 @@ nb-layout-column {
 app-main-menu {
     padding-bottom: 15rem;
 }
+
+.synchronization-message {
+    position: sticky;
+    bottom: 0.5rem;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    z-index: 1;
+}

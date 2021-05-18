@@ -1,4 +1,4 @@
-const { forkJoin } = require('rxjs');
+const { forkJoin, Subject } = require('rxjs');
 
 const flathubSynchronizer = require('./synchronizer/FlathubSynchronizer');
 const appImageHubSynchronizer = require('./synchronizer/AppImageHubSynchronizer');
@@ -6,6 +6,9 @@ const snapStoreSynchronizer = require('./synchronizer/SnapStoreSynchronizer');
 const settingsService = require('../settings/SettingsService');
 
 const DAY_IN_MILLIS = 1000 * 60 * 60 * 24 * 7;
+
+const isSynchronizationRunning = new Subject();
+isSynchronizationRunning.next(false);
 
 async function shouldSynchronize() {
     const now = new Date();
@@ -28,6 +31,7 @@ async function startSynchronization() {
 }
 
 function synchronize() {
+    isSynchronizationRunning.next(true);
     forkJoin([
         flathubSynchronizer.startSynchronization(),
         appImageHubSynchronizer.startSynchronization(),
@@ -36,13 +40,16 @@ function synchronize() {
         () => {
             console.log('Synchronization succeeded');
             settingsService.setLastSynchronizationDate(new Date());
+            isSynchronizationRunning.next(false);
         },
         (error) => {
             console.error(error);
+            isSynchronizationRunning.next(false);
         },
     );
 }
 
 module.exports = {
     startSynchronization,
+    getSynchronizationStatus: () => isSynchronizationRunning,
 };
