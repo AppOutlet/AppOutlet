@@ -3,10 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { MainComponent } from './main.component';
-import { NbLayoutModule, NbSidebarModule } from '@nebular/theme';
+import {
+    NbAlertModule,
+    NbCardModule,
+    NbLayoutModule,
+    NbSidebarModule,
+} from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { MainMenuModule } from '../../components/main-menu/main-menu.module';
 import { ToolbarModule } from '../../components/toolbar/toolbar.module';
+import { TranslateModule } from '@ngx-translate/core';
 
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const routes: Routes = [
@@ -81,6 +87,11 @@ const routes: Routes = [
         NbLayoutModule,
         NbEvaIconsModule,
         NbSidebarModule.forRoot(),
+        NbCardModule,
+        NbAlertModule,
+
+        // Other
+        TranslateModule.forChild(),
     ],
 })
 export class MainModule {}

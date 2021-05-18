@@ -5,4 +5,10 @@ import { Component } from '@angular/core';
     templateUrl: './main.component.html',
     styleUrls: ['./main.component.scss'],
 })
-export class MainComponent {}
+export class MainComponent {
+    shouldShowSynchronizationMessage = true;
+
+    closeSynchronizationMessage(): void {
+        this.shouldShowSynchronizationMessage = false;
+    }
+}
