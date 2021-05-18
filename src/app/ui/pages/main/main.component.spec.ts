@@ -1,42 +1,35 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MainComponent } from './main.component';
-import { MainMenuModule } from '../../components/main-menu/main-menu.module';
-import { NbLayoutModule, NbSidebarModule, NbThemeModule } from '@nebular/theme';
-import { NbEvaIconsModule } from '@nebular/eva-icons';
-import { RouterModule } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
-import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 
 describe('MainComponent', () => {
     let component: MainComponent;
-    let fixture: ComponentFixture<MainComponent>;
 
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            imports: [
-                MainMenuModule,
-                NbLayoutModule,
-                NbEvaIconsModule,
-                NbSidebarModule.forRoot(),
-                RouterModule.forRoot([]),
-                NbThemeModule.forRoot(),
-                TranslateModule.forRoot(),
-                ToolbarModule,
-            ],
-            declarations: [MainComponent],
-            providers: [{ provide: APP_BASE_HREF, useValue: './' }],
-        }).compileComponents();
-    });
+    const mockSynchronizationService = {
+        getCurrentSynchronizationStatus: jest.fn(),
+    };
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(MainComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        component = new MainComponent(mockSynchronizationService);
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should get current synchronization status', (done) => {
+        mockSynchronizationService.getCurrentSynchronizationStatus.mockReturnValue(
+            Promise.resolve(true),
+        );
+        component.ngOnInit();
+        setTimeout(() => {
+            expect(component.isSynchronizationRunning).toBeTruthy();
+            done();
+        }, 0);
+    });
+
+    it('should hide synchronization message', () => {
+        component.closeSynchronizationMessage();
+        expect(component.shouldShowSynchronizationMessage).toBeFalsy();
     });
 });
