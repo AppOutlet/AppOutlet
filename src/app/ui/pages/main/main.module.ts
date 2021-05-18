@@ -13,6 +13,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { MainMenuModule } from '../../components/main-menu/main-menu.module';
 import { ToolbarModule } from '../../components/toolbar/toolbar.module';
 import { TranslateModule } from '@ngx-translate/core';
+import { SynchronizationService } from '../../../service/synchronization/synchronization.service';
 
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 const routes: Routes = [
@@ -93,5 +94,6 @@ const routes: Routes = [
         // Other
         TranslateModule.forChild(),
     ],
+    providers: [SynchronizationService],
 })
 export class MainModule {}

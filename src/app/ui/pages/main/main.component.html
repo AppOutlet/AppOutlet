@@ -11,9 +11,14 @@
     <nb-layout-column>
         <app-toolbar></app-toolbar>
         <router-outlet></router-outlet>
-        <nb-alert *ngIf="shouldShowSynchronizationMessage" status="warning" closable class="synchronization-message"
-                  (close)="closeSynchronizationMessage()">
-            {{ 'PAGES.MAIN.SYNCHRONIZATION_MESSAGE' | translate}}
+        <nb-alert
+            *ngIf="shouldShowSynchronizationMessage && isSynchronizationRunning"
+            status="warning"
+            closable="true"
+            class="synchronization-message"
+            (close)="closeSynchronizationMessage()"
+        >
+            {{ 'PAGES.MAIN.SYNCHRONIZATION_MESSAGE' | translate }}
         </nb-alert>
     </nb-layout-column>
 </nb-layout>
