@@ -1,0 +1,115 @@
+{
+    "GENERAL": {
+        "BACK": "Go back",
+        "DISMISS": "Dismiss",
+        "ERROR_MESSAGE": "Ocurred an error",
+        "LOADING": "Loading",
+        "TRY_AGAIN": "Try again",
+        "APP_SHORT_DESCRIPTION": "A universal Linux app store. Find Snaps, Flatpaks and AppImages!",
+        "APP_IMAGE": "AppImage",
+        "FLATPAK": "Flatpak",
+        "SNAP": "Snap"
+    },
+    "PAGES": {
+        "INITIAL_SETUP": {
+            "GREETINGS": "Welcome to App Outlet",
+            "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
+            "INSTALL_SNAPD": "Install snapd",
+            "INSTALL_FLATPAK": "Install flatpak",
+            "TAKE_ME_TO_THE_APP": "Take me to the app!",
+            "PROCEED_ANYWAY": "Proceed anyway",
+            "RESTART_MODAL_TEXT": "The flatpak and flathub was installed and you probably need to restart your computer to finish the flatpak setup",
+            "RESTART_NOW": "Restart now",
+            "DO_IT_LATER": "Do it later",
+            "DISMISS": "Dismiss",
+            "CHECK_PACKAGES_MODAL_TITLE": "Snapd and flatpak packages are required to install snap and flatpak applications respectively.",
+            "CHECK_PACKAGES_MODAL_TEXT": "Are you sure you want to proceed without installing these packages?"
+        },
+        "APP_DETAIL": {
+            "ACTIONS": "Actions",
+            "DONATE": "Donate",
+            "HOW_TO_SETUP": "How to setup?",
+            "INSTALL": "Install",
+            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+            "PROJECT_HOMEPAGE": "Project homepage",
+            "REPORT_ISSUE": "Report issue",
+            "RUN": "Run",
+            "STORE_PAGE": "Store page",
+            "UNINSTALL": "Uninstall",
+            "INSTALLING": "Installing",
+            "UNINSTALLING": "Uninstalling",
+            "DEVELOPED_BY": "Developed by {{developer}}",
+            "DOWNLOAD": "Download"
+        },
+        "HOME": {
+            "NEW_RELEASES": "New releases",
+            "POPULAR": "Popular apps",
+            "RECENTLY_UPDATED": "Recently updated",
+            "TITLE": "Home",
+            "SEE_MORE": "See more"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categories",
+            "TAGS": "Tags",
+            "TITLE": "Main",
+            "SEARCH": "Search",
+            "BACK_TO_MENU": "Back to menu",
+            "CATEGORY": {
+                "OFFICE": "Office",
+                "AUDIO": "Audio",
+                "VIDEO": "Video",
+                "GAMES": "Games",
+                "DEVELOPMENT": "Development",
+                "FINANCE": "Finance",
+                "GRAPHICS": "Graphics",
+                "SCIENCE": "Science and Education",
+                "INTERNET": "Internet and Communication",
+                "UTILITY": "Utility and Productivity",
+                "MISC": "Miscellaneous"
+            },
+            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect search performance. When synchronization ends, it will back to normal"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "No results found",
+            "QUERY_TITLE": "Results for '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "All types"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Settings",
+            "APPEARANCE": {
+                "TITLE": "Appearance",
+                "THEME": "Theme",
+                "UI_MODE": "UI Mode",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "The UI Mode was changed",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "The application must be restarted to show the changes"
+            }
+        },
+        "GET_INVOLVED": {
+            "TITLE": "Get involved",
+            "CALL_TO_ACTION": "There are too many ways to get involved in the App Outlet project and help us to build the software that you use and love.",
+            "BUGS": {
+                "TITLE": "Reporting bugs",
+                "DESCRIPTION": "If something is wrong when you are using App Outlet you can report it to us on our Github repository.",
+                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
+            },
+            "COMMUNITY": {
+                "TITLE": "Being active in the App Outlet community",
+                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+            },
+            "CODING": {
+                "TITLE": "Coding",
+                "DESCRIPTION": "Help us to improve the features and stability of our beloved app. All you need is love and a little bit of Javascript.",
+                "REPOSITORY": "Github repository"
+            },
+            "DONATING": {
+                "TITLE": "Donating",
+                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+            }
+        },
+        "ABOUT": {
+            "AUTHORS": "Authors"
+        }
+    }
+}
