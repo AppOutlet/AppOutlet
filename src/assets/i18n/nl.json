@@ -1,43 +1,115 @@
 {
+    "GENERAL": {
+        "BACK": "Ga terug",
+        "DISMISS": "Verwerpen",
+        "ERROR_MESSAGE": "Er is een fout opgetreden.",
+        "LOADING": "Bezig met laden...",
+        "TRY_AGAIN": "Opnieuw proberen",
+        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!",
+        "APP_IMAGE": "AppImage",
+        "FLATPAK": "Flatpak",
+        "SNAP": "Snap"
+    },
     "PAGES": {
-        "HOME": {
-            "TITLE": "Startpagina",
-            "POPULAR": "Populaire apps",
-            "RECENTLY_UPDATED": "Recent bijgewerkt",
-            "NEW_RELEASES": "Nieuwe uitgaven"
-        },
-        "MAIN": {
-            "TITLE": "Algemeen",
-            "CATEGORIES": "Categorieën"
-        },
-        "SEARCH": {
-            "SEGMENT": {
-                "ALL_TYPES": "Alle soorten",
-                "SNAP": "Snap",
-                "FLATPAK": "Flatpak",
-                "APPIMAGE": "AppImage"
-            },
-            "QUERY_TITLE": "Resultaten voor '{{query}}'",
-            "NO_RESULTS_FOUND": "Geen resultaten gevonden"
+        "INITIAL_SETUP": {
+            "GREETINGS": "Welcome to App Outlet",
+            "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
+            "INSTALL_SNAPD": "Install snapd",
+            "INSTALL_FLATPAK": "Install flatpak",
+            "TAKE_ME_TO_THE_APP": "Take me to the app!",
+            "PROCEED_ANYWAY": "Proceed anyway",
+            "RESTART_MODAL_TEXT": "The flapak and flathub was installed and you problably needs to restart your computet to finish the flatpak setup",
+            "RESTART_NOW": "Restart now",
+            "DO_IT_LATER": "Do it later",
+            "DISMISS": "Dismiss",
+            "CHECK_PACKAGES_MODAL_TITLE": "Snapd and flatpak packages are required to install snap and flatpak applications respectively.",
+            "CHECK_PACKAGES_MODAL_TEXT": "Are you sure you want to proceed without installing these packages?"
         },
         "APP_DETAIL": {
-            "INSTALL": "Installeren",
-            "STORE_PAGE": "Winkelpagina",
-            "REPORT_ISSUE": "Probleem melden",
-            "DONATE": "Doneren",
-            "PROJECT_HOMEPAGE": "Website",
             "ACTIONS": "Acties",
-            "RUN": "Uitvoeren",
-            "UNINSTALL": "Deïnstalleren",
+            "DONATE": "Doneren",
+            "HOW_TO_SETUP": "Hoe los ik dit op?",
+            "INSTALL": "Installeren",
             "NO_SUPPORT_ERROR_MESSAGE": "Het lijkt erop dat je niet de vereiste pakketten hebt geïnstalleerd om {{type}}-pakketten te tonen. Controleer dit.",
-            "HOW_TO_SETUP": "Hoe los ik dit op?"
+            "PROJECT_HOMEPAGE": "Website",
+            "REPORT_ISSUE": "Probleem melden",
+            "RUN": "Uitvoeren",
+            "STORE_PAGE": "Winkelpagina",
+            "UNINSTALL": "Deïnstalleren",
+            "INSTALLING": "Installing",
+            "UNINSTALLING": "Uninstalling",
+            "DEVELOPED_BY": "Developed by {{developer}}",
+            "DOWNLOAD": "Download"
+        },
+        "HOME": {
+            "NEW_RELEASES": "Nieuwe uitgaven",
+            "POPULAR": "Populaire apps",
+            "RECENTLY_UPDATED": "Recent bijgewerkt",
+            "TITLE": "Startpagina",
+            "SEE_MORE": "See more"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categorieën",
+            "TAGS": "Tags",
+            "TITLE": "Algemeen",
+            "SEARCH": "Search",
+            "BACK_TO_MENU": "Back to menu",
+            "CATEGORY": {
+                "OFFICE": "Office",
+                "AUDIO": "Audio",
+                "VIDEO": "Video",
+                "GAMES": "Games",
+                "DEVELOPMENT": "Development",
+                "FINANCE": "Finance",
+                "GRAPHICS": "Graphics",
+                "SCIENCE": "Science and Education",
+                "INTERNET": "Internet and Communication",
+                "UTILITY": "Utility and Productivity",
+                "MISC": "Miscellaneous"
+            },
+            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect the search performance. When synchronization ends, it will back to normal"
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "Geen resultaten gevonden",
+            "QUERY_TITLE": "Resultaten voor '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "Alle soorten"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Settings",
+            "APPEARANCE": {
+                "TITLE": "Appearance",
+                "THEME": "Theme",
+                "UI_MODE": "UI Mode",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "The UI Mode was changed",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "The application must be restarted to show the changes"
+            }
+        },
+        "GET_INVOLVED": {
+            "TITLE": "Get involved",
+            "CALL_TO_ACTION": "There are too many ways to get involved in App Outlet project and help us to build the software that you use and love.",
+            "BUGS": {
+                "TITLE": "Reporting bugs",
+                "DESCRIPTION": "If something is wrong when you is using App Outlet you can report it to us on our Github repository.",
+                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
+            },
+            "COMMUNITY": {
+                "TITLE": "Being active on App Outlet community",
+                "DESCRIPTION": "We love interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+            },
+            "CODING": {
+                "TITLE": "Coding",
+                "DESCRIPTION": "Help us to improve the features and stability of our beloved app. All you need is love and a little bit of Javascript.",
+                "REPOSITORY": "Github repository"
+            },
+            "DONATING": {
+                "TITLE": "Donating",
+                "DESCRIPTION": "We need help to mantain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+            }
+        },
+        "ABOUT": {
+            "AUTHORS": "Authors"
         }
-    },
-    "GENERAL": {
-        "LOADING": "Bezig met laden...",
-        "ERROR_MESSAGE": "Er is een fout opgetreden.",
-        "TRY_AGAIN": "Opnieuw proberen",
-        "BACK": "Ga terug",
-        "DISMISS": "Verwerpen"
     }
 }
