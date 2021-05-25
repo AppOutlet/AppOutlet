@@ -98,7 +98,7 @@ describe('AppComponent', () => {
 
     it('should setup language at start', () => {
         expect(mockTranslateService.use.mock.calls.length).toBe(1);
-        expect(mockTranslateService.use.mock.calls[0][0]).toEqual('pt-BR');
+        expect(mockTranslateService.use.mock.calls[0][0]).toEqual('pt_BR');
     });
 
     it('should open initial setup component if there is not last sychronization date', (done) => {

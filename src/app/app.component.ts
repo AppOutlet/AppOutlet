@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
 
     private setupTranslation(): void {
         this.translateService.use(
-            this.windowRef.nativeWindow.navigator.language,
+            this.windowRef.nativeWindow.navigator.language.replace('-', '_'),
         );
     }
 

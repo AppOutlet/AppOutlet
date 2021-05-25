@@ -5,7 +5,7 @@
         "ERROR_MESSAGE": "Occurred an error",
         "LOADING": "Loading",
         "TRY_AGAIN": "Try again",
-        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!",
+        "APP_SHORT_DESCRIPTION": "A universal Linux app store. Find Snaps, Flatpaks and AppImages!",
         "APP_IMAGE": "AppImage",
         "FLATPAK": "Flatpak",
         "SNAP": "Snap"
@@ -18,7 +18,7 @@
             "INSTALL_FLATPAK": "Install flatpak",
             "TAKE_ME_TO_THE_APP": "Take me to the app!",
             "PROCEED_ANYWAY": "Proceed anyway",
-            "RESTART_MODAL_TEXT": "The flapak and flathub was installed and you problably needs to restart your computet to finish the flatpak setup",
+            "RESTART_MODAL_TEXT": "The flatpak and flathub was installed and you probably need to restart your computer to finish the flatpak setup",
             "RESTART_NOW": "Restart now",
             "DO_IT_LATER": "Do it later",
             "DISMISS": "Dismiss",
@@ -67,7 +67,7 @@
                 "UTILITY": "Utility and Productivity",
                 "MISC": "Miscellaneous"
             },
-            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect the search performance. When synchronization ends, it will back to normal"
+            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect search performance. When synchronization ends, it will back to normal"
         },
         "SEARCH": {
             "NO_RESULTS_FOUND": "No results found",
@@ -88,15 +88,15 @@
         },
         "GET_INVOLVED": {
             "TITLE": "Get involved",
-            "CALL_TO_ACTION": "There are too many ways to get involved in App Outlet project and help us to build the software that you use and love.",
+            "CALL_TO_ACTION": "There are too many ways to get involved in the App Outlet project and help us to build the software that you use and love.",
             "BUGS": {
                 "TITLE": "Reporting bugs",
-                "DESCRIPTION": "If something is wrong when you is using App Outlet you can report it to us on our Github repository.",
+                "DESCRIPTION": "If something is wrong when you are using App Outlet you can report it to us on our Github repository.",
                 "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
             },
             "COMMUNITY": {
-                "TITLE": "Being active on App Outlet community",
-                "DESCRIPTION": "We love interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+                "TITLE": "Being active in the App Outlet community",
+                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
             },
             "CODING": {
                 "TITLE": "Coding",
@@ -105,7 +105,7 @@
             },
             "DONATING": {
                 "TITLE": "Donating",
-                "DESCRIPTION": "We need help to mantain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
             }
         },
         "ABOUT": {
