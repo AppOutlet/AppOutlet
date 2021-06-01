@@ -92,11 +92,14 @@
             "BUGS": {
                 "TITLE": "Reporting bugs",
                 "DESCRIPTION": "If something is wrong when you are using App Outlet you can report it to us on our Github repository.",
-                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
+                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them.",
+                "REPORT_AN_ISSUE": "Report an issue"
             },
             "COMMUNITY": {
                 "TITLE": "Being active in the App Outlet community",
-                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Create a discussion our discussions page if you prefer.",
+                "TWITTER": "App Outlet on Twitter",
+                "DISCUSSIONS": "Discussions page"
             },
             "CODING": {
                 "TITLE": "Coding",
@@ -105,7 +108,14 @@
             },
             "DONATING": {
                 "TITLE": "Donating",
-                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above",
+                "PATREON": "Patreon",
+                "OPEN_COLLECTIVE": "Open collective"
+            },
+            "TRANSLATING": {
+                "TITLE": "Translating",
+                "DESCRIPTION": "You can join us on the App Outlet project on Transifex. There you can help App Outlet to reach to more people doing translations to you mother language",
+                "TRANSIFEX": "Transifex"
             }
         },
         "ABOUT": {

@@ -1,1 +1,171 @@
-<p>get-involved works!</p>
+<h1>{{ 'PAGES.GET_INVOLVED.TITLE' | translate }}</h1>
+<p>{{ 'PAGES.GET_INVOLVED.CALL_TO_ACTION' | translate }}</p>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <nb-card>
+                <nb-card-body>
+                    <h6>
+                        🐞 {{ 'PAGES.GET_INVOLVED.BUGS.TITLE' | translate }} 🪲
+                    </h6>
+                    <p>
+                        {{ 'PAGES.GET_INVOLVED.BUGS.DESCRIPTION' | translate }}
+                    </p>
+                    <p>
+                        {{
+                            'PAGES.GET_INVOLVED.BUGS.DESCRIPTION_2' | translate
+                        }}
+                    </p>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button
+                        nbButton
+                        (click)="
+                            openLink(
+                                'https://github.com/app-outlet/app-outlet/issues'
+                            )
+                        "
+                    >
+                        <nb-icon icon="alert-triangle-outline"></nb-icon>
+                        {{
+                            'PAGES.GET_INVOLVED.BUGS.REPORT_AN_ISSUE'
+                                | translate
+                        }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+        <div class="col-6">
+            <nb-card>
+                <nb-card-body>
+                    <h6>
+                        👨🏻‍💻 {{ 'PAGES.GET_INVOLVED.CODING.TITLE' | translate }}
+                    </h6>
+                    <p>
+                        {{
+                            'PAGES.GET_INVOLVED.CODING.DESCRIPTION' | translate
+                        }}
+                    </p>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button
+                        nbButton
+                        (click)="
+                            openLink('https://github.com/app-outlet/app-outlet')
+                        "
+                    >
+                        <nb-icon icon="github-outline"></nb-icon>
+                        {{ 'PAGES.GET_INVOLVED.CODING.REPOSITORY' | translate }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+        <div class="col-6">
+            <nb-card>
+                <nb-card-body>
+                    <h6>
+                        💸 {{ 'PAGES.GET_INVOLVED.DONATING.TITLE' | translate }}
+                    </h6>
+                    <p>
+                        {{
+                            'PAGES.GET_INVOLVED.DONATING.DESCRIPTION'
+                                | translate
+                        }}
+                    </p>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button
+                        nbButton
+                        (click)="openLink('https://www.patreon.com/appoutlet')"
+                    >
+                        <nb-icon icon="heart-outline"></nb-icon>
+                        {{ 'PAGES.GET_INVOLVED.DONATING.PATREON' | translate }}
+                    </button>
+                    <button
+                        nbButton
+                        (click)="
+                            openLink('https://opencollective.com/app-outlet')
+                        "
+                    >
+                        <nb-icon icon="heart-outline"></nb-icon>
+                        {{
+                            'PAGES.GET_INVOLVED.DONATING.OPEN_COLLECTIVE'
+                                | translate
+                        }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+        <div class="col-6">
+            <nb-card>
+                <nb-card-body>
+                    <h6>
+                        💸
+                        {{ 'PAGES.GET_INVOLVED.TRANSLATING.TITLE' | translate }}
+                    </h6>
+                    <p>
+                        {{
+                            'PAGES.GET_INVOLVED.TRANSLATING.DESCRIPTION'
+                                | translate
+                        }}
+                    </p>
+                </nb-card-body>
+                <nb-card-footer>
+                    <button
+                        nbButton
+                        (click)="
+                            openLink(
+                                'https://www.transifex.com/app-outlet/app-outlet/'
+                            )
+                        "
+                    >
+                        <nb-icon icon="globe-2-outline"></nb-icon>
+                        {{
+                            'PAGES.GET_INVOLVED.TRANSLATING.TRANSIFEX'
+                                | translate
+                        }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+        <div class="col-6">
+            <nb-card>
+                <nb-card-body>
+                    <h6>
+                        🤝
+                        {{ 'PAGES.GET_INVOLVED.COMMUNITY.TITLE' | translate }}
+                    </h6>
+                    <p>
+                        {{
+                            'PAGES.GET_INVOLVED.COMMUNITY.DESCRIPTION'
+                                | translate
+                        }}
+                    </p>
+                </nb-card-body>
+                <nb-card-footer class="row">
+                    <button
+                        nbButton
+                        (click)="openLink('https://twitter.com/AppOutletLinux')"
+                    >
+                        <nb-icon icon="twitter-outline"></nb-icon>
+                        {{ 'PAGES.GET_INVOLVED.COMMUNITY.TWITTER' | translate }}
+                    </button>
+                    <button
+                        nbButton
+                        (click)="
+                            openLink(
+                                'https://github.com/app-outlet/app-outlet/discussions'
+                            )
+                        "
+                    >
+                        <nb-icon icon="message-circle-outline"></nb-icon>
+                        {{
+                            'PAGES.GET_INVOLVED.COMMUNITY.DISCUSSIONS'
+                                | translate
+                        }}
+                    </button>
+                </nb-card-footer>
+            </nb-card>
+        </div>
+    </div>
+</div>
