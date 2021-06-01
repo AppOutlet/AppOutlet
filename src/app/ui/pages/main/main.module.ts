@@ -68,6 +68,13 @@ const routes: Routes = [
                         (m) => m.SettingsModule,
                     ),
             },
+            {
+                path: 'get-involved',
+                loadChildren: () =>
+                    import('../get-involved/get-involved.module').then(
+                        (m) => m.GetInvolvedModule,
+                    ),
+            },
         ],
     },
 ];

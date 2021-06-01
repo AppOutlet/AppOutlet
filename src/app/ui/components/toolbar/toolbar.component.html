@@ -20,8 +20,8 @@
             placeholder="{{ 'PAGES.MAIN.SEARCH' | translate }}"
         ></nb-search>
 
-        <button nbButton ghost (click)="goToSettings()" class="back-button">
-            <nb-icon icon="settings-outline"></nb-icon>
+        <button nbButton ghost [nbContextMenu]="contextMenuItems">
+            <nb-icon icon="more-vertical-outline"></nb-icon>
         </button>
     </div>
 </div>

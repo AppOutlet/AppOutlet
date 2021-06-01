@@ -60,11 +60,4 @@ describe('ToolbarComponent', () => {
 
         expect(mockLocation.back.mock.calls.length).toBe(1);
     });
-
-    it('should go to settings', () => {
-        // TODO: improve this test
-        component.goToSettings();
-
-        expect(mockRouter.navigate.mock.calls[1][0]).toEqual(['settings']);
-    });
 });
