@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToolbarComponent } from './toolbar.component';
-import { NbButtonModule, NbIconModule, NbSearchModule } from '@nebular/theme';
+import {
+    NbButtonModule,
+    NbContextMenuModule,
+    NbIconModule,
+    NbSearchModule,
+} from '@nebular/theme';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -12,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
         NbButtonModule,
         TranslateModule,
         NbSearchModule,
+        NbContextMenuModule,
     ],
     exports: [ToolbarComponent],
 })
