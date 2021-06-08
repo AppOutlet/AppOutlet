@@ -1,24 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { GetInvolvedComponent } from './get-involved.component';
 
 describe('GetInvolvedComponent', () => {
     let component: GetInvolvedComponent;
-    let fixture: ComponentFixture<GetInvolvedComponent>;
-
-    beforeEach(async () => {
-        await TestBed.configureTestingModule({
-            declarations: [GetInvolvedComponent],
-        }).compileComponents();
-    });
+    const mockCoreService = {
+        openLinkOnBrowser: jest.fn(),
+    };
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(GetInvolvedComponent);
-        component = fixture.componentInstance;
-        fixture.detectChanges();
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        component = new GetInvolvedComponent(mockCoreService);
     });
 
     it('should create', () => {
         expect(component).toBeTruthy();
+    });
+
+    it('should open link', () => {
+        mockCoreService.openLinkOnBrowser.mockReturnValue(Promise.resolve());
+        const url = 'https://app-outlet.github.io';
+        component.openLink(url);
+        expect(mockCoreService.openLinkOnBrowser.mock.calls[0][0]).toEqual(url);
     });
 });

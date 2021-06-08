@@ -5,6 +5,7 @@ import { Location } from '@angular/common';
 import { NavigationEnd, Router } from '@angular/router';
 import { NbSearchService } from '@nebular/theme';
 import { Observable, of, Subject } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 describe('ToolbarComponent', () => {
     let component: ToolbarComponent;
@@ -13,10 +14,14 @@ describe('ToolbarComponent', () => {
     const mockLocation = {
         back: jest.fn(),
     };
+
     const mockRouter = { events: new Subject(), navigate: jest.fn() };
+
     const mockSearchService = {
         onSearchSubmit: (): Observable<unknown> => of(''),
     };
+
+    const mockTranslateService = {};
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
@@ -25,6 +30,7 @@ describe('ToolbarComponent', () => {
                 { provide: Location, useValue: mockLocation },
                 { provide: Router, useValue: mockRouter },
                 { provide: NbSearchService, useValue: mockSearchService },
+                { provide: TranslateService, useValue: mockTranslateService },
             ],
         })
             .overrideComponent(ToolbarComponent, { set: { template: '' } })
