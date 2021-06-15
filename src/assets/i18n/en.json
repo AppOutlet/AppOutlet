@@ -13,7 +13,7 @@
     "PAGES": {
         "INITIAL_SETUP": {
             "GREETINGS": "Welcome to App Outlet",
-            "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
+            "CHECKING_REQUIREMENTS": "We are checking if your system has all the requirements",
             "INSTALL_SNAPD": "Install snapd",
             "INSTALL_FLATPAK": "Install flatpak",
             "TAKE_ME_TO_THE_APP": "Take me to the app!",
@@ -28,9 +28,9 @@
         "APP_DETAIL": {
             "ACTIONS": "Actions",
             "DONATE": "Donate",
-            "HOW_TO_SETUP": "How to setup?",
+            "HOW_TO_SETUP": "How to set up?",
             "INSTALL": "Install",
-            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you not configured support to {{type}} packages. Please, verify your setup.",
+            "NO_SUPPORT_ERROR_MESSAGE": "Looks like you did not configure support to {{type}} packages. Please, verify your setup.",
             "PROJECT_HOMEPAGE": "Project homepage",
             "REPORT_ISSUE": "Report issue",
             "RUN": "Run",
@@ -97,7 +97,7 @@
             },
             "COMMUNITY": {
                 "TITLE": "Being active in the App Outlet community",
-                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Create a discussion our discussions page if you prefer.",
+                "DESCRIPTION": "We love the interaction. Please follow us on Twitter to get some news about us. Create a discussion on our discussions page if you prefer.",
                 "TWITTER": "App Outlet on Twitter",
                 "DISCUSSIONS": "Discussions page"
             },
@@ -114,7 +114,7 @@
             },
             "TRANSLATING": {
                 "TITLE": "Translating",
-                "DESCRIPTION": "You can join us on the App Outlet project on Transifex. There you can help App Outlet to reach to more people doing translations to you mother language",
+                "DESCRIPTION": "You can join us on the App Outlet project on Transifex. There you can help App Outlet to reach more people doing translations to your mother language",
                 "TRANSIFEX": "Transifex"
             }
         },
