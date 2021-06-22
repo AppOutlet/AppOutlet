@@ -40,6 +40,6 @@ describe('MainMenuComponent', () => {
 
     it('should setup menus', async () => {
         await component.setupMenuItems();
-        expect(component.items.length).toBe(11);
+        expect(component.items.length).toBe(12);
     });
 });
