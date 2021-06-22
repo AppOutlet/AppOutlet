@@ -21,6 +21,12 @@ export class MainMenuComponent implements OnInit {
     async setupMenuItems(): Promise<void> {
         this.items = [
             {
+                link: '/home',
+                title: await this.getTranslation('PAGES.HOME.TITLE'),
+                icon: 'home-outline',
+                home: true,
+            },
+            {
                 link: routes.category.office,
                 title: await this.getTranslation('PAGES.MAIN.CATEGORY.OFFICE'),
                 icon: 'layers-outline',
