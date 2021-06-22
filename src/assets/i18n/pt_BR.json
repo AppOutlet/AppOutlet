@@ -5,40 +5,40 @@
         "ERROR_MESSAGE": "Ocorreu um erro",
         "LOADING": "Carregando",
         "TRY_AGAIN": "Tente novamente",
-        "APP_SHORT_DESCRIPTION": "An universal linux app store. Find Snaps, Flatpaks and AppImages!",
+        "APP_SHORT_DESCRIPTION": "Uma loja de aplicativos universal para Linux. Encontre Snaps, Flatpaks e AppImages!",
         "APP_IMAGE": "AppImage",
         "FLATPAK": "Flatpak",
         "SNAP": "Snap"
     },
     "PAGES": {
         "INITIAL_SETUP": {
-            "GREETINGS": "Welcome to App Outlet",
-            "CHECKING_REQUIREMENTS": "We are checking if your system have all the requirements",
-            "INSTALL_SNAPD": "Install snapd",
-            "INSTALL_FLATPAK": "Install flatpak",
-            "TAKE_ME_TO_THE_APP": "Take me to the app!",
-            "PROCEED_ANYWAY": "Proceed anyway",
-            "RESTART_MODAL_TEXT": "The flapak and flathub was installed and you problably needs to restart your computet to finish the flatpak setup",
-            "RESTART_NOW": "Restart now",
-            "DO_IT_LATER": "Do it later",
-            "DISMISS": "Dismiss",
-            "CHECK_PACKAGES_MODAL_TITLE": "Snapd and flatpak packages are required to install snap and flatpak applications respectively.",
-            "CHECK_PACKAGES_MODAL_TEXT": "Are you sure you want to proceed without installing these packages?"
+            "GREETINGS": "Bem-vindo ao App Outlet",
+            "CHECKING_REQUIREMENTS": "Nós estamos verificando se o seu sistema tem todos o requisitos",
+            "INSTALL_SNAPD": "Instalar snapd",
+            "INSTALL_FLATPAK": "Instalar flatpak",
+            "TAKE_ME_TO_THE_APP": "Vamos começar!",
+            "PROCEED_ANYWAY": "Avançar mesmo assim",
+            "RESTART_MODAL_TEXT": "O flatpak e o repositório do flathub foram instalados e você provavelmente precisa reiniciar o seu computador para terminar a configuração do flatpak",
+            "RESTART_NOW": "Reiniciar agora",
+            "DO_IT_LATER": "Fazer isso mais tarde",
+            "DISMISS": "Fechar",
+            "CHECK_PACKAGES_MODAL_TITLE": "O pacode snapd e flatpak são necessarios para instalar as aplicações snap e flatpak",
+            "CHECK_PACKAGES_MODAL_TEXT": "Tem certeza que deseja avançar sem instalar esses pacotes?"
         },
         "APP_DETAIL": {
             "ACTIONS": "Ações",
             "DONATE": "Faça uma doação",
             "HOW_TO_SETUP": "Como configurar?",
             "INSTALL": "Instalar",
-            "NO_SUPPORT_ERROR_MESSAGE": "Parece que você não configurou o suporte aos pacotes {{type}}. Por favor, verifique as suas configurações.",
+            "NO_SUPPORT_ERROR_MESSAGE": "Parece que você não configurou o suporte aos pacotes {{type}}. Por favor, verifique sua configuração",
             "PROJECT_HOMEPAGE": "Página inicial do projeto",
-            "REPORT_ISSUE": "Reportar bug",
+            "REPORT_ISSUE": "Reportar problema",
             "RUN": "Executar",
             "STORE_PAGE": "Página da loja",
             "UNINSTALL": "Desinstalar",
-            "INSTALLING": "Installing",
-            "UNINSTALLING": "Uninstalling",
-            "DEVELOPED_BY": "Developed by {{developer}}",
+            "INSTALLING": "Instalando",
+            "UNINSTALLING": "Desinstalando",
+            "DEVELOPED_BY": "Desenvolvido por {{developer}}",
             "DOWNLOAD": "Download"
         },
         "HOME": {
@@ -46,28 +46,28 @@
             "POPULAR": "Aplicações populares",
             "RECENTLY_UPDATED": "Atualizados recentemente",
             "TITLE": "Página Principal",
-            "SEE_MORE": "See more"
+            "SEE_MORE": "Ver mais"
         },
         "MAIN": {
             "CATEGORIES": "Categorias",
             "TAGS": "Etiquetas",
             "TITLE": "Principal",
-            "SEARCH": "Search",
-            "BACK_TO_MENU": "Back to menu",
+            "SEARCH": "Pesquisar",
+            "BACK_TO_MENU": "Voltar ao menu",
             "CATEGORY": {
-                "OFFICE": "Office",
-                "AUDIO": "Audio",
-                "VIDEO": "Video",
-                "GAMES": "Games",
-                "DEVELOPMENT": "Development",
-                "FINANCE": "Finance",
-                "GRAPHICS": "Graphics",
-                "SCIENCE": "Science and Education",
-                "INTERNET": "Internet and Communication",
-                "UTILITY": "Utility and Productivity",
-                "MISC": "Miscellaneous"
+                "OFFICE": "Escritório",
+                "AUDIO": "Áudio",
+                "VIDEO": "Vídeo",
+                "GAMES": "Jogos",
+                "DEVELOPMENT": "Desenvolvimento",
+                "FINANCE": "Finanças",
+                "GRAPHICS": "Gráficos",
+                "SCIENCE": "Ciência e educação",
+                "INTERNET": "Internet e Comunicação",
+                "UTILITY": "Utilidade e produtividade",
+                "MISC": "Outros"
             },
-            "SYNCHRONIZATION_MESSAGE": "App Outlet is synchronizing its database. It can affect the search performance. When synchronization ends, it will back to normal"
+            "SYNCHRONIZATION_MESSAGE": "App Outlet está sincronizando o banco de dados e isso pode afetar a performance da pesquisa. Quando a sincronização acabar, tudo voltará ao normal"
         },
         "SEARCH": {
             "NO_RESULTS_FOUND": "Nenhum resultado encontrado",
@@ -79,37 +79,47 @@
         "SETTINGS": {
             "TITLE": "Configurações",
             "APPEARANCE": {
-                "TITLE": "Appearance",
-                "THEME": "Theme",
-                "UI_MODE": "UI Mode",
-                "UI_MODE_CHANGED_MESSAGE_TITLE": "The UI Mode was changed",
-                "UI_MODE_CHANGED_MESSAGE_BODY": "The application must be restarted to show the changes"
+                "TITLE": "Aparência",
+                "THEME": "Tema",
+                "UI_MODE": "Modo de Interface",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "O estilo da interface foi alterado",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "A aplicação precisa ser reinciada para que as alterações tenham efeito"
             }
         },
         "GET_INVOLVED": {
-            "TITLE": "Get involved",
-            "CALL_TO_ACTION": "There are too many ways to get involved in App Outlet project and help us to build the software that you use and love.",
+            "TITLE": "Faça parte!",
+            "CALL_TO_ACTION": "Existem muitas formas de você ajudar a equipe do App Outlet a fazer o app que você usa e adora",
             "BUGS": {
-                "TITLE": "Reporting bugs",
-                "DESCRIPTION": "If something is wrong when you is using App Outlet you can report it to us on our Github repository.",
-                "DESCRIPTION_2": "Feel free to report bugs, instabilities, spelling errors or even make suggestions. We carefully evaluate each one of them."
+                "TITLE": "Reportando bugs",
+                "DESCRIPTION": "Se alguma coisa estranha acontecer enquanto você estiver usando o App Outlet, você pode nos avisar através da nossa página no Github,",
+                "DESCRIPTION_2": "Fique a vontade para reportar os bugs, instabilidades, erros de digitação ou até fazer sugestões.  Nós avaliamos com carinho cada uma delas.",
+                "REPORT_AN_ISSUE": "Reporte um problema"
             },
             "COMMUNITY": {
-                "TITLE": "Being active on App Outlet community",
-                "DESCRIPTION": "We love interaction. Please follow us on Twitter to get some news about us. Send a message on Gitter or on Telegram if you prefer."
+                "TITLE": "Sendo ativo na comunidade App Outlet",
+                "DESCRIPTION": "Nós amamos interação. Siga-nos no Twitter para receber updates sobre nós. Ou se preferir, crie um post na nossa página de discussões",
+                "TWITTER": "App Outlet no Twitter",
+                "DISCUSSIONS": "Página de discussões"
             },
             "CODING": {
-                "TITLE": "Coding",
-                "DESCRIPTION": "Help us to improve the features and stability of our beloved app. All you need is love and a little bit of Javascript.",
-                "REPOSITORY": "Github repository"
+                "TITLE": "Escrevendo código!",
+                "DESCRIPTION": "Nos ajude a melhorar as funcionalidades e a estabilidade do nosso querido app. Tudo o que voce precisa é de amor e de um pouquinho de javascript.",
+                "REPOSITORY": "Repositório no Github"
             },
             "DONATING": {
-                "TITLE": "Donating",
-                "DESCRIPTION": "We need help to mantain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
+                "TITLE": "Fazendo alguma doação",
+                "DESCRIPTION": "Nós precisamos manter uma infraestrutura e nós ainda não temos nenhum patrocinador. Fique a vontade de nos ajudar financeiramente nas sequintes plataformas:",
+                "PATREON": "Patreon",
+                "OPEN_COLLECTIVE": "Open collective"
+            },
+            "TRANSLATING": {
+                "TITLE": "Traduzindo",
+                "DESCRIPTION": "Você pode se juntar a nós no projeto App Outlet no Transifex. Lá voce pode ajudar o App Outlet a alcançar mais pessoas, traduzindo o app para a sua lingua nativa.",
+                "TRANSIFEX": "Transifex"
             }
         },
         "ABOUT": {
-            "AUTHORS": "Authors"
+            "AUTHORS": "Autores"
         }
     }
 }
