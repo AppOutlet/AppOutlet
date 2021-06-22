@@ -22,7 +22,7 @@ const routes: Routes = [
         component: MainComponent,
         children: [
             {
-                path: '',
+                path: 'home',
                 loadChildren: () =>
                     import('../home/home.module').then((m) => m.HomeModule),
             },
@@ -74,6 +74,10 @@ const routes: Routes = [
                     import('../get-involved/get-involved.module').then(
                         (m) => m.GetInvolvedModule,
                     ),
+            },
+            {
+                path: '',
+                redirectTo: 'home',
             },
         ],
     },
