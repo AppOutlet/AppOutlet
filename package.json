@@ -54,7 +54,7 @@
         "@nebular/theme": "^8.0.0",
         "@ngx-translate/core": "^13.0.0",
         "@ngx-translate/http-loader": "^6.0.0",
-        "axios": "^0.21.1",
+        "axios": "^0.24.0",
         "bootstrap": "^4.6.0",
         "eva-icons": "^1.1.2",
         "font-awesome": "^4.7.0",
