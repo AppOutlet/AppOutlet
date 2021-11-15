@@ -70,7 +70,7 @@
     "devDependencies": {
         "@angular-builders/jest": "^11.0.0",
         "@angular-devkit/build-angular": "^0.1101.4",
-        "@angular/cli": "^11.1.4",
+        "@angular/cli": "^11.2.15",
         "@angular/compiler-cli": "^11.1.2",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
