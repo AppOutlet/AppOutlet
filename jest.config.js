@@ -3,7 +3,7 @@ module.exports = {
     ...preset,
     preset: 'jest-preset-angular',
     setupFilesAfterEnv: [
-        '<rootDir>/node_modules/jest-preset-angular/build/setup-jest.js',
+        '<rootDir>/node_modules/jest-preset-angular/build/config/setup-jest.js',
     ],
     testMatch: ['**/*.spec.ts', '**/*.spec.js'],
     globals: {
