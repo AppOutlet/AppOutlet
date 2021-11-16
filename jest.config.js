@@ -21,4 +21,5 @@ module.exports = {
             lines: 80,
         },
     },
+    transformIgnorePatterns: ['node_modules/(?!.*\\.mjs$)'],
 };

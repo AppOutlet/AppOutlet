@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { SectionComponent } from './section.component';
 import { CardModule } from '../card/card.module';
-import { SectionModule } from './section.module';
 import { CardDto } from '../card/card.dto';
 
 describe('SectionComponent', () => {
@@ -16,7 +15,7 @@ describe('SectionComponent', () => {
             imports: [CommonModule, CardModule, TranslateModule.forRoot()],
             declarations: [SectionComponent],
         })
-            .overrideComponent(SectionModule, { set: { template: '' } })
+            .overrideComponent(SectionComponent, { set: { template: '' } })
             .compileComponents();
     });
 
@@ -43,7 +42,7 @@ describe('SectionComponent', () => {
             id: '1',
             icon: 'icon',
             summary: 'summary',
-            title: 'title',
+            name: 'title',
         };
 
         component.applicationClicked.subscribe((event) => {
