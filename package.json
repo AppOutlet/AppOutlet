@@ -73,7 +73,7 @@
         "@angular/compiler-cli": "^13.0.1",
         "@commitlint/cli": "^14.1.0",
         "@commitlint/config-conventional": "^14.1.0",
-        "@schematics/angular": "^12.2.13",
+        "@schematics/angular": "^13.0.2",
         "@types/jest": "^27.0.2",
         "@types/node": "^16.11.7",
         "@typescript-eslint/eslint-plugin": "^5.4.0",
