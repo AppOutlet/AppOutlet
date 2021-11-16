@@ -101,9 +101,8 @@ export class ApplicationComponent implements OnInit, OnDestroy {
     }
 
     async syncApplicationStatus(application: Application): Promise<void> {
-        this.applicationStatus = await this.applicationService.getApplicationStatus(
-            application,
-        );
+        this.applicationStatus =
+            await this.applicationService.getApplicationStatus(application);
     }
 
     private listenToApplicationChanges(application: Application): void {

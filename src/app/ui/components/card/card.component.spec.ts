@@ -60,12 +60,13 @@ describe('CardComponent', () => {
         component.click(app).then();
     });
 
-    it('should not emit event when app is null', async (done: DoneCallback) => {
+    it('should not emit event when app is null', (done: DoneCallback) => {
         component.applicationClicked.subscribe(() => {
             fail();
         });
 
-        await component.click(undefined);
+        component.click(undefined);
+
         expect(mockRouter.navigate.mock.calls.length).toBe(0);
 
         done();
