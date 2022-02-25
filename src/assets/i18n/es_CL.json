@@ -1,0 +1,125 @@
+{
+    "GENERAL": {
+        "BACK": "Volver",
+        "DISMISS": "Cerrar",
+        "ERROR_MESSAGE": "Ha ocurrido un error",
+        "LOADING": "Cargando",
+        "TRY_AGAIN": "Intentar de nuevo",
+        "APP_SHORT_DESCRIPTION": "Una tienda de aplicaciones universal. Encuentra Snaps, Flatpaks y AppImages!",
+        "APP_IMAGE": "AppImage",
+        "FLATPAK": "Flatpak",
+        "SNAP": "Snap"
+    },
+    "PAGES": {
+        "INITIAL_SETUP": {
+            "GREETINGS": "Bienvenido a App Oulet",
+            "CHECKING_REQUIREMENTS": "Estamos comprobando que tu sistema cumpla con todos los requisitos.",
+            "INSTALL_SNAPD": "Instalar snapd",
+            "INSTALL_FLATPAK": "Instalar flatpak",
+            "TAKE_ME_TO_THE_APP": "Llévame a la aplicación!",
+            "PROCEED_ANYWAY": "Proceder de todas formas",
+            "RESTART_MODAL_TEXT": "El flatpak y flathub fueron instalados y probablemente necesites reiniciar tu computadora para finalizar la configuración del flatpak.",
+            "RESTART_NOW": "Reiniciar ahora",
+            "DO_IT_LATER": "Hacerlo más tarde",
+            "DISMISS": "Cerrar",
+            "CHECK_PACKAGES_MODAL_TITLE": "Los paquetes snapd y flatpak son necesarios para instalar aplicaciones snap y flatpak respectivamente.",
+            "CHECK_PACKAGES_MODAL_TEXT": "¿Estás seguro de que quieres proceder sin instalar estos paquetes?"
+        },
+        "APP_DETAIL": {
+            "ACTIONS": "Acciones",
+            "DONATE": "Hacer una donación",
+            "HOW_TO_SETUP": "¿Cómo configurarlo?",
+            "INSTALL": "Instalar",
+            "NO_SUPPORT_ERROR_MESSAGE": "Parece que no has configurado la compatibilidad de paquetes {{type}}. Por favor verifique su configuración.",
+            "PROJECT_HOMEPAGE": "Página del proyecto",
+            "REPORT_ISSUE": "Informar bug",
+            "RUN": "Abrir",
+            "STORE_PAGE": "Página de tienda",
+            "UNINSTALL": "Desinstalar",
+            "INSTALLING": "Instalando",
+            "UNINSTALLING": "Desinstalando",
+            "DEVELOPED_BY": "Desarrollado por {{developer}}",
+            "DOWNLOAD": "Descargar"
+        },
+        "HOME": {
+            "NEW_RELEASES": "Nuevos lanzamientos",
+            "POPULAR": "Aplicaciones populares",
+            "RECENTLY_UPDATED": "Actualizado recientemente",
+            "TITLE": "Inicio",
+            "SEE_MORE": "Ver más"
+        },
+        "MAIN": {
+            "CATEGORIES": "Categorías",
+            "TAGS": "Etiquetas",
+            "TITLE": "Principal",
+            "SEARCH": "Buscar",
+            "BACK_TO_MENU": "Volver al menú",
+            "CATEGORY": {
+                "OFFICE": "Oficina",
+                "AUDIO": "Audio",
+                "VIDEO": "Video",
+                "GAMES": "Juegos",
+                "DEVELOPMENT": "Desarrollo",
+                "FINANCE": "Finanzas",
+                "GRAPHICS": "Gráficos",
+                "SCIENCE": "Ciencia y Educación",
+                "INTERNET": "Internet y Comunicación",
+                "UTILITY": "Utilidades y Productividad",
+                "MISC": "Misceláneos"
+            },
+            "SYNCHRONIZATION_MESSAGE": "App Outlet está sincronizando su base de datos. Puede que el rendimiento de las búsquedas se vea afectado. Cuando la sincronización termine, el rendimiento volverá a la normalidad."
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "No se encontraron resultados",
+            "QUERY_TITLE": "Resultados para '{{query}}'",
+            "SEGMENT": {
+                "ALL_TYPES": "Cualquier tipo"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Preferencias",
+            "APPEARANCE": {
+                "TITLE": "Apariencia",
+                "THEME": "Tema",
+                "UI_MODE": "Modo de IU",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "El Modo de IU ha sido cambiado",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "La aplicación debe ser reiniciada para que se apliquen los cambios"
+            }
+        },
+        "GET_INVOLVED": {
+            "TITLE": "Involúcrese",
+            "CALL_TO_ACTION": "Hay muchas maneras de involucrarse en el proyecto de App Outlet y ayudarnos a crear el software que usas y amas.",
+            "BUGS": {
+                "TITLE": "Reportando bugs",
+                "DESCRIPTION": "Si algo está mal cuando uses App Outlet puede reportárnoslo en nuestro repositorio de Github.",
+                "DESCRIPTION_2": "Siéntete libre de reportarnos bugs, inestabilidades, errores de ortografía o incluso darnos sugerencias. Evaluamos cuidadosamente cada una de estas.",
+                "REPORT_AN_ISSUE": "Reportar un problema"
+            },
+            "COMMUNITY": {
+                "TITLE": "Ser activo en la comunidad de App Outlet",
+                "DESCRIPTION": "Nos encanta la interacción. Así que te invitamos a que nos sigas en Twitter para que estés al tanto de nuestros anuncios. Si prefieres, también puedes crear discusiones en nuestra página de discusiones.",
+                "TWITTER": "App Outlet en Twitter",
+                "DISCUSSIONS": "Página de discusiones"
+            },
+            "CODING": {
+                "TITLE": "Escribiendo código",
+                "DESCRIPTION": "Ayúdanos a mejorar características y la estabilidad de nuestra querida aplicación. Todo lo que necesitas en un poco de amor y saber un poco de Javascript.",
+                "REPOSITORY": "Repositorio de Github"
+            },
+            "DONATING": {
+                "TITLE": "Donando",
+                "DESCRIPTION": "Necesitamos ayuda para mantener la infraestructura y no tenemos patrocinadores. Te invitamos a que nos des tu apoyo en las plataformas abajo.",
+                "PATREON": "Patreon",
+                "OPEN_COLLECTIVE": "Open collective"
+            },
+            "TRANSLATING": {
+                "TITLE": "Traduciendo",
+                "DESCRIPTION": "Puedes unirte a nosotros en el proyecto de Transifex de App Outlet. Ahí puedes ayudar a que App Outlet alcance más gente haciendo traducciones a tu lengua materna.",
+                "TRANSIFEX": "Transifex"
+            }
+        },
+        "ABOUT": {
+            "AUTHORS": "Autores"
+        }
+    }
+}
