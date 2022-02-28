@@ -10,7 +10,7 @@ synchronizationService
         if (isSynchronizing) {
             isSynchronizingCache = isSynchronizing;
         }
-        ipcMain.emit(
+        ipcMain?.emit(
             InterfaceChannel.synchronization.isRunning,
             isSynchronizing,
         );
