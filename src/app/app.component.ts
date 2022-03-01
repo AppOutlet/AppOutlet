@@ -32,7 +32,6 @@ export class AppComponent implements OnInit {
     }
 
     private async setupTheme(): Promise<void> {
-        debugger;
         let theme = (await this.settingsService.getTheme()) ?? 'system';
 
         if (theme == 'system') {
@@ -40,6 +39,7 @@ export class AppComponent implements OnInit {
         }
 
         this.themeService.changeTheme(theme);
+        this.setupThemeChangeListener();
     }
 
     private getSystemTheme(): string {
@@ -66,5 +66,17 @@ export class AppComponent implements OnInit {
 
     private goToInitialSetup(): void {
         this.router.navigate(['setup']).then();
+    }
+
+    private setupThemeChangeListener(): void {
+        this.windowRef.nativeWindow
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener(
+                'change',
+                () => {
+                    this.setupTheme();
+                },
+                true,
+            );
     }
 }
