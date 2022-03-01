@@ -16,7 +16,9 @@ describe('Snap store repository', () => {
     ];
 
     const mockResponse = {
-        results: mockedApps,
+        data: {
+            results: mockedApps,
+        },
     };
 
     const mockAxios = {
