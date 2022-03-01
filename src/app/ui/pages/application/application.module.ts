@@ -11,11 +11,12 @@ import {
 import { TranslateModule } from '@ngx-translate/core';
 import { GalleryModule } from '../../components/gallery/gallery.module';
 import { InstallButtonModule } from '../../components/install-button/install-button.module';
+import { MarkdownPipe } from '../../../util/markdown-pipe/markdown.pipe';
 
 const routes: Routes = [{ path: '', component: ApplicationComponent }];
 
 @NgModule({
-    declarations: [ApplicationComponent],
+    declarations: [ApplicationComponent, MarkdownPipe],
     imports: [
         CommonModule,
         RouterModule.forChild(routes),

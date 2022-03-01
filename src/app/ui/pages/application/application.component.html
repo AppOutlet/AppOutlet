@@ -39,7 +39,9 @@
 <div class="row" *ngIf="!isLoading">
     <div class="col-8">
         <nb-card>
-            <nb-card-body [innerHTML]="application?.description"></nb-card-body>
+            <nb-card-body
+                [innerHTML]="application?.description | markdown"
+            ></nb-card-body>
         </nb-card>
     </div>
     <div class="col-4">
