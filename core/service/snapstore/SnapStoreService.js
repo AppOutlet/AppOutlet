@@ -4,6 +4,8 @@ const Application = require('../../model/Application');
 const ApplicationStores = require('../../model/ApplicationStores');
 const PackageType = require('../../model/PackageType');
 
+const cachedTerms = [];
+
 function getIconUrl(mediaList) {
     return mediaList?.find((media) => media.type == 'icon')?.url;
 }
@@ -47,13 +49,26 @@ function convertSnapsToAppOutletApplications(snaps) {
     return snaps.map((snap) => convertSnapToAppOutletApplication(snap));
 }
 
+function shouldSynchronize(searchTerm) {
+    if (cachedTerms.includes(searchTerm)) {
+        return false;
+    } else {
+        cachedTerms.push(searchTerm);
+        return true;
+    }
+}
+
 function synchronizeSnapAppBySearch(searchTerm) {
-    return snapStoreRepository
-        .getApps(searchTerm)
-        .then((snaps) => {
-            return convertSnapsToAppOutletApplications(snaps);
-        })
-        .then((apps) => applicationRepository.save(apps));
+    if (shouldSynchronize(searchTerm)) {
+        return snapStoreRepository
+            .getApps(searchTerm)
+            .then((snaps) => {
+                return convertSnapsToAppOutletApplications(snaps);
+            })
+            .then((apps) => applicationRepository.save(apps));
+    } else {
+        return Promise.resolve(true);
+    }
 }
 
 module.exports = {
