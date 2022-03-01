@@ -4,12 +4,17 @@
             🎨 {{ 'PAGES.SETTINGS.APPEARANCE.TITLE' | translate }}
         </h5>
         <div class="row">
-            <span class="col setting-name">Theme</span>
+            <span class="col setting-name">{{
+                'PAGES.SETTINGS.APPEARANCE.THEME' | translate
+            }}</span>
             <nb-select
                 class="col"
                 [(selected)]="selectedTheme"
                 (selectedChange)="onThemeChange($event)"
             >
+                <nb-option value="system">{{
+                    'PAGES.SETTINGS.APPEARANCE.USE_SYSTEM_THEME' | translate
+                }}</nb-option>
                 <nb-option value="default">Default</nb-option>
                 <nb-option value="dark">Dark</nb-option>
                 <nb-option value="cosmic">Cosmic</nb-option>

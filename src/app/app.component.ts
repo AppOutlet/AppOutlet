@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
         this.setupTranslation();
         this.setupTheme().then();
         this.openInitialSetupIfNecessary();
+        this.setupThemeChangeListener();
     }
 
     private setupTranslation(): void {
@@ -32,8 +33,27 @@ export class AppComponent implements OnInit {
     }
 
     private async setupTheme(): Promise<void> {
-        const theme = await this.settingsService.getTheme();
-        this.themeService.changeTheme(theme ?? 'default');
+        let theme = (await this.settingsService.getTheme()) ?? 'system';
+
+        if (theme == 'system') {
+            theme = this.getSystemTheme();
+        }
+
+        this.themeService.changeTheme(theme);
+    }
+
+    private getSystemTheme(): string {
+        if (this.isDarkTheme()) {
+            return 'dark';
+        } else {
+            return 'default';
+        }
+    }
+
+    private isDarkTheme(): boolean {
+        return this.windowRef.nativeWindow.matchMedia(
+            '(prefers-color-scheme: dark)',
+        ).matches;
     }
 
     private openInitialSetupIfNecessary(): void {
@@ -46,5 +66,17 @@ export class AppComponent implements OnInit {
 
     private goToInitialSetup(): void {
         this.router.navigate(['setup']).then();
+    }
+
+    private setupThemeChangeListener(): void {
+        this.windowRef.nativeWindow
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener(
+                'change',
+                () => {
+                    this.setupTheme();
+                },
+                true,
+            );
     }
 }

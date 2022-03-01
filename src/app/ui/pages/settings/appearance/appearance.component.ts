@@ -8,7 +8,7 @@ import { SettingsService } from '../../../../service/settings/settings.service';
     styleUrls: ['./appearance.component.scss'],
 })
 export class AppearanceComponent implements OnInit {
-    private readonly THEME_DEFAULT = 'default';
+    private readonly THEME_DEFAULT = 'system';
     selectedTheme?: string;
 
     constructor(
@@ -27,7 +27,25 @@ export class AppearanceComponent implements OnInit {
 
     async onThemeChange(selectedTheme: string): Promise<void> {
         return this.settingsService.setTheme(selectedTheme).then(() => {
-            this.themeService.changeTheme(selectedTheme);
+            let theme = selectedTheme;
+
+            if (theme == this.THEME_DEFAULT) {
+                theme = this.getSystemTheme();
+            }
+
+            this.themeService.changeTheme(theme);
         });
+    }
+
+    private getSystemTheme(): string {
+        if (this.isDarkTheme()) {
+            return 'dark';
+        } else {
+            return 'default';
+        }
+    }
+
+    private isDarkTheme(): boolean {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches;
     }
 }

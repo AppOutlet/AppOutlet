@@ -28,6 +28,11 @@ describe('AppComponent', () => {
             navigator: {
                 language: 'pt-BR',
             },
+            matchMedia: (): unknown => {
+                return {
+                    addEventListener: jest.fn(),
+                };
+            },
         },
     };
 
