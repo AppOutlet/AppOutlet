@@ -10,10 +10,6 @@ const mockAppImageHubSynchronizer = {
     startSynchronization: jest.fn(),
 };
 
-const mockSnapStoreSynchronizer = {
-    startSynchronization: jest.fn(),
-};
-
 const mockSettingsService = {
     getLastSynchronizationDate: jest.fn(),
     setLastSynchronizationDate: jest.fn(),
@@ -23,10 +19,6 @@ jest.mock('./synchronizer/FlathubSynchronizer', () => mockFlathubSynchronizer);
 jest.mock(
     './synchronizer/AppImageHubSynchronizer',
     () => mockAppImageHubSynchronizer,
-);
-jest.mock(
-    './synchronizer/SnapStoreSynchronizer',
-    () => mockSnapStoreSynchronizer,
 );
 
 jest.mock('../settings/SettingsService', () => mockSettingsService);
@@ -51,10 +43,6 @@ describe('Synchronization service', () => {
             of(true),
         );
 
-        mockSnapStoreSynchronizer.startSynchronization.mockReturnValueOnce(
-            of(true),
-        );
-
         await synchronizationService.startSynchronization();
 
         expect(
@@ -72,10 +60,6 @@ describe('Synchronization service', () => {
         );
 
         mockAppImageHubSynchronizer.startSynchronization.mockReturnValueOnce(
-            throwError('err'),
-        );
-
-        mockSnapStoreSynchronizer.startSynchronization.mockReturnValueOnce(
             throwError('err'),
         );
 
@@ -113,10 +97,6 @@ describe('Synchronization service', () => {
         );
 
         mockAppImageHubSynchronizer.startSynchronization.mockReturnValueOnce(
-            of(true),
-        );
-
-        mockSnapStoreSynchronizer.startSynchronization.mockReturnValueOnce(
             of(true),
         );
 
