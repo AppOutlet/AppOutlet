@@ -16,11 +16,7 @@ describe('Snap store repository', () => {
     ];
 
     const mockResponse = {
-        data: {
-            _embedded: {
-                'clickindex:package': mockedApps,
-            },
-        },
+        results: mockedApps,
     };
 
     const mockAxios = {

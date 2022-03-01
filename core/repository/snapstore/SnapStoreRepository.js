@@ -1,20 +1,40 @@
 const axios = require('axios');
 
-const SNAP_STORE_API = 'https://api.snapcraft.io/api/v1/snaps';
-const HEADER_UBUNTU_SERIES = '16';
-const HEADER_UBUNTU_STORE = 'ubuntu';
+const SNAP_STORE_API = 'https://api.snapcraft.io/v2/snaps/find';
+const HEADER_SNAP_SERIES = '16';
+const HEADER_SNAP_STORE = 'ubuntu';
 
 const config = {
+    params: {
+        fields: [
+            'base',
+            'categories',
+            'channel',
+            'confinement',
+            'contact',
+            'description',
+            'license',
+            'media',
+            'publisher',
+            'store-url',
+            'summary',
+            'title',
+            'type',
+            'version',
+            'website',
+        ],
+    },
     headers: {
-        'X-Ubuntu-Series': HEADER_UBUNTU_SERIES,
-        'X-Ubuntu-Store': HEADER_UBUNTU_STORE,
+        'Snap-Device-Series': HEADER_SNAP_SERIES,
+        'Snap-Device-Store': HEADER_SNAP_STORE,
     },
 };
 
-function getApps() {
+function getApps(searchCriteria) {
+    config.params.q = searchCriteria;
     return axios
         .get(SNAP_STORE_API, config)
-        .then((response) => response.data._embedded['clickindex:package']);
+        .then((response) => response.results);
 }
 
 module.exports = {
