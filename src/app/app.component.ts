@@ -23,6 +23,7 @@ export class AppComponent implements OnInit {
         this.setupTranslation();
         this.setupTheme().then();
         this.openInitialSetupIfNecessary();
+        this.setupThemeChangeListener();
     }
 
     private setupTranslation(): void {
@@ -39,7 +40,6 @@ export class AppComponent implements OnInit {
         }
 
         this.themeService.changeTheme(theme);
-        this.setupThemeChangeListener();
     }
 
     private getSystemTheme(): string {
