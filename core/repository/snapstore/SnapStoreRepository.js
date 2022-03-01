@@ -6,23 +6,7 @@ const HEADER_SNAP_STORE = 'ubuntu';
 
 const config = {
     params: {
-        fields: [
-            'base',
-            'categories',
-            'channel',
-            'confinement',
-            'contact',
-            'description',
-            'license',
-            'media',
-            'publisher',
-            'store-url',
-            'summary',
-            'title',
-            'type',
-            'version',
-            'website',
-        ],
+        fields: 'categories,channel,confinement,contact,description,license,media,publisher,store-url,summary,title,version,website,revision',
     },
     headers: {
         'Snap-Device-Series': HEADER_SNAP_SERIES,
@@ -34,7 +18,7 @@ function getApps(searchCriteria) {
     config.params.q = searchCriteria;
     return axios
         .get(SNAP_STORE_API, config)
-        .then((response) => response.results);
+        .then((response) => response.data.results);
 }
 
 module.exports = {

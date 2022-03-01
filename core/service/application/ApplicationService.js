@@ -1,5 +1,6 @@
 const applicationRepository = require('../../repository/application/ApplicationRepository');
 const tagsService = require('../tags/TagsSevice');
+const snapStoreService = require('../snapstore/SnapStoreService');
 
 function getRecentlyAdded() {
     return applicationRepository.getRecentlyAdded();
@@ -10,7 +11,18 @@ function getRecentlyUpdated() {
 }
 
 function searchByTerm(searchParameters) {
-    return applicationRepository.searchByTerm(searchParameters);
+    if (searchParameters.page == 0) {
+        return snapStoreService
+            .synchronizeSnapAppBySearch(searchParameters.searchTerm)
+            .then(() => {
+                return applicationRepository.searchByTerm(searchParameters);
+            })
+            .catch(() => {
+                return applicationRepository.searchByTerm(searchParameters);
+            });
+    } else {
+        return applicationRepository.searchByTerm(searchParameters);
+    }
 }
 
 function findByCreationDate(searchParameters) {
