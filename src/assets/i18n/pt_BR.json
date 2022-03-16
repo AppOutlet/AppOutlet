@@ -83,7 +83,8 @@
                 "THEME": "Tema",
                 "UI_MODE": "Modo de Interface",
                 "UI_MODE_CHANGED_MESSAGE_TITLE": "O estilo da interface foi alterado",
-                "UI_MODE_CHANGED_MESSAGE_BODY": "A aplicação precisa ser reinciada para que as alterações tenham efeito"
+                "UI_MODE_CHANGED_MESSAGE_BODY": "A aplicação precisa ser reinciada para que as alterações tenham efeito",
+                "USE_SYSTEM_THEME": "Usar o tema do sistema"
             }
         },
         "GET_INVOLVED": {
