@@ -109,9 +109,7 @@
             },
             "DONATING": {
                 "TITLE": "Donating",
-                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above",
-                "PATREON": "Patreon",
-                "OPEN_COLLECTIVE": "Open collective"
+                "DESCRIPTION": "We need help to maintain the infrastructure and we don't have sponsors. Feel free to support us on the platforms above"
             },
             "TRANSLATING": {
                 "TITLE": "Translating",
