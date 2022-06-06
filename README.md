@@ -22,9 +22,9 @@ Linux distributions. It currently supports AppImages, Flatpaks and Snaps package
     </a>
 </div>
 
-Or [here](https://github.com/app-outlet/app-outlet/releases) to the Github releases
+Or [here](https://github.com/app-outlet/app-outlet/releases) to the Github releases.
 
-If your distro doesn't support the available packages you can download and compile the source code following the instructions [here](CONTRIBUTING.md).
+If your distro doesn't support the available packages, you can download and compile the source code by following the instructions [here](CONTRIBUTING.md).
 
 ### Who is talking about us?
-See what the content producers and influencers are talking about app outlet on [AO on Media](https://github.com/app-outlet/app-outlet/discussions/categories/ao-on-media) category on discussions area
+See what the content producers and influencers are talking about app outlet on [AO on Media](https://github.com/app-outlet/app-outlet/discussions/categories/ao-on-media) category on discussions area.
