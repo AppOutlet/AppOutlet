@@ -1,0 +1,124 @@
+{
+    "GENERAL": {
+        "BACK": "Retour à",
+        "DISMISS": "fermer",
+        "ERROR_MESSAGE": "Une erreur s'est produite",
+        "LOADING": "Chargement",
+        "TRY_AGAIN": "Essayez à nouveau",
+        "APP_SHORT_DESCRIPTION": "Un magasin d'applications universel pour Linux. Retrouvez tous vos Snaps, Flatpaks et AppImages !",
+        "APP_IMAGE": "AppImage",
+        "FLATPAK": "Flatpak",
+        "SNAP": "Snap"
+    },
+    "PAGES": {
+        "INITIAL_SETUP": {
+            "GREETINGS": "Bienvenue sur App Outlet",
+            "CHECKING_REQUIREMENTS": "Nous vérifions que votre système remplit toutes les conditions requises.",
+            "INSTALL_SNAPD": "Installer snapd",
+            "INSTALL_FLATPAK": "Installer flatpak",
+            "TAKE_ME_TO_THE_APP": "Emmenez-moi à l'application !",
+            "PROCEED_ANYWAY": "Continuez quand même",
+            "RESTART_MODAL_TEXT": "Le flatpak et le flathub ont été installés et vous devrez probablement redémarrer votre ordinateur pour pouvoir en profiter.",
+            "RESTART_NOW": "Redémarrer maintenant",
+            "DO_IT_LATER": "Le faire plus tard",
+            "DISMISS": "fermer",
+            "CHECK_PACKAGES_MODAL_TITLE": "Les paquets Snapd et flatpak sont nécessaires pour permettre l'installation des applications snap et flatpak.",
+            "CHECK_PACKAGES_MODAL_TEXT": "Êtes-vous sûr de vouloir poursuivre sans installer ces paquets ?"
+        },
+        "APP_DETAIL": {
+            "ACTIONS": "Actions",
+            "DONATE": "Faire un don",
+            "HOW_TO_SETUP": "Comment l'installer ?",
+            "INSTALL": "Installer",
+            "NO_SUPPORT_ERROR_MESSAGE": "Il semble que vous n'ayez pas configuré la prise en charge des paquets {{type}}. Veuillez vérifier votre configuration.",
+            "PROJECT_HOMEPAGE": "Page d'accueil du projet",
+            "REPORT_ISSUE": "Signaler un problème",
+            "RUN": "exécuter",
+            "STORE_PAGE": "Page du magasin",
+            "UNINSTALL": "Désinstaller",
+            "INSTALLING": "En cours d'installation",
+            "UNINSTALLING": "En cours de désinstallation",
+            "DEVELOPED_BY": "Développé par {{developer}}",
+            "DOWNLOAD": "Télécharger"
+        },
+        "HOME": {
+            "NEW_RELEASES": "Nouvelles versions",
+            "POPULAR": "Applications populaires",
+            "RECENTLY_UPDATED": "Récemment mis à jour",
+            "TITLE": "Page d'accueil",
+            "SEE_MORE": "En savoir plus"
+        },
+        "MAIN": {
+            "CATEGORIES": "Catégories",
+            "TAGS": "Étiquettes",
+            "TITLE": "Principal",
+            "SEARCH": "Recherche",
+            "BACK_TO_MENU": "Revenir au menu",
+            "CATEGORY": {
+                "OFFICE": "Bureautique",
+                "AUDIO": "Audio",
+                "VIDEO": "Vidéo",
+                "GAMES": "Jeux",
+                "DEVELOPMENT": "Développement",
+                "FINANCE": "Finance",
+                "GRAPHICS": "Graphisme",
+                "SCIENCE": "Science et éducation",
+                "INTERNET": "Internet et communication",
+                "UTILITY": "Utilitaires et productivité",
+                "MISC": "Divers"
+            },
+            "SYNCHRONIZATION_MESSAGE": "App Outlet est en train de synchroniser sa base de données. Cela peut affecter les performances de recherche. Une fois la synchronisation terminée, les performances reviendront à la normale."
+        },
+        "SEARCH": {
+            "NO_RESULTS_FOUND": "Aucun résultat trouvé",
+            "QUERY_TITLE": "Résultats pour \"{{query}}",
+            "SEGMENT": {
+                "ALL_TYPES": "Tous types"
+            }
+        },
+        "SETTINGS": {
+            "TITLE": "Paramètres",
+            "APPEARANCE": {
+                "TITLE": "Apparence",
+                "THEME": "Thème",
+                "UI_MODE": "interface utilisateur",
+                "UI_MODE_CHANGED_MESSAGE_TITLE": "L'interface utilisateur a été modifié",
+                "UI_MODE_CHANGED_MESSAGE_BODY": "L'application doit être redémarrée pour que les changements soient visibles.",
+                "USE_SYSTEM_THEME": "Utiliser le thème du système"
+            }
+        },
+        "GET_INVOLVED": {
+            "TITLE": "S'impliquer",
+            "CALL_TO_ACTION": "Il existe de nombreuses façons de s'impliquer dans le projet App Outlet et de nous aider à construire le logiciel que vous utilisez et aimez.",
+            "BUGS": {
+                "TITLE": "Signaler les bogues",
+                "DESCRIPTION": "Si quelque chose ne va pas lorsque vous utilisez App Outlet, vous pouvez nous le signaler sur notre dépôt Github.",
+                "DESCRIPTION_2": "N'hésitez pas à signaler les bogues, les instabilités, les fautes d'orthographe ou même à faire des suggestions. Nous évaluons soigneusement chacune d'entre elles.",
+                "REPORT_AN_ISSUE": "Signaler un problème"
+            },
+            "COMMUNITY": {
+                "TITLE": "Être actif au sein de la communauté App Outlet",
+                "DESCRIPTION": "Nous aimons l'interaction. Suivez-nous sur Twitter pour avoir des nouvelles de nous. Créez une discussion sur notre page de discussions si vous préférez.",
+                "TWITTER": "App Outlet sur Twitter",
+                "DISCUSSIONS": "Page de discussions"
+            },
+            "CODING": {
+                "TITLE": "En cours de développement ",
+                "DESCRIPTION": "Aidez-nous à améliorer les fonctionnalités et la stabilité de notre chère application. Tout ce dont vous avez besoin est de l'amour et un peu de Javascript.",
+                "REPOSITORY": "Dépôt Github"
+            },
+            "DONATING": {
+                "TITLE": "Faire un don",
+                "DESCRIPTION": "Nous avons besoin d'aide pour maintenir l'infrastructure et nous n'avons pas de sponsors. N'hésitez pas à nous soutenir sur les plateformes ci-dessus"
+            },
+            "TRANSLATING": {
+                "TITLE": "En cours de traduction",
+                "DESCRIPTION": "Vous pouvez nous rejoindre sur le projet App Outlet sur Transifex. Vous pourrez ainsi aider App Outlet à toucher davantage de personnes en effectuant des traductions dans votre langue maternelle.",
+                "TRANSIFEX": "Transifex"
+            }
+        },
+        "ABOUT": {
+            "AUTHORS": "Auteurs"
+        }
+    }
+}
