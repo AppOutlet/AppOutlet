@@ -1,5 +1,5 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: Question
+  - name: Feature requests and questions and
     url: https://github.com/app-outlet/app-outlet/discussions
     about: For questions, suggestions or support please see out discussions section
