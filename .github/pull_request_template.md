@@ -11,14 +11,7 @@ Please check the type of change your PR introduces:
 -   [ ] 🤔 Other (please describe):
 
 ## Description of changes
-
 ...
 
-## Does this introduce a breaking change?
-
--   [ ] Yes
--   [ ] No
-
 ## Other information
-
 ...

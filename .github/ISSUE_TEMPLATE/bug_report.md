@@ -1,9 +1,9 @@
 ---
-name: Bug report
+name: Bug reports
 about: Create a report to help us improve
-title: ""
+title: "[BUG]"
 labels: bug
-assignees: ""
+assignees: "messiaslima"
 ---
 
 **Describe the bug**
@@ -23,11 +23,10 @@ A clear and concise description of what you expected to happen.
 **Evidences**
 If applicable, add screenshots, videos or logs to help explain your problem.
 
-**Environment (please complete the following information):**
-
--   Operating system:
-
--   App Outlet version:
+**Environment:**
+- Operating system:
+- App Outlet version:
+- App Outlet package distribution(deb, AppImage, rpm)
 
 **Additional context**
 Add any other context about the problem here.
