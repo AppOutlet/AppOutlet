@@ -16,7 +16,7 @@ const connection = typeOrm.createConnection({
     type: 'sqlite',
     database: getDatabaseFilePath(),
     synchronize: true,
-    logging: true,
+    logging: false,
     entities: [applicationEntity, settingsEntity],
 });
 
