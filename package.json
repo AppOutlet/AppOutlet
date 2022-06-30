@@ -37,7 +37,8 @@
         "lint": "eslint {src,e2e}/**/*.ts core/**/*.js",
         "lint:fix": "eslint {src,e2e}/**/*.ts core/**/*.js --fix",
         "check:style": "prettier --check .",
-        "postinstall": "ngcc"
+        "postinstall": "ngcc",
+        "prepare": "husky install"
     },
     "main": "main.js",
     "private": true,
@@ -88,7 +89,7 @@
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-import": "^2.25.3",
         "eslint-plugin-prettier": "^4.2.1",
-        "husky": "^4.3.8",
+        "husky": "^8.0.1",
         "jest": "^28.1.2",
         "jest-preset-angular": "^12.1.0",
         "lint-staged": "^13.0.3",
