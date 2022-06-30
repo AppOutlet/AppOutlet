@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ToolbarComponent implements OnInit {
     shouldShowBackButton = false;
-    contextMenuItems: NbMenuItem[] = [];
+    contextMenuItems: NbMenuItem[] = [{ title: 'Loading' }];
 
     constructor(
         private location: Location,

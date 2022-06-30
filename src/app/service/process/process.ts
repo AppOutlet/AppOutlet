@@ -29,18 +29,21 @@ export abstract class Process {
                 this.arguments,
             );
 
-            process.stdout.on('data', (data: Buffer) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            process.stdout.on('data', (data: any) => {
                 const output = data.toString();
                 this.stdout.push(output);
                 this.onUpdate(output);
             });
 
-            process.on('error', (data: Buffer) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            process.on('error', (data: any) => {
                 console.error(`ps stderr: ${data.toString()}`);
                 this.stderr.push(data.toString());
             });
 
-            process.stderr.on('data', (data: Buffer) => {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            process.stderr.on('data', (data: any) => {
                 console.error(`ps stderr: ${data.toString()}`);
                 this.stderr.push(data.toString());
             });

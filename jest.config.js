@@ -2,10 +2,9 @@ const preset = require('jest-preset-angular/jest-preset');
 module.exports = {
     ...preset,
     preset: 'jest-preset-angular',
-    setupFilesAfterEnv: [
-        '<rootDir>/node_modules/jest-preset-angular/build/config/setup-jest.js',
-    ],
+    setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
     testMatch: ['**/*.spec.ts', '**/*.spec.js'],
+    globalSetup: 'jest-preset-angular/global-setup',
     globals: {
         ...preset.globals,
         'ts-jest': {

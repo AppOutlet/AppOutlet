@@ -1,17 +1,17 @@
-import { Injectable } from '@angular/core';
-import { ElectronService } from 'ngx-electron';
+import { Inject, Injectable } from '@angular/core';
+import { ElectronApi } from '../../util/electron-api.interface';
 
 @Injectable({
     providedIn: 'root',
 })
 export class CoreService {
-    constructor(private electronService: ElectronService) {}
+    constructor(@Inject('ElectronApi') private electronApi: ElectronApi) {}
 
     invoke<T>(channel: string, ...args: unknown[]): Promise<T> {
-        return this.electronService.ipcRenderer.invoke(channel, args);
+        return this.electronApi.invoke(channel, args);
     }
 
     openLinkOnBrowser(url: string): Promise<void> {
-        return this.electronService.shell.openExternal(url);
+        return this.electronApi.openExternalUrl(url);
     }
 }

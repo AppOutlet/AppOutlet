@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProcessService } from './process.service';
-import { WindowRef } from '../../util/window-ref';
 import { Application } from '../../model/application.model';
 import * as PackageType from '../../../../core/model/PackageType';
 import { ProcessQueue } from './process-queue';
@@ -28,10 +27,8 @@ describe('ProcessService', () => {
         packageType: PackageType.FLATPAK,
     };
 
-    const mockWindowRef = {
-        nativeWindow: {
-            require: (): AppOutletChildProcess | undefined => undefined,
-        },
+    const mockElectronApi = {
+        getChildProcess: (): AppOutletChildProcess | undefined => undefined,
     };
 
     const mockProcessQueue = {
@@ -44,7 +41,7 @@ describe('ProcessService', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
-                { provide: WindowRef, useValue: mockWindowRef },
+                { provide: 'ElectronApi', useValue: mockElectronApi },
                 { provide: ProcessQueue, useValue: mockProcessQueue },
                 { provide: CoreService, useValue: mockCoreService },
             ],

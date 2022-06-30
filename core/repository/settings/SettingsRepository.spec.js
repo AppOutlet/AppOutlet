@@ -1,5 +1,6 @@
 const testConnectionFactory = require('../__mocks__/TestConnectionFactory');
 
+jest.mock('uuid', () => 'eb7b7961-395d-4b4c-afc6-9ebcadaf0150');
 jest.mock('../ConnectionFactory', () => testConnectionFactory);
 
 describe('Settings repository', () => {

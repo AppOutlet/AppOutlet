@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require('electron');
+const path = require('path');
 require('./core');
 
 const isDevelopment = process.argv
@@ -14,17 +15,33 @@ function createWindow() {
         title: 'App Outlet',
         webPreferences: {
             nodeIntegration: true,
+            preload: path.join(__dirname, 'preload.js'),
         },
     });
 
     if (isDevelopment) {
         require('electron-reload')(__dirname, {
-            electron: require('electron'),
+            electron: path.join(__dirname, 'node_modules', '.bin', 'electron'),
         });
 
-        win.loadURL('http://localhost:4200');
+        win.loadURL('http://localhost:4200/#/')
+            .then(() => {
+                console.log('Content loaded on development environment');
+            })
+            .catch(() => {
+                console.error(
+                    'Unable to load content on development environment',
+                );
+            });
     } else {
-        win.loadFile(`${__dirname}/dist/app-outlet/index.html`);
+        win.loadFile(`${__dirname}/dist/app-outlet/index.html`)
+            .then(() => {
+                console.log('Content loaded');
+            })
+            .catch(() => {
+                console.error('Unable to load content');
+            });
+
         win.setMenuBarVisibility(false);
     }
 }
