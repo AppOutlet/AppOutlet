@@ -1,19 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
 import { CoreService } from './core.service';
-import { ElectronService } from 'ngx-electron';
 
 describe('CoreService', () => {
     let service: CoreService;
 
-    const mockElectronService = {
-        ipcRenderer: {
-            invoke: jest.fn(),
-        },
-
-        shell: {
-            openExternal: jest.fn(),
-        },
+    const mockElectronApi = {
+        invoke: jest.fn(),
+        openExternalUrl: jest.fn(),
     };
 
     beforeEach(() => {
@@ -21,8 +15,8 @@ describe('CoreService', () => {
             providers: [
                 CoreService,
                 {
-                    provide: ElectronService,
-                    useValue: mockElectronService,
+                    provide: 'ElectronApi',
+                    useValue: mockElectronApi,
                 },
             ],
         });
@@ -37,19 +31,13 @@ describe('CoreService', () => {
         const sampleReturn = 'https://app-outlet.github.io';
         const sampleArgument = 'https://github.com/app-outlet';
 
-        mockElectronService.ipcRenderer.invoke.mockReturnValue(
-            Promise.resolve(sampleReturn),
-        );
+        mockElectronApi.invoke.mockReturnValue(Promise.resolve(sampleReturn));
 
         const result = await service.invoke<string>(sampleArgument);
 
-        expect(mockElectronService.ipcRenderer.invoke.mock.calls.length).toBe(
-            1,
-        );
+        expect(mockElectronApi.invoke.mock.calls.length).toBe(1);
 
-        expect(mockElectronService.ipcRenderer.invoke.mock.calls[0][0]).toBe(
-            sampleArgument,
-        );
+        expect(mockElectronApi.invoke.mock.calls[0][0]).toBe(sampleArgument);
 
         expect(result).toEqual(sampleReturn);
     });
@@ -57,17 +45,13 @@ describe('CoreService', () => {
     it('should open external link', async () => {
         const sampleUrl = 'https://app-outlet.github.io';
 
-        mockElectronService.shell.openExternal.mockReturnValue(
-            Promise.resolve(),
-        );
+        mockElectronApi.openExternalUrl.mockReturnValue(Promise.resolve());
 
         await service.openLinkOnBrowser(sampleUrl);
 
-        expect(mockElectronService.shell.openExternal.mock.calls.length).toBe(
-            1,
-        );
+        expect(mockElectronApi.openExternalUrl.mock.calls.length).toBe(1);
 
-        expect(mockElectronService.shell.openExternal.mock.calls[0][0]).toBe(
+        expect(mockElectronApi.openExternalUrl.mock.calls[0][0]).toBe(
             sampleUrl,
         );
     });
