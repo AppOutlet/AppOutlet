@@ -37,7 +37,7 @@
         "lint": "eslint {src,e2e}/**/*.ts core/**/*.js",
         "lint:fix": "eslint {src,e2e}/**/*.ts core/**/*.js --fix",
         "check:style": "prettier --check .",
-        "postinstall": "patch-package && ngcc"
+        "postinstall": "ngcc"
     },
     "main": "main.js",
     "private": true,
@@ -61,7 +61,6 @@
         "font-awesome": "^4.7.0",
         "loglevel": "^1.7.1",
         "marked": "^4.0.12",
-        "ngx-electron": "^2.2.0",
         "rxjs": "~6.6.0",
         "sqlite3": "^5.0.2",
         "tslib": "^2.3.1",
@@ -95,7 +94,6 @@
         "jest-preset-angular": "^11.0.0-rc.4",
         "lint-staged": "^12.0.2",
         "npm-run-all": "^4.1.5",
-        "patch-package": "^6.4.7",
         "prettier": "^2.4.1",
         "standard-changelog": "^2.0.27",
         "typescript": "4.4.4",

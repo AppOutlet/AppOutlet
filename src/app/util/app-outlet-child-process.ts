@@ -11,5 +11,6 @@ export interface AppOutletSpawnResult {
     stdout: AppOutletSpawnResult;
     stderr: AppOutletSpawnResult;
 
-    on(eventName: string, callback: (data: Buffer) => void): void;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    on(eventName: string, callback: (data: any) => void): void;
 }

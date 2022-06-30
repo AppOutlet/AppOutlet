@@ -1,7 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Application } from '../../model/application.model';
 import * as PackageType from '../../../../core/model/PackageType';
-import { WindowRef } from '../../util/window-ref';
 import { Process } from './process';
 import { InstallSnap } from './snap/install-snap.process';
 import { ProcessQueue } from './process-queue';
@@ -14,24 +13,24 @@ import { UninstallSnap } from './snap/uninstall-snap.process';
 import { InstallFlatpak } from './flatpak/install-flatpak.process';
 import { UninstallFlatpak } from './flatpak/uninstall-flatpak.process.';
 import { CoreService } from '../core/core.service';
+import { ElectronApi } from '../../util/electron-api.interface';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ProcessService {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     private readonly childProcess: AppOutletChildProcess;
     private processListeners: ProcessListeners = {};
 
     constructor(
-        windowRef: WindowRef,
         private processQueue: ProcessQueue,
         private codeService: CoreService,
+        @Inject('ElectronApi') electronApi: ElectronApi,
     ) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         // tslint:disable-next-line:no-string-literal
-        this.childProcess = windowRef.nativeWindow['require']('child_process');
+        this.childProcess = electronApi.getChildProcess();
     }
 
     installApplication(application: Application): Promise<void> {

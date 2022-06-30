@@ -5,7 +5,6 @@ import { NbDialogModule, NbThemeModule } from '@nebular/theme';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NgxElectronModule } from 'ngx-electron';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,7 +18,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
     imports: [
         BrowserModule,
         AppRoutingModule,
-        NgxElectronModule,
         BrowserAnimationsModule,
         HttpClientModule,
         NbThemeModule.forRoot({ name: 'default' }),
@@ -33,7 +31,13 @@ export function HttpLoaderFactory(http: HttpClient): TranslateLoader {
         }),
         NbDialogModule.forRoot(),
     ],
-    providers: [],
+    providers: [
+        {
+            provide: 'ElectronApi',
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            useValue: (window as any).electronAPI,
+        },
+    ],
     bootstrap: [AppComponent],
 })
 export class AppModule {}
