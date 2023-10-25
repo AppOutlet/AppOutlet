@@ -1,4 +1,7 @@
+---
+<div align="center">⚠️  The AppOutlet was discontinued ⚠️ </div>
 
+___
 <div align="center">
     <img src="src/assets/icon/icon.png" alt="application icon">
     <h1>App Outlet</h1>
